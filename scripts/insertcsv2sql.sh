@@ -1,3 +1,6 @@
 #!/bin/bash
 
-psql -d buoy --user=andrea -c "COPY buoydata FROM '/Users/Andrea/DevLeague/Final-Project/data/csvs/buoy51209-2015.csv' delimiter ',' csv header;"
+
+psql -d buoy --user=andrea -c "CREATE TABLE buoydata (YY NUMERIC,
+MM NUMERIC,DD NUMERIC,hh NUMERIC,month NUMERIC,WDIR NUMERIC,WSPD NUMERIC,GST NUMERIC,WVHT NUMERIC,DPD NUMERIC,APD NUMERIC,MWD NUMERIC,PRES NUMERIC,ATMP NUMERIC,WTMP NUMERIC,DEWP NUMERIC,VIS NUMERIC,TIDE NUMERIC);
+COPY buoydata FROM '/Users/Andrea/DevLeague/Final-Project/data/csvs/buoy51209-2016.csv' delimiter ',' csv header;"
