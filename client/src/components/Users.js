@@ -1,8 +1,8 @@
 /*jshint esversion:6 */ 
 
-import React form 'react'; 
+import React from 'react'; 
 
-class User extends Component {
+class User extends React.Component {
   constructor(props){
     super(props); 
   }
