@@ -681,6 +681,8 @@ YKTV2 "
 
 DBUSERNAME=andrea
 
+psql -d buoy --user=$DBUSERNAME -c "
+CREATE TABLE buoyTable(YY NUMERIC, MM NUMERIC,DD NUMERIC,hh NUMERIC,month NUMERIC,WDIR NUMERIC,WSPD NUMERIC,GST NUMERIC,WVHT NUMERIC,DPD NUMERIC,APD NUMERIC,MWD NUMERIC,PRES NUMERIC,ATMP NUMERIC,WTMP NUMERIC,DEWP NUMERIC,VIS NUMERIC,TIDE NUMERIC);"
 
 for buoy in $arr; do
   mkdir ../data/${buoy}
@@ -691,18 +693,12 @@ for buoy in $arr; do
       curl -o ../data/${buoy}/buoy${buoy}-${year} http://www.ndbc.noaa.gov/view_text_file.php\?filename=${buoy}h${year}.txt.gz\&dir=data/historical/stdmet/
       firstline=$(head -n 1 ../data/${buoy}/buoy${buoy}-${year})
       filename=../data/${buoy}/buoy${buoy}-${year}
-      # echo $filename
       csv=../data/csvs/buoy${buoy}-${year}.csv
 
       cat $filename | sed 's/ \{1,\}/,/g' | sed 's/'mm'/month/g' | awk 'NR != 2' | cut -d "#" -f 2 > $csv
 
       psql -d buoy --user=$DBUSERNAME -c "
-      CREATE TABLE buoy${buoy}(YY NUMERIC, MM NUMERIC,DD NUMERIC,hh NUMERIC,month NUMERIC,WDIR NUMERIC,WSPD NUMERIC,GST NUMERIC,WVHT NUMERIC,DPD NUMERIC,APD NUMERIC,MWD NUMERIC,PRES NUMERIC,ATMP NUMERIC,WTMP NUMERIC,DEWP NUMERIC,VIS NUMERIC,TIDE NUMERIC);"
-
-      psql -d buoy --user=$DBUSERNAME -c "
-      COPY buoy${buoy} FROM '/Users/Andrea/DevLeague/Final-Project/data/csvs/buoy${buoy}-${year}.csv' delimiter ',' csv header;"
-
-
+      COPY buoyTable FROM '/Users/Andrea/DevLeague/Final-Project/data/csvs/buoy${buoy}-${year}.csv' delimiter ',' csv header;"
     fi
   done
   if [ "$(ls -A ./${buoy})" ]; then
