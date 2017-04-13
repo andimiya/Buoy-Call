@@ -41,7 +41,7 @@ class App extends Component {
         </div>
 
         <div className="newUser">
-          <NewUser createNewUser={this.createNewUser} />
+          <NewUser />
           </div>
        
       </div>

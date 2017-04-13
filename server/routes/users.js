@@ -15,11 +15,12 @@ router.route('/')
   })
 
   .post( (req, res) =>{
+    console.log("REQ BODY:",req.body)
     Users.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password
+      firstName: req.body.FirstName,
+      lastName: req.body.LastName,
+      email: req.body.Email,
+      password: req.body.Password
     })
     .then((users) =>{
       res.json(users);

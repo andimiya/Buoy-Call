@@ -5,10 +5,11 @@ const app = express();
 const CONFIG = require('./config/config');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const PORT = process.env.PORT || 8080;
 
 const db = require('./models')
 let Users = db.User;
-const userRoute = require('./routes/Users');
+const userRoute = require('./routes/users');
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
@@ -26,8 +27,8 @@ app.get('/', (req, res) =>{
   res.send('please work');
 });
 
-app.listen(8080, function(){
-  console.log('server started')
+app.listen(PORT, function(){
+  console.log('server started on', PORT)
   db.sequelize.sync();
 });
 
