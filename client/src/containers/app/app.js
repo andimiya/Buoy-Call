@@ -8,7 +8,7 @@ import './app.css';
 import { createStore } from 'redux'; 
 import { connect } from 'react-redux';
 import { getAllUsers } from '../../lib';
-import { addUsers } from '../../actions';
+import { addUser } from '../../actions';
 
 let store = createStore(users);
 
@@ -39,6 +39,7 @@ class App extends Component {
         <div className="App-header">
           <h2>WATER WORLD</h2>
         </div>
+
         <div className="newUser">
           <NewUser createNewUser={this.createNewUser} />
           </div>
@@ -49,6 +50,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log('mapping state to props', state)
   return {
     users: state.users
   }
@@ -57,7 +59,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     getAllUsers:(firstName, lastName, email, password) =>{
-      dispatch(addUsers(firstName, lastName, email, password));
+      dispatch(addUser(firstName, lastName, email, password));
     }
 
   }
