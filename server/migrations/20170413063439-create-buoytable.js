@@ -2,14 +2,9 @@
 module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('buoytables', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
       BUOYID: {
-        type: Sequelize.VARCHAR(5)
+        //index
+        type: Sequelize.NUMERIC
       },
       YY: {
         type: Sequelize.NUMERIC
@@ -64,14 +59,6 @@ module.exports = {
       },
       TIDE: {
         type: Sequelize.NUMERIC
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },
