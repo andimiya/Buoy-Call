@@ -17,12 +17,7 @@ class App extends Component {
     super(props);
   }
   
- createNewUser(newUser){
-  let oReq = new XMLHttpRequest();
-  oReq.open('POST', '/api/users');
-  oReq.setRequestHeader('Content-type', 'application/json')
-  oReq.send(JSON.stringify(newUser));
- }
+
 
  componentWillMount(){
   getAllUsers()
@@ -44,6 +39,9 @@ class App extends Component {
           <NewUser />
           </div>
        
+       <div className="curUsers">
+        <Users />
+       </div>
       </div>
     );
   }
