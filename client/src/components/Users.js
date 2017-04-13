@@ -5,15 +5,55 @@ import React from 'react';
 class User extends React.Component {
   constructor(props){
     super(props); 
+    this.state = {
+      Email: '', 
+      Password: ' '
+    }
+    this.handleChangeEmail=this.handleChangeEmail.bind(this);
+    this.handleChangePassword=this.handleChangePassword.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleChangeEmail(event){
+    this.setState({
+      Email : event.target.value
+    })
+  }
+
+  handleChangePassword(event){
+    this.setState({
+      Password : event.target.value
+    })
+  }
+
+  handleSubmit(event){
+    event.preventDefault();
+    console.log('this.state', this.state)
+    this.userLoggedIn({
+      Email: this.state.Email, 
+      Password: this.state.Password
+    })
+  }
+
+  userLoggedIn(curUser){
+    let oReq = new XMLHttpRequest();
+    oReq.open('GET', '/api/users');
+    oReq.setRequestHeader('Content-type', 
+      'application/json')
+    oReq.send(JSON.stringify(curUser));
+  }
+
+
 
   render(){
     return(
-      <div className='userRegistration'>
-        <h2>First Name: {this.props.firstName}</h2>
-        <h2>Last Name: {this.props.lastName}</h2>
-        <h2>Email Address: {this.props.email}</h2>
-        <h2>Password: {this.props.password}</h2>
+      <div className='userLogIn'>
+        <h3>Log in to Account</h3>
+      <form onSubmit={this.handleSubmit}>
+      <input type='text' onChange={this.handleChangeEmail} placeholder="Email Address" name='Email' />
+      <input type='password' onChange={this.handleChangePassword} placeholder="Password" name="Password" />
+      <input type="submit" value="Log In" />
+      </form>
       </div>
     )
   }
