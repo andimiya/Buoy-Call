@@ -1,4 +1,8 @@
 #!/bin/bash
+
+yearstart=2012
+yearend=2016
+
 declare -a arr="
 41001
 41002
@@ -426,7 +430,9 @@ declare -a arr="
 48213
 48214
 48249
-48249
+  "
+
+declare -a arr2="48249
 51000
 51001
 51002
@@ -1094,28 +1100,51 @@ YABP4
 YATA2
 YGNN6
 YKRV2
-YKTV2
-"
+YKTV2 "
 
 psql -h localhost -p 5439 -U buoydbuser -d buoydb -c "
-CREATE TABLE coordinates(
+CREATE TABLE buoydata(
   BUOYID VARCHAR(5),
-  lat decimal(9,6),
-  long decimal(9,6)
-);"
+  YY numeric,
+  MM numeric,
+  DD numeric,
+  hh numeric,
+  month numeric,
+  WDIR numeric,
+  WSPD numeric,
+  GST numeric,
+  WVHT numeric,
+  DPD numeric,
+  APD numeric,
+  MWD numeric,
+  PRES numeric,
+  ATMP numeric,
+  WTMP numeric,
+  DEWP numeric,
+  VIS numeric,
+  TIDE numeric);"
 
-for i in $arr; do
-  COORDINATES=coordinates.csv
-  SOURCE=$(curl -L http://www.ndbc.noaa.gov/station_page.php?station=${i})
-  ID=$(echo "$SOURCE" | sed 's/;//' | sed "s/'//g" | grep 'var currentstnid' | awk '{print $4}')
-  LAT=$(echo "$SOURCE" | sed 's/;//' | grep 'var currentstnlat' | awk '{print $4}')
-  LNG=$(echo "$SOURCE" | sed 's/;//' |  grep 'var currentstnlng' | awk '{print $4}')
+for buoy in $arr; do
+  mkdir ./data/${buoy}
+  for year in $(seq $yearstart $yearend); do
+    res=$(curl -o /dev/null --silent --head --write-out '%{http_code}\n' http://www.ndbc.noaa.gov/view_text_file.php\?filename=${buoy}h${year}.txt.gz\&dir=data/historical/stdmet/ 200)
+    if [ ! -f ../scripts/data/${buoy}/buoy${buoy}-${year} ] && [[ $res != 404* ]]
+    then
+      curl -o ../scripts/data/${buoy}/buoy${buoy}-${year} http://www.ndbc.noaa.gov/view_text_file.php\?filename=${buoy}h${year}.txt.gz\&dir=data/historical/stdmet/
+      firstline=$(head -n 1 ../scripts/data/${buoy}/buoy${buoy}-${year})
+      filename=../scripts/data/${buoy}/buoy${buoy}-${year}
+      csv=../scripts/data/csvs/buoy${buoy}-${year}.csv
+      ADDCOLUMN=buoyid,
+      cat $filename | sed 's/ \{1,\}/,/g' | sed 's/'mm'/month/g' | awk 'NR != 2' | cut -d "#" -f 2 | sed -e '2,$s/^/'${buoy}',/' | sed '1s/.*/buoyid,&/' > $csv
 
-  echo -n $ID >> $COORDINATES
-  echo -n ,$LAT >> $COORDINATES
-  echo ,$LNG >> $COORDINATES
+      cat $csv | psql -h localhost -p 5439 -U buoydbuser -d buoydb -c "COPY buoydata FROM stdin WITH DELIMITER ',' CSV HEADER";
 
+
+    fi
+  done
+  if [ "$(ls -A ./${buoy})" ]; then
+    echo "not EMPTY"
+  else
+    rm -rf ./${buoy}
+  fi
 done
-
-cat $COORDINATES | psql -h localhost -p 5439 -U buoydbuser -d buoydb -c "
-     COPY coordinates FROM stdin WITH DELIMITER ',' CSV HEADER;"
