@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "postgres",
+    "username": "randysalazar",
     "password": "postgres",
-    "database": "finaldatabase",
+    "database": "finalDatabase",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
@@ -19,5 +19,7 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  }
+  },
+
+  "SESSION_SECRET": "keyboard_cat"
 }
