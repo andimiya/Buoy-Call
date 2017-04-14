@@ -11,7 +11,7 @@ router.route('/')
   .get( (req, res) => {
     Users.findAll()
       .then( users => {
-        console.log('looking for all users', users)
+        //console.log('looking for all users', users)
         res.send(users);
       });
   })
