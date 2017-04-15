@@ -1097,17 +1097,25 @@ YKRV2
 YKTV2
 "
 
+psql -h localhost -p 5439 -U buoydbuser -d buoydb -c "
+CREATE TABLE coordinates(
+  BUOYID VARCHAR(5),
+  lat decimal(9,6),
+  long decimal(9,6)
+);"
 
 for i in $arr; do
+  COORDINATES=coordinates.csv
   SOURCE=$(curl -L http://www.ndbc.noaa.gov/station_page.php?station=${i})
   ID=$(echo "$SOURCE" | sed 's/;//' | sed "s/'//g" | grep 'var currentstnid' | awk '{print $4}')
   LAT=$(echo "$SOURCE" | sed 's/;//' | grep 'var currentstnlat' | awk '{print $4}')
   LNG=$(echo "$SOURCE" | sed 's/;//' |  grep 'var currentstnlng' | awk '{print $4}')
 
-  echo -n $ID >> coordinates.csv
-  echo -n ,$LAT >> coordinates.csv
-  echo ,$LNG >> coordinates.csv
-  
-  psql -d buoy --user=andrea -c "
-     COPY namelatlong FROM '/Users/Andrea/DevLeague/Final-Project/scripts/coordinates.csv' delimiter ',' csv header;"
+  echo -n $ID >> $COORDINATES
+  echo -n ,$LAT >> $COORDINATES
+  echo ,$LNG >> $COORDINATES
+
 done
+
+cat $COORDINATES | psql -h localhost -p 5439 -U buoydbuser -d buoydb -c "
+     COPY coordinates FROM stdin WITH DELIMITER ',' CSV HEADER;"

@@ -33,8 +33,6 @@ app.get('/allbuoys', (req, res )=> {
     attributes: ['buoyid', 'lat', 'long']
   })
   .then((arr) => {
-    console.log(arr, 'arr');
-    console.log(arr[1].dataValues.buoyid);
       let geoJSON = {};
       geoJSON.type = "Feature Collection";
       geoJSON.features = [];
