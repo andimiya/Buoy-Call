@@ -28,16 +28,16 @@ class User extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
-    console.log('this.state', this.state)
     this.userLoggedIn({
-      Email: this.state.Email, 
-      Password: this.state.Password
+      username: this.state.Email, 
+      password: this.state.Password
     })
   }
 
   userLoggedIn(curUser){
+    console.log("This should be working")
     let oReq = new XMLHttpRequest();
-    oReq.open('GET', '/api/users');
+    oReq.open('POST', '/api/users/login');
     oReq.setRequestHeader('Content-type', 
       'application/json')
     oReq.send(JSON.stringify(curUser));

@@ -6,6 +6,26 @@ const db = require('../models');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const Users = db.User;
+const passport = require('passport')
+
+function userAuthenticator(req, res, next){
+  if(req.isAuthenticated()){
+    console.log("yes!");
+    next();
+  } else {
+    console.log("nope didn't work");
+    res.redirect('/users/ASDF')
+  }
+}
+
+function isLoggedIn(req){
+  if(req.user){
+    console.log(req.user.user);
+    return true;
+  } else {
+    return false;
+  }
+}
 
 router.route('/')
   .get( (req, res) => {
@@ -15,6 +35,8 @@ router.route('/')
         res.send(users);
       });
   })
+
+
 
   .post( (req, res) =>{
     bcrypt.genSalt(saltRounds, function(err, salt) {
@@ -30,10 +52,16 @@ router.route('/')
         })
         .catch(err => {
           console.log("error goes here I.E. USER ALREADY EXISTS", err);
-          //redirect to making user again and/or flash the error message
         })
       })
     })
   })
+
+router.route('/login')
+  .post(passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/failure'
+  }
+))
 
   module.exports = router; 

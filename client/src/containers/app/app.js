@@ -19,14 +19,14 @@ class App extends Component {
   
 
 
- componentWillMount(){
-  getAllUsers()
-  .then(data =>{
-    data.forEach(users =>{ 
-    this.props.getAllUsers(users.firstName, users.lastName, users.email, users.password);
-    })
-  })
- }
+ // componentWillMount(){
+ //  getAllUsers()
+ //  .then(data =>{
+ //    data.forEach(users =>{ 
+ //    this.props.getAllUsers(users.firstName, users.lastName, users.email, users.password);
+ //    })
+ //  })
+ // }
   render() {
     return (
       <div className="App">
