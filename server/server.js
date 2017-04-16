@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080
 ;
 
 const db = require('./models');
-const { Users, coordinates } = db;
+const { Users, coordinates, buoydata } = db;
 const userRoute = require('./routes/users');
 
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -29,22 +29,34 @@ app.get('/', (req, res) =>{
 });
 
 app.get('/allbuoys', (req, res )=> {
-  coordinates.findAll({
-    attributes: ['buoyid', 'lat', 'long']
-  })
+  Promise.all([
+    coordinates.findAll({
+      attributes: ['buoyid', 'lat', 'long']
+    }),
+    buoydata.findOne({
+      attributes: ['buoyid', 'wvht']
+    })
+  ])
   .then((arr) => {
+    let coordinates=arr[0];
+    let buoydata=arr[1];
+
+      // console.log(coordinates, 'coordinates');
+      console.log(buoydata, 'buoydata');
+      console.log(coordinates, 'coordinates');
       let geoJSON = {};
       geoJSON.type = "Feature Collection";
       geoJSON.features = [];
-      for(let i = 0; i < arr.length; i++){
+      for(let i = 0; i < coordinates.length; i++){
         let newChild = {};
         newChild.type = "Feature";
         newChild.properties = {
-          name: arr[i].dataValues.buoyid
+          title: `The current waveheight for this buoy is ${buoydata.dataValues.wvht}
+          Waveheight is ${coordinates.dataValues.lat}`
         };
         newChild.geometry = {
           type: "Point",
-          coordinates: [arr[i].dataValues.long, arr[i].dataValues.lat]
+          coordinates: [coordinates[i].dataValues.long, coordinates[i].dataValues.lat]
         };
         geoJSON.features.push(newChild);
       }
