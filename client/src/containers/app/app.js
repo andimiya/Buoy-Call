@@ -1,32 +1,14 @@
 import React, { Component } from 'react';
-import Users from '../../components/Users.js';
 import NewUser from '../../components/NewUser.js';
-import users from '../../reducers/';
-
 import './app.css';
-
-import { createStore } from 'redux'; 
 import { connect } from 'react-redux';
-import { getAllUsers } from '../../lib';
 import { addUser } from '../../actions';
-
-let store = createStore(users);
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
   
-
-
- // componentWillMount(){
- //  getAllUsers()
- //  .then(data =>{
- //    data.forEach(users =>{ 
- //    this.props.getAllUsers(users.firstName, users.lastName, users.email, users.password);
- //    })
- //  })
- // }
   render() {
     return (
       <div className="App">
@@ -40,7 +22,6 @@ class App extends Component {
           </div>
        
        <div className="curUsers">
-        <Users />
        </div>
       </div>
     );

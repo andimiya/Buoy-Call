@@ -1,8 +1,16 @@
 /*jshint esversion:6 */ 
 
 import React from 'react'; 
+import { Router, browserHistory } from 'react-router';
+import createHistory from 'history/createBrowserHistory';
 
-class User extends React.Component {
+// const history = createHistory();
+// const location = history.location;
+// const unlisten = history.listen((location, action) => {
+//   console.log("unlisten",action, location.pathname, location.state)
+// })
+
+class Login extends React.Component {
   constructor(props){
     super(props); 
     this.state = {
@@ -32,18 +40,29 @@ class User extends React.Component {
       username: this.state.Email, 
       password: this.state.Password
     })
+    .then((data) => {
+      console.log("Data",data)
+      if(data){
+        this.props.history.push('/secret')
+      }
+    })
+
   }
 
   userLoggedIn(curUser){
-    console.log("This should be working")
-    let oReq = new XMLHttpRequest();
-    oReq.open('POST', '/api/users/login');
-    oReq.setRequestHeader('Content-type', 
-      'application/json')
-    oReq.send(JSON.stringify(curUser));
+    return new Promise(function(resolve,reject){
+      function reqListener(){
+        let results = JSON.parse(this.responseText);
+        resolve(results);
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('POST', '/api/users/login');
+      oReq.setRequestHeader('Content-type', 
+        'application/json')
+      oReq.addEventListener("load", reqListener)
+      oReq.send(JSON.stringify(curUser))
+    })
   }
-
-
 
   render(){
     return(
@@ -59,4 +78,4 @@ class User extends React.Component {
   }
 };
 
-export default User;
+export default Login;

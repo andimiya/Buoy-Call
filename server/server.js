@@ -62,7 +62,7 @@ passport.use(new LocalStrategy(
         bcrypt.compare(password, user.password).then(res => {
           if(res){
             console.log("good info / password")
-            return done(null, user);
+            return done(null, user, {message: 'good login'});
           } else {
             console.log("bad info / password")
             return done(null, false, {message: 'bad info'});

@@ -14,18 +14,18 @@ function userAuthenticator(req, res, next){
     next();
   } else {
     console.log("nope didn't work");
-    res.redirect('/users/ASDF')
+    res.redirect('/users/notLoggedInBro')
   }
 }
 
-function isLoggedIn(req){
-  if(req.user){
-    console.log(req.user.user);
-    return true;
-  } else {
-    return false;
-  }
-}
+// function isLoggedIn(req){
+//   if(req.user){
+//     console.log(req.user.user);
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
 router.route('/')
   .get( (req, res) => {
@@ -38,7 +38,7 @@ router.route('/')
 
 
 
-  .post( (req, res) =>{
+  .post(userAuthenticator, (req, res) =>{
     bcrypt.genSalt(saltRounds, function(err, salt) {
       bcrypt.hash(req.body.Password, salt, function(err, hash) {
         Users.create({
@@ -58,10 +58,15 @@ router.route('/')
   })
 
 router.route('/login')
-  .post(passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/failure'
-  }
-))
+  .post(passport.authenticate('local'), function(req, res){
+    console.log("user", req.user.email)
+    res.send(req.user)
+  })
+
+router.route('/checkLogin')
+  .post(function(req,res){
+    console.log(req.user)
+    res.send(req.user)
+  })
 
   module.exports = router; 

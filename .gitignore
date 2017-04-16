@@ -1,3 +1,4 @@
 node_modules
 scripts/buoydata
 config.json
+npm-debug.log
