@@ -45,7 +45,7 @@ app.get('/allsharks', (req, res) => {
           Weight: ${data[i].weight}<br>
           Species: ${data[i].species}<br>
           Last seen: ${data[i].pings[0].datetime}`,
-          'marker-symbol': 'harbor-15',
+          'marker-symbol': 'star',
           'marker-color': '#097BED'
         };
         newChild.geometry = {
@@ -79,8 +79,8 @@ app.get('/allbuoys', (req, res )=> {
         let newChild = {};
         newChild.type = "Feature";
         newChild.properties = {
-          title: `The current waveheight for this buoy is ${buoydata.dataValues.wvht}`
-
+          title: `The current waveheight for this buoy is ${buoydata.dataValues.wvht}`,
+          'marker-symbol': 'lighthouse',
         };
         newChild.geometry = {
           type: "Point",
