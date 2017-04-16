@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const CONFIG = require('./config/config');
 const bodyParser = require('body-parser');
+const request = require('request');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 8080
 ;
@@ -28,6 +29,33 @@ app.get('/', (req, res) =>{
   res.send('please work');
 });
 
+app.get('/allsharks', (req, res) => {
+  request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
+    Promise.resolve(JSON.parse(body))
+    .then((data) => {
+      let geoJSON = {};
+      geoJSON.type = "Feature Collection";
+      geoJSON.features = [];
+      for(let i = 0; i < data.length; i++){
+        let newChild = {};
+        newChild.type = "Feature";
+        newChild.properties = {
+          title: data[i].name,
+          'marker-symbol': 'water',
+          'marker-color': '#097BED'
+        };
+        newChild.geometry = {
+          type: "Point",
+          coordinates: [data[i].pings[0].longitude,
+          data[i].pings[0].latitude]
+        };
+        geoJSON.features.push(newChild);
+      }
+      res.json(geoJSON);
+    })
+  });
+});
+
 app.get('/allbuoys', (req, res )=> {
   Promise.all([
     coordinates.findAll({
@@ -40,10 +68,6 @@ app.get('/allbuoys', (req, res )=> {
   .then((arr) => {
     let coordinates=arr[0];
     let buoydata=arr[1];
-
-      // console.log(coordinates, 'coordinates');
-      console.log(buoydata, 'buoydata');
-      console.log(coordinates, 'coordinates');
       let geoJSON = {};
       geoJSON.type = "Feature Collection";
       geoJSON.features = [];
