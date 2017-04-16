@@ -40,6 +40,19 @@
             .setLatLng(latlng)
             .openOn(map);
           });
+        L.mapbox.featureLayer()
+          .loadURL('http://localhost:8080/allsharks')
+          // .addTo(map);
+          .on('ready', function(e){
+            var clusterGroup = new L.MarkerClusterGroup();
+            e.target.eachLayer(function(layer){
+              clusterGroup.addLayer(layer);
+            });
+            map.addLayer(clusterGroup);
+            var popup = L.popup()
+            .setLatLng(latlng)
+            .openOn(map);
+          });
 
       </script>
     </div>
