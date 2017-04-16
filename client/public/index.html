@@ -36,7 +36,11 @@
               clusterGroup.addLayer(layer);
             });
             map.addLayer(clusterGroup);
+            var popup = L.popup()
+            .setLatLng(latlng)
+            .openOn(map);
           });
+
       </script>
     </div>
 
