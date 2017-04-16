@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "jonathonlaylo",
-    "password": null,
-    "database": "finaldb",
-    "host": "127.0.0.1",
+    "username": "buoydbuser",
+    "password": "yeahbuoy",
+    "database": "buoydb",
+    "host": "localhost",
+    "port": 5439,
     "dialect": "postgres"
   },
   "test": {
