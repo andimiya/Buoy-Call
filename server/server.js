@@ -51,8 +51,7 @@ app.get('/allbuoys', (req, res )=> {
         let newChild = {};
         newChild.type = "Feature";
         newChild.properties = {
-          title: `The current waveheight for this buoy is ${buoydata.dataValues.wvht}
-          Waveheight is ${coordinates.dataValues.lat}`
+          title: `The current waveheight for this buoy is ${buoydata.dataValues.wvht}`
         };
         newChild.geometry = {
           type: "Point",
