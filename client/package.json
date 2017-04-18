@@ -10,7 +10,8 @@
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "redux-devtools": "^3.3.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "stripe": "^4.18.0"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
