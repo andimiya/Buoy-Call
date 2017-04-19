@@ -1,7 +1,7 @@
 .userLogIn{
   width:80%;
   margin:0 auto;
-  display: block;
+  display: none;
 }
 
 input[type=text]{
