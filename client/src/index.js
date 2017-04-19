@@ -60,14 +60,14 @@ function xhrLoginCheck(){
 const fakeAuth = {
   isAuthenticated: checkAuth(),
   //based on this value isAuthenticated, they can/cannot access the page that is within PrivateRoute tag
-  authenticate(cb) {
-    this.isAuthenticated = true
-    setTimeout(cb, 100) // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false
-    setTimeout(cb, 100)
-  }
+  // authenticate(cb) {
+  //   this.isAuthenticated = true
+  //   setTimeout(cb, 100) // fake async
+  // },
+  // signout(cb) {
+  //   this.isAuthenticated = false
+  //   setTimeout(cb, 100)
+  // }
 }
 
 const PrivateRoute = ({ component: Component, ...rest }) => (

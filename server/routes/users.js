@@ -59,7 +59,7 @@ router.route('/')
 
 router.route('/login')
   .post(passport.authenticate('local'), function(req, res){
-    console.log("user", req.user.email)
+    console.log("successfully logged in")
     res.send(req.user)
   })
 
@@ -70,3 +70,4 @@ router.route('/checkLogin')
   })
 
   module.exports = router; 
+
