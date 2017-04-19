@@ -34,7 +34,7 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/charge', (req, res) => {
-  // console.log(req.body, 'req body token');
+  console.log(req.body, 'Request BODY');
   // stripe.customers.create({
   //   email: req.body.email,
   //   card: req.body.id
@@ -45,12 +45,13 @@ app.post('/charge', (req, res) => {
       amount: 100,
       description: "Example charge",
       currency: "usd",
-      // source: req.body.token,
+      source: req.body.token,
       // customer: customer.id
     })
-  })
-    res.send('success');
-  //   .then(charge => res.send('success'));
+  // })
+    res.json({ success: req.body });
+    // .then(charge => res.send('success'))
+
   // });
 });
 
