@@ -14,11 +14,13 @@ const db = require('./models');
 const { Users, coordinates, buoydata } = db;
 const userRoute = require('./routes/users');
 
+app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
-app.use('/api/users', userRoute);
+
+// app.use('/api/users', userRoute);
 
 app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*");
@@ -32,20 +34,24 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/charge', (req, res) => {
-  let amount = 500;
-  stripe.customers.create({
-    email: req.body.stripeEmail,
-    source: req.body.stripeToken
-  })
-  .then(customer => {
+  // console.log(req.body, 'req body token');
+  // stripe.customers.create({
+  //   email: req.body.email,
+  //   card: req.body.id
+  // })
+  // .then(customer => {
+  //   console.log(customer, 'customer');
     stripe.charges.create({
-      amount,
+      amount: 100,
       description: "Example charge",
       currency: "usd",
-      customer: customer.id
+      // source: req.body.token,
+      // customer: customer.id
     })
-    .then(charge => res.send('success'));
-  });
+  })
+    res.send('success');
+  //   .then(charge => res.send('success'));
+  // });
 });
 
 app.get('/allsharks', (req, res) => {
