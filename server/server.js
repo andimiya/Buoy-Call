@@ -8,7 +8,7 @@ const request = require('request');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 8080
 ;
-const stripe = require('stripe')('sk_test_tAmOhr34X7M9LtSFTFBeqHvM');
+const stripe = require("stripe")('sk_test_smQEsCQhlXorJ2bxfvrYOqwR');
 
 const db = require('./models');
 const { Users, coordinates, buoydata } = db;
@@ -31,22 +31,20 @@ app.get('/', (req, res) =>{
   res.send('please work');
 });
 
-app.post('/stripe', (req, res) => {
-
-  const token = req.body.stripeToken;
-
-  stripe.charges.create({
-    source: stripeToken,
-    amount: 1000,
-    currency: "usd",
-    description: "Example charge"
-  },
-  function(err, charge) {
-    if (err) {
-        res.send(500, err);
-    } else {
-        res.send(204);
-    }
+app.post('/charge', (req, res) => {
+  let amount = 500;
+  stripe.customers.create({
+    email: req.body.stripeEmail,
+    source: req.body.stripeToken
+  })
+  .then(customer => {
+    stripe.charges.create({
+      amount,
+      description: "Example charge",
+      currency: "usd",
+      customer: customer.id
+    })
+    .then(charge => res.send('success'));
   });
 });
 
