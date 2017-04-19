@@ -8,10 +8,12 @@ const request = require('request');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 8080
 ;
+const stripe = require('stripe')('sk_test_tAmOhr34X7M9LtSFTFBeqHvM');
 
 const db = require('./models');
 const { Users, coordinates, buoydata } = db;
 const userRoute = require('./routes/users');
+
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
@@ -27,6 +29,25 @@ app.use(function(req, res, next){
 
 app.get('/', (req, res) =>{
   res.send('please work');
+});
+
+app.post('/stripe', (req, res) => {
+
+  const token = req.body.stripeToken;
+
+  stripe.charges.create({
+    source: stripeToken,
+    amount: 1000,
+    currency: "usd",
+    description: "Example charge"
+  },
+  function(err, charge) {
+    if (err) {
+        res.send(500, err);
+    } else {
+        res.send(204);
+    }
+  });
 });
 
 app.get('/allsharks', (req, res) => {
