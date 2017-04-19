@@ -1,0 +1,12 @@
+.fakeMenu{
+  margin: 0 auto;
+}
+
+li{
+  width: 20%;
+  display: inline;
+}
+
+li:hover{
+  background: blue;
+}
