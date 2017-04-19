@@ -6,13 +6,14 @@ class Checkout extends React.Component {
     console.log(token, 'token');
     fetch('http://localhost:8080/charge', {
       method: 'POST',
-      body: JSON.stringify(token),
-    }).then(response => {
+      body: token,
+    })
+    .then(response => {
       response.json().then(data => {
         console.log(data, 'payment data');
         alert(`Payment was successful, thank you ${data.email}`);
       });
-    });
+    })
   }
 
   render() {
@@ -23,7 +24,6 @@ class Checkout extends React.Component {
         name="Larn Yay"
         description="Saving the Ocean"
         currency="USD"
-        ComponentClass="div"
         locale="en"
         amount={500}
         alipay
