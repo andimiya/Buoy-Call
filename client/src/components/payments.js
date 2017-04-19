@@ -9,10 +9,11 @@ class Payments extends Component {
   }
 
   componentDidMount(){
-    Stripe.setPublishableKey('pk_test_a82VbFeXcTfWOcbWyd7H0Wgt');
+    Stripe.setPublishableKey('pk_test_iPd55BpU9blDhsX1734a5hr7');
   }
 
   handleSubmit(event){
+    console.log('Pay');
     event.preventDefault();
     Stripe.card.createToken(event.currentTarget, (status, response) => {
       console.log(status, response);
@@ -21,13 +22,18 @@ class Payments extends Component {
 
   render(){
     return(
-        <form method ="post" onSubmit={this.handleSubmit}>
-          <input size="20" data-stripe="number" placeholder="number" />
-          <input size="4" data-stripe="cvc" placeholder="number" />
-          <input size="2" data-stripe="exp-month" placeholder="exp-month" />
-          <input size="4" data-stripe="exp-year" placeholder="exp-year" />
-          <button type="submit">Pay</button>
-        </form>
+
+        <form action="/checkout" method ="post" id="payment-form" onSubmit={this.handleSubmit}>
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_a82VbFeXcTfWOcbWyd7H0Wgt"
+          data-amount="999"
+          data-name="andrea-takamiya-lwx6.squarespace"
+          data-description="Widget"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto">
+        </script>
+      </form>
     )
   }
 }
