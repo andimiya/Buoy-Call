@@ -2,6 +2,8 @@
 
 import React from 'react'; 
 
+import './User.css';
+
 class User extends React.Component {
   constructor(props){
     super(props); 
@@ -48,10 +50,10 @@ class User extends React.Component {
   render(){
     return(
       <div className='userLogIn'>
-        <h3>Log in to Account</h3>
+        <h3>Log in to Account</h3>  
       <form onSubmit={this.handleSubmit}>
-      <input type='text' onChange={this.handleChangeEmail} placeholder="Email Address" name='Email' />
-      <input type='password' onChange={this.handleChangePassword} placeholder="Password" name="Password" />
+      <input type='text' onChange={this.handleChangeEmail} placeholder="Email Address" name='Email' /><br/>
+      <input type='password' onChange={this.handleChangePassword} placeholder="Password" name="Password" /><br/>
       <input type="submit" value="Log In" />
       </form>
       </div>
