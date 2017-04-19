@@ -1,24 +1,23 @@
-.App {
-  text-align: center;
+@import './reset.css';
+
+.APP{
+  width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.header{
+  border: red;
+  position: absolute;
+  z-index: 10;
+  width:100%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 50px;
-  padding: 20px;
-  color: white;
+.App-header{
+font-family: 'Concert One', cursive;
+color:red;
+font-size: 2rem;
+background-color: white;
+margin: 1rem 0 0 3rem;
 }
 
-.App-intro {
-  font-size: large;
-}
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+
