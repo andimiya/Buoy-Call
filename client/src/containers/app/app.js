@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Users from '../../components/Users.js';
 import NewUser from '../../components/NewUser.js';
-import Payments from '../../components/payments';
+import Checkout from '../../components/stripe-checkout';
 import users from '../../reducers/';
 
 import './app.css';
@@ -43,7 +43,7 @@ class App extends Component {
        </div>
 
        <div className="stripe">
-        <Payments />
+        <Checkout />
        </div>
 
       </div>

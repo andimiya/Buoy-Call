@@ -3,7 +3,8 @@ import StripeCheckout from 'react-stripe-checkout';
 
 class Checkout extends React.Component {
   onToken = (token) => {
-    fetch('/charge', {
+    console.log(token, 'token');
+    fetch('http://localhost:8080/charge', {
       method: 'POST',
       body: JSON.stringify(token),
     }).then(response => {
@@ -22,13 +23,13 @@ class Checkout extends React.Component {
         name="Larn Yay"
         description="Saving the Ocean"
         currency="USD"
+        ComponentClass="div"
         locale="en"
         amount={500}
         alipay
         bitcoin
         >
       </StripeCheckout>
-
     )
   }
 }
