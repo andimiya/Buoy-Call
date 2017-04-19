@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Users from '../../components/Users.js';
 import NewUser from '../../components/NewUser.js';
+import Menu from '../../components/Menu.js';
+import Footer from '../../components/Footer.js';
+
 import users from '../../reducers/';
 
 import './app.css';
@@ -31,17 +34,30 @@ class App extends Component {
     return (
       <div className="App">
         
-        <div className="App-header">
-          <h2>WATER WORLD</h2>
+        <div className="header">
+
+          <div className="App-header">
+            <h1>BUOYAHHHHHHH</h1>
+          </div>
+
+          <div className="menu">
+          <Menu />
+          </div>
+
         </div>
 
-        <div className="newUser">
-          <NewUser />
-          </div>
-       
-       <div className="curUsers">
-        <Users />
-       </div>
+         <div className="newUser">
+           <NewUser />
+         </div>
+         
+         <div className="curUsers">
+           <Users />
+         </div>
+
+         <div className="footer">
+         <Footer />
+         </div>
+
       </div>
     );
   }
