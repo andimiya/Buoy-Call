@@ -10,7 +10,7 @@ const methodOverride = require('method-override');
 const PORT = process.env.PORT || 8080
 ;
 const stripeConfig = ('../../../config');
-const stripe = require("stripe")(stripeConfig.STRIPE.PUBLISHABLE_KEY);
+const stripe = require("stripe")(process.env.STRIPEPUBLISHABLE_KEY);
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
