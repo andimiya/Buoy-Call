@@ -148,7 +148,7 @@ app.get('/allsharks', (req, res) => {
         geoJSON.features.push(newChild);
       }
       res.json(geoJSON);
-    })
+    });
   });
 });
 
