@@ -13,6 +13,8 @@ class Footer extends React.Component{
     return(
       <div className="Footer">
       <h1>FOOTER BAR</h1>
+      <p> This is only visible on the "/" route
+      </p>
       </div>
     )
   }
