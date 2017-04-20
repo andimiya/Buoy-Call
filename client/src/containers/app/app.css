@@ -5,19 +5,10 @@
 }
 
 .header{
-  border: red;
+  border: solid thin red;
   position: absolute;
   z-index: 10;
-  width:100%;
+  height: 3rem;
+  width:90%;
+  margin-left:5%;
 }
-
-.App-header{
-font-family: 'Concert One', cursive;
-color:red;
-font-size: 2rem;
-background-color: white;
-margin: 1rem 0 0 3rem;
-}
-
-
-
