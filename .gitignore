@@ -3,3 +3,5 @@ scripts/buoydata
 config.json
 npm-debug.log
 .env
+config/index.js
+config/production.js
