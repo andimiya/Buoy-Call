@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-<!--     <script src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css' rel='stylesheet' /> -->
     <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
@@ -14,92 +12,79 @@
     <title>React App</title>
   </head>
   <body>
-
-  <style>
-  .filter-ui {
-    background:#fff;
-    position:absolute;
-    top:10px;
-    right:10px;
-    z-index:100;
-    padding:10px;
-    border-radius:3px;
+    <style>
+    #toolbar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #fff;
+        width: 150px;
+        padding:5px;
     }
-  </style>
-  <nav id='filters' class='filter-ui'></nav>
+    </style>
 
     <div id="root"></div>
+
+    <form id='toolbar'>
+      <div><input type='checkbox' name='filters' onclick='showStations();' value='lighthouse' checked> Buoy</div>
+      <div><input type='checkbox' name='filters' onclick='showStations();' value='star' checked> Star</div>
+    </form>
+
     <div id='map' style='width: 1100px; height: 700px;'>
       <script>
         L.mapbox.accessToken = 'pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q';
 
         // sets default view, we can change the view of the world and how far they can zoom in
-        var map = L.mapbox.map('map').setView([-8.310,19.087], 1.5);
+        var map = L.mapbox.map('map')
+          .setView([-8.310,19.087], 1.5);
 
         // custom style sheet, we can edit this later
         L.mapbox.styleLayer('mapbox://styles/jonathonlaylo/cj1g01mw200062ss53ht46jgb').addTo(map);
 
-        var filters = document.getElementById('filters');
+        // cluster filter
+        var overlays = L.layerGroup().addTo(map);
 
-        // calls get request for buoy data
-        map.featureLayer.loadURL('http://localhost:8080/allbuoys').on('ready', function(e){
-          var typesObj = {}, types = [];
-          var features = map.featureLayer.getGeoJSON().features;
-          for (var i = 0; i < features.length; i++) {
-            typesObj[features[i].properties['marker-symbol']] = true;
-          }
-          for (var k in typesObj) types.push(k);
+        var layers;
+        var layersshark;
 
-          var checkboxes = [];
-          for (var i = 0; i < types.length; i++) {
-            var item = filters.appendChild(document.createElement('div'));
-            var checkbox = item.appendChild(document.createElement('input'));
-            var label = item.appendChild(document.createElement('label'));
-            checkbox.type = 'checkbox';
-            checkbox.id = types[i];
-            checkbox.checked = true;
-            label.innerHTML = types[i];
-            label.setAttribute('for', types[i]);
-            checkbox.addEventListener('change', update);
-            checkboxes.push(checkbox);
-          }
-          function update() {
-            var enabled = {};
-            for (var i = 0; i < checkboxes.length; i++) {
-              if (checkboxes[i].checked) enabled[checkboxes[i].id] = true;
-            }
-            map.featureLayer.setFilter(function(feature) {
-              return (feature.properties['marker-symbol'] in enabled);
-            });
-          }
+        L.mapbox.featureLayer()
+          .loadURL('http://localhost:8080/allbuoys')
           // .addTo(map)
-          // .on('ready', function(e){
-            // var clusterGroup = new L.MarkerClusterGroup();
-            // e.target.eachLayer(function(layer){
-            //   clusterGroup.addLayer(layer);
-            // });
-            // map.addLayer(clusterGroup);
-            // var popup = L.popup()
-            // .setLatLng(latlng)
-            // .openOn(map);
+          .on('ready', function(e){
+            layers = e.target;
+            showStations();
           });
 
+        L.mapbox.featureLayer()
+          .loadURL('http://localhost:8080/allsharks')
+          .on('ready', function(e){
+            layersshark = e.target;
+            showStations();
+          });
 
-        // // calls get request for shark data
-        // var sharkmap = L.mapbox.featureLayer()
-        //   .loadURL('http://localhost:8080/allsharks')
-        //   // .addTo(map);
-        //   .on('ready', function(e){
-        //     var clusterShark = new L.MarkerClusterGroup();
-        //     e.target.eachLayer(function(layer){
-        //       clusterShark.addLayer(layer);
-        //     });
-        //     map.addLayer(clusterShark);
-        //     var popup = L.popup()
-        //     .setLatLng(latlng)
-        //     .openOn(map);
-        //   });
+        var filters = document.getElementById('toolbar').filters;
 
+        function showStations() {
+          var list = [];
+          for (var i = 0; i < filters.length; i++) {
+            if (filters[i].checked){
+              list.push(filters[i].value);
+            }
+          }
+          overlays.clearLayers();
+          var clusterGroup = new L.MarkerClusterGroup().addTo(overlays);
+          layers.eachLayer(function(layer){
+            if(list.indexOf(layer.feature.properties['marker-symbol']) !== -1){
+              clusterGroup.addLayer(layer);
+            }
+          });
+
+          layersshark.eachLayer(function(layer){
+            if(list.indexOf(layer.feature.properties['marker-symbol']) !== -1){
+              clusterGroup.addLayer(layer);
+            }
+          });
+        }
       </script>
     </div>
   </body>
