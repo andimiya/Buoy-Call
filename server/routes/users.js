@@ -6,17 +6,39 @@ const db = require('../models');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const Users = db.User;
+const passport = require('passport')
+
+function userAuthenticator(req, res, next){
+  if(req.isAuthenticated()){
+    console.log("yes!");
+    next();
+  } else {
+    console.log("nope didn't work");
+    res.redirect('/users/notLoggedInBro')
+  }
+}
+
+// function isLoggedIn(req){
+//   if(req.user){
+//     console.log(req.user.user);
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
 router.route('/')
   .get( (req, res) => {
     Users.findAll()
       .then( users => {
-        console.log('looking for all users', users)
+        //console.log('looking for all users', users)
         res.send(users);
       });
   })
 
-  .post( (req, res) =>{
+
+
+  .post(userAuthenticator, (req, res) =>{
     bcrypt.genSalt(saltRounds, function(err, salt) {
       bcrypt.hash(req.body.Password, salt, function(err, hash) {
         Users.create({
@@ -30,10 +52,22 @@ router.route('/')
         })
         .catch(err => {
           console.log("error goes here I.E. USER ALREADY EXISTS", err);
-          //redirect to making user again and/or flash the error message
         })
       })
     })
   })
 
+router.route('/login')
+  .post(passport.authenticate('local'), function(req, res){
+    console.log("successfully logged in")
+    res.send(req.user)
+  })
+
+router.route('/checkLogin')
+  .post(function(req,res){
+    console.log(req.user)
+    res.send(req.user)
+  })
+
   module.exports = router; 
+

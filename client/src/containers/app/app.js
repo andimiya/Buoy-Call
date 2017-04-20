@@ -1,63 +1,50 @@
 import React, { Component } from 'react';
-import Users from '../../components/Users.js';
 import NewUser from '../../components/NewUser.js';
-import Menu from '../../components/Menu.js';
-import Footer from '../../components/Footer.js';
-
-import users from '../../reducers/';
-
 import './app.css';
-
-import { createStore } from 'redux'; 
 import { connect } from 'react-redux';
-import { getAllUsers } from '../../lib';
 import { addUser } from '../../actions';
-
-let store = createStore(users);
+import { addUserToState } from '../../actions';
+import Footer from '../../components/Footer.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
-  
 
-
- componentWillMount(){
-  getAllUsers()
-  .then(data =>{
-    data.forEach(users =>{ 
-    this.props.getAllUsers(users.firstName, users.lastName, users.email, users.password);
+  xhrLoginCheck(){
+    return new Promise(function(resolve,reject){
+      function reqListener(){
+        resolve(this.responseText);
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('POST', '/api/users/checkLogin');
+      oReq.setRequestHeader('Content-type', 
+        'application/json')
+      oReq.addEventListener("load", reqListener)
+      oReq.send()
     })
-  })
- }
+  }
+
+  componentWillMount(){
+    this.xhrLoginCheck()
+    .then((userData)=>{
+      let user = JSON.parse(userData)
+      this.props.onAddUser(user.id, user.firstName, user.lastName, user.email)
+    })
+    .catch(function(err){
+      console.log("component will mount error",err)
+    })
+  }
+  
   render() {
     return (
       <div className="App">
         
-        <div className="header">
 
-          <div className="App-header">
-            <h1>BUOYAHHHHHHH</h1>
-          </div>
-
-          <div className="menu">
-          <Menu />
-          </div>
-
-        </div>
-
-         <div className="newUser">
-           <NewUser />
-         </div>
-         
-         <div className="curUsers">
-           <Users />
-         </div>
-
-         <div className="footer">
-         <Footer />
-         </div>
-
+       
+       <div className="footer">
+       <Footer />
+       </div>
       </div>
     );
   }
@@ -66,12 +53,16 @@ class App extends Component {
 const mapStateToProps = (state) => {
   console.log('mapping state to props', state)
   return {
-    users: state.users
+    users: state.users,
+    loggedInUser: state.loggedInUser
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return{
+    onAddUser:(id, firstName, lastName, email) => {
+      dispatch(addUserToState(id, firstName, lastName, email));
+    },
     getAllUsers:(firstName, lastName, email, password) =>{
       dispatch(addUser(firstName, lastName, email, password));
     }
