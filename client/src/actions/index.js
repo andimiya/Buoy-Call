@@ -1,4 +1,5 @@
 export const ADD_USER = 'ADD_USER';
+export const ADD_USER_TO_STATE = 'ADD_USER_TO_STATE';
 
 export function addUser( firstName, lastName, email, password){
   return {
@@ -7,5 +8,15 @@ export function addUser( firstName, lastName, email, password){
     lastName, 
     email,
     password
+  }
+}
+
+export function addUserToState(id, firstName, lastName, email){
+  return {
+    type: ADD_USER_TO_STATE,
+    id,
+    firstName,
+    lastName,
+    email
   }
 }
