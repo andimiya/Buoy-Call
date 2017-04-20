@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import NewUser from '../../components/NewUser.js';
+import Checkout from '../../components/stripe-checkout';
+import users from '../../reducers/';
+
+import './app.css';
+
+import { createStore } from 'redux';
+=======
 import './app.css';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
@@ -9,6 +16,12 @@ class App extends Component {
   constructor(props) {
     super(props);
   }
+
+ componentWillMount(){
+  getAllUsers()
+  .then(data =>{
+    data.forEach(users =>{
+    this.props.getAllUsers(users.firstName, users.lastName, users.email, users.password);
 
   xhrLoginCheck(){
     return new Promise(function(resolve,reject){
@@ -38,12 +51,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+
         <div className="App-header">
           <h2>WATER WORLD</h2>
+        </div>
+
+        <div className="newUser">
+          <NewUser />
+          </div>
         </div>   
        <div className="curUsers">
        </div>
+
+       <div className="stripe">
+        <Checkout />
+       </div>
+
       </div>
     );
   }
@@ -71,5 +94,5 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(
-    mapStateToProps, 
+    mapStateToProps,
     mapDispatchToProps)(App);
