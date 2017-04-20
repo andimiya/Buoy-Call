@@ -1,7 +1,7 @@
 .MakeNewUser{
   width:80%;
   margin:0 auto;
-  display: none;
+  display: block;
 }
 
 input[type=text]{
