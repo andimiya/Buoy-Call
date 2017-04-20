@@ -6,6 +6,7 @@ import './index.css';
 import auth from './lib/index.js';
 import { Provider } from 'react-redux';
 import Nav from './components/nav'
+import Graph from './components/Graph'
 import NewUser from './components/NewUser'
 import Login from './components/Login';
 import { createStore, applyMiddleware } from 'redux';
@@ -93,6 +94,8 @@ ReactDOM.render(
         <Route exact path="/login" component={Login} />
         <Route exact path="/secret" component={secret} />
         <Route exact path="/NewUser" component={NewUser} />
+        <Route exact path="/Graph" component={
+          Graph} />
       </div>
     </Router>
   </Provider>,
