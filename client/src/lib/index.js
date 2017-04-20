@@ -12,3 +12,34 @@ export function getAllUsers(){
     oReq.send();
   })
 }
+
+export const auth = {
+  login() {
+    return false
+    //if(loggedin){
+    //   return;
+    // }
+  },
+
+  test(){
+    console.log("hello")
+  },
+
+  getToken() {
+    return localStorage.token;
+  },
+
+  logout(cb) {
+    delete localStorage.token;
+    if(cb){
+      cb();
+      this.onChange(false);
+    }
+  },
+
+  loggedIn() {
+    return !!localStorage.token;
+  },
+
+  onChange(){}
+}
