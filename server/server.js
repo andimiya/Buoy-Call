@@ -7,17 +7,24 @@ const CONFIG = require('./config/config.json');
 const bodyParser = require('body-parser');
 const request = require('request');
 const methodOverride = require('method-override');
+const PORT = process.env.PORT || 8080
+;
+const stripe = require("stripe")('sk_test_tAmOhr34X7M9LtSFTFBeqHvM');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(
   session);
 const LocalStrategy = require('passport-local').Strategy;
-const PORT = process.env.PORT || 8080;
 
 const db = require('./models');
 const { Users, coordinates, buoydata } = db;
 const userRoute = require('./routes/users');
+
+app.use(express.static("public"));
+
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
 
 app.use(express.static('public'));
 app.use(cookieParser());
@@ -35,8 +42,8 @@ app.use(function(req, res, next){
 
 app.use(session({
   store: new RedisStore(),
-  secret: CONFIG.SESSION_SECRET, 
-  resave: false, 
+  secret: CONFIG.SESSION_SECRET,
+  resave: false,
   saveUnintialized: true
 }));
 
@@ -80,6 +87,27 @@ passport.serializeUser(function(user, done) {
   return done(null, user);
 });
 
+app.post('/charge', (req, res) => {
+  let amount = 500;
+  // console.log(req.body.id, 'Request BODY');
+  // stripe.customers.create({
+  //   email: req.body.email,
+  //   source: req.body.id
+  // })
+  // .then(customer => {
+    // console.log(customer, 'card');
+    stripe.charges.create({
+      amount,
+      currency: 'usd',
+      source: req.body.id
+      // customer: customer.id
+    })
+  .then(charge => {
+    console.log('payment done');
+    res.send('success');
+  })
+});
+
 passport.deserializeUser(function(user, done) {
   console.log("DESERIALIZEUSER",user)
   Users.findOne({
@@ -92,7 +120,6 @@ passport.deserializeUser(function(user, done) {
   });
 });
 
- 
 
 app.get('/allsharks', (req, res) => {
   request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
@@ -121,7 +148,7 @@ app.get('/allsharks', (req, res) => {
         geoJSON.features.push(newChild);
       }
       res.json(geoJSON);
-    })
+    });
   });
 });
 
@@ -157,6 +184,21 @@ app.get('/allbuoys', (req, res )=> {
   });
 });
 
+
+app.get('/somebuoys', (req, res )=> {
+    buoydata.findAll({
+      attributes: ['mm','dd','hh','wvht','wtmp'],
+      where: {
+        yy: 2012,
+        mm: 6,
+        buoyid: "41002"
+      }
+    })
+  .then((arr) => {
+    console.log(arr, 'arr');
+    res.json(arr);
+  });
+});
 
 app.listen(PORT, function(){
   console.log('server started on', PORT);

@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/app/app.js';
 import secret from './components/secret';
+import NewUser from './components/NewUser'
+import Nav from './components/nav'
+import Login from './components/Login';
+import Payment from './components/StripeCheckout';
 import './index.css';
 import auth from './lib/index.js';
 import { Provider } from 'react-redux';
-import Nav from './components/nav'
-import NewUser from './components/NewUser'
-import Login from './components/Login';
 import { createStore, applyMiddleware } from 'redux';
-import users from './reducers'; 
+import users from './reducers';
 import ReduxThunk from 'redux-thunk';
 import {
   BrowserRouter as Router,
@@ -20,7 +21,7 @@ import {
 
 
 let store = createStore(
-  users, 
+  users,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(ReduxThunk)
 );
@@ -50,7 +51,7 @@ let store = createStore(
 //     }
 //     let oReq = new XMLHttpRequest();
 //     oReq.open('POST', '/api/users/checkLogin');
-//     oReq.setRequestHeader('Content-type', 
+//     oReq.setRequestHeader('Content-type',
 //       'application/json')
 //     oReq.addEventListener("load", reqListener)
 //     oReq.send()
@@ -93,6 +94,7 @@ ReactDOM.render(
         <Route exact path="/login" component={Login} />
         <Route exact path="/secret" component={secret} />
         <Route exact path="/NewUser" component={NewUser} />
+        <Route exact path="/Payment" component={Payment} />
       </div>
     </Router>
   </Provider>,
