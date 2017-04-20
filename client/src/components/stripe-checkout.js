@@ -4,9 +4,15 @@ import StripeCheckout from 'react-stripe-checkout';
 class Checkout extends React.Component {
   onToken = (token) => {
     console.log(token, 'token');
-    fetch('http://localhost:8080/charge', {
+
+    var body = JSON.stringify(token);
+
+    console.log(body, 'body');
+
+    fetch('/charge', {
       method: 'POST',
-      body: token,
+      headers: {'Content-Type': 'application/json'},
+      body
     })
     .then(response => {
       response.json().then(data => {
