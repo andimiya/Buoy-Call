@@ -42,8 +42,8 @@ app.use(function(req, res, next){
 
 app.use(session({
   store: new RedisStore(),
-  secret: CONFIG.SESSION_SECRET, 
-  resave: false, 
+  secret: CONFIG.SESSION_SECRET,
+  resave: false,
   saveUnintialized: true
 }));
 
@@ -120,7 +120,7 @@ passport.deserializeUser(function(user, done) {
   });
 });
 
- 
+
 app.get('/allsharks', (req, res) => {
   request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
     Promise.resolve(JSON.parse(body))
@@ -184,6 +184,21 @@ app.get('/allbuoys', (req, res )=> {
   });
 });
 
+
+app.get('/somebuoys', (req, res )=> {
+    buoydata.findAll({
+      attributes: ['mm','dd','hh','wvht','wtmp'],
+      where: {
+        yy: 2012,
+        mm: 6,
+        buoyid: "41002"
+      }
+    })
+  .then((arr) => {
+    console.log(arr, 'arr');
+    res.json(arr);
+  });
+});
 
 app.listen(PORT, function(){
   console.log('server started on', PORT);
