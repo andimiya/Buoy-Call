@@ -2,23 +2,17 @@ import React, { Component } from 'react';
 import NewUser from '../../components/NewUser.js';
 import Checkout from '../../components/stripe-checkout';
 import users from '../../reducers/';
-
-import './app.css';
-
 import { createStore } from 'redux';
-=======
-import './app.css';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
+import './app.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
 
-  
-  
   render() {
     return (
       <div className="App">
