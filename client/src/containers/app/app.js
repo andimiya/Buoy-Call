@@ -55,14 +55,6 @@ class App extends Component {
         <div className="App-header">
           <h2>WATER WORLD</h2>
         </div>
-
-        <div className="newUser">
-          <NewUser />
-          </div>
-        </div>   
-       <div className="curUsers">
-       </div>
-
        <div className="stripe">
         <Checkout />
        </div>
