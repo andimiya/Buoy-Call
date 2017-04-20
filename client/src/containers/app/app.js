@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NewUser from '../../components/NewUser.js';
-import Checkout from '../../components/stripe-checkout';
+import Checkout from '../../components/StripeCheckout';
 import users from '../../reducers/';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';

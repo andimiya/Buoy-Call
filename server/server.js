@@ -9,7 +9,7 @@ const request = require('request');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 8080
 ;
-const stripe = require("stripe")('sk_test_smQEsCQhlXorJ2bxfvrYOqwR');
+const stripe = require("stripe")('sk_test_tAmOhr34X7M9LtSFTFBeqHvM');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -42,8 +42,8 @@ app.use(function(req, res, next){
 
 app.use(session({
   store: new RedisStore(),
-  secret: CONFIG.SESSION_SECRET, 
-  resave: false, 
+  secret: CONFIG.SESSION_SECRET,
+  resave: false,
   saveUnintialized: true
 }));
 
@@ -120,7 +120,7 @@ passport.deserializeUser(function(user, done) {
   });
 });
 
- 
+
 app.get('/allsharks', (req, res) => {
   request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
     Promise.resolve(JSON.parse(body))

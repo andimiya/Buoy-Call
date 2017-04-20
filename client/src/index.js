@@ -5,7 +5,7 @@ import secret from './components/secret';
 import NewUser from './components/NewUser'
 import Nav from './components/nav'
 import Login from './components/Login';
-import Payments from './components/StripeCheckout';
+import Payment from './components/StripeCheckout';
 import './index.css';
 import auth from './lib/index.js';
 import { Provider } from 'react-redux';
