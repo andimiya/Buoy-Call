@@ -21,12 +21,10 @@ class Checkout extends React.Component {
         description="Saving the Ocean"
         amount={500}
         currency="USD"
-        stripeKey="pk_test_iPd55BpU9blDhsX1734a5hr7"
+        stripeKey="pk_test_a82VbFeXcTfWOcbWyd7H0Wgt"
         locale="en"
         src="http://checkout.stripe.com/v2/checkout.js"
         class="stripe-button"
-        data-key="pk_test_iPd55BpU9blDhsX1734a5hr7"
-        data-locale="auto"
         alipay
         bitcoin
         token={this.onToken}
