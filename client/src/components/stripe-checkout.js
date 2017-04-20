@@ -14,26 +14,27 @@ class Checkout extends React.Component {
       headers: {'Content-Type': 'application/json'},
       body
     })
-    .then(response => {
-      response.json().then(data => {
-        console.log(data, 'payment data');
-        alert(`Payment was successful, thank you ${data.email}`);
-      });
-    })
+    .then(token => {
+      alert(`Success on front-end ${token.email}`);
+    });
   }
 
   render() {
     return (
       <StripeCheckout
-        stripeKey="pk_test_iPd55BpU9blDhsX1734a5hr7"
-        token={this.onToken}
         name="Larn Yay"
         description="Saving the Ocean"
-        currency="USD"
-        locale="en"
         amount={500}
+        currency="USD"
+        stripeKey="pk_test_iPd55BpU9blDhsX1734a5hr7"
+        locale="en"
+        src="http://checkout.stripe.com/v2/checkout.js"
+        class="stripe-button"
+        data-key="pk_test_iPd55BpU9blDhsX1734a5hr7"
+        data-locale="auto"
         alipay
         bitcoin
+        token={this.onToken}
         >
       </StripeCheckout>
     )
