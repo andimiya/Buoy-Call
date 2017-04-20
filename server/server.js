@@ -1,22 +1,37 @@
 /*jshint esversion:6 */
 
 const express = require('express');
+const bcrypt =  require('bcrypt');
 const app = express();
-const CONFIG = require('./config/config');
+const CONFIG = require('./config/config.json');
 const bodyParser = require('body-parser');
 const request = require('request');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 8080
 ;
+const stripe = require("stripe")('sk_test_smQEsCQhlXorJ2bxfvrYOqwR');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const RedisStore = require('connect-redis')(
+  session);
+const LocalStrategy = require('passport-local').Strategy;
 
 const db = require('./models');
 const { Users, coordinates, buoydata } = db;
 const userRoute = require('./routes/users');
 
+app.use(express.static("public"));
+
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
-app.use('/api/users', userRoute);
+app.use(express.static('public'));
+app.use(cookieParser());
+
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
+app.use('/api/users', userRoute)
 
 app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*");
@@ -25,10 +40,87 @@ app.use(function(req, res, next){
   next();
 });
 
-app.get('/', (req, res) =>{
-  res.send('please work');
+app.use(session({
+  store: new RedisStore(),
+  secret: CONFIG.SESSION_SECRET, 
+  resave: false, 
+  saveUnintialized: true
+}));
+
+
+app.use(session({
+  secret: CONFIG.SESSION_SECRET
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(
+  function(email, password, done){
+    console.log("email", email)
+    console.log("password", password)
+    Users.findOne({
+      where: {
+        email : email
+      }
+    }).then(user =>{
+      if(user === null){
+        return done(null, false, {message: 'bad info'})
+      } else {
+        bcrypt.compare(password, user.password).then(res => {
+          if(res){
+            console.log("good info / password")
+            return done(null, user, {message: 'good login'});
+          } else {
+            console.log("bad info / password")
+            return done(null, false, {message: 'bad info'});
+          }
+        })
+      }
+    }).catch(err =>{
+      res.end();
+    })
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  return done(null, user);
 });
 
+app.post('/charge', (req, res) => {
+  let amount = 500;
+  // console.log(req.body.id, 'Request BODY');
+  // stripe.customers.create({
+  //   email: req.body.email,
+  //   source: req.body.id
+  // })
+  // .then(customer => {
+    // console.log(customer, 'card');
+    stripe.charges.create({
+      amount,
+      currency: 'usd',
+      source: req.body.id
+      // customer: customer.id
+    })
+  .then(charge => {
+    console.log('payment done');
+    res.send('success');
+  })
+});
+
+passport.deserializeUser(function(user, done) {
+  console.log("DESERIALIZEUSER",user)
+  Users.findOne({
+    where: {
+      email: user.email
+    }
+  })
+  .then(user =>{
+    return done(null, user);
+  });
+});
+
+ 
 app.get('/allsharks', (req, res) => {
   request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
     Promise.resolve(JSON.parse(body))
@@ -91,6 +183,7 @@ app.get('/allbuoys', (req, res )=> {
       res.json(geoJSON);
   });
 });
+
 
 app.listen(PORT, function(){
   console.log('server started on', PORT);
