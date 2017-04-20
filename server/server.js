@@ -34,25 +34,24 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/charge', (req, res) => {
-  console.log(req.body, 'Request BODY');
+  let amount = 500;
+  // console.log(req.body.id, 'Request BODY');
   // stripe.customers.create({
   //   email: req.body.email,
-  //   card: req.body.id
+  //   source: req.body.id
   // })
   // .then(customer => {
-  //   console.log(customer, 'customer');
+    // console.log(customer, 'card');
     stripe.charges.create({
-      amount: 100,
-      description: "Example charge",
-      currency: "usd",
-      source: req.body.token,
+      amount,
+      currency: 'usd',
+      source: req.body.id
       // customer: customer.id
     })
-  // })
-    res.json({ success: req.body });
-    // .then(charge => res.send('success'))
-
-  // });
+  .then(charge => {
+    console.log('payment done');
+    res.send('success');
+  })
 });
 
 app.get('/allsharks', (req, res) => {
