@@ -2,7 +2,10 @@
 
 .APP{
   width: 100%;
+  overflow: none;
 }
+
+
 
 .header{
   border: solid thin red;
