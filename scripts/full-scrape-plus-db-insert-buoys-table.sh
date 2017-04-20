@@ -6,6 +6,430 @@ yearend=2016
 declare -a arr="
 41001
 41002
+41003
+41004
+41005
+41006
+41040
+41008
+41009
+41010
+41044
+41012
+41013
+41048
+41016
+41017
+41018
+41021
+41022
+41056
+41024
+41025
+41027
+41029
+41030
+41033
+41035
+41036
+41037
+41038
+41040
+41041
+41043
+41044
+41046
+41047
+41048
+41049
+41051
+41052
+41053
+41056
+41090
+41060
+41061
+41095
+41096
+41064
+41108
+41109
+41110
+41112
+41113
+41114
+41115
+41140
+41141
+41159
+41193
+41194
+41NT1
+41NT2
+42001
+42002
+42003
+42004
+42005
+42006
+42007
+42008
+42009
+42010
+42011
+42012
+42013
+42014
+42015
+42016
+42050
+42051
+42019
+42020
+42021
+42022
+42023
+42025
+42035
+42036
+42037
+42038
+42039
+42040
+42041
+42075
+42043
+42044
+42045
+42046
+42047
+42086
+42054
+42055
+42056
+42057
+42058
+42059
+42060
+42065
+42067
+42080
+42085
+42120
+42121
+42089
+42123
+42130
+42098
+42099
+42360
+42361
+42362
+42363
+42364
+42365
+42369
+42370
+42374
+42375
+42376
+42390
+42392
+42394
+42395
+42887
+42935
+42A02
+42A03
+42OTP
+43043
+44001
+44004
+44005
+44006
+44007
+44008
+44009
+44010
+44011
+44012
+44013
+44014
+44015
+44017
+44018
+44019
+44020
+44021
+44022
+44056
+44024
+44025
+44059
+44027
+44028
+44029
+44030
+44031
+44032
+44033
+44034
+44035
+44037
+44038
+44039
+44040
+44041
+44042
+44043
+44077
+44052
+44053
+44054
+44055
+44056
+44057
+44058
+44059
+44060
+44061
+44062
+44063
+44064
+44065
+44066
+44067
+44068
+44102
+44070
+44105
+44122
+44123
+44091
+44125
+44093
+44094
+44095
+44096
+44097
+44098
+44099
+44100
+44172
+44268
+45001
+45002
+45003
+45004
+45005
+45006
+45007
+45008
+45042
+45010
+45044
+45012
+45013
+45014
+45015
+45016
+45050
+45018
+45052
+45020
+45022
+45023
+45024
+45025
+45026
+45027
+45028
+45029
+45161
+45162
+45163
+45164
+45165
+45166
+45167
+45168
+45169
+45170
+45171
+45172
+45173
+45174
+45175
+45209
+45210
+46001
+46002
+46003
+46004
+46005
+46006
+46007
+46008
+46009
+46010
+46011
+46012
+46013
+46014
+46015
+46016
+46017
+46018
+46019
+46020
+46021
+46022
+46023
+46024
+46025
+46026
+46027
+46028
+46029
+46030
+46031
+46032
+46033
+46034
+46035
+46036
+46037
+46038
+46039
+46040
+46041
+46042
+46076
+46044
+46045
+46047
+46048
+46050
+46051
+46053
+46054
+46059
+46060
+46061
+46062
+46063
+46066
+46069
+46070
+46071
+46072
+46073
+46107
+46075
+46076
+46077
+46078
+46079
+46080
+46081
+46082
+46083
+46084
+46085
+46086
+46087
+46088
+46089
+46091
+46092
+46093
+46094
+46096
+46130
+46131
+46132
+46133
+46105
+46106
+46107
+46108
+46109
+46110
+46111
+46112
+46113
+46114
+46151
+46152
+46153
+46154
+46155
+46157
+46158
+46126
+46160
+46171
+46139
+46211
+46212
+46213
+46214
+46215
+46216
+46217
+46218
+46219
+46253
+46221
+46222
+46223
+46224
+46225
+46226
+46260
+46228
+46229
+46230
+46231
+46232
+46233
+46234
+46235
+46236
+46237
+46238
+46239
+46240
+46241
+46242
+46243
+46244
+46245
+46246
+46247
+46248
+46249
+46283
+46251
+46252
+46253
+46254
+46255
+46256
+46257
+46291
+46292
+46A35
+46A54
+47105
+48011
+48012
+48114
+48211
+48212
+48213
+48214
+48249
   "
 
 declare -a arr2="48249
@@ -678,25 +1102,42 @@ YGNN6
 YKRV2
 YKTV2 "
 
+psql -h localhost -p 5439 -U buoydbuser -d buoydb -c "
+CREATE TABLE buoydata(
+  BUOYID VARCHAR(5),
+  YY numeric,
+  MM numeric,
+  DD numeric,
+  hh numeric,
+  month numeric,
+  WDIR numeric,
+  WSPD numeric,
+  GST numeric,
+  WVHT numeric,
+  DPD numeric,
+  APD numeric,
+  MWD numeric,
+  PRES numeric,
+  ATMP numeric,
+  WTMP numeric,
+  DEWP numeric,
+  VIS numeric,
+  TIDE numeric);"
+
 for buoy in $arr; do
-  mkdir ../data/${buoy}
+  mkdir ./data/${buoy}
   for year in $(seq $yearstart $yearend); do
     res=$(curl -o /dev/null --silent --head --write-out '%{http_code}\n' http://www.ndbc.noaa.gov/view_text_file.php\?filename=${buoy}h${year}.txt.gz\&dir=data/historical/stdmet/ 200)
-    if [ ! -f ../data/${buoy}/buoy${buoy}-${year} ] && [[ $res != 404* ]]
+    if [ ! -f ../scripts/data/${buoy}/buoy${buoy}-${year} ] && [[ $res != 404* ]]
     then
-      curl -o ../data/${buoy}/buoy${buoy}-${year} http://www.ndbc.noaa.gov/view_text_file.php\?filename=${buoy}h${year}.txt.gz\&dir=data/historical/stdmet/
-      firstline=$(head -n 1 ../data/${buoy}/buoy${buoy}-${year})
-      filename=../data/${buoy}/buoy${buoy}-${year}
-      # echo $filename
-      csv=../data/csvs/buoy${buoy}-${year}.csv
+      curl -o ../scripts/data/${buoy}/buoy${buoy}-${year} http://www.ndbc.noaa.gov/view_text_file.php\?filename=${buoy}h${year}.txt.gz\&dir=data/historical/stdmet/
+      firstline=$(head -n 1 ../scripts/data/${buoy}/buoy${buoy}-${year})
+      filename=../scripts/data/${buoy}/buoy${buoy}-${year}
+      csv=../scripts/data/csvs/buoy${buoy}-${year}.csv
+      ADDCOLUMN=buoyid,
+      cat $filename | sed 's/ \{1,\}/,/g' | sed 's/'mm'/month/g' | awk 'NR != 2' | cut -d "#" -f 2 | sed -e '2,$s/^/'${buoy}',/' | sed '1s/.*/buoyid,&/' > $csv
 
-      cat $filename | sed 's/ \{1,\}/,/g' | sed 's/'mm'/month/g' | awk 'NR != 2' | cut -d "#" -f 2 > $csv
-
-      psql -d buoy --user=andrea -c "
-      CREATE TABLE buoy${buoy}(YY NUMERIC, MM NUMERIC,DD NUMERIC,hh NUMERIC,month NUMERIC,WDIR NUMERIC,WSPD NUMERIC,GST NUMERIC,WVHT NUMERIC,DPD NUMERIC,APD NUMERIC,MWD NUMERIC,PRES NUMERIC,ATMP NUMERIC,WTMP NUMERIC,DEWP NUMERIC,VIS NUMERIC,TIDE NUMERIC);"
-
-      psql -d buoy --user=andrea -c "
-      COPY buoy${buoy} FROM '/Users/Andrea/DevLeague/Final-Project/data/csvs/buoy${buoy}-${year}.csv' delimiter ',' csv header;"
+      cat $csv | psql -h localhost -p 5439 -U buoydbuser -d buoydb -c "COPY buoydata FROM stdin WITH DELIMITER ',' CSV HEADER";
 
 
     fi
@@ -707,4 +1148,3 @@ for buoy in $arr; do
     rm -rf ./${buoy}
   fi
 done
-

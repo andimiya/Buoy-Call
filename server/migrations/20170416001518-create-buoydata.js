@@ -1,10 +1,15 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('buoytables', {
+    return queryInterface.createTable('buoydata', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
       BUOYID: {
-        //index
-        type: Sequelize.NUMERIC
+        type: Sequelize.INTEGER
       },
       YY: {
         type: Sequelize.NUMERIC
@@ -59,10 +64,18 @@ module.exports = {
       },
       TIDE: {
         type: Sequelize.NUMERIC
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('buoytables');
+    return queryInterface.dropTable('buoydata');
   }
 };

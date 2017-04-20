@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var buoytable = sequelize.define('buoytable', {
-    BUOYID: DataTypes.NUMERIC,
+  var buoydata = sequelize.define('buoydata', {
+    BUOYID: DataTypes.INTEGER,
     YY: DataTypes.NUMERIC,
     MM: DataTypes.NUMERIC,
     DD: DataTypes.NUMERIC,
@@ -27,5 +27,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return buoytable;
+  return buoydata;
 };

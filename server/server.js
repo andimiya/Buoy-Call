@@ -5,6 +5,7 @@ const bcrypt =  require('bcrypt');
 const app = express();
 const CONFIG = require('./config/config.json');
 const bodyParser = require('body-parser');
+const request = require('request');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
@@ -14,8 +15,8 @@ const RedisStore = require('connect-redis')(
 const LocalStrategy = require('passport-local').Strategy;
 const PORT = process.env.PORT || 8080;
 
-const db = require('./models')
-let Users = db.User;
+const db = require('./models');
+const { Users, coordinates, buoydata } = db;
 const userRoute = require('./routes/users');
 
 app.use(express.static('public'));
@@ -23,14 +24,14 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
-
+app.use('/api/users', userRoute)
 
 app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Controll-Allow-Header", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Controll-Allow-Methods", "GET, POST, PUT, DELETE");
   next();
-})
+});
 
 app.use(session({
   store: new RedisStore(),
@@ -91,11 +92,74 @@ passport.deserializeUser(function(user, done) {
   });
 });
 
+ 
 
-app.use('/api/users', userRoute); 
+app.get('/allsharks', (req, res) => {
+  request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
+    Promise.resolve(JSON.parse(body))
+    .then((data) => {
+      let geoJSON = {};
+      geoJSON.type = "Feature Collection";
+      geoJSON.features = [];
+      for(let i = 0; i < data.length; i++){
+        let newChild = {};
+        newChild.type = "Feature";
+        newChild.properties = {
+          title: `Sharks name: ${data[i].name}<br>
+          Length: ${data[i].length}<br>
+          Weight: ${data[i].weight}<br>
+          Species: ${data[i].species}<br>
+          Last seen: ${data[i].pings[0].datetime}`,
+          'marker-symbol': 'star',
+          'marker-color': '#097BED'
+        };
+        newChild.geometry = {
+          type: "Point",
+          coordinates: [data[i].pings[0].longitude,
+          data[i].pings[0].latitude]
+        };
+        geoJSON.features.push(newChild);
+      }
+      res.json(geoJSON);
+    })
+  });
+});
+
+app.get('/allbuoys', (req, res )=> {
+  Promise.all([
+    coordinates.findAll({
+      attributes: ['buoyid', 'lat', 'long']
+    }),
+    buoydata.findOne({
+      attributes: ['buoyid', 'wvht']
+    })
+  ])
+  .then((arr) => {
+    let coordinates=arr[0];
+    let buoydata=arr[1];
+      let geoJSON = {};
+      geoJSON.type = "Feature Collection";
+      geoJSON.features = [];
+      for(let i = 0; i < coordinates.length; i++){
+        let newChild = {};
+        newChild.type = "Feature";
+        newChild.properties = {
+          title: `The current waveheight for this buoy is ${buoydata.dataValues.wvht}`,
+          'marker-symbol': 'lighthouse',
+        };
+        newChild.geometry = {
+          type: "Point",
+          coordinates: [coordinates[i].dataValues.long, coordinates[i].dataValues.lat]
+        };
+        geoJSON.features.push(newChild);
+      }
+      res.json(geoJSON);
+  });
+});
+
 
 app.listen(PORT, function(){
-  console.log('server started on', PORT)
+  console.log('server started on', PORT);
   db.sequelize.sync();
 });
 

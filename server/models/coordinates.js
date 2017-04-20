@@ -1,9 +1,9 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var namelatlong = sequelize.define('namelatlong', {
+  var coordinates = sequelize.define('coordinates', {
     buoyid: DataTypes.INTEGER,
-    latitude: DataTypes.INTEGER,
-    longitude: DataTypes.INTEGER
+    latitude: DataTypes.DECIMAL,
+    longitude: DataTypes.DECIMAL
   }, {
     classMethods: {
       associate: function(models) {
@@ -11,5 +11,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return namelatlong;
+  return coordinates;
 };
