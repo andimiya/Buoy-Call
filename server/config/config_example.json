@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "buoydbuser",
-    "password": "yeahbuoy",
+    "password": "PASSWORD",
     "database": "buoydb",
     "host": "localhost",
     "port": 5439,
