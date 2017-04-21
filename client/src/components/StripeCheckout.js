@@ -1,6 +1,6 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
-import config from '../../../config';
+import config from '../../config';
 
 class Checkout extends React.Component {
   onToken = (token) => {
