@@ -1,50 +1,30 @@
 import React, { Component } from 'react';
 import NewUser from '../../components/NewUser.js';
-import './app.css';
+import Checkout from '../../components/StripeCheckout';
+import users from '../../reducers/';
+import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
+<<<<<<< HEAD
 import Footer from '../../components/Footer.js';
+=======
+import './app.css';
+>>>>>>> development
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
 
-  xhrLoginCheck(){
-    return new Promise(function(resolve,reject){
-      function reqListener(){
-        resolve(this.responseText);
-      }
-      let oReq = new XMLHttpRequest();
-      oReq.open('POST', '/api/users/checkLogin');
-      oReq.setRequestHeader('Content-type', 
-        'application/json')
-      oReq.addEventListener("load", reqListener)
-      oReq.send()
-    })
-  }
-
-  componentWillMount(){
-    this.xhrLoginCheck()
-    .then((userData)=>{
-      let user = JSON.parse(userData)
-      this.props.onAddUser(user.id, user.firstName, user.lastName, user.email)
-    })
-    .catch(function(err){
-      console.log("component will mount error",err)
-    })
-  }
-  
   render() {
     return (
       <div className="App">
-        
-
        
        <div className="footer">
        <Footer />
        </div>
+
       </div>
     );
   }
@@ -72,5 +52,5 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(
-    mapStateToProps, 
+    mapStateToProps,
     mapDispatchToProps)(App);
