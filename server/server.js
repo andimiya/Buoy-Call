@@ -185,6 +185,20 @@ app.get('/allbuoys', (req, res )=> {
   });
 });
 
+app.get('/somebuoys', (req, res )=> {
+    buoydata.findAll({
+      attributes: ['mm','dd','hh','wvht','wtmp'],
+      where: {
+        yy: 2012,
+        mm: 6,
+        buoyid: "41002"
+      }
+    })
+  .then((arr) => {
+    console.log('arr', typeof(arr));
+    res.json(arr);
+  });
+});
 
 app.get('/somebuoys', (req, res )=> {
     buoydata.findAll({
