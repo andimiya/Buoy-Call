@@ -13,7 +13,7 @@ class Checkout extends React.Component {
     .then((success) => {
       console.log("Success",success)
       if(success){
-        this.props.history.push('/homepage')
+        this.props.history.push('/confirmation')
       }
     })
   }
@@ -25,7 +25,7 @@ class Checkout extends React.Component {
         description="Saving the Ocean"
         amount={500}
         currency="USD"
-        stripeKey="pk_test_a82VbFeXcTfWOcbWyd7H0Wgt"
+        stripeKey={config.STRIPE.PUBLISHABLE_KEY}
         locale="en"
         src="http://checkout.stripe.com/v2/checkout.js"
         class="stripe-button"
