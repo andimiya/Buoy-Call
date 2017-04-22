@@ -21,7 +21,6 @@ class App extends Component {
           <h2>WATER WORLD</h2>
         </div>
        <div className="stripe">
-        <Checkout />
        </div>
 
       </div>

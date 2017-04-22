@@ -32,9 +32,9 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/secret" component={secret} />
-        <Route exact path="/NewUser" component={NewUser} />
-        <Route exact path="/Payment" component={Payment} />
-        <Route exact path="/Confirmation" component={Confirmation} />
+        <Route exact path="/newuser" component={NewUser} />
+        <Route exact path="/payment" component={Payment} />
+        <Route exact path="/confirmation" component={Confirmation} />
       </div>
     </Router>
   </Provider>,
