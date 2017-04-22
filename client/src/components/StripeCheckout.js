@@ -10,9 +10,12 @@ class Checkout extends React.Component {
       headers: {'Content-Type': 'application/json'},
       body
     })
-    .then(token => {
-      alert(`Success on front-end ${token.email}`);
-    });
+    .then((success) => {
+      console.log("Success",success)
+      if(success){
+        this.props.history.push('/confirmation')
+      }
+    })
   }
 
   render() {

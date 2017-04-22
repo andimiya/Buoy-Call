@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
-import './app.css';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +21,6 @@ class App extends Component {
           <h2>WATER WORLD</h2>
         </div>
        <div className="stripe">
-        <Checkout />
        </div>
 
       </div>
