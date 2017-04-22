@@ -1,6 +1,4 @@
 import React from 'react';
-import './NewUser.css';
-import '../assets/red_buoy.svg' ;
 
 class NewUser extends React.Component{
   constructor(props) {
