@@ -30,66 +30,6 @@ let store = createStore(
 );
 
 
-<<<<<<< HEAD
-=======
-// function checkAuth(){
-//   let loggedIn = true;
-//   xhrLoginCheck()
-//   .then((data)=>{
-//     if(data){
-//       console.log(data)
-//       console.log("good/true")
-//       loggedIn = true
-//     } else {
-//       console.log("bad/false")
-//       loggedIn = false;
-//     }
-//   })
-//   return loggedIn
-  //needs a boolean return value here though.. otherwise this function just returns undefined.
-// }
-
-// function xhrLoginCheck(){
-//   return new Promise(function(resolve,reject){
-//     function reqListener(){
-//       resolve(JSON.parse(this.responseText));
-//     }
-//     let oReq = new XMLHttpRequest();
-//     oReq.open('POST', '/api/users/checkLogin');
-//     oReq.setRequestHeader('Content-type',
-//       'application/json')
-//     oReq.addEventListener("load", reqListener)
-//     oReq.send()
-//   })
-// }
-
-
-// const fakeAuth = {
-//   isAuthenticated: true,
-  //based on this value isAuthenticated, they can/cannot access the page that is within PrivateRoute tag
-  // authenticate(cb) {
-  //   this.isAuthenticated = true
-  //   setTimeout(cb, 100) // fake async
-  // },
-  // signout(cb) {
-  //   this.isAuthenticated = false
-  //   setTimeout(cb, 100)
-  // }
-// }
-
-// const PrivateRoute = ({ component: Component, ...rest }) => (
-//   <Route {...rest} render={props => (
-//     fakeAuth.isAuthenticated ? (
-//       <Component {...props}/>
-//     ) : (
-//       <Redirect to={{
-//         pathname: '/login',
-//         state: { from: props.location }
-//       }}/>
-//     )
-//   )}/>
-// )
->>>>>>> development
 
 ReactDOM.render(
   <Provider store={store}>
