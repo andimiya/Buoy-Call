@@ -6,12 +6,90 @@
 }
 
 
+/* HEADER & FOOTER */
 
-.header{
-  border: solid thin red;
-  position: absolute;
-  z-index: 10;
+
+.footer{
   height: 3rem;
-  width:90%;
-  margin-left:5%;
+  background: yellow;
+  bottom: 0;
+  position: absolute;
+  z-index: 100;
+  width: 90%;
+  margin-left: 5%;
 }
+
+/* NAVIGATION */
+
+.nav{
+  font-family: 'Asar', serif;
+  margin-top: 2em;
+  margin-left: 5%;
+  z-index: 1000;
+  position: absolute;
+  font-size: 20px;
+}
+
+.nav li{
+  display: inline;
+}
+.nav li a{
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.nav li a:visited{
+  color: black;
+}
+
+  .nav li:hover{
+  border-bottom:solid thick #FFD750;
+}
+
+/* Form Styling */
+
+.MakeNewUser{
+  background: red;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.Login{
+  background: red;
+  width: 80%;
+  margin-left: 10%;
+}
+
+
+input[type=text], input[type=password]{
+ border:none;
+ border-bottom: 2px solid #b2b2b2;
+ height: 2em;
+ width: 30%;
+ margin-top:2em;
+ text-align: center;
+}
+
+
+input[type=text]:focus, input[type=password]:focus  {
+  border-bottom: 2px solid #FFD750;
+  outline: none;
+}
+
+
+
+input[type=submit]{
+  background-color: #B2b2B2;
+  text-decoration: none;
+  border:none ;
+  margin-top:2rem;
+  width: 10%;
+  margin: 0 auto;
+
+}
+
+input[type=submit]:hover{
+  background-color: #FFD750;
+}
+
+
