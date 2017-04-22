@@ -10,9 +10,12 @@ class Checkout extends React.Component {
       headers: {'Content-Type': 'application/json'},
       body
     })
-    .then(token => {
-      alert(`Success on front-end ${token.email}`);
-    });
+    .then((success) => {
+      console.log("Success",success)
+      if(success){
+        this.props.history.push('/homepage')
+      }
+    })
   }
 
   render() {
@@ -22,7 +25,7 @@ class Checkout extends React.Component {
         description="Saving the Ocean"
         amount={500}
         currency="USD"
-        stripeKey={config.STRIPE.PUBLISHABLE_KEY}
+        stripeKey="pk_test_a82VbFeXcTfWOcbWyd7H0Wgt"
         locale="en"
         src="http://checkout.stripe.com/v2/checkout.js"
         class="stripe-button"

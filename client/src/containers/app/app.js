@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
-import './app.css';
+import './App.css';
 
 class App extends Component {
   constructor(props) {

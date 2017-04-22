@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/app/app.js';
+import App from './containers/App/App.js';
 import secret from './components/secret';
 import NewUser from './components/NewUser'
 import Nav from './components/nav'
