@@ -7,7 +7,7 @@ import auth from './lib/index.js';
 import { Provider } from 'react-redux';
 import Graph from './components/Graph'
 import NewUser from './components/NewUser'
-import Nav from './components/nav';
+import Nav from './components/Nav';
 import Login from './components/Login';
 import Confirmation from './components/Confirmation';
 import Payment from './components/StripeCheckout';
