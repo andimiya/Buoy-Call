@@ -5,7 +5,7 @@ const router = express.Router();
 const db = require('../models');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const Users = db.User;
+const Users = db.Users;
 const passport = require('passport')
 
 function userAuthenticator(req, res, next){
@@ -17,6 +17,7 @@ function userAuthenticator(req, res, next){
     res.redirect('/users/notLoggedInBro')
   }
 }
+
 
 router.route('/')
   .get( (req, res) => {

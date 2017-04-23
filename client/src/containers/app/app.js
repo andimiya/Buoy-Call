@@ -3,10 +3,13 @@ import NewUser from '../../components/NewUser.js';
 import Checkout from '../../components/StripeCheckout';
 import Login from '../../components/Login.js';
 import users from '../../reducers/';
+import './app.css';
 import { createStore } from 'redux';
+import Checkout from '../../components/StripeCheckout';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
+
 import Footer from '../../components/Footer.js';
 
 import './app.css';
@@ -17,9 +20,11 @@ class App extends Component {
     super(props);
   }
 
+
   render() {
     return (
       <div className="App">
+
 
        
        <div className="footer">

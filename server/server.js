@@ -20,6 +20,12 @@ const LocalStrategy = require('passport-local').Strategy;
 const db = require('./models');
 const { Users, coordinates, buoydata } = db;
 const userRoute = require('./routes/users');
+const buoyRoute = require('./routes/buoy');
+
+app.use(express.static("public"));
+
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
@@ -31,7 +37,6 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
-app.use('/api/users', userRoute)
 
 app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*");
@@ -47,13 +52,15 @@ app.use(session({
   saveUnintialized: true
 }));
 
-
 app.use(session({
   secret: CONFIG.SESSION_SECRET
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/api/users', userRoute)
+app.use('/api/buoy', buoyRoute)
 
 passport.use(new LocalStrategy(
   function(email, password, done){
@@ -176,36 +183,6 @@ app.get('/allbuoys', (req, res )=> {
         geoJSON.features.push(newChild);
       }
       res.json(geoJSON);
-  });
-});
-
-app.get('/somebuoys', (req, res )=> {
-    buoydata.findAll({
-      attributes: ['mm','dd','hh','wvht','wtmp'],
-      where: {
-        yy: 2012,
-        mm: 6,
-        buoyid: "41002"
-      }
-    })
-  .then((arr) => {
-    console.log('arr', typeof(arr));
-    res.json(arr);
-  });
-});
-
-app.get('/somebuoys', (req, res )=> {
-    buoydata.findAll({
-      attributes: ['mm','dd','hh','wvht','wtmp'],
-      where: {
-        yy: 2012,
-        mm: 6,
-        buoyid: "41002"
-      }
-    })
-  .then((arr) => {
-    console.log(arr, 'arr');
-    res.json(arr);
   });
 });
 
