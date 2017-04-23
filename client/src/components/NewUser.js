@@ -1,4 +1,5 @@
 import React from 'react';
+
 class NewUser extends React.Component{
   constructor(props) {
     super(props);
@@ -62,12 +63,15 @@ class NewUser extends React.Component{
     render(){
       return(
         <div className="MakeNewUser">
-          <h3>Make a new User</h3>
+          <h1>Make a new User</h1>
+          <div className='text'>
+          <p>Sign up today and lets save our ocean!</p>
+          </div>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" onChange={this.handleChangeFirstName} placeholder="First Name" name="firstName" />
-            <input type="text" onChange={this.handleChangeLastName} placeholder="Last Name" name="lastName" />
-            <input type="text" placeholder="Email Address"onChange={this.handleChangeEmail} name='email address' />
-            <input type="password" placeholder="Password" onChange={this.handleChangePassword} name='password' />
+            <input type="text" onChange={this.handleChangeFirstName} placeholder="First Name" name="firstName" /><br/>
+            <input type="text" onChange={this.handleChangeLastName} placeholder="Last Name" name="lastName" /><br/>
+            <input type="text" placeholder="Email Address"onChange={this.handleChangeEmail} name='email address' /><br/>
+            <input type="password" placeholder="Password" onChange={this.handleChangePassword} name='password' /><br/>
             <input type="submit" value='Create New User' />
           </form>
         </div>

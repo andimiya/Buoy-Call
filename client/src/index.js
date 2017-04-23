@@ -20,12 +20,16 @@ import {
   Route
 } from 'react-router-dom';
 
+import Footer from './components/Footer.js';
+import Header from './components/Header.js';
+import './index.css';
 
 let store = createStore(
   users,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(ReduxThunk)
 );
+
 
 ReactDOM.render(
   <Provider store={store}>

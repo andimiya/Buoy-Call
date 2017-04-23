@@ -4,7 +4,10 @@ class Confirmation extends React.Component{
     render(){
       return(
         <div className="confirmation-page">
-          <h2>Thank you for your payment!</h2>
+          <div className="FPO">
+          <p>FPO</p>
+          </div>
+          <h1>You're pretty awesome!<br/>Thank you for your contribution</h1>
         </div>
       )
     }

@@ -1,0 +1,16 @@
+.nav{
+  border: solid thin red;
+  width: 90%;
+  margin-left: 5%;
+  z-index: 1000;
+  position: absolute;
+}
+
+.nav li{
+  display: inline;
+  margin-right: 1rem;
+}
+
+.nav li:hover{
+  background: yellow;
+}

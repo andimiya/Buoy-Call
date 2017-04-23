@@ -1,24 +1,116 @@
-.App {
+@import './reset.css';
+
+.APP{
+  width: 100%;
+  overflow: none;
+}
+
+h1{
+  font-family: 'Palanquin Dark', sans-serif;
   text-align: center;
+  font-size: 3em;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+/* HEADER & FOOTER */
+
+
+.footer{
+  height: 3rem;
+  background: yellow;
+  bottom: 1;
+  position: absolute;
+  z-index: 100;
+  width: 90%;
+  margin-left: 5%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 50px;
-  padding: 20px;
-  color: white;
+/* NAVIGATION */
+
+.nav{
+  font-family: 'Asar', serif;
+  margin-top: 2em;
+  margin-left: 5%;
+  z-index: 1000;
+  position: absolute;
+  font-size: 20px;
 }
 
-.App-intro {
-  font-size: large;
+.nav li{
+  display: inline;
+}
+.nav li a{
+  padding-right: 1rem;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.nav li a:visited{
+  color: black;
 }
+
+  .nav li:hover{
+  border-bottom:solid thick #FFD750;
+}
+
+/* General Styling */
+
+.MakeNewUser, .userLogIn, .confirmation-page, .stripe{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10rem;
+  position: absolute;
+}
+
+input[type=text], input[type=password]{
+ border:none;
+ border-bottom: 2px solid #b2b2b2;
+ height: 2em;
+ width: 30%;
+ margin-top:2em;
+ margin-left: 35%;
+ text-align: center;
+ font-size: 15px;
+}
+
+
+input[type=text]:focus, input[type=password]:focus  {
+  border-bottom: 2px solid #FFD750;
+  outline: none;
+}
+
+
+
+input[type=submit]{
+  background-color: #B2b2B2;
+  text-decoration: none;
+  border:none ;
+  margin-top:3rem;
+  width: 20%;
+  margin-left: 40%;
+
+}
+
+input[type=submit]:hover{
+  background-color: #FFD750;
+}
+
+.FPO{
+  width: 80%;
+  height: 20%;
+  margin-left: 10%;
+  background: red;
+}
+
+.text{
+  width: 10em;
+  margin: 3rem 45% ;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Asar', serif;
+}
+/* PAYMENT */
+
+.StripeCheckout {
+  background: red;
+}
+
+
