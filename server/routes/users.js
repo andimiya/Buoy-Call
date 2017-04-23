@@ -18,6 +18,7 @@ function userAuthenticator(req, res, next){
   }
 }
 
+
 router.route('/')
   .get( (req, res) => {
     Users.findAll()
