@@ -9,18 +9,23 @@ const request = require('request');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 8080
 ;
-const stripe = require("stripe")('sk_test_smQEsCQhlXorJ2bxfvrYOqwR');
+const stripeConfig = ('.././client/config');
+const stripe = require("stripe")(CONFIG.development.stripeSecretKey);
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(
   session);
 const LocalStrategy = require('passport-local').Strategy;
-
 const db = require('./models');
 const { Users, coordinates, buoydata } = db;
 const userRoute = require('./routes/users');
 const buoyRoute = require('./routes/buoy');
+
+app.use(express.static("public"));
+
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
@@ -32,8 +37,6 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
-app.use('/api/users', userRoute)
-app.use('/api/buoy', buoyRoute)
 
 app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*");
@@ -49,13 +52,15 @@ app.use(session({
   saveUnintialized: true
 }));
 
-
 app.use(session({
   secret: CONFIG.SESSION_SECRET
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/api/users', userRoute)
+app.use('/api/buoy', buoyRoute)
 
 passport.use(new LocalStrategy(
   function(email, password, done){
@@ -90,24 +95,19 @@ passport.serializeUser(function(user, done) {
 });
 
 app.post('/charge', (req, res) => {
-  let amount = 500;
-  // console.log(req.body.id, 'Request BODY');
-  // stripe.customers.create({
-  //   email: req.body.email,
-  //   source: req.body.id
-  // })
-  // .then(customer => {
-    // console.log(customer, 'card');
-    stripe.charges.create({
-      amount,
-      currency: 'usd',
-      source: req.body.id
-      // customer: customer.id
-    })
-  .then(charge => {
-    console.log('payment done');
-    res.send('success');
+  console.log(req.body.email, 'req BODY');
+  stripe.customers.create({
+    email: req.body.email,
+    source: req.body.id
   })
+  .then(customer =>
+    stripe.charges.create({
+      amount: 500,
+      currency: 'usd',
+      customer: customer.id
+    }))
+  .then(charge =>
+    res.send('success'));
 });
 
 passport.deserializeUser(function(user, done) {

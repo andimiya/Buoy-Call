@@ -1105,24 +1105,24 @@ YKTV2 "
 psql -h localhost -p 5439 -U buoydbuser -d buoydb -c "
 CREATE TABLE buoydata(
   BUOYID VARCHAR(5),
-  YY numeric,
-  MM numeric,
-  DD numeric,
-  hh numeric,
-  month numeric,
-  WDIR numeric,
-  WSPD numeric,
-  GST numeric,
-  WVHT numeric,
-  DPD numeric,
-  APD numeric,
-  MWD numeric,
-  PRES numeric,
-  ATMP numeric,
-  WTMP numeric,
-  DEWP numeric,
-  VIS numeric,
-  TIDE numeric);"
+  YY float,
+  MM float,
+  DD float,
+  hh float,
+  month float,
+  WDIR float,
+  WSPD float,
+  GST float,
+  WVHT float,
+  DPD float,
+  APD float,
+  MWD float,
+  PRES float,
+  ATMP float,
+  WTMP float,
+  DEWP float,
+  VIS float,
+  TIDE float);"
 
 for buoy in $arr; do
   mkdir ./data/${buoy}

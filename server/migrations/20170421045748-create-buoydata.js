@@ -12,58 +12,58 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       YY: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       MM: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       DD: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       hh: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       month: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       WDIR: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       WSPD: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       GST: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       WVHT: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       DPD: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       APD: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       MWD: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       PRES: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       ATMP: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       WTMP: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       DEWP: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       VIS: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       TIDE: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,

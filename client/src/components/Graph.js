@@ -44,10 +44,7 @@ class Graph extends Component {
     event.preventDefault()
     this.changeBuoyDataXHR()
     .then((data) => {
-      let newData = data.filter(function(value, index, Arr) {
-      return index % 24 == 0;
-      });
-      this.props.onAddGraphToState(newData)
+      this.props.onAddGraphToState(data)
     })
     .catch(function(err){
       console.log("change error", err)
@@ -58,7 +55,6 @@ class Graph extends Component {
     this.getBuoyData()
     .then((data) => {
       let newData = data.filter(function(value, index, Arr) {
-        console.log("value", value,"index",index,"Arr",Arr)
       return index % 168 == 0;
       });
       this.props.onAddGraphToState(newData)
