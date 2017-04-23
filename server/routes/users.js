@@ -1,8 +1,8 @@
-/*jshint esversion:6 */ 
+/*jshint esversion:6 */
 
 const express = require('express');
 const router = express.Router();
-const db = require('../models'); 
+const db = require('../models');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const Users = db.User;
@@ -18,15 +18,6 @@ function userAuthenticator(req, res, next){
   }
 }
 
-// function isLoggedIn(req){
-//   if(req.user){
-//     console.log(req.user.user);
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-
 router.route('/')
   .get( (req, res) => {
     Users.findAll()
@@ -35,8 +26,6 @@ router.route('/')
         res.send(users);
       });
   })
-
-
 
   .post(userAuthenticator, (req, res) =>{
     bcrypt.genSalt(saltRounds, function(err, salt) {
@@ -69,5 +58,4 @@ router.route('/checkLogin')
     res.send(req.user)
   })
 
-  module.exports = router; 
-
+  module.exports = router;
