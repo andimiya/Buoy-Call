@@ -64,7 +64,9 @@ class NewUser extends React.Component{
       return(
         <div className="MakeNewUser">
           <h1>Make a new User</h1>
+          <div className='text'>
           <p>Sign up today and lets save our ocean!</p>
+          </div>
           <form onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.handleChangeFirstName} placeholder="First Name" name="firstName" /><br/>
             <input type="text" onChange={this.handleChangeLastName} placeholder="Last Name" name="lastName" /><br/>
