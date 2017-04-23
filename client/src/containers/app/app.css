@@ -5,6 +5,12 @@
   overflow: none;
 }
 
+h1{
+  font-family: 'Palanquin Dark', sans-serif;
+  color: red;
+  text-align: center;
+  font-size: 3em;
+}
 
 /* HEADER & FOOTER */
 
@@ -12,7 +18,7 @@
 .footer{
   height: 3rem;
   background: yellow;
-  bottom: 0;
+  bottom: 1;
   position: absolute;
   z-index: 100;
   width: 90%;
@@ -34,7 +40,7 @@
   display: inline;
 }
 .nav li a{
-  margin-right: 1rem;
+  padding-right: 1rem;
   text-decoration: none;
 }
 
@@ -48,18 +54,12 @@
 
 /* Form Styling */
 
-.MakeNewUser{
-  background: red;
+.MakeNewUser, .userLogIn{
   width: 80%;
   margin-left: 10%;
+  margin-top: 10rem;
+  position: absolute;
 }
-
-.Login{
-  background: red;
-  width: 80%;
-  margin-left: 10%;
-}
-
 
 input[type=text], input[type=password]{
  border:none;
@@ -67,7 +67,9 @@ input[type=text], input[type=password]{
  height: 2em;
  width: 30%;
  margin-top:2em;
+ margin-left: 35%;
  text-align: center;
+ font-size: 15px;
 }
 
 
@@ -82,14 +84,15 @@ input[type=submit]{
   background-color: #B2b2B2;
   text-decoration: none;
   border:none ;
-  margin-top:2rem;
-  width: 10%;
-  margin: 0 auto;
+  margin-top:3rem;
+  width: 20%;
+  margin-left: 40%;
 
 }
 
 input[type=submit]:hover{
   background-color: #FFD750;
 }
+
 
 
