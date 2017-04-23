@@ -5,7 +5,6 @@ import Login from '../../components/Login.js';
 import users from '../../reducers/';
 import './app.css';
 import { createStore } from 'redux';
-import Checkout from '../../components/StripeCheckout';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
