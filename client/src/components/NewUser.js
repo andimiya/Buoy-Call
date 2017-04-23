@@ -63,10 +63,8 @@ class NewUser extends React.Component{
     render(){
       return(
         <div className="MakeNewUser">
-        <div className="redBuoy">
-        <img src="../assets/red_buoy.svg" />
-        </div>
-          <h3>Make a new User</h3>
+          <h1>Make a new User</h1>
+          <p>Sign up today and lets save our ocean!</p>
           <form onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.handleChangeFirstName} placeholder="First Name" name="firstName" /><br/>
             <input type="text" onChange={this.handleChangeLastName} placeholder="Last Name" name="lastName" /><br/>
