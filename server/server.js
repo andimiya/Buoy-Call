@@ -88,24 +88,19 @@ passport.serializeUser(function(user, done) {
 });
 
 app.post('/charge', (req, res) => {
-  let amount = 500;
-  // console.log(req.body.id, 'Request BODY');
-  // stripe.customers.create({
-  //   email: req.body.email,
-  //   source: req.body.id
-  // })
-  // .then(customer => {
-    // console.log(customer, 'card');
-    stripe.charges.create({
-      amount,
-      currency: 'usd',
-      source: req.body.id
-      // customer: customer.id
-    })
-  .then(charge => {
-    console.log('payment done');
-    res.send('success');
+  console.log(req.body.email, 'req BODY');
+  stripe.customers.create({
+    email: req.body.email,
+    source: req.body.id
   })
+  .then(customer =>
+    stripe.charges.create({
+      amount: 500,
+      currency: 'usd',
+      customer: customer.id
+    }))
+  .then(charge =>
+    res.send('success'));
 });
 
 passport.deserializeUser(function(user, done) {
