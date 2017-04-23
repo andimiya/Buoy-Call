@@ -7,7 +7,6 @@
 
 h1{
   font-family: 'Palanquin Dark', sans-serif;
-  color: red;
   text-align: center;
   font-size: 3em;
 }
@@ -52,9 +51,9 @@ h1{
   border-bottom:solid thick #FFD750;
 }
 
-/* Form Styling */
+/* General Styling */
 
-.MakeNewUser, .userLogIn{
+.MakeNewUser, .userLogIn, .confirmation-page, .stripe{
   width: 80%;
   margin-left: 10%;
   margin-top: 10rem;
@@ -94,5 +93,24 @@ input[type=submit]:hover{
   background-color: #FFD750;
 }
 
+.FPO{
+  width: 80%;
+  height: 20%;
+  margin-left: 10%;
+  background: red;
+}
+
+.text{
+  width: 10em;
+  margin: 3rem 45% ;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Asar', serif;
+}
+/* PAYMENT */
+
+.StripeCheckout {
+  background: red;
+}
 
 
