@@ -7,10 +7,10 @@ import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
-
 import Footer from '../../components/Footer.js';
 
 import './app.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -20,10 +20,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
        
        <div className="footer">
        <Footer />
        </div>
+
+       
 
       </div>
     );
