@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import Router from 'react-router';
 import { connect } from 'react-redux';
-import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, Legend } from 'recharts';
-
+import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, Legend, Area, AreaChart } from 'recharts';
+import { addGraphToState } from '../actions';
 
 class Graph extends Component {
   constructor(props){
     super(props)
-  }
 
-  buoyData = [{mm:6,dd:28,hh:14,wvht:2.55,wtmp:25.3},{mm:6,dd:28,hh:15,wvht:2.43,wtmp:25.3},{mm:6,dd:28,hh:16,wvht:2.47,wtmp:25.3},{mm:6,dd:28,hh:17,wvht:2.27,wtmp:25.4},{mm:6,dd:28,hh:18,wvht:2.39,wtmp:25.4},{mm:6,dd:28,hh:19,wvht:2.15,wtmp:25.3},{mm:6,dd:28,hh:20,wvht:2.05,wtmp:25.3},{mm:6,dd:28,hh:21,wvht:2.29,wtmp:25.3},{mm:6,dd:28,hh:22,wvht:2.00,wtmp:25.3},{mm:6,dd:28,hh:23,wvht:1.98,wtmp:25.3},{mm:6,dd:29,hh:0,wvht:1.85,wtmp:25.3},{mm:6,dd:29,hh:1,wvht:1.89,wtmp:25.3},{mm:6,dd:29,hh:2,wvht:1.56,wtmp:25.3},{mm:6,dd:29,hh:3,wvht:1.73,wtmp:25.2},{mm:6,dd:29,hh:4,wvht:1.49,wtmp:25.2},{mm:6,dd:29,hh:5,wvht:1.42,wtmp:25.2},{mm:6,dd:29,hh:6,wvht:1.51,wtmp:25.2},{mm:6,dd:29,hh:7,wvht:1.55,wtmp:25.3},{mm:6,dd:29,hh:8,wvht:1.41,wtmp:25.2},{mm:6,dd:29,hh:9,wvht:1.33,wtmp:25.2},{mm:6,dd:29,hh:10,wvht:1.46,wtmp:25.2},{mm:6,dd:29,hh:11,wvht:1.43,wtmp:25.2},{mm:6,dd:29,hh:12,wvht:1.20,wtmp:25.2},{mm:6,dd:29,hh:13,wvht:1.35,wtmp:25.2},{mm:6,dd:29,hh:14,wvht:1.29,wtmp:25.3},{mm:6,dd:29,hh:15,wvht:1.27,wtmp:25.3},{mm:6,dd:29,hh:16,wvht:1.18,wtmp:25.4},{mm:6,dd:29,hh:17,wvht:1.19,wtmp:25.4},{mm:6,dd:29,hh:18,wvht:1.20,wtmp:25.5},{mm:6,dd:29,hh:19,wvht:1.22,wtmp:25.5},{mm:6,dd:29,hh:20,wvht:1.21,wtmp:25.5},{mm:6,dd:29,hh:21,wvht:1.24,wtmp:25.5},{mm:6,dd:29,hh:22,wvht:1.20,wtmp:25.4},{mm:6,dd:29,hh:23,wvht:1.19,wtmp:25.4},{mm:6,dd:30,hh:0,wvht:1.22,wtmp:25.3},{mm:6,dd:30,hh:1,wvht:1.19,wtmp:25.3},{mm:6,dd:30,hh:2,wvht:1.27,wtmp:25.3},{mm:6,dd:30,hh:3,wvht:1.35,wtmp:25.3},{mm:6,dd:30,hh:4,wvht:1.38,wtmp:25.3},{mm:6,dd:30,hh:5,wvht:1.41,wtmp:25.3},{mm:6,dd:30,hh:6,wvht:1.45,wtmp:25.2},{mm:6,dd:30,hh:7,wvht:1.39,wtmp:25.2},{mm:6,dd:30,hh:8,wvht:1.41,wtmp:25.2},{mm:6,dd:30,hh:9,wvht:1.40,wtmp:25.2},{mm:6,dd:30,hh:10,wvht:1.43,wtmp:25.2},{mm:6,dd:30,hh:11,wvht:1.36,wtmp:25.2},{mm:6,dd:30,hh:12,wvht:1.39,wtmp:25.2},{mm:6,dd:30,hh:13,wvht:1.36,wtmp:25.3},{mm:6,dd:30,hh:14,wvht:1.38,wtmp:25.3},{mm:6,dd:30,hh:15,wvht:1.36,wtmp:25.4},{mm:6,dd:30,hh:16,wvht:1.43,wtmp:25.4},{mm:6,dd:30,hh:17,wvht:1.40,wtmp:25.5},{mm:6,dd:30,hh:18,wvht:1.37,wtmp:25.5},{mm:6,dd:30,hh:19,wvht:1.44,wtmp:25.6},{mm:6,dd:30,hh:20,wvht:1.42,wtmp:25.6},{mm:6,dd:30,hh:21,wvht:1.47,wtmp:25.6},{mm:6,dd:30,hh:22,wvht:1.37,wtmp:25.6},{mm:6,dd:30,hh:23,wvht:1.32,wtmp:25.6},{mm:6,dd:11,hh:2,wvht:0.80,wtmp:25.8},{mm:6,dd:1,hh:0,wvht:1.21,wtmp:25.7},{mm:6,dd:1,hh:1,wvht:1.18,wtmp:25.6},{mm:6,dd:1,hh:2,wvht:1.18,wtmp:25.7},{mm:6,dd:1,hh:3,wvht:1.28,wtmp:25.6},{mm:6,dd:1,hh:4,wvht:1.28,wtmp:25.5},{mm:6,dd:1,hh:5,wvht:1.35,wtmp:25.6},{mm:6,dd:1,hh:6,wvht:1.36,wtmp:25.6},{mm:6,dd:1,hh:7,wvht:1.32,wtmp:25.6},{mm:6,dd:1,hh:8,wvht:1.32,wtmp:25.5},{mm:6,dd:1,hh:9,wvht:1.21,wtmp:25.4},{mm:6,dd:1,hh:10,wvht:1.16,wtmp:25.4},{mm:6,dd:1,hh:11,wvht:1.06,wtmp:25.5},{mm:6,dd:1,hh:12,wvht:1.00,wtmp:25.5},{mm:6,dd:1,hh:13,wvht:0.97,wtmp:25.5},{mm:6,dd:1,hh:14,wvht:0.88,wtmp:25.6},{mm:6,dd:1,hh:15,wvht:0.94,wtmp:25.7},{mm:6,dd:1,hh:16,wvht:0.87,wtmp:25.8},{mm:6,dd:1,hh:17,wvht:0.80,wtmp:25.9},{mm:6,dd:1,hh:18,wvht:0.83,wtmp:25.8},{mm:6,dd:1,hh:19,wvht:0.86,wtmp:25.8},{mm:6,dd:1,hh:20,wvht:1.05,wtmp:25.8},{mm:6,dd:1,hh:21,wvht:1.04,wtmp:25.8},{mm:6,dd:1,hh:22,wvht:0.99,wtmp:25.7},{mm:6,dd:1,hh:23,wvht:0.91,wtmp:25.7},{mm:6,dd:2,hh:0,wvht:0.94,wtmp:25.7},{mm:6,dd:2,hh:1,wvht:1.13,wtmp:25.7},{mm:6,dd:2,hh:2,wvht:1.10,wtmp:25.6},{mm:6,dd:2,hh:3,wvht:1.06,wtmp:25.5},{mm:6,dd:2,hh:4,wvht:1.02,wtmp:25.4},{mm:6,dd:2,hh:5,wvht:1.01,wtmp:25.3},{mm:6,dd:2,hh:6,wvht:0.96,wtmp:25.3},{mm:6,dd:2,hh:7,wvht:0.98,wtmp:25.2},{mm:6,dd:2,hh:8,wvht:1.29,wtmp:25.2},{mm:6,dd:2,hh:9,wvht:1.38,wtmp:25.1},{mm:6,dd:2,hh:10,wvht:1.50,wtmp:25.1},{mm:6,dd:2,hh:11,wvht:1.58,wtmp:25.1},{mm:6,dd:2,hh:12,wvht:1.53,wtmp:25.0},{mm:6,dd:2,hh:13,wvht:1.62,wtmp:25.0},{mm:6,dd:2,hh:14,wvht:1.80,wtmp:25.0},{mm:6,dd:2,hh:15,wvht:1.83,wtmp:25.1},{mm:6,dd:2,hh:16,wvht:1.78,wtmp:25.1},{mm:6,dd:2,hh:17,wvht:1.87,wtmp:25.2},{mm:6,dd:2,hh:18,wvht:1.86,wtmp:25.2},{mm:6,dd:2,hh:19,wvht:1.71,wtmp:25.3},{mm:6,dd:2,hh:20,wvht:1.71,wtmp:25.4},{mm:6,dd:2,hh:21,wvht:1.76,wtmp:25.3},{mm:6,dd:2,hh:22,wvht:1.57,wtmp:25.3},{mm:6,dd:2,hh:23,wvht:1.53,wtmp:25.2},{mm:6,dd:3,hh:0,wvht:1.65,wtmp:25.2},{mm:6,dd:3,hh:1,wvht:1.56,wtmp:25.2},{mm:6,dd:3,hh:2,wvht:1.65,wtmp:25.2},{mm:6,dd:3,hh:3,wvht:1.60,wtmp:25.2},{mm:6,dd:3,hh:4,wvht:1.64,wtmp:25.2},{mm:6,dd:3,hh:5,wvht:1.73,wtmp:25.2},{mm:6,dd:3,hh:6,wvht:1.54,wtmp:25.2},{mm:6,dd:3,hh:7,wvht:1.55,wtmp:25.2},{mm:6,dd:3,hh:8,wvht:1.54,wtmp:25.2},{mm:6,dd:3,hh:9,wvht:1.49,wtmp:25.2},{mm:6,dd:3,hh:10,wvht:1.55,wtmp:25.2},{mm:6,dd:3,hh:11,wvht:1.48,wtmp:25.2},{mm:6,dd:3,hh:12,wvht:1.51,wtmp:25.2},{mm:6,dd:3,hh:13,wvht:1.59,wtmp:25.2},{mm:6,dd:3,hh:14,wvht:1.50,wtmp:25.3},{mm:6,dd:3,hh:15,wvht:1.40,wtmp:25.3},{mm:6,dd:3,hh:16,wvht:1.44,wtmp:25.4},{mm:6,dd:3,hh:17,wvht:1.22,wtmp:25.4},{mm:6,dd:3,hh:18,wvht:1.32,wtmp:25.5},{mm:6,dd:3,hh:19,wvht:1.27,wtmp:25.5},{mm:6,dd:3,hh:20,wvht:1.23,wtmp:25.5},{mm:6,dd:3,hh:21,wvht:1.29,wtmp:25.5},{mm:6,dd:3,hh:22,wvht:1.40,wtmp:25.5},{mm:6,dd:3,hh:23,wvht:1.28,wtmp:25.5},{mm:6,dd:4,hh:0,wvht:1.25,wtmp:25.5},{mm:6,dd:4,hh:1,wvht:1.18,wtmp:25.4},{mm:6,dd:4,hh:2,wvht:1.14,wtmp:25.4},{mm:6,dd:4,hh:3,wvht:1.18,wtmp:25.4},{mm:6,dd:4,hh:4,wvht:1.19,wtmp:25.3},{mm:6,dd:4,hh:5,wvht:1.15,wtmp:25.3},{mm:6,dd:4,hh:6,wvht:1.22,wtmp:25.3},{mm:6,dd:4,hh:7,wvht:1.27,wtmp:25.3},{mm:6,dd:4,hh:8,wvht:1.25,wtmp:25.3},{mm:6,dd:4,hh:9,wvht:1.14,wtmp:25.3},{mm:6,dd:4,hh:10,wvht:1.08,wtmp:25.2},{mm:6,dd:4,hh:11,wvht:0.97,wtmp:25.2},{mm:6,dd:4,hh:12,wvht:0.91,wtmp:25.1},{mm:6,dd:4,hh:13,wvht:0.90,wtmp:25.1},{mm:6,dd:4,hh:14,wvht:1.05,wtmp:25.1},{mm:6,dd:4,hh:15,wvht:1.12,wtmp:25.1},{mm:6,dd:4,hh:16,wvht:1.29,wtmp:25.1},{mm:6,dd:4,hh:17,wvht:1.44,wtmp:25.1},{mm:6,dd:4,hh:18,wvht:1.80,wtmp:25.1},{mm:6,dd:4,hh:19,wvht:1.80,wtmp:25.1},{mm:6,dd:4,hh:20,wvht:1.75,wtmp:25.1},{mm:6,dd:4,hh:21,wvht:2.29,wtmp:25.0},{mm:6,dd:4,hh:22,wvht:2.31,wtmp:25.0},{mm:6,dd:4,hh:23,wvht:2.66,wtmp:24.9},{mm:6,dd:5,hh:0,wvht:2.51,wtmp:24.9},{mm:6,dd:5,hh:1,wvht:2.36,wtmp:24.8},{mm:6,dd:5,hh:2,wvht:2.01,wtmp:24.8},{mm:6,dd:5,hh:3,wvht:2.08,wtmp:24.8},{mm:6,dd:5,hh:4,wvht:1.68,wtmp:24.8},{mm:6,dd:5,hh:5,wvht:1.79,wtmp:24.8},{mm:6,dd:5,hh:6,wvht:1.69,wtmp:24.8},{mm:6,dd:5,hh:7,wvht:1.64,wtmp:24.8},{mm:6,dd:5,hh:8,wvht:1.59,wtmp:24.8},{mm:6,dd:5,hh:9,wvht:1.50,wtmp:24.8},{mm:6,dd:5,hh:10,wvht:1.64,wtmp:24.7},{mm:6,dd:5,hh:11,wvht:1.41,wtmp:24.7},{mm:6,dd:5,hh:12,wvht:1.59,wtmp:24.7},{mm:6,dd:5,hh:13,wvht:1.29,wtmp:24.8},{mm:6,dd:5,hh:14,wvht:1.33,wtmp:25.1},{mm:6,dd:5,hh:15,wvht:1.27,wtmp:25.4},{mm:6,dd:5,hh:16,wvht:1.22,wtmp:25.5},{mm:6,dd:5,hh:17,wvht:1.07,wtmp:25.3},{mm:6,dd:5,hh:18,wvht:1.04,wtmp:25.2},{mm:6,dd:5,hh:19,wvht:0.96,wtmp:25.2},{mm:6,dd:5,hh:20,wvht:0.92,wtmp:25.4},{mm:6,dd:5,hh:21,wvht:0.91,wtmp:25.3},{mm:6,dd:5,hh:22,wvht:0.96,wtmp:25.2},{mm:6,dd:5,hh:23,wvht:0.93,wtmp:25.1},{mm:6,dd:6,hh:0,wvht:0.86,wtmp:25.0},{mm:6,dd:6,hh:1,wvht:0.95,wtmp:25.0},{mm:6,dd:6,hh:2,wvht:0.94,wtmp:25.0},{mm:6,dd:6,hh:3,wvht:1.02,wtmp:25.0},{mm:6,dd:6,hh:4,wvht:1.09,wtmp:24.9},{mm:6,dd:6,hh:5,wvht:1.11,wtmp:24.9},{mm:6,dd:6,hh:6,wvht:1.16,wtmp:24.9},{mm:6,dd:6,hh:7,wvht:1.22,wtmp:24.9},{mm:6,dd:6,hh:8,wvht:1.21,wtmp:24.9},{mm:6,dd:6,hh:9,wvht:1.51,wtmp:24.9},{mm:6,dd:6,hh:10,wvht:1.70,wtmp:24.9},{mm:6,dd:6,hh:11,wvht:1.67,wtmp:24.9},{mm:6,dd:6,hh:12,wvht:1.89,wtmp:24.9},{mm:6,dd:6,hh:13,wvht:1.61,wtmp:24.9},{mm:6,dd:6,hh:14,wvht:1.59,wtmp:24.9},{mm:6,dd:6,hh:15,wvht:1.95,wtmp:24.8},{mm:6,dd:6,hh:16,wvht:1.80,wtmp:24.9},{mm:6,dd:6,hh:17,wvht:2.04,wtmp:24.9},{mm:6,dd:6,hh:18,wvht:2.14,wtmp:24.9},{mm:6,dd:6,hh:19,wvht:2.31,wtmp:24.9},{mm:6,dd:6,hh:20,wvht:2.19,wtmp:24.9},{mm:6,dd:6,hh:21,wvht:2.12,wtmp:24.9},{mm:6,dd:6,hh:22,wvht:2.27,wtmp:24.8},{mm:6,dd:6,hh:23,wvht:2.28,wtmp:24.8},{mm:6,dd:7,hh:0,wvht:2.19,wtmp:24.7},{mm:6,dd:7,hh:1,wvht:2.93,wtmp:24.8},{mm:6,dd:7,hh:2,wvht:2.79,wtmp:24.8},{mm:6,dd:7,hh:3,wvht:2.96,wtmp:24.8},{mm:6,dd:7,hh:4,wvht:3.10,wtmp:24.8},{mm:6,dd:7,hh:5,wvht:2.92,wtmp:24.8},{mm:6,dd:7,hh:6,wvht:2.78,wtmp:24.8},{mm:6,dd:7,hh:7,wvht:2.52,wtmp:24.8},{mm:6,dd:7,hh:8,wvht:2.45,wtmp:24.8},{mm:6,dd:7,hh:9,wvht:2.07,wtmp:24.8},{mm:6,dd:7,hh:10,wvht:2.08,wtmp:24.9},{mm:6,dd:7,hh:11,wvht:2.28,wtmp:24.9},{mm:6,dd:7,hh:12,wvht:2.18,wtmp:25.0},{mm:6,dd:7,hh:13,wvht:2.22,wtmp:25.0},{mm:6,dd:7,hh:14,wvht:2.22,wtmp:25.3},{mm:6,dd:7,hh:15,wvht:2.14,wtmp:25.5},{mm:6,dd:7,hh:16,wvht:1.86,wtmp:25.6},{mm:6,dd:7,hh:17,wvht:2.05,wtmp:25.8},{mm:6,dd:7,hh:18,wvht:1.75,wtmp:25.9},{mm:6,dd:7,hh:19,wvht:1.88,wtmp:26.0},{mm:6,dd:7,hh:20,wvht:1.62,wtmp:26.0},{mm:6,dd:7,hh:21,wvht:1.81,wtmp:26.0},{mm:6,dd:7,hh:22,wvht:1.66,wtmp:25.9},{mm:6,dd:7,hh:23,wvht:1.56,wtmp:25.8},{mm:6,dd:8,hh:0,wvht:1.62,wtmp:25.7},{mm:6,dd:8,hh:1,wvht:1.49,wtmp:25.7},{mm:6,dd:8,hh:2,wvht:1.57,wtmp:25.7},{mm:6,dd:8,hh:3,wvht:1.42,wtmp:25.7},{mm:6,dd:8,hh:4,wvht:1.37,wtmp:25.7},{mm:6,dd:8,hh:5,wvht:1.27,wtmp:25.6},{mm:6,dd:8,hh:6,wvht:1.25,wtmp:25.5},{mm:6,dd:8,hh:7,wvht:1.17,wtmp:25.4},{mm:6,dd:8,hh:8,wvht:1.10,wtmp:25.3},{mm:6,dd:8,hh:9,wvht:1.26,wtmp:25.3},{mm:6,dd:8,hh:10,wvht:1.13,wtmp:25.4},{mm:6,dd:8,hh:11,wvht:1.11,wtmp:25.4},{mm:6,dd:8,hh:12,wvht:1.12,wtmp:25.5},{mm:6,dd:8,hh:13,wvht:1.01,wtmp:25.5},{mm:6,dd:8,hh:14,wvht:1.03,wtmp:25.5},{mm:6,dd:8,hh:15,wvht:1.05,wtmp:25.5},{mm:6,dd:8,hh:16,wvht:1.04,wtmp:25.5},{mm:6,dd:8,hh:17,wvht:0.98,wtmp:25.6},{mm:6,dd:8,hh:18,wvht:1.06,wtmp:25.7},{mm:6,dd:8,hh:19,wvht:1.06,wtmp:25.7},{mm:6,dd:8,hh:20,wvht:1.05,wtmp:25.7},{mm:6,dd:8,hh:21,wvht:0.91,wtmp:25.7},{mm:6,dd:8,hh:22,wvht:0.97,wtmp:25.6},{mm:6,dd:8,hh:23,wvht:0.94,wtmp:25.5},{mm:6,dd:9,hh:0,wvht:0.96,wtmp:25.4},{mm:6,dd:9,hh:1,wvht:0.97,wtmp:25.3},{mm:6,dd:9,hh:2,wvht:0.85,wtmp:25.3},{mm:6,dd:9,hh:3,wvht:0.93,wtmp:25.2},{mm:6,dd:9,hh:4,wvht:0.90,wtmp:25.2},{mm:6,dd:9,hh:5,wvht:0.83,wtmp:25.2},{mm:6,dd:9,hh:6,wvht:0.88,wtmp:25.2},{mm:6,dd:9,hh:7,wvht:0.81,wtmp:25.2},{mm:6,dd:9,hh:8,wvht:0.81,wtmp:25.2},{mm:6,dd:9,hh:9,wvht:0.77,wtmp:25.2},{mm:6,dd:9,hh:10,wvht:0.74,wtmp:25.2},{mm:6,dd:9,hh:11,wvht:0.76,wtmp:25.2},{mm:6,dd:9,hh:12,wvht:0.71,wtmp:25.2},{mm:6,dd:9,hh:13,wvht:0.70,wtmp:25.2},{mm:6,dd:9,hh:14,wvht:0.70,wtmp:25.4},{mm:6,dd:9,hh:15,wvht:0.71,wtmp:25.5},{mm:6,dd:9,hh:16,wvht:0.69,wtmp:25.6},{mm:6,dd:9,hh:17,wvht:0.70,wtmp:25.8},{mm:6,dd:9,hh:18,wvht:0.66,wtmp:26.0},{mm:6,dd:9,hh:19,wvht:0.69,wtmp:26.1},{mm:6,dd:9,hh:20,wvht:0.66,wtmp:26.1},{mm:6,dd:9,hh:21,wvht:0.68,wtmp:26.1},{mm:6,dd:9,hh:22,wvht:0.68,wtmp:25.9},{mm:6,dd:9,hh:23,wvht:0.73,wtmp:25.7},{mm:6,dd:10,hh:0,wvht:0.71,wtmp:25.6},{mm:6,dd:10,hh:1,wvht:0.69,wtmp:25.5},{mm:6,dd:10,hh:2,wvht:0.68,wtmp:25.4},{mm:6,dd:10,hh:3,wvht:0.99,wtmp:25.2},{mm:6,dd:10,hh:4,wvht:0.61,wtmp:25.2},{mm:6,dd:10,hh:5,wvht:0.67,wtmp:25.1},{mm:6,dd:10,hh:6,wvht:0.62,wtmp:25.1},{mm:6,dd:10,hh:7,wvht:0.63,wtmp:25.2},{mm:6,dd:10,hh:8,wvht:0.60,wtmp:25.1},{mm:6,dd:10,hh:9,wvht:0.58,wtmp:25.0},{mm:6,dd:10,hh:10,wvht:0.59,wtmp:25.0},{mm:6,dd:10,hh:11,wvht:0.59,wtmp:25.1},{mm:6,dd:10,hh:12,wvht:0.61,wtmp:25.2},{mm:6,dd:10,hh:13,wvht:0.58,wtmp:25.5},{mm:6,dd:10,hh:14,wvht:0.61,wtmp:25.8},{mm:6,dd:10,hh:15,wvht:0.62,wtmp:26.0},{mm:6,dd:10,hh:16,wvht:0.60,wtmp:26.5},{mm:6,dd:10,hh:17,wvht:0.57,wtmp:27.0},{mm:6,dd:10,hh:18,wvht:0.62,wtmp:27.3},{mm:6,dd:10,hh:19,wvht:0.64,wtmp:27.2},{mm:6,dd:10,hh:20,wvht:0.63,wtmp:27.3},{mm:6,dd:10,hh:21,wvht:0.67,wtmp:26.9},{mm:6,dd:10,hh:22,wvht:0.68,wtmp:26.8},{mm:6,dd:10,hh:23,wvht:0.75,wtmp:26.4},{mm:6,dd:11,hh:0,wvht:0.78,wtmp:26.3},{mm:6,dd:11,hh:1,wvht:0.79,wtmp:26.2},{mm:6,dd:11,hh:3,wvht:0.79,wtmp:25.6},{mm:6,dd:11,hh:4,wvht:0.83,wtmp:25.4},{mm:6,dd:11,hh:5,wvht:0.75,wtmp:25.2},{mm:6,dd:11,hh:6,wvht:0.74,wtmp:25.3},{mm:6,dd:11,hh:7,wvht:0.74,wtmp:25.3},{mm:6,dd:11,hh:8,wvht:0.76,wtmp:25.3},{mm:6,dd:11,hh:9,wvht:0.72,wtmp:25.2},{mm:6,dd:11,hh:10,wvht:0.63,wtmp:25.1},{mm:6,dd:11,hh:11,wvht:0.62,wtmp:25.1},{mm:6,dd:11,hh:12,wvht:0.66,wtmp:25.1},{mm:6,dd:11,hh:13,wvht:0.65,wtmp:25.2},{mm:6,dd:11,hh:14,wvht:0.58,wtmp:25.4},{mm:6,dd:11,hh:15,wvht:0.65,wtmp:25.5},{mm:6,dd:11,hh:16,wvht:0.66,wtmp:25.6},{mm:6,dd:11,hh:17,wvht:0.56,wtmp:25.7},{mm:6,dd:11,hh:18,wvht:0.62,wtmp:26.0},{mm:6,dd:11,hh:19,wvht:0.71,wtmp:26.0},{mm:6,dd:11,hh:20,wvht:0.70,wtmp:26.1},{mm:6,dd:11,hh:21,wvht:0.74,wtmp:26.0},{mm:6,dd:11,hh:22,wvht:0.69,wtmp:25.9},{mm:6,dd:11,hh:23,wvht:0.66,wtmp:25.8},{mm:6,dd:12,hh:0,wvht:0.75,wtmp:25.7},{mm:6,dd:12,hh:1,wvht:0.65,wtmp:25.7},{mm:6,dd:12,hh:2,wvht:0.68,wtmp:25.6},{mm:6,dd:12,hh:3,wvht:0.69,wtmp:25.5},{mm:6,dd:12,hh:4,wvht:0.68,wtmp:25.5},{mm:6,dd:12,hh:5,wvht:0.63,wtmp:25.4},{mm:6,dd:12,hh:6,wvht:0.66,wtmp:25.4},{mm:6,dd:12,hh:7,wvht:0.57,wtmp:25.3},{mm:6,dd:12,hh:8,wvht:0.63,wtmp:25.3},{mm:6,dd:12,hh:9,wvht:0.64,wtmp:25.3},{mm:6,dd:12,hh:10,wvht:0.63,wtmp:25.2},{mm:6,dd:12,hh:11,wvht:0.65,wtmp:25.2},{mm:6,dd:12,hh:12,wvht:0.64,wtmp:25.2},{mm:6,dd:12,hh:13,wvht:0.66,wtmp:25.4},{mm:6,dd:12,hh:14,wvht:0.66,wtmp:25.5},{mm:6,dd:12,hh:15,wvht:0.62,wtmp:25.7},{mm:6,dd:12,hh:16,wvht:0.67,wtmp:25.8},{mm:6,dd:12,hh:17,wvht:0.65,wtmp:25.9},{mm:6,dd:12,hh:18,wvht:0.65,wtmp:26.0},{mm:6,dd:12,hh:19,wvht:0.68,wtmp:26.1},{mm:6,dd:12,hh:20,wvht:0.67,wtmp:26.0},{mm:6,dd:12,hh:21,wvht:0.65,wtmp:26.0},{mm:6,dd:12,hh:22,wvht:0.62,wtmp:25.8},{mm:6,dd:12,hh:23,wvht:0.67,wtmp:25.6},{mm:6,dd:13,hh:0,wvht:0.67,wtmp:25.5},{mm:6,dd:13,hh:1,wvht:0.70,wtmp:25.5},{mm:6,dd:13,hh:2,wvht:0.65,wtmp:25.4},{mm:6,dd:13,hh:3,wvht:0.71,wtmp:25.3},{mm:6,dd:13,hh:4,wvht:0.73,wtmp:25.3},{mm:6,dd:13,hh:5,wvht:0.79,wtmp:25.2},{mm:6,dd:13,hh:6,wvht:0.78,wtmp:25.1},{mm:6,dd:13,hh:7,wvht:0.79,wtmp:25.1},{mm:6,dd:13,hh:8,wvht:0.85,wtmp:25.1},{mm:6,dd:13,hh:9,wvht:0.90,wtmp:25.1},{mm:6,dd:13,hh:10,wvht:1.05,wtmp:25.1},{mm:6,dd:13,hh:11,wvht:1.00,wtmp:25.1},{mm:6,dd:13,hh:12,wvht:1.04,wtmp:25.1},{mm:6,dd:13,hh:13,wvht:1.17,wtmp:25.1},{mm:6,dd:13,hh:14,wvht:1.17,wtmp:25.1},{mm:6,dd:13,hh:15,wvht:1.21,wtmp:25.2},{mm:6,dd:13,hh:16,wvht:1.18,wtmp:25.2},{mm:6,dd:13,hh:17,wvht:1.16,wtmp:25.2},{mm:6,dd:13,hh:18,wvht:1.23,wtmp:25.2},{mm:6,dd:13,hh:19,wvht:1.22,wtmp:25.2},{mm:6,dd:13,hh:20,wvht:1.24,wtmp:25.2},{mm:6,dd:13,hh:21,wvht:1.27,wtmp:25.2},{mm:6,dd:13,hh:22,wvht:1.36,wtmp:25.2},{mm:6,dd:13,hh:23,wvht:1.39,wtmp:25.3},{mm:6,dd:14,hh:0,wvht:1.35,wtmp:25.4},{mm:6,dd:14,hh:1,wvht:1.21,wtmp:25.4},{mm:6,dd:14,hh:2,wvht:1.24,wtmp:25.4},{mm:6,dd:14,hh:3,wvht:1.27,wtmp:25.4},{mm:6,dd:14,hh:4,wvht:1.10,wtmp:25.3},{mm:6,dd:14,hh:5,wvht:1.13,wtmp:25.2},{mm:6,dd:14,hh:6,wvht:1.07,wtmp:25.1},{mm:6,dd:14,hh:7,wvht:1.01,wtmp:25.0},{mm:6,dd:14,hh:8,wvht:1.02,wtmp:25.0},{mm:6,dd:14,hh:9,wvht:1.07,wtmp:25.1},{mm:6,dd:14,hh:10,wvht:1.07,wtmp:25.2},{mm:6,dd:14,hh:11,wvht:0.98,wtmp:25.2},{mm:6,dd:14,hh:12,wvht:1.00,wtmp:25.3},{mm:6,dd:14,hh:13,wvht:1.01,wtmp:25.3},{mm:6,dd:14,hh:14,wvht:1.00,wtmp:25.4},{mm:6,dd:14,hh:15,wvht:1.14,wtmp:25.4},{mm:6,dd:14,hh:16,wvht:1.21,wtmp:25.6},{mm:6,dd:14,hh:17,wvht:1.28,wtmp:25.7},{mm:6,dd:14,hh:18,wvht:1.31,wtmp:25.7},{mm:6,dd:14,hh:19,wvht:1.25,wtmp:25.6},{mm:6,dd:14,hh:20,wvht:1.23,wtmp:25.5},{mm:6,dd:14,hh:21,wvht:1.42,wtmp:25.4},{mm:6,dd:14,hh:22,wvht:1.40,wtmp:25.4},{mm:6,dd:14,hh:23,wvht:1.56,wtmp:25.4},{mm:6,dd:15,hh:0,wvht:1.74,wtmp:25.3},{mm:6,dd:15,hh:1,wvht:1.95,wtmp:25.3},{mm:6,dd:15,hh:2,wvht:1.93,wtmp:25.3},{mm:6,dd:15,hh:3,wvht:2.40,wtmp:25.3},{mm:6,dd:15,hh:4,wvht:2.72,wtmp:25.3},{mm:6,dd:15,hh:5,wvht:3.32,wtmp:25.3},{mm:6,dd:15,hh:6,wvht:3.42,wtmp:25.2},{mm:6,dd:15,hh:7,wvht:3.68,wtmp:25.2},{mm:6,dd:15,hh:8,wvht:3.37,wtmp:25.2},{mm:6,dd:15,hh:9,wvht:3.34,wtmp:25.2},{mm:6,dd:15,hh:10,wvht:3.15,wtmp:25.2},{mm:6,dd:15,hh:11,wvht:3.15,wtmp:25.2},{mm:6,dd:15,hh:12,wvht:3.23,wtmp:25.2},{mm:6,dd:15,hh:13,wvht:3.13,wtmp:25.2},{mm:6,dd:15,hh:14,wvht:3.27,wtmp:25.2},{mm:6,dd:15,hh:15,wvht:3.22,wtmp:25.3},{mm:6,dd:15,hh:16,wvht:3.44,wtmp:25.3},{mm:6,dd:15,hh:17,wvht:3.20,wtmp:25.4},{mm:6,dd:15,hh:18,wvht:3.08,wtmp:25.4},{mm:6,dd:15,hh:19,wvht:3.05,wtmp:25.4},{mm:6,dd:15,hh:20,wvht:2.96,wtmp:25.4},{mm:6,dd:15,hh:21,wvht:3.20,wtmp:25.4},{mm:6,dd:15,hh:22,wvht:3.29,wtmp:25.4},{mm:6,dd:15,hh:23,wvht:3.57,wtmp:25.4},{mm:6,dd:16,hh:0,wvht:3.54,wtmp:25.4},{mm:6,dd:16,hh:1,wvht:3.23,wtmp:25.4},{mm:6,dd:16,hh:2,wvht:3.09,wtmp:25.4},{mm:6,dd:16,hh:3,wvht:3.55,wtmp:25.4},{mm:6,dd:16,hh:4,wvht:3.29,wtmp:25.4},{mm:6,dd:16,hh:5,wvht:3.04,wtmp:25.4},{mm:6,dd:16,hh:6,wvht:3.17,wtmp:25.4},{mm:6,dd:16,hh:7,wvht:3.02,wtmp:25.4},{mm:6,dd:16,hh:8,wvht:2.94,wtmp:25.3},{mm:6,dd:16,hh:9,wvht:2.89,wtmp:25.2},{mm:6,dd:16,hh:10,wvht:2.81,wtmp:25.1},{mm:6,dd:16,hh:11,wvht:2.57,wtmp:25.2},{mm:6,dd:16,hh:12,wvht:2.65,wtmp:25.2},{mm:6,dd:16,hh:13,wvht:2.55,wtmp:25.2},{mm:6,dd:16,hh:14,wvht:2.63,wtmp:25.2},{mm:6,dd:16,hh:15,wvht:2.66,wtmp:25.3},{mm:6,dd:16,hh:16,wvht:2.63,wtmp:25.3},{mm:6,dd:16,hh:17,wvht:2.47,wtmp:25.3},{mm:6,dd:16,hh:18,wvht:2.40,wtmp:25.3},{mm:6,dd:16,hh:19,wvht:2.49,wtmp:25.3},{mm:6,dd:16,hh:20,wvht:2.38,wtmp:25.3},{mm:6,dd:16,hh:21,wvht:2.59,wtmp:25.2},{mm:6,dd:16,hh:22,wvht:2.35,wtmp:25.2},{mm:6,dd:16,hh:23,wvht:2.53,wtmp:25.2},{mm:6,dd:17,hh:0,wvht:2.63,wtmp:25.2},{mm:6,dd:17,hh:1,wvht:2.36,wtmp:25.1},{mm:6,dd:17,hh:2,wvht:2.29,wtmp:25.1},{mm:6,dd:17,hh:3,wvht:2.37,wtmp:25.1},{mm:6,dd:17,hh:4,wvht:2.39,wtmp:25.2},{mm:6,dd:17,hh:5,wvht:2.36,wtmp:25.0},{mm:6,dd:17,hh:6,wvht:2.38,wtmp:25.0},{mm:6,dd:17,hh:7,wvht:2.05,wtmp:25.0},{mm:6,dd:17,hh:8,wvht:2.12,wtmp:25.0},{mm:6,dd:17,hh:9,wvht:2.00,wtmp:25.0},{mm:6,dd:17,hh:10,wvht:1.89,wtmp:25.0},{mm:6,dd:17,hh:11,wvht:2.15,wtmp:25.0},{mm:6,dd:17,hh:12,wvht:2.02,wtmp:25.0},{mm:6,dd:17,hh:13,wvht:2.11,wtmp:25.0},{mm:6,dd:17,hh:14,wvht:1.95,wtmp:25.0},{mm:6,dd:17,hh:15,wvht:1.89,wtmp:25.0},{mm:6,dd:17,hh:16,wvht:1.88,wtmp:25.1},{mm:6,dd:17,hh:17,wvht:1.66,wtmp:25.1},{mm:6,dd:17,hh:18,wvht:1.71,wtmp:25.1},{mm:6,dd:17,hh:19,wvht:1.74,wtmp:25.1},{mm:6,dd:17,hh:20,wvht:1.73,wtmp:25.1},{mm:6,dd:17,hh:21,wvht:1.69,wtmp:25.1},{mm:6,dd:17,hh:22,wvht:1.58,wtmp:25.1},{mm:6,dd:17,hh:23,wvht:1.62,wtmp:25.0},{mm:6,dd:18,hh:0,wvht:1.80,wtmp:25.0},{mm:6,dd:18,hh:1,wvht:1.76,wtmp:25.0},{mm:6,dd:18,hh:2,wvht:1.75,wtmp:24.9},{mm:6,dd:18,hh:3,wvht:1.86,wtmp:24.9},{mm:6,dd:18,hh:4,wvht:1.58,wtmp:24.9},{mm:6,dd:18,hh:5,wvht:1.64,wtmp:24.9},{mm:6,dd:18,hh:6,wvht:1.62,wtmp:24.8},{mm:6,dd:18,hh:7,wvht:1.83,wtmp:24.9},{mm:6,dd:18,hh:8,wvht:1.59,wtmp:24.9},{mm:6,dd:18,hh:9,wvht:1.48,wtmp:24.9},{mm:6,dd:18,hh:10,wvht:1.58,wtmp:24.9},{mm:6,dd:18,hh:11,wvht:1.64,wtmp:25.0},{mm:6,dd:18,hh:12,wvht:1.51,wtmp:25.0},{mm:6,dd:18,hh:13,wvht:1.53,wtmp:25.2},{mm:6,dd:18,hh:14,wvht:1.62,wtmp:25.4},{mm:6,dd:18,hh:15,wvht:1.58,wtmp:25.5},{mm:6,dd:18,hh:16,wvht:1.51,wtmp:25.6},{mm:6,dd:18,hh:17,wvht:1.53,wtmp:25.8},{mm:6,dd:18,hh:18,wvht:1.52,wtmp:25.8},{mm:6,dd:18,hh:19,wvht:1.40,wtmp:25.9},{mm:6,dd:18,hh:20,wvht:1.42,wtmp:25.9},{mm:6,dd:18,hh:21,wvht:1.44,wtmp:25.9},{mm:6,dd:18,hh:22,wvht:1.40,wtmp:25.7},{mm:6,dd:18,hh:23,wvht:1.58,wtmp:25.6},{mm:6,dd:19,hh:0,wvht:1.40,wtmp:25.6},{mm:6,dd:19,hh:1,wvht:1.50,wtmp:25.5},{mm:6,dd:19,hh:2,wvht:1.33,wtmp:25.5},{mm:6,dd:19,hh:3,wvht:1.28,wtmp:26.1},{mm:6,dd:19,hh:4,wvht:1.26,wtmp:25.8},{mm:6,dd:19,hh:5,wvht:1.23,wtmp:26.4},{mm:6,dd:19,hh:6,wvht:1.23,wtmp:26.6},{mm:6,dd:19,hh:7,wvht:1.10,wtmp:26.7},{mm:6,dd:19,hh:8,wvht:1.10,wtmp:26.7},{mm:6,dd:19,hh:9,wvht:1.07,wtmp:26.7},{mm:6,dd:19,hh:10,wvht:1.04,wtmp:26.7},{mm:6,dd:19,hh:11,wvht:1.01,wtmp:26.7},{mm:6,dd:19,hh:12,wvht:1.09,wtmp:26.8},{mm:6,dd:19,hh:13,wvht:1.06,wtmp:26.8},{mm:6,dd:19,hh:14,wvht:0.99,wtmp:26.9},{mm:6,dd:19,hh:15,wvht:1.11,wtmp:27.0},{mm:6,dd:19,hh:16,wvht:1.11,wtmp:27.1},{mm:6,dd:19,hh:17,wvht:1.03,wtmp:27.2},{mm:6,dd:19,hh:18,wvht:1.07,wtmp:27.2},{mm:6,dd:19,hh:19,wvht:1.16,wtmp:27.2},{mm:6,dd:19,hh:20,wvht:1.21,wtmp:27.2},{mm:6,dd:19,hh:21,wvht:1.19,wtmp:27.2},{mm:6,dd:19,hh:22,wvht:1.26,wtmp:27.1},{mm:6,dd:19,hh:23,wvht:1.16,wtmp:27.0},{mm:6,dd:20,hh:0,wvht:1.22,wtmp:26.9},{mm:6,dd:20,hh:1,wvht:1.20,wtmp:26.9},{mm:6,dd:20,hh:2,wvht:1.16,wtmp:26.8},{mm:6,dd:20,hh:3,wvht:1.10,wtmp:26.7},{mm:6,dd:20,hh:4,wvht:1.09,wtmp:26.8},{mm:6,dd:20,hh:5,wvht:1.14,wtmp:26.7},{mm:6,dd:20,hh:6,wvht:1.08,wtmp:26.7},{mm:6,dd:20,hh:7,wvht:1.12,wtmp:26.7},{mm:6,dd:20,hh:8,wvht:1.00,wtmp:26.6},{mm:6,dd:20,hh:9,wvht:1.10,wtmp:26.3},{mm:6,dd:20,hh:10,wvht:1.07,wtmp:26.5},{mm:6,dd:20,hh:11,wvht:0.96,wtmp:26.6},{mm:6,dd:20,hh:12,wvht:1.11,wtmp:26.7},{mm:6,dd:20,hh:13,wvht:1.01,wtmp:26.7},{mm:6,dd:20,hh:14,wvht:1.00,wtmp:26.9},{mm:6,dd:20,hh:15,wvht:0.90,wtmp:27.0},{mm:6,dd:20,hh:16,wvht:0.94,wtmp:27.0},{mm:6,dd:20,hh:17,wvht:1.01,wtmp:27.1},{mm:6,dd:20,hh:18,wvht:1.02,wtmp:27.1},{mm:6,dd:20,hh:19,wvht:1.08,wtmp:27.2},{mm:6,dd:20,hh:20,wvht:1.25,wtmp:27.1},{mm:6,dd:20,hh:21,wvht:1.23,wtmp:27.1},{mm:6,dd:20,hh:22,wvht:1.41,wtmp:27.1},{mm:6,dd:20,hh:23,wvht:1.06,wtmp:27.0},{mm:6,dd:21,hh:0,wvht:1.19,wtmp:26.9},{mm:6,dd:21,hh:1,wvht:1.28,wtmp:26.9},{mm:6,dd:21,hh:2,wvht:1.13,wtmp:26.9},{mm:6,dd:21,hh:3,wvht:1.13,wtmp:26.8},{mm:6,dd:21,hh:4,wvht:1.12,wtmp:26.6},{mm:6,dd:21,hh:5,wvht:1.17,wtmp:26.3},{mm:6,dd:21,hh:6,wvht:1.30,wtmp:26.2},{mm:6,dd:21,hh:7,wvht:1.20,wtmp:26.2},{mm:6,dd:21,hh:8,wvht:1.14,wtmp:26.2},{mm:6,dd:21,hh:9,wvht:1.02,wtmp:25.9},{mm:6,dd:21,hh:10,wvht:1.09,wtmp:25.9},{mm:6,dd:21,hh:11,wvht:1.06,wtmp:25.9},{mm:6,dd:21,hh:12,wvht:1.07,wtmp:25.9},{mm:6,dd:21,hh:13,wvht:1.00,wtmp:26.0},{mm:6,dd:21,hh:14,wvht:0.99,wtmp:26.2},{mm:6,dd:21,hh:15,wvht:1.07,wtmp:26.3},{mm:6,dd:21,hh:16,wvht:1.00,wtmp:26.4},{mm:6,dd:21,hh:17,wvht:0.95,wtmp:26.5},{mm:6,dd:21,hh:18,wvht:1.01,wtmp:26.8},{mm:6,dd:21,hh:19,wvht:0.98,wtmp:26.9},{mm:6,dd:21,hh:20,wvht:0.97,wtmp:26.9},{mm:6,dd:21,hh:21,wvht:0.93,wtmp:26.8},{mm:6,dd:21,hh:22,wvht:0.93,wtmp:26.7},{mm:6,dd:21,hh:23,wvht:0.99,wtmp:26.6},{mm:6,dd:22,hh:0,wvht:0.94,wtmp:26.6},{mm:6,dd:22,hh:1,wvht:0.90,wtmp:26.4},{mm:6,dd:22,hh:2,wvht:0.86,wtmp:26.3},{mm:6,dd:22,hh:3,wvht:0.89,wtmp:26.3},{mm:6,dd:22,hh:4,wvht:0.91,wtmp:26.3},{mm:6,dd:22,hh:5,wvht:0.86,wtmp:26.3},{mm:6,dd:22,hh:6,wvht:0.87,wtmp:26.1},{mm:6,dd:22,hh:7,wvht:0.89,wtmp:26.2},{mm:6,dd:22,hh:8,wvht:0.82,wtmp:26.1},{mm:6,dd:22,hh:9,wvht:0.85,wtmp:26.0},{mm:6,dd:22,hh:10,wvht:0.91,wtmp:26.0},{mm:6,dd:22,hh:11,wvht:0.78,wtmp:26.0},{mm:6,dd:22,hh:12,wvht:0.81,wtmp:26.0},{mm:6,dd:22,hh:13,wvht:0.79,wtmp:26.2},{mm:6,dd:22,hh:14,wvht:0.77,wtmp:26.4},{mm:6,dd:22,hh:15,wvht:0.79,wtmp:27.0},{mm:6,dd:22,hh:16,wvht:0.81,wtmp:27.3},{mm:6,dd:22,hh:17,wvht:0.79,wtmp:27.6},{mm:6,dd:22,hh:18,wvht:0.77,wtmp:27.8},{mm:6,dd:22,hh:19,wvht:0.74,wtmp:27.9},{mm:6,dd:22,hh:20,wvht:0.80,wtmp:27.9},{mm:6,dd:22,hh:21,wvht:0.81,wtmp:28.0},{mm:6,dd:22,hh:22,wvht:0.77,wtmp:27.7},{mm:6,dd:22,hh:23,wvht:0.83,wtmp:27.7},{mm:6,dd:23,hh:0,wvht:0.78,wtmp:27.3},{mm:6,dd:23,hh:1,wvht:0.85,wtmp:27.2},{mm:6,dd:23,hh:2,wvht:0.87,wtmp:27.0},{mm:6,dd:23,hh:3,wvht:0.83,wtmp:27.1},{mm:6,dd:23,hh:4,wvht:0.85,wtmp:27.0},{mm:6,dd:23,hh:5,wvht:0.82,wtmp:27.0},{mm:6,dd:23,hh:6,wvht:0.83,wtmp:27.0},{mm:6,dd:23,hh:7,wvht:0.84,wtmp:26.9},{mm:6,dd:23,hh:8,wvht:0.80,wtmp:27.0},{mm:6,dd:23,hh:9,wvht:0.78,wtmp:26.9},{mm:6,dd:23,hh:10,wvht:0.89,wtmp:26.9},{mm:6,dd:23,hh:11,wvht:0.79,wtmp:26.9},{mm:6,dd:23,hh:12,wvht:0.75,wtmp:26.9},{mm:6,dd:23,hh:13,wvht:0.78,wtmp:27.1},{mm:6,dd:23,hh:14,wvht:0.79,wtmp:27.1},{mm:6,dd:23,hh:15,wvht:0.72,wtmp:27.3},{mm:6,dd:23,hh:16,wvht:0.75,wtmp:27.4},{mm:6,dd:23,hh:17,wvht:0.70,wtmp:27.5},{mm:6,dd:23,hh:18,wvht:0.71,wtmp:27.6},{mm:6,dd:23,hh:19,wvht:0.71,wtmp:27.4},{mm:6,dd:23,hh:20,wvht:0.73,wtmp:27.4},{mm:6,dd:23,hh:21,wvht:0.75,wtmp:27.4},{mm:6,dd:23,hh:22,wvht:0.80,wtmp:27.2},{mm:6,dd:23,hh:23,wvht:0.79,wtmp:27.2},{mm:6,dd:24,hh:0,wvht:0.87,wtmp:27.2},{mm:6,dd:24,hh:1,wvht:0.82,wtmp:27.1},{mm:6,dd:24,hh:2,wvht:0.87,wtmp:27.1},{mm:6,dd:24,hh:3,wvht:0.91,wtmp:27.0},{mm:6,dd:24,hh:4,wvht:0.79,wtmp:27.0},{mm:6,dd:24,hh:5,wvht:0.77,wtmp:27.0},{mm:6,dd:24,hh:6,wvht:0.83,wtmp:27.0},{mm:6,dd:24,hh:7,wvht:0.76,wtmp:27.0},{mm:6,dd:24,hh:8,wvht:0.73,wtmp:27.0},{mm:6,dd:24,hh:9,wvht:0.70,wtmp:27.0},{mm:6,dd:24,hh:10,wvht:0.70,wtmp:27.0},{mm:6,dd:24,hh:11,wvht:0.73,wtmp:27.0},{mm:6,dd:24,hh:12,wvht:0.69,wtmp:27.0},{mm:6,dd:24,hh:13,wvht:0.70,wtmp:27.1},{mm:6,dd:24,hh:14,wvht:0.67,wtmp:27.2},{mm:6,dd:24,hh:15,wvht:0.72,wtmp:27.3},{mm:6,dd:24,hh:16,wvht:0.67,wtmp:27.4},{mm:6,dd:24,hh:17,wvht:0.68,wtmp:27.4},{mm:6,dd:24,hh:18,wvht:0.70,wtmp:27.3},{mm:6,dd:24,hh:19,wvht:0.73,wtmp:27.3},{mm:6,dd:24,hh:20,wvht:0.83,wtmp:27.3},{mm:6,dd:24,hh:21,wvht:0.85,wtmp:27.2},{mm:6,dd:24,hh:22,wvht:0.89,wtmp:27.2},{mm:6,dd:24,hh:23,wvht:0.93,wtmp:27.2},{mm:6,dd:25,hh:0,wvht:0.91,wtmp:27.1},{mm:6,dd:25,hh:1,wvht:0.90,wtmp:27.1},{mm:6,dd:25,hh:2,wvht:0.86,wtmp:27.1},{mm:6,dd:25,hh:3,wvht:0.86,wtmp:27.0},{mm:6,dd:25,hh:4,wvht:0.85,wtmp:27.0},{mm:6,dd:25,hh:5,wvht:0.86,wtmp:26.9},{mm:6,dd:25,hh:6,wvht:0.86,wtmp:26.8},{mm:6,dd:25,hh:7,wvht:0.80,wtmp:26.7},{mm:6,dd:25,hh:8,wvht:0.85,wtmp:26.8},{mm:6,dd:25,hh:9,wvht:0.81,wtmp:26.8},{mm:6,dd:25,hh:10,wvht:0.78,wtmp:26.6},{mm:6,dd:25,hh:11,wvht:0.81,wtmp:26.4},{mm:6,dd:25,hh:12,wvht:0.86,wtmp:26.4},{mm:6,dd:25,hh:13,wvht:0.90,wtmp:26.3},{mm:6,dd:25,hh:14,wvht:0.79,wtmp:26.3},{mm:6,dd:25,hh:15,wvht:0.82,wtmp:26.3},{mm:6,dd:25,hh:16,wvht:0.76,wtmp:26.4},{mm:6,dd:25,hh:17,wvht:0.83,wtmp:26.1},{mm:6,dd:25,hh:18,wvht:1.11,wtmp:26.2},{mm:6,dd:25,hh:19,wvht:1.13,wtmp:26.1},{mm:6,dd:25,hh:20,wvht:1.31,wtmp:26.1},{mm:6,dd:25,hh:21,wvht:1.59,wtmp:26.0},{mm:6,dd:25,hh:22,wvht:1.88,wtmp:26.0},{mm:6,dd:25,hh:23,wvht:2.11,wtmp:25.9},{mm:6,dd:26,hh:0,wvht:2.13,wtmp:25.8},{mm:6,dd:26,hh:1,wvht:2.11,wtmp:25.8},{mm:6,dd:26,hh:2,wvht:2.09,wtmp:25.9},{mm:6,dd:26,hh:3,wvht:1.90,wtmp:25.8},{mm:6,dd:26,hh:4,wvht:2.13,wtmp:25.7},{mm:6,dd:26,hh:5,wvht:1.87,wtmp:25.6},{mm:6,dd:26,hh:6,wvht:1.68,wtmp:25.6},{mm:6,dd:26,hh:7,wvht:1.58,wtmp:25.6},{mm:6,dd:26,hh:8,wvht:1.62,wtmp:25.6},{mm:6,dd:26,hh:9,wvht:1.90,wtmp:25.5},{mm:6,dd:26,hh:10,wvht:1.80,wtmp:25.5},{mm:6,dd:26,hh:11,wvht:2.20,wtmp:25.5},{mm:6,dd:26,hh:12,wvht:2.11,wtmp:25.5},{mm:6,dd:26,hh:13,wvht:2.09,wtmp:25.5},{mm:6,dd:26,hh:14,wvht:2.14,wtmp:25.5},{mm:6,dd:26,hh:15,wvht:2.20,wtmp:25.6},{mm:6,dd:26,hh:16,wvht:2.15,wtmp:25.6},{mm:6,dd:26,hh:17,wvht:2.20,wtmp:25.6},{mm:6,dd:26,hh:18,wvht:1.98,wtmp:25.6},{mm:6,dd:26,hh:19,wvht:1.97,wtmp:25.5},{mm:6,dd:26,hh:20,wvht:2.15,wtmp:25.5},{mm:6,dd:26,hh:21,wvht:2.22,wtmp:25.5},{mm:6,dd:26,hh:22,wvht:2.21,wtmp:25.5},{mm:6,dd:26,hh:23,wvht:1.99,wtmp:25.4},{mm:6,dd:27,hh:0,wvht:1.96,wtmp:25.4},{mm:6,dd:27,hh:1,wvht:2.06,wtmp:25.4},{mm:6,dd:27,hh:2,wvht:1.95,wtmp:25.4},{mm:6,dd:27,hh:3,wvht:1.95,wtmp:25.5},{mm:6,dd:27,hh:4,wvht:2.03,wtmp:25.5},{mm:6,dd:27,hh:5,wvht:2.17,wtmp:25.5},{mm:6,dd:27,hh:6,wvht:2.43,wtmp:25.5},{mm:6,dd:27,hh:7,wvht:2.65,wtmp:25.4},{mm:6,dd:27,hh:8,wvht:3.11,wtmp:25.4},{mm:6,dd:27,hh:9,wvht:2.65,wtmp:25.5},{mm:6,dd:27,hh:10,wvht:2.80,wtmp:25.5},{mm:6,dd:27,hh:11,wvht:2.42,wtmp:25.4},{mm:6,dd:27,hh:12,wvht:2.89,wtmp:25.3},{mm:6,dd:27,hh:13,wvht:2.89,wtmp:25.3},{mm:6,dd:27,hh:14,wvht:3.06,wtmp:25.2},{mm:6,dd:27,hh:15,wvht:2.99,wtmp:25.2},{mm:6,dd:27,hh:16,wvht:2.98,wtmp:25.2},{mm:6,dd:27,hh:17,wvht:2.79,wtmp:25.2},{mm:6,dd:27,hh:18,wvht:3.06,wtmp:25.2},{mm:6,dd:27,hh:19,wvht:2.98,wtmp:25.2},{mm:6,dd:27,hh:20,wvht:2.86,wtmp:25.2},{mm:6,dd:27,hh:21,wvht:2.54,wtmp:25.2},{mm:6,dd:27,hh:22,wvht:2.73,wtmp:25.2},{mm:6,dd:27,hh:23,wvht:2.63,wtmp:25.2},{mm:6,dd:28,hh:0,wvht:2.80,wtmp:25.2},{mm:6,dd:28,hh:1,wvht:2.97,wtmp:25.2},{mm:6,dd:28,hh:2,wvht:2.92,wtmp:25.2},{mm:6,dd:28,hh:3,wvht:2.98,wtmp:25.2},{mm:6,dd:28,hh:4,wvht:2.85,wtmp:25.2},{mm:6,dd:28,hh:5,wvht:2.72,wtmp:25.2},{mm:6,dd:28,hh:6,wvht:2.90,wtmp:25.2},{mm:6,dd:28,hh:7,wvht:3.09,wtmp:25.2},{mm:6,dd:28,hh:8,wvht:2.92,wtmp:25.2},{mm:6,dd:28,hh:9,wvht:2.98,wtmp:25.2},{mm:6,dd:28,hh:10,wvht:3.13,wtmp:25.2},{mm:6,dd:28,hh:11,wvht:2.91,wtmp:25.2},{mm:6,dd:28,hh:12,wvht:2.83,wtmp:25.3},{mm:6,dd:28,hh:13,wvht:2.67,wtmp:25.3},{mm:6,dd:28,hh:14,wvht:2.55,wtmp:25.3},{mm:6,dd:28,hh:15,wvht:2.43,wtmp:25.3},{mm:6,dd:28,hh:16,wvht:2.47,wtmp:25.3},{mm:6,dd:28,hh:17,wvht:2.27,wtmp:25.4},{mm:6,dd:28,hh:18,wvht:2.39,wtmp:25.4},{mm:6,dd:28,hh:19,wvht:2.15,wtmp:25.3},{mm:6,dd:28,hh:20,wvht:2.05,wtmp:25.3},{mm:6,dd:28,hh:21,wvht:2.29,wtmp:25.3},{mm:6,dd:28,hh:22,wvht:2.00,wtmp:25.3},{mm:6,dd:28,hh:23,wvht:1.98,wtmp:25.3},{mm:6,dd:29,hh:0,wvht:1.85,wtmp:25.3},{mm:6,dd:29,hh:1,wvht:1.89,wtmp:25.3},{mm:6,dd:29,hh:2,wvht:1.56,wtmp:25.3},{mm:6,dd:29,hh:3,wvht:1.73,wtmp:25.2},{mm:6,dd:29,hh:4,wvht:1.49,wtmp:25.2},{mm:6,dd:29,hh:5,wvht:1.42,wtmp:25.2},{mm:6,dd:29,hh:6,wvht:1.51,wtmp:25.2},{mm:6,dd:29,hh:7,wvht:1.55,wtmp:25.3},{mm:6,dd:29,hh:8,wvht:1.41,wtmp:25.2},{mm:6,dd:29,hh:9,wvht:1.33,wtmp:25.2},{mm:6,dd:29,hh:10,wvht:1.46,wtmp:25.2},{mm:6,dd:29,hh:11,wvht:1.43,wtmp:25.2},{mm:6,dd:29,hh:12,wvht:1.20,wtmp:25.2},{mm:6,dd:29,hh:13,wvht:1.35,wtmp:25.2},{mm:6,dd:29,hh:14,wvht:1.29,wtmp:25.3},{mm:6,dd:29,hh:15,wvht:1.27,wtmp:25.3},{mm:6,dd:29,hh:16,wvht:1.18,wtmp:25.4},{mm:6,dd:29,hh:17,wvht:1.19,wtmp:25.4},{mm:6,dd:29,hh:18,wvht:1.20,wtmp:25.5},{mm:6,dd:29,hh:19,wvht:1.22,wtmp:25.5},{mm:6,dd:29,hh:20,wvht:1.21,wtmp:25.5},{mm:6,dd:29,hh:21,wvht:1.24,wtmp:25.5},{mm:6,dd:29,hh:22,wvht:1.20,wtmp:25.4},{mm:6,dd:29,hh:23,wvht:1.19,wtmp:25.4},{mm:6,dd:30,hh:0,wvht:1.22,wtmp:25.3},{mm:6,dd:30,hh:1,wvht:1.19,wtmp:25.3},{mm:6,dd:30,hh:2,wvht:1.27,wtmp:25.3},{mm:6,dd:30,hh:3,wvht:1.35,wtmp:25.3},{mm:6,dd:30,hh:4,wvht:1.38,wtmp:25.3},{mm:6,dd:30,hh:5,wvht:1.41,wtmp:25.3},{mm:6,dd:30,hh:6,wvht:1.45,wtmp:25.2},{mm:6,dd:30,hh:7,wvht:1.39,wtmp:25.2},{mm:6,dd:30,hh:8,wvht:1.41,wtmp:25.2},{mm:6,dd:30,hh:9,wvht:1.40,wtmp:25.2},{mm:6,dd:30,hh:10,wvht:1.43,wtmp:25.2},{mm:6,dd:30,hh:11,wvht:1.36,wtmp:25.2},{mm:6,dd:30,hh:12,wvht:1.39,wtmp:25.2},{mm:6,dd:30,hh:13,wvht:1.36,wtmp:25.3},{mm:6,dd:30,hh:14,wvht:1.38,wtmp:25.3},{mm:6,dd:30,hh:15,wvht:1.36,wtmp:25.4},{mm:6,dd:30,hh:16,wvht:1.43,wtmp:25.4},{mm:6,dd:30,hh:17,wvht:1.40,wtmp:25.5},{mm:6,dd:30,hh:18,wvht:1.37,wtmp:25.5},{mm:6,dd:30,hh:19,wvht:1.44,wtmp:25.6},{mm:6,dd:30,hh:20,wvht:1.42,wtmp:25.6},{mm:6,dd:30,hh:21,wvht:1.47,wtmp:25.6},{mm:6,dd:30,hh:22,wvht:1.37,wtmp:25.6},{mm:6,dd:30,hh:23,wvht:1.32,wtmp:25.6}];
+    this.changeBuoyData = this.changeBuoyData.bind(this)
+  }
 
 
   getBuoyData(){
     return new Promise(function(resolve,reject){
       function reqListener(){
-        resolve(this.responseText);
+        resolve(JSON.parse(this.responseText));
       }
       let oReq = new XMLHttpRequest();
-      oReq.open('GET', '/somebuoys');
+      oReq.open('GET', '/api/buoy/41002/2015');
       oReq.setRequestHeader('Content-type', 
         'application/json')
       oReq.addEventListener("load", reqListener)
@@ -26,36 +26,104 @@ class Graph extends Component {
     })
   }
 
-  componentDidMount(){
-    this.getBuoyData()
-    .then((data) => {
-      console.log(data)
-      this.buoyData = data
+  changeBuoyDataXHR(){
+    return new Promise(function(resolve,reject){
+      function reqListener(){
+        resolve(JSON.parse(this.responseText));
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('GET', '/somebuoys2');
+      oReq.setRequestHeader('Content-type', 
+        'application/json')
+      oReq.addEventListener("load", reqListener)
+      oReq.send()
     })
   }
 
-  data = [
-      {name: 'Page A', uv: 4000, pv: 2400, amt: 500},
-      {name: 'Page B', uv: 3000, pv: 1398, amt: 400},
-      {name: 'Page C', uv: 2000, pv: 9800, amt: 290},
-      {name: 'Page D', uv: 2780, pv: 3908, amt: 200},
-      {name: 'Page E', uv: 1890, pv: 4800, amt: 218},
-      {name: 'Page F', uv: 2390, pv: 3800, amt: 250},
-      {name: 'Page G', uv: 3490, pv: 4300, amt: 210},
-]
+  changeBuoyData(event){
+    event.preventDefault()
+    this.changeBuoyDataXHR()
+    .then((data) => {
+      let newData = data.filter(function(value, index, Arr) {
+      return index % 24 == 0;
+      });
+      this.props.onAddGraphToState(newData)
+    })
+    .catch(function(err){
+      console.log("change error", err)
+    })
+  }
+
+  componentDidMount(){
+    this.getBuoyData()
+    .then((data) => {
+      let newData = data.filter(function(value, index, Arr) {
+        console.log("value", value,"index",index,"Arr",Arr)
+      return index % 168 == 0;
+      });
+      this.props.onAddGraphToState(newData)
+    })
+    .catch(function(err){
+      console.log("component did mount on graph error", err)
+    })
+  }
+
 
   render(){
+    console.log(this.props.graphState)
     return(
-      <LineChart width={600} height={300} data={this.buoyData}
-            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-       <XAxis dataKey="year"/>
-       <YAxis/>
-       <CartesianGrid strokeDasharray="3 3"/>
-       <Tooltip/>
-       <Legend />
-       <Line type="monotone" dataKey="wvht" stroke="red" strokeDasharray="5 5"/>
-       <Line type="monotone" dataKey="wtemp" stroke="#82ca9d" strokeDasharray="3 4 5 2"/>
-      </LineChart>
+      <div>
+        <form onSubmit={this.changeBuoyData}>
+          <input type="submit" value="Change the data!" />
+        </form>
+        <LineChart width={1000} height={300} data={this.props.graphState}
+              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+         <XAxis dataKey="year"/>
+         <YAxis/>
+         <CartesianGrid strokeDasharray="3 3"/>
+         <Tooltip/>
+         <Legend />
+         <Line type="monotone" dataKey="wvht" stroke="red" strokeDasharray="5 5"/>
+         <Line type="monotone" dataKey="wtmp" stroke="#82ca9d" strokeDasharray="3 4 5 2"/>
+        </LineChart>
+
+        <AreaChart width={730} height={250} data={this.props.graphState}
+          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+          <defs>
+            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
+              <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
+            </linearGradient>
+            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
+              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
+            </linearGradient>
+          </defs>
+          <XAxis dataKey="dd" />
+          <YAxis />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip />
+          <Area type="monotone" dataKey="wvht" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+        </AreaChart>
+        <AreaChart width={730} height={250} data={this.props.graphState}
+          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+          <defs>
+            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
+              <stop offset="95%" stopColor="#8884d8" stopOpacity={0.5}/>
+            </linearGradient>
+            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
+              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0.5}/>
+            </linearGradient>
+          </defs>
+          <XAxis dataKey="mm" />
+          <YAxis />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip />
+          <Area type="monotone" dataKey="wtmp" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+        </AreaChart>
+      </div>
     )
   }
 }
@@ -67,4 +135,19 @@ function mapStateToProps(state, ownProps){
   }
 }
 
-export default connect(mapStateToProps)(Graph)
+const mapDispatchToProps = (dispatch) => {
+  return{
+    onAddGraphToState:(data) => {
+      dispatch(addGraphToState(data));
+    }
+  }
+}
+
+const mapStateToProps = (state) => {
+  console.log("Graph page state", state)
+  return {
+    graphState: state.graph
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Graph)

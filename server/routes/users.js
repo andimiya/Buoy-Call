@@ -18,14 +18,7 @@ function userAuthenticator(req, res, next){
   }
 }
 
-// function isLoggedIn(req){
-//   if(req.user){
-//     console.log(req.user.user);
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
+
 
 router.route('/')
   .get( (req, res) => {
@@ -38,7 +31,7 @@ router.route('/')
 
 
 
-  .post(userAuthenticator, (req, res) =>{
+  .post((req, res) =>{
     bcrypt.genSalt(saltRounds, function(err, salt) {
       bcrypt.hash(req.body.Password, salt, function(err, hash) {
         Users.create({
