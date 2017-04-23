@@ -27,7 +27,7 @@ router.route('/')
       });
   })
 
-  .post(userAuthenticator, (req, res) =>{
+  .post( (req, res) =>{
     bcrypt.genSalt(saltRounds, function(err, salt) {
       bcrypt.hash(req.body.Password, salt, function(err, hash) {
         Users.create({
