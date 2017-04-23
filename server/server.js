@@ -31,7 +31,7 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
-app.use('/api/users', userRoute)
+
 
 app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*");
@@ -54,6 +54,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/api/users', userRoute)
 
 passport.use(new LocalStrategy(
   function(email, password, done){
