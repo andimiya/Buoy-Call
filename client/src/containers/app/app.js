@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NewUser from '../../components/NewUser.js';
 import Checkout from '../../components/StripeCheckout';
 import users from '../../reducers/';
+import MapView from '../../components/MapView';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
@@ -23,8 +24,10 @@ class App extends Component {
        <div className="stripe">
         <Checkout />
        </div>
-
-      </div>
+       <div className="MapView">
+         <MapView />
+       </div>
+       </div>
     );
   }
 }

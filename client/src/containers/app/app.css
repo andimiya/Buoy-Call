@@ -1,6 +1,6 @@
 .App {
-  text-align: center;
-}
+/*  text-align: center;
+*/}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -16,6 +16,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+.MapView {
+  position: center;
 }
 
 @keyframes App-logo-spin {

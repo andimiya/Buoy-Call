@@ -4,19 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="https://js.stripe.com/v3/"></script>
     <script src="https://checkout.stripe.com/checkout.js"></script>
 
-    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.css' rel='stylesheet' />
+
+
+<!--     <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css' rel='stylesheet' />
-    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' /> -->
     <title>React App</title>
   </head>
   <body>
-    <style>
+ <!--    <style>
     #toolbar {
         position: absolute;
         top: 0;
@@ -25,11 +28,11 @@
         width: 150px;
         padding:5px;
     }
-    </style>
+    </style> -->
 
     <div id="root"></div>
 
-    <form id='toolbar'>
+    <!-- <form id='toolbar'>
       <div><input type='checkbox' name='filters' onclick='showStations();' value='lighthouse' checked> Buoy</div>
       <div><input type='checkbox' name='filters' onclick='showStations();' value='star' checked> Star</div>
     </form>
@@ -43,7 +46,7 @@
           .setView([-8.310,19.087], 1.5);
 
         // custom style sheet, we can edit this later
-        L.mapbox.styleLayer('mapbox://styles/jonathonlaylo/cj1g01mw200062ss53ht46jgb').addTo(map);
+        L.mapbox.styleLayer('a').addTo(map);
 
         // cluster filter
         var overlays = L.layerGroup().addTo(map);
@@ -52,8 +55,8 @@
         var layersshark;
 
         L.mapbox.featureLayer()
-          .loadURL('http://localhost:8080/allbuoys')
-          // .addTo(map)
+        .loadURL('http://localhost:8080/allbuoys')
+        // .addTo(map)
           .on('ready', function(e){
             layers = e.target;
             showStations();
@@ -90,6 +93,6 @@
           });
         }
       </script>
-    </div>
+    </div> -->
   </body>
 </html>
