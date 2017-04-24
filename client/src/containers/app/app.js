@@ -3,6 +3,8 @@ import NewUser from '../../components/NewUser.js';
 import Checkout from '../../components/StripeCheckout';
 import Login from '../../components/Login.js';
 import users from '../../reducers/';
+import MapView from '../../components/MapView';
+
 import './app.css';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
@@ -28,6 +30,10 @@ class App extends Component {
        
        <div className="footer">
        <Footer />
+       </div>
+       <div className="MapView">
+         <MapView />
+       </div>
        </div>
 
        

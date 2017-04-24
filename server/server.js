@@ -128,7 +128,7 @@ app.get('/allsharks', (req, res) => {
     Promise.resolve(JSON.parse(body))
     .then((data) => {
       let geoJSON = {};
-      geoJSON.type = "Feature Collection";
+      geoJSON.type = "FeatureCollection";
       geoJSON.features = [];
       for(let i = 0; i < data.length; i++){
         let newChild = {};
@@ -167,7 +167,7 @@ app.get('/allbuoys', (req, res )=> {
     let coordinates=arr[0];
     let buoydata=arr[1];
       let geoJSON = {};
-      geoJSON.type = "Feature Collection";
+      geoJSON.type = "FeatureCollection";
       geoJSON.features = [];
       for(let i = 0; i < coordinates.length; i++){
         let newChild = {};

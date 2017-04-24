@@ -1,3 +1,4 @@
+
 @import './reset.css';
 
 .APP{
@@ -47,9 +48,8 @@ h1{
   color: black;
 }
 
-  .nav li:hover{
-  border-bottom:solid thick #FFD750;
-}
+
+
 
 /* General Styling */
 
@@ -75,6 +75,7 @@ input[type=text], input[type=password]{
 input[type=text]:focus, input[type=password]:focus  {
   border-bottom: 2px solid #FFD750;
   outline: none;
+
 }
 
 
