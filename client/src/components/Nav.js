@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addUserToState } from '../actions';
+import { addUserToState, logOutFromState } from '../actions';
 
 class Nav extends Component {
   constructor(props){
     super(props)
+
+    this.logOut = this.logOut.bind(this);
   }
 
   xhrLoginCheck(){
@@ -34,12 +36,37 @@ class Nav extends Component {
     })
   }
 
+  xhrLogOut(){
+    return new Promise(function(resolve,reject){
+      function reqListener(){
+        resolve(this.responseText);
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('POST', '/api/users/logout');
+      oReq.setRequestHeader('Content-type', 
+        'application/json')
+      oReq.addEventListener("load", reqListener)
+      oReq.send()
+    })
+  }
+
+  logOut(event){
+    event.preventDefault();
+    this.xhrLogOut()
+    .then(()=>{
+      this.props.onLogOut()
+    })
+  }
+
   render(){
     console.log("YAY", this.props.loggedInUser)
     if(this.props.loggedInUser){
       return(
         <div>
         <h3>hello {this.props.loggedInUser.firstName}!</h3>
+        <form onSubmit={this.logOut}>
+          <input type="submit" value="Log out"></input>
+        </form>
         <ul>
           <li><Link to="/secret">secret route / only if youre logged in</Link></li>
           <li><Link to="/">Homepage</Link></li>
@@ -70,7 +97,8 @@ class Nav extends Component {
 
 
 const mapDispatchToProps = {
-  onAddUser: addUserToState
+  onAddUser: addUserToState,
+  onLogOut: logOutFromState
 }
 
 const mapStateToProps = (state) => {

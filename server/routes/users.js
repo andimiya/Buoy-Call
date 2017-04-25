@@ -53,6 +53,13 @@ router.route('/login')
     res.send(req.user)
   })
 
+router.route('/logout')
+  .post((req, res) => {
+    console.log("logout")
+    req.logout()
+    res.end();
+  })
+
 router.route('/checkLogin')
   .post(function(req,res){
     console.log(req.user)
