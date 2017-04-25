@@ -4,7 +4,7 @@ import Checkout from '../../components/StripeCheckout';
 import Login from '../../components/Login.js';
 import users from '../../reducers/';
 import MapView from '../../components/MapView';
-
+import Graph from '../../components/Graph'
 import './app.css';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
@@ -50,20 +50,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-
-
-       
+      <div className="App">    
        <div className="footer">
        <Footer />
        </div>
        <div className="MapView">
          <MapView />
+         <Graph />
        </div>
-       </div>
-
-       
-
       </div>
     );
   }

@@ -24,7 +24,7 @@ class Nav extends Component {
     })
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.xhrLoginCheck()
     .then((userData)=>{
       console.log(this.props)
@@ -59,7 +59,6 @@ class Nav extends Component {
   }
 
   render(){
-    console.log("YAY", this.props.loggedInUser)
     if(this.props.loggedInUser){
       return(
         <div>
