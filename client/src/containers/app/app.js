@@ -21,6 +21,32 @@ class App extends Component {
     super(props);
   }
 
+  xhrLoginCheck(){
+    return new Promise(function(resolve,reject){
+      function reqListener(){
+        resolve(this.responseText);
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('POST', '/api/users/checkLogin');
+      oReq.setRequestHeader('Content-type', 
+        'application/json')
+      oReq.addEventListener("load", reqListener)
+      oReq.send()
+    })
+  }
+
+  componentWillMount(){
+    this.xhrLoginCheck()
+    .then((userData)=>{
+      console.log(this.props)
+      let user = JSON.parse(userData)
+      this.props.onAddUser(user.id, user.firstName, user.lastName, user.email)
+    })
+    .catch(function(err){
+      console.log("component will mount error",err)
+    })
+  }
+
 
   render() {
     return (

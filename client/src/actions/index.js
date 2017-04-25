@@ -1,6 +1,7 @@
 export const ADD_USER = 'ADD_USER';
 export const ADD_USER_TO_STATE = 'ADD_USER_TO_STATE';
 export const ADD_GRAPH_TO_STATE = 'ADD_GRAPH_TO_STATE';
+export const LOG_OUT_FROM_STATE = 'LOG_OUT_FROM_STATE';
 
 export function addUser( firstName, lastName, email, password){
   return {
@@ -27,5 +28,12 @@ export function addGraphToState(graph){
   return {
     type: ADD_GRAPH_TO_STATE,
     graph
+  }
+}
+
+export function logOutFromState(){
+  console.log("logging out")
+  return {
+    type: LOG_OUT_FROM_STATE
   }
 }
