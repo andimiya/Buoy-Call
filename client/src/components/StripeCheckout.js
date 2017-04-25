@@ -20,6 +20,7 @@ class Checkout extends React.Component {
 
   render() {
     return (
+  <div className="stripe">
       <StripeCheckout
         name="Larn Yay"
         description="Saving the Ocean"
@@ -34,6 +35,7 @@ class Checkout extends React.Component {
         token={this.onToken}
         >
       </StripeCheckout>
+  </div>
     )
   }
 }

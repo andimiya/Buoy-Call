@@ -1,0 +1,9 @@
+.footer{
+  height: 3rem;
+  background: yellow;
+  bottom: 0;
+  position: absolute;
+  z-index: 100;
+  width: 90%;
+  margin-left: 5%;
+}
