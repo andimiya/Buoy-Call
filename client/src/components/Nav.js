@@ -62,32 +62,32 @@ class Nav extends Component {
     if(this.props.loggedInUser){
       return(
         <div>
-        <h3>hello {this.props.loggedInUser.firstName}!</h3>
-        <form onSubmit={this.logOut}>
-          <input type="submit" value="Log out"></input>
-        </form>
         <ul>
-          <li><Link to="/secret">secret route / only if youre logged in</Link></li>
           <li><Link to="/">Homepage</Link></li>
           <li><Link to="/login">Login Page</Link></li>
           <li><Link to="/NewUser">Create an Account</Link></li>
           <li><Link to="/Graph">Sample Graph!</Link></li>
           <li><Link to="/Payment">Adopt a Buoy/Shark With Ca$h Money</Link></li>
+          <li><Link to="/auth">Authorized User</Link></li>
         </ul>
+        <h3>hello {this.props.loggedInUser.firstName}!</h3>
+        <form onSubmit={this.logOut}>
+          <input type="submit" value="Log out"></input>
+        </form>
       </div>
       )
     } else {
       return(
         <div>
-        <h3>hello you are not logged in!!</h3>
         <ul>
-          <li><Link to="/secret">secret route / only if youre logged in</Link></li>
           <li><Link to="/">Homepage</Link></li>
           <li><Link to="/login">Login Page</Link></li>
           <li><Link to="/NewUser">Create an Account</Link></li>
           <li><Link to="/Graph">Sample Graph!</Link></li>
           <li><Link to="/Payment">Adopt a Buoy/Shark With Ca$h Money</Link></li>
+          <li><Link to="/auth">Authorized User</Link></li>
         </ul>
+          <h3>hello you are not logged in!!</h3>
       </div>
       )
     }
