@@ -44,7 +44,7 @@ class Login extends React.Component {
     .then((data) => {
       console.log("Data",data)
       if(data){
-        this.props.history.push('/secret')
+        this.props.history.push('/')
       }
     })
 
