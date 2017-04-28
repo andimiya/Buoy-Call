@@ -24,9 +24,9 @@ class App extends Component {
        <div className="stripe">
         <Checkout />
        </div>
-       <div className="MapView">
-         <MapView />
-       </div>
+         <div className="MapView">
+           <MapView />
+         </div>
        </div>
     );
   }

@@ -1,95 +1,62 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 // import ReactDOM from 'react-dom';
-// import mapboxgl from 'mapbox-gl';
-// import loadData from '../lib/buoydata.js';
-// import places from '../lib/buoy.geojson';
-import buoy from '../lib/data.json';
-import shark from '../lib/datashark.json';
-import ReactMapboxGl, { Marker, Cluster, ZoomControl } from 'react-mapbox-gl';
-
-const containerStyle = {
-  height: '800px',
-  width: '100%'
-};
+import { render } from 'react-dom';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+// import MarkerClusterGroup from 'react-leaflet-markercluster';
+import places from '../lib/data.json';
+import {GeoJsonCluster} from 'react-leaflet-geojson-cluster';
+import request from 'superagent';
+// const geodata = JSON.stringify(places);
 
 const position = [-8.310,19.087];
 
-const styles = {
-  clusterMarker: {
-    width: 30,
-    height: 30,
-    borderRadius: '50%',
-    backgroundColor: '#51D5A0',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: 'white',
-    border: '2px solid #56C498'
-  },
-  marker: {
-    width: 30,
-    height: 30,
-    borderRadius: '50%',
-    backgroundColor: '#E0E0E0',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    border: '2px solid #C9C9C9'
-  }
-}
+// const markers = [
+//   {lat: 49.8397, lng: 24.0297},
+//   {lat: 52.2297, lng: 21.0122},
+//   {lat: 51.5074, lng: -0.0901}
+// ];
 
 class MapView extends Component {
+  state = {
+    places: null
+  };
 
-  onMarkerClick(coords) {
-    console.log(coords);
+  componentWillMount() {
+    request
+      .get('http://localhost:8080/allbuoys')
+      .end(function(error, response){
+        if (error) return console.log(error);
+
+        this.setState({
+          places: response.body
+        });
+      }.bind(this));
   }
 
-  clusterMarker = (coordinates, pointCount) => (
-    <Marker coordinates={coordinates} key={coordinates.toString()} style={styles.clusterMarker}>
-      { pointCount }
-    </Marker>
-  );
+  render(){
+    const { places } = this.state;
+    if(!places){
+      return (<div>loading...</div>);
+    }
 
-  render() {
+    console.log('this.state', this.state.places.features);
 
     return (
-      <ReactMapboxGl
-        zoom={[1]}
-        center={position}
-        style="mapbox://styles/jonathonlaylo/cj1g01mw200062ss53ht46jgb"
-        accessToken="pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q"
-        containerStyle={containerStyle}>
-        <ZoomControl/>
-        <Cluster ClusterMarkerFactory={this.clusterMarker} clusterThreshold={8}>
-          {
-            buoy.features.map((feature, key) =>
-              <Marker
-                key={key}
-                style={styles.marker}
-                coordinates={feature.geometry.coordinates}
-                onClick={this.onMarkerClick.bind(this, feature.geometry.coordinates)}>
-                B
-              </Marker>
-            )
-          }
-        </Cluster>
-        <Cluster ClusterMarkerFactory={this.clusterMarker} clusterThreshold={8}>
-          {
-            shark.features.map((feature, key) =>
-              <Marker
-                key={key}
-                style={styles.marker}
-                coordinates={feature.geometry.coordinates}
-                onClick={this.onMarkerClick.bind(this, feature.geometry.coordinates)}>
-                S
-              </Marker>
-            )
-          }
-        </Cluster>
-        <ZoomControl/>
-      </ReactMapboxGl>
+      <div className="MapView">
+        <Map id="map"
+          style={{height: '900px'}}
+          center={position}
+          zoom={1.5}
+          maxZoom={15}
+          minzoom={0}>
+          <TileLayer
+            url="https://api.mapbox.com/styles/v1/jonathonlaylo/cj1g01mw200062ss53ht46jgb/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q"
+            attribution="<attribution>"
+          />
+          <GeoJsonCluster data={places}/>
+        </Map>
+      </div>
     );
   }
 }
-
 export default MapView;

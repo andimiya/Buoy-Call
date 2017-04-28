@@ -177,7 +177,7 @@ app.get('/allbuoys', (req, res )=> {
         };
         newChild.geometry = {
           type: "Point",
-          coordinates: [coordinates[i].dataValues.long, coordinates[i].dataValues.lat]
+          coordinates: [parseFloat(coordinates[i].dataValues.long), parseFloat(coordinates[i].dataValues.lat)]
         };
         geoJSON.features.push(newChild);
       }
