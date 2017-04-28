@@ -51,9 +51,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">    
-       <div className="footer">
-       <Footer />
-       </div>
+       
        <div className="MapView">
          <MapView />
          <Graph />
