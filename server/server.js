@@ -166,23 +166,15 @@ app.get('/allbuoys', (req, res )=> {
   .then((arr) => {
     let coordinates=arr[0];
     let buoydata=arr[1];
-      let geoJSON = {};
-      geoJSON.type = "FeatureCollection";
-      geoJSON.features = [];
-      for(let i = 0; i < coordinates.length; i++){
-        let newChild = {};
-        newChild.type = "Feature";
-        newChild.properties = {
-          title: `The current waveheight for this buoy is ${buoydata.dataValues.wvht}`,
-          'marker-symbol': 'lighthouse',
-        };
-        newChild.geometry = {
-          type: "Point",
-          coordinates: [parseFloat(coordinates[i].dataValues.long), parseFloat(coordinates[i].dataValues.lat)]
-        };
-        geoJSON.features.push(newChild);
-      }
-      res.json(geoJSON);
+    let geoJSON = [];
+    for(let i = 0; i < coordinates.length; i++){
+      let properties = {
+        lat: Number(coordinates[i].dataValues.lat),
+        lng: Number(coordinates[i].dataValues.long)
+      };
+      geoJSON.push(properties);
+    }
+    res.json(geoJSON);
   });
 });
 
