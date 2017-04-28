@@ -1,5 +1,6 @@
 export const ADD_USER = 'ADD_USER';
 export const ADD_USER_TO_STATE = 'ADD_USER_TO_STATE';
+export const ADD_GRAPH_TO_STATE = 'ADD_GRAPH_TO_STATE';
 
 export function addUser( firstName, lastName, email, password){
   return {
@@ -18,5 +19,13 @@ export function addUserToState(id, firstName, lastName, email){
     firstName,
     lastName,
     email
+  }
+}
+
+export function addGraphToState(graph){
+  console.log("action", graph)
+  return {
+    type: ADD_GRAPH_TO_STATE,
+    graph
   }
 }

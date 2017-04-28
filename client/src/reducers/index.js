@@ -1,9 +1,12 @@
 import { ADD_USERS } from '../actions';
 import { ADD_USER_TO_STATE } from '../actions';
+import { ADD_GRAPH_TO_STATE } from '../actions';
+
 
 const initialState = {
   loggedInUser: null,
-  users: []
+  users: [],
+  graph: ["test"]
 }
 
 function users(state=initialState , action){
@@ -28,6 +31,12 @@ function users(state=initialState , action){
           lastName: action.lastName, 
           email: action.email
         }
+    })
+
+    case ADD_GRAPH_TO_STATE:
+    console.log("ASDF", action)
+    return Object.assign({}, state, {
+      graph: action.graph
     })
 
     default: return state;

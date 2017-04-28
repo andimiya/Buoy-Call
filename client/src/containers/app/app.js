@@ -1,33 +1,37 @@
 import React, { Component } from 'react';
 import NewUser from '../../components/NewUser.js';
 import Checkout from '../../components/StripeCheckout';
+import Login from '../../components/Login.js';
 import users from '../../reducers/';
 import MapView from '../../components/MapView';
+
+import './app.css';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
+
+import Footer from '../../components/Footer.js';
+
 import './app.css';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
 
+
   render() {
     return (
       <div className="App">
-
-        <div className="App-header">
-          <h2>WATER WORLD</h2>
+        <div className="footer">
+          <Footer />
         </div>
-       <div className="stripe">
-        <Checkout />
-       </div>
-         <div className="MapView">
-           <MapView />
-         </div>
-       </div>
+          <div className="MapView">
+            <MapView />
+          </div>
+      </div>
     );
   }
 }

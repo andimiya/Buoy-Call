@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 // import MarkerClusterGroup from 'react-leaflet-markercluster';
-import places from '../lib/data.json';
+// import places from '../lib/data.json';
 import {GeoJsonCluster} from 'react-leaflet-geojson-cluster';
 import request from 'superagent';
 // const geodata = JSON.stringify(places);
@@ -17,10 +17,12 @@ const position = [-8.310,19.087];
 // ];
 
 class MapView extends Component {
-  state = {
-    places: null
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      places: null
+    };
+  }
   componentWillMount() {
     request
       .get('http://localhost:8080/allbuoys')
@@ -39,16 +41,16 @@ class MapView extends Component {
       return (<div>loading...</div>);
     }
 
-    console.log('this.state', this.state.places.features);
+    console.log('this.state', this.state.places.features[0].geometry.coordinates);
 
     return (
       <div className="MapView">
         <Map id="map"
           style={{height: '900px'}}
-          center={position}
+          center={[-8.310,19.087]}
           zoom={1.5}
-          maxZoom={15}
-          minzoom={0}>
+          minzoom={0}
+          maxzoom={15}>
           <TileLayer
             url="https://api.mapbox.com/styles/v1/jonathonlaylo/cj1g01mw200062ss53ht46jgb/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q"
             attribution="<attribution>"
