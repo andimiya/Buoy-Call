@@ -11,6 +11,8 @@
     "react": "^15.5.3",
     "react-dom": "^15.5.3",
     "react-leaflet": "^1.1.6",
+    "react-leaflet-geojson-cluster": "^0.1.8",
+    "react-leaflet-markercluster": "^1.1.4",
     "react-mapbox-gl": "^1.8.0",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
@@ -18,7 +20,8 @@
     "redux": "^3.6.0",
     "redux-devtools": "^3.3.2",
     "redux-thunk": "^2.2.0",
-    "stripe": "^4.18.0"
+    "stripe": "^4.18.0",
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
