@@ -1,6 +1,7 @@
 
 @import './reset.css';
 
+
 .APP{
   width: 100%;
   overflow: none;
@@ -30,7 +31,7 @@ h1{
 .nav{
   font-family: 'Asar', serif;
   margin-top: 2em;
-  margin-left: 5%;
+  margin-left: 5%; 
   z-index: 1000;
   position: absolute;
   font-size: 20px;
@@ -132,6 +133,7 @@ input[type=submit]{
   width: 10%;
   margin-top: 0;
   margin-left: 0;
+  background: none;
 }
 
 .loggedInSign input[type=submit]:hover{
@@ -174,12 +176,7 @@ h2{
 
 
 input[type=submit]{
-  width:20%;
   background-color: #B2b2B2;
   text-decoration: none;
   border:none ;
-}
-
-input[type=submit]:hover{
-  background-color: #FFD750;
 }
