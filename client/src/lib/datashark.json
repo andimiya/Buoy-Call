@@ -1,0 +1,2930 @@
+{
+"type": "FeatureCollection",
+"features": [
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Oprah<br>\n          Length: 9ft 10in (3 meters)<br>\n          Weight: 686 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 6 July 2014 1:57:28 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"21.15244",
+"-34.60661"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Albertina <br>\n          Length: 11 ft. 6 in. (3.5 Meters)<br>\n          Weight: 1110 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 27 June 2014 7:33:40 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"22.3721",
+"-34.23627"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Helen <br>\n          Length: 10 ft. 2 in. (3.1 meters)<br>\n          Weight: 765 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 5 January 2017 2:22:39 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"22.20604",
+"-34.0766"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Brenda <br>\n          Length: 12 ft. 2 in.  (3.7 meters)<br>\n          Weight: 1310 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 19 October 2012 6:16:44 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"34.6268",
+"-24.78078"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Madiba<br>\n          Length: 9ft 8 in (2.9 meters)<br>\n          Weight: 659 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 10 October 2012 12:02:00 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"24.325289999999995",
+"-34.3451"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Maya<br>\n          Length: 7ft 6in (2.9 meters)<br>\n          Weight: 195 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 15 August 2012 1:55:20 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"23.178099999999972",
+"-34.16488"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Louise<br>\n          Length: 11 ft. 6 in. (3.5 meters)<br>\n          Weight: 745 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 6 March 2015 2:16:11 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"80.16272",
+"-23.23008"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Dorien<br>\n          Length: 9 ft. 9 in. (3 meters)<br>\n          Weight: 775 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 12 June 2012 6:21:58 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"19.27819999999997",
+"-34.54987"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Jill<br>\n          Length: 9 ft. 7 in. (2.9 meters)<br>\n          Weight: 639 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 26 April 2013 1:01:44 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"20.41705999999999",
+"-34.58884"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Princess Fi<br>\n          Length: 8ft 3in (2.5 meters)<br>\n          Weight: 319 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 2 November 2012 10:44:19 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"22.14008000000001",
+"-34.1574"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Sofia<br>\n          Length: 8ft 6in (2.6 meters)<br>\n          Weight: 344 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 8 May 2012 10:27:42 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"27.36799999999999",
+"-33.628"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Poseidon<br>\n          Length: 8ft 9in (2.7 meters)<br>\n          Weight: 409 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 29 March 2014 10:14:28 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"33.70182302734372",
+"-25.170547564855557"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Lyla Grace<br>\n          Length: 2 ft. 11 in. <br>\n          Weight: 750 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 15 March 2013 11:34:21 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"37.39159000000001",
+"-20.11549"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Miguel<br>\n          Length: 10ft 2in (3.1 meters)<br>\n          Weight: 657 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 6 September 2013 6:58:34 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"22.23955000000001",
+"-34.18971"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Perseverance<br>\n          Length: 8ft 8in (2.6 meters)<br>\n          Weight: 134 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 5 July 2013 1:55:43 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"21.81105000000002",
+"-34.58318"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Philip<br>\n          Length: 10ft 5in (3.2 meters)<br>\n          Weight: 825 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 12 June 2015 1:08:59 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"31.8351",
+"-29.19933"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Nico<br>\n          Length: 9ft 9in (3 meters)<br>\n          Weight: 617 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 29 January 2014 12:06:59 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"19.41728",
+"-34.64291"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Marcella<br>\n          Length: 11ft 10in (3.6 meters)<br>\n          Weight: 1154 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 7 June 2013 6:59:13 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"22.11631999999997",
+"-34.14056"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Luis Antonio<br>\n          Length: 10 ft. 10 in. (3.3 meters)<br>\n          Weight: 909 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 9 December 2012 6:24:08 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"32.05964999999998",
+"-29.12723"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Cyndi<br>\n          Length: 14 ft. 6 in. (4.4 meters)<br>\n          Weight: 2257 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 22 September 2015 12:00:43 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"27.36755",
+"-34.78497"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Sellendilloh<br>\n          Length: 8ft 3in (2.5 meters)<br>\n          Weight: 319 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 25 May 2013 5:08:01 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"32.96623",
+"-26.55529"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Redemption<br>\n          Length: 10ft 6in (3.2 meters)<br>\n          Weight: 826 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 26 August 2012 12:48:22 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"19.402589999999975",
+"-34.64691"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Andre<br>\n          Length: 9 ft. 6 in. (2.9 meters)<br>\n          Weight: 504 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 24 December 2014 7:57:33 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"23.13918",
+"-35.31988"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Albert<br>\n          Length: 9 ft. 8 in.  (2.9 Meters)<br>\n          Weight: 486 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 18 December 2012 12:12:19 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"22.83494999999999",
+"-34.23066"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Vindication<br>\n          Length: 13ft 9in (4.2 meters)<br>\n          Weight: 1460 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 3 April 2014 5:18:58 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"18.50717",
+"-34.1229"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Maddox<br>\n          Length: 13ft 9in (4.2 meters)<br>\n          Weight: 2100 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 29 September 2013 2:02:41 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"32.00327",
+"-29.05339"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Lisha<br>\n          Length: 12 ft. 10 in. (3.9 meters)<br>\n          Weight: 1337 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 3 April 2014 9:48:57 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"56.36876",
+"-27.63354"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Lesley<br>\n          Length: 13 ft. 8 in. (4.2 meters)<br>\n          Weight: 1742 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 30 August 2013 10:30:45 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"35.66404999999997",
+"-24.13625"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Edna<br>\n          Length: 14 ft. 2 in. (4.3 meters)<br>\n          Weight: 2803 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 7 June 2012 7:52:16 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"32.36102",
+"-29.35089"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Kathryn<br>\n          Length: 15 ft. (4.6 meters)<br>\n          Weight: 2430 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 27 October 2013 11:11:05 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"19.33186",
+"-34.45334"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Success<br>\n          Length: 16ft 7in (5.1 meters)<br>\n          Weight: 3583 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 27 June 2013 11:54:07 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"23.22334999999998",
+"-34.29024"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Maureen<br>\n          Length: 14ft 6in (4.4 meters)<br>\n          Weight: 2239 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 12 March 2013 2:26:53 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"18.37991999999997",
+"-33.89788"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Courage<br>\n          Length: 12 ft. 6 in. (3.8 meters)<br>\n          Weight: 1372 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 2 April 2014 2:53:56 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"49.90936",
+"-28.1058"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Riley<br>\n          Length: 10ft 3in (3.1 meters)<br>\n          Weight: 664 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 18 February 2014 9:26:32 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"19.17144",
+"-34.61069"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Genie<br>\n          Length: 14 ft. 8 in. (4.5 meters)<br>\n          Weight: 2292 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 29 May 2015 5:53:33 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-73.76618",
+"33.24771"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Mary Lee<br>\n          Length: 16 ft. (4.9 meters)<br>\n          Weight: 3456 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 23 April 2017 8:49:00 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-77.10802",
+"31.1444"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: M/V OCEARCH<br>\n          Length: 126 ft.<br>\n          Weight: 581 tons<br>\n          Species: Ship (Motor Vessel)<br>\n          Last seen: 25 September 2015 10:00:00 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-95.58444444",
+"29.59138889"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Lydia<br>\n          Length: 14 ft. 6 in. (4.4 meters)<br>\n          Weight: Approx. 2000 lbs.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 15 March 2017 11:31:34 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-77.18022",
+"27.45371"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Lori Anne<br>\n          Length: 7 ft. 8 in. (2.3 Meters)<br>\n          Weight: 284 lbs.<br>\n          Species: Bull Shark (Carcharhinus leucas)<br>\n          Last seen: 30 July 2013 4:31:33 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-79.84442000000001",
+"26.88904"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Sabrina<br>\n          Length: 8 ft. 6 in. (2.6 Meters)<br>\n          Weight: 287 lbs.<br>\n          Species: Bull Shark (Carcharhinus leucas)<br>\n          Last seen: 28 June 2013 12:37:40 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-82.33105",
+"26.66541"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Gina<br>\n          Length: 8 ft. 2 in. (2.5 Meters)<br>\n          Weight: 302 lbs.<br>\n          Species: Bull Shark (Carcharhinus leucas)<br>\n          Last seen: 9 July 2013 12:25:44 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-82.67561999999998",
+"26.2737"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: April<br>\n          Length: 5 ft. <br>\n          Weight: 103 lbs<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 17 June 2014 8:17:03 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-71.98876",
+"39.65435"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Rizzilient<br>\n          Length: 5 ft.<br>\n          Weight: 84 lbs.<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 19 March 2014 1:55:06 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-8.78464",
+"41.39187"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Princess<br>\n          Length: 5 ft. 6 in. <br>\n          Weight: 125 lbs.<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 2 September 2013 5:33:45 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-73.25857000000002",
+"40.47884"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Beamer<br>\n          Length: 9 ft.<br>\n          Weight: 200 lbs.<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 18 June 2014 9:36:58 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-83.61777124999998",
+"9.913181844161949"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Betsy<br>\n          Length: 12 ft. 7 in. <br>\n          Weight: 1,400 lb. <br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 27 November 2016 2:04:22 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-60.44268",
+"45.10331"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Katharine<br>\n          Length: 14 ft. 2 in.<br>\n          Weight: 2,300 lb.<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 20 April 2017 8:21:10 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-79.5014",
+"27.74023"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Beatriz<br>\n          Length: 6 ft. 2 in.<br>\n          Weight: 127 lb.<br>\n          Species: Silky Shark (Carcharhinus falciformis)<br>\n          Last seen: 22 June 2014 4:56:21 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-92.08733",
+"1.71873"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Encantada<br>\n          Length: 7 ft. 4 in.<br>\n          Weight: 151 lb.<br>\n          Species: Silky Shark (Carcharhinus falciformis)<br>\n          Last seen: 19 April 2014 1:06:17 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-92.01047",
+"1.67098"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Enric<br>\n          Length: 11 ft 4 in<br>\n          Weight: 130 lb.<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 9 April 2015 9:16:09 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.961",
+"-1.04492"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Manuelita<br>\n          Length: 7 ft 4 in. <br>\n          Weight: 151 lb.<br>\n          Species: Silky Shark (Carcharhinus falciformis)<br>\n          Last seen: 11 February 2014 10:52:49 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-92.01958",
+"1.69802"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Lonesome Jorgita<br>\n          Length: 6 ft. 2 in.<br>\n          Weight: 176 lb.<br>\n          Species: Blacktip Shark (Carcharhinus limbatus)<br>\n          Last seen: 20 June 2014 11:44:53 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.31651",
+"-0.47315"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Judy<br>\n          Length: 7 ft. 1/2 in.<br>\n          Weight: 186 lb. <br>\n          Species: Blacktip Shark (Carcharhinus limbatus)<br>\n          Last seen: 11 May 2014 12:21:09 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.28923",
+"-0.43636"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Berlanga <br>\n          Length: 6 ft. 7 in. <br>\n          Weight: 105 lb.<br>\n          Species: Blacktip Shark (Carcharhinus limbatus)<br>\n          Last seen: 25 April 2014 12:49:58 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.29276",
+"-0.47667"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Guayasamin<br>\n          Length: 6 ft. 7 in.<br>\n          Weight: 116 lb. <br>\n          Species: Blacktip Shark (Carcharhinus limbatus)<br>\n          Last seen: 8 August 2014 9:17:26 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.2801",
+"-0.41052"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Sylvia<br>\n          Length: 6 ft. 11 in. <br>\n          Weight: null<br>\n          Species: Blacktip Shark (Carcharhinus limbatus)<br>\n          Last seen: 29 June 2014 9:05:08 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.28381",
+"-0.44068"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Gisela<br>\n          Length: 6 ft 8 in. <br>\n          Weight: 109 lb<br>\n          Species: Blacktip Shark (Carcharhinus limbatus)<br>\n          Last seen: 31 March 2014 1:48:51 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.33955",
+"-0.37823"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Floreana<br>\n          Length: 6 ft. 11 in.<br>\n          Weight: null<br>\n          Species: Blacktip Shark (Carcharhinus limbatus)<br>\n          Last seen: 1 September 2014 10:08:24 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.29648",
+"-0.37863"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Saltarina<br>\n          Length: 6 ft. 3 in.<br>\n          Weight: null<br>\n          Species: Blacktip Shark (Carcharhinus limbatus)<br>\n          Last seen: 14 March 2014 12:58:27 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.29596",
+"-0.48968"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Pat<br>\n          Length: 6 ft. 7 in. <br>\n          Weight: null<br>\n          Species: Blacktip Shark (Carcharhinus limbatus)<br>\n          Last seen: 22 May 2014 7:04:41 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.28842",
+"-0.45589"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Esperanza<br>\n          Length: 9 ft.<br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 27 May 2014 12:34:22 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.34898",
+"-0.48127"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Emma<br>\n          Length: 8 ft. 3 in.<br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 29 August 2014 11:47:34 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.81086",
+"2.10503"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Itabaca<br>\n          Length: 8 ft. 2 in.<br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 22 July 2014 12:33:37 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.18634",
+"-0.55376"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Yolanda<br>\n          Length: 12 ft. 7in. <br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 30 December 2014 11:46:20 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.50394",
+"-0.49887"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Susan<br>\n          Length: null<br>\n          Weight: null<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 7 February 2014 8:49:21 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.28210394050586",
+"-0.4066333847712354"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Marilin<br>\n          Length: null<br>\n          Weight: null<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 7 February 2014 8:53:24 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.28210394050586",
+"-0.4066333847712354"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Nemo<br>\n          Length: 5.16 ft<br>\n          Weight: null<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 24 February 2014 3:51:39 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-97.41092",
+"0.52877"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Sherril <br>\n          Length: 4.41 ft<br>\n          Weight: null<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 7 February 2014 9:00:44 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.28210394050586",
+"-0.4066333847712354"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Isabela <br>\n          Length: null<br>\n          Weight: null<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 7 February 2014 9:02:16 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.28210394050586",
+"-0.4066333847712354"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Nicole<br>\n          Length: 4.66 ft<br>\n          Weight: null<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 18 February 2014 11:57:30 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.29665",
+"-0.41823"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Caroline<br>\n          Length: 4.41 ft<br>\n          Weight: null<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 23 February 2014 8:32:57 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-97.3264",
+"2.05806"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Gabriela<br>\n          Length: 3.75 ft<br>\n          Weight: null<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 15 May 2014 12:47:15 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-78.28664",
+"-30.97916"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Michelle <br>\n          Length: 5.54 ft<br>\n          Weight: null<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 6 May 2014 11:25:52 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-78.36341",
+"-31.21465"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Luis<br>\n          Length: 4.17 ft<br>\n          Weight: null<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 23 May 2014 3:45:34 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-82.37071",
+"-19.59155"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Pablo<br>\n          Length: 5.25 ft<br>\n          Weight: null<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 12 February 2016 2:17:35 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-73.529",
+"-36.01075"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Sylvia Saez<br>\n          Length: 4.88 ft<br>\n          Weight: null<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 22 April 2014 8:04:09 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-74.31998",
+"-28.65648"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Leon III<br>\n          Length: 4.83 ft<br>\n          Weight: null<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 18 May 2014 9:03:21 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-76.43594",
+"-30.12295"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Diane<br>\n          Length: 4.63 ft<br>\n          Weight: null<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 8 June 2014 11:36:01 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-75.32382",
+"-30.39831"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Miss Michalove<br>\n          Length: 11'2<br>\n          Weight: 650 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 24 November 2015 11:05:34 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-79.99349",
+"32.50745"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Fritz<br>\n          Length: 10'4<br>\n          Weight: 425 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 28 July 2014 7:30:04 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-76.29839",
+"34.61921"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Al<br>\n          Length: 9'2<br>\n          Weight: 250 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 1 June 2014 11:51:10 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.83400015625",
+"31.934851762722754"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Anne Morrow<br>\n          Length: 10'2<br>\n          Weight: 500 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 25 July 2014 5:20:27 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.73115",
+"31.33546"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Betsy's Accelerometer<br>\n          Length: null<br>\n          Weight: null<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 6 June 2014 6:07:03 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-39.54276",
+"38.07355"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Septima<br>\n          Length: 12’8”<br>\n          Weight: 1,000 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 25 September 2014 11:01:45 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-74.47037",
+"35.90723"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Amy<br>\n          Length: 10'5<br>\n          Weight: 475 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 8 July 2014 6:31:56 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.58054547500001",
+"32.164169602321266"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Clara<br>\n          Length: 8'8\"<br>\n          Weight: 175 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 16 July 2014 6:47:27 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.58054547500001",
+"32.164169602321266"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Jaimie<br>\n          Length: 9'<br>\n          Weight: 263 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 23 September 2014 10:59:47 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-62.20488",
+"40.64373"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Big Kahuna<br>\n          Length: 6'10\"<br>\n          Weight: 99 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 27 August 2014 11:02:58 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-74.44017",
+"38.16899"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Isabella<br>\n          Length: 5'4\"<br>\n          Weight: 74 lbs<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 23 July 2014 11:19:59 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-70.97717",
+"40.07382"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Bonac<br>\n          Length: 9'8\"<br>\n          Weight: 216 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 23 September 2014 2:13:43 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-61.51601",
+"38.734"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Chris Nic<br>\n          Length: 6'<br>\n          Weight: 112 lbs<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 12 August 2014 3:12:27 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-69.81907",
+"40.86226"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Cate Ells<br>\n          Length: 6'6<br>\n          Weight: 78 lbs<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 11 May 2015 12:24:48 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-74.75034",
+"38.12627"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Lampiao<br>\n          Length: 8' 3''<br>\n          Weight: 273 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 6 January 2017 11:51:07 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-3.98291",
+"5.27651"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Castelo Branco<br>\n          Length: 6'7.5''<br>\n          Weight: 83 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 2 December 2014 11:54:52 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-24.2559",
+"5.57222"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Tupi<br>\n          Length: 8'2.8''<br>\n          Weight: 179 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 3 November 2014 5:22:51 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-32.43569",
+"-3.89355"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Bezerra<br>\n          Length: 8 ft 11 in<br>\n          Weight: 321 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 17 August 2014 11:30:42 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-32.36485",
+"-3.7876"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Kekoa<br>\n          Length: 19 inches<br>\n          Weight: 36.3 lbs<br>\n          Species: Green Sea Turtle (Chelonia mydas)<br>\n          Last seen: 20 August 2014 6:58:01 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-156.463623046875",
+"20.50420952245688"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Sam Houston<br>\n          Length: 10.2 ft <br>\n          Weight: 361 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 18 February 2015 5:31:02 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-95.75511",
+"26.22021"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Hunter<br>\n          Length: 9 ft<br>\n          Weight: 261 lbs<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 23 August 2014 7:03:39 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-96.99518143124999",
+"27.658900371371193"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Wyatt<br>\n          Length: 7.2 ft<br>\n          Weight: 102 lbs<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 6 November 2015 8:35:10 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-96.83526",
+"26.82696"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Madeline<br>\n          Length: 9.3 ft<br>\n          Weight: 294 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 7 July 2016 9:44:11 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-93.27724",
+"28.13625"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Bailey<br>\n          Length: 12' 2<br>\n          Weight: 800lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 25 March 2015 7:53:57 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-81.00895",
+"30.31214"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Jedda<br>\n          Length: 11 ft. 8 in. <br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 20 June 2015 2:27:13 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"153.29249",
+"-24.47629"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Maroochy<br>\n          Length: 9 ft 9 in / 3 mt<br>\n          Weight: 526lb / 239kg<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 26 February 2016 4:58:25 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"152.3362",
+"-24.20502"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: CHIPS<br>\n          Length: 6 ft. 9.5 in.<br>\n          Weight: 88 lb.<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 20 August 2015 5:27:03 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"145.95259",
+"-16.47788"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Ned<br>\n          Length: 7 ft 6 in<br>\n          Weight: 154 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 2 June 2015 4:43:42 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"148.01779",
+"-10.39824"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Trinity<br>\n          Length: 10 ft 7 in<br>\n          Weight: 591 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 3 June 2016 1:36:03 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"145.72476",
+"-16.231"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Zac<br>\n          Length: 11 ft 9 in<br>\n          Weight: 925 lbs / 420 KG<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 9 August 2015 5:03:07 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"146.19165",
+"-16.59927"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Mackay <br>\n          Length:  9 ft 7 in<br>\n          Weight: 291 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 26 September 2015 9:19:31 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"145.8843",
+"-16.40799"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Cathy <br>\n          Length: 7 ft.<br>\n          Weight: 452 lbs. <br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 8 March 2016 5:38:07 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"146.32139",
+"-15.89379"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Kimberley<br>\n          Length: 3.19m<br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 19 June 2015 5:47:39 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"117.12668",
+"-20.31509"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Ningaloo<br>\n          Length: 3.72m / 12 ft 2 in<br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 23 August 2015 10:15:31 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"117.65322",
+"-19.83863"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Perth<br>\n          Length: 4.07mt<br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 15 November 2015 7:44:10 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"115.41454",
+"-14.49287"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: ANZAC<br>\n          Length: 3.91mt<br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 8 May 2015 7:45:52 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"113.67879",
+"-22.80156"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Freo<br>\n          Length:  12 ft 7 in / 3.90 mt <br>\n          Weight: null<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 2 September 2016 4:34:52 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"119.749",
+"-19.9451"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Leeuwin<br>\n          Length: 3.03 mt / 9.9 ft<br>\n          Weight: 189kg / 416 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 9 November 2016 10:49:29 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"108.78215",
+"-20.87385"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Sunny<br>\n          Length: 12 ft 3in / 3.83 mt<br>\n          Weight: 962 lb / 436.8 kg<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 2 August 2015 11:31:11 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"113.74811",
+"-23.07573"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Adelaide<br>\n          Length: 3.90mt 12.7 ft<br>\n          Weight:  466kg / 1027 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 7 June 2015 2:14:14 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"113.74242",
+"-23.09703"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Gnaraloo<br>\n          Length: 3.68mt / 12.07 ft<br>\n          Weight: 379kg / 835 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 24 June 2015 7:24:37 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"113.44361",
+"-25.07376"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Quang<br>\n          Length: 2.68mt / 9.79 ft<br>\n          Weight: 122kg / 268 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 29 May 2015 6:48:23 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"113.72093",
+"-22.83051"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Bindi <br>\n          Length: 3.22mt 10.5 ft<br>\n          Weight: 235kg / 518 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 20 July 2015 11:06:24 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"113.22118",
+"-23.38833"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Nickol<br>\n          Length: 3.52 mt / 11.54 ft<br>\n          Weight: 3.52 mt / 11.54 ft<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 31 August 2015 7:57:54 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"113.60975",
+"-22.39184"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Catalina<br>\n          Length: 3.63mt / 11.9 ft<br>\n          Weight: 360.7kg / 795 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 3 May 2016 6:41:09 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"131.67581",
+"-33.18042"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Alice <br>\n          Length: 2.90mt / 9.5 ft<br>\n          Weight: 161kg / 354 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 21 June 2015 8:08:41 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"113.73509",
+"-22.90337"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Aussie<br>\n          Length: 4.05 mt / 13.28 ft<br>\n          Weight: 533 kg / 1175 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 26 March 2017 7:46:55 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"113.28183",
+"-26.16338"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Iemanja<br>\n          Length: 6.5 ft<br>\n          Weight:  99 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 26 November 2015 2:31:42 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-35.38654",
+"-4.87503"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Chessie<br>\n          Length: 12’ 2”<br>\n          Weight: 1200 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 5 July 2015 7:15:43 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-71.66673",
+"40.54395"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Einstein<br>\n          Length: 7.5 ft (2.3 m)<br>\n          Weight: 118 lb<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 18 October 2016 1:25:17 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-96.77806",
+"27.75645"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Elias<br>\n          Length: 6.75 ft<br>\n          Weight: 100 lbs<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 11 September 2015 10:04:49 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-72.21113",
+"40.90197"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Carl<br>\n          Length: 6 ft 9 in / 2 mt<br>\n          Weight: 150lb / 68kg<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 4 October 2015 10:25:21 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-61.69751",
+"43.45859"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Jax<br>\n          Length: 12' 6<br>\n          Weight: 750 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 21 June 2016 3:43:43 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-79.24326672851561",
+"33.04445946842065"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Buddy <br>\n          Length: 7'10<br>\n          Weight: 170 lbs <br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 19 July 2016 7:10:46 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-96.82643",
+"27.73555"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Hannah<br>\n          Length: 9.1 ft<br>\n          Weight: 315 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 17 January 2016 5:22:59 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"145.88947",
+"-16.12722"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Katya<br>\n          Length: 8.5 ft <br>\n          Weight: 242 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 14 October 2015 4:44:53 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"145.7545",
+"-16.48548"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Joseph<br>\n          Length: 10'6<br>\n          Weight: 372 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 17 January 2016 5:10:15 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-92.25591",
+"28.94744"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Reveille<br>\n          Length: 8'<br>\n          Weight: 180 lbs<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 30 November 2015 10:46:56 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-94.52752",
+"29.08316"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Harry Ette<br>\n          Length: 12'4<br>\n          Weight: 850 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 16 December 2015 10:14:00 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-73.52621",
+"36.1678"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Finley<br>\n          Length: 10 ft<br>\n          Weight: 361 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 29 December 2016 12:44:35 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-95.75881",
+"27.68659"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: SouthJaw<br>\n          Length: 8.5 ft<br>\n          Weight: 200 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 9 February 2016 7:31:57 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-87.72216796875",
+"30.031055426540256"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Daymond<br>\n          Length: 6 ft<br>\n          Weight: 120 lbs<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 27 April 2016 12:31:14 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-89.81476",
+"27.85305"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: iSimangaliso<br>\n          Length: 12.5 ft <br>\n          Weight: 992 lbs <br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 17 April 2017 1:47:43 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"32.92334",
+"-27.0944"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Bill Nye<br>\n          Length: 8.1 ft<br>\n          Weight: 200 lbs<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 24 May 2016 1:59:41 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-95.32838",
+"28.65416"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Georgia<br>\n          Length: 8.5 ft <br>\n          Weight: 253 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 6 May 2016 6:55:55 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-78.39194",
+"33.7993"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Viper<br>\n          Length: 7.6 ft <br>\n          Weight: 157.6 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 31 July 2016 11:37:32 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-81.09713",
+"30.44434"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Lazarus<br>\n          Length: 10.5 ft <br>\n          Weight: 622 lb<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 5 April 2016 5:16:09 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-96.76199",
+"26.71391"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: AB<br>\n          Length: 9 ft. 7 in (2.9 meters)<br>\n          Weight: 395.5 lb<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 5 May 2016 12:21:35 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-81.29169",
+"30.85385"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Duval<br>\n          Length: 8 ft<br>\n          Weight: 198 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 18 May 2016 12:01:53 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.62072",
+"30.13297"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Harvey<br>\n          Length: 7.9 ft (2.4 m)<br>\n          Weight: 230 lbs<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 26 April 2017 9:09:40 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-94.6386",
+"27.92107"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Hans<br>\n          Length: 7.2 ft (2.1 m)<br>\n          Weight: 160 lbs<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 22 May 2016 8:51:35 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-96.51263",
+"27.86754"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Jacob<br>\n          Length: 8.1 ft (2.46 m)<br>\n          Weight: 150 lbs<br>\n          Species: Hammerhead Shark (Sphyrna)<br>\n          Last seen: 31 May 2016 9:54:16 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-97.01985",
+"26.643"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Orlando<br>\n          Length: 7.8 feet <br>\n          Weight: 164 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 18 July 2016 8:09:33 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-77.37162",
+"34.38893"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Carolina<br>\n          Length: 9.3 feet <br>\n          Weight: 304 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 7 July 2016 7:50:39 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-77.17396",
+"34.40339"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Crystal<br>\n          Length: 11.4 ft<br>\n          Weight: 608 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 18 April 2017 9:34:16 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-75.87017",
+"34.62816"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Peggy<br>\n          Length: 9.3 ft<br>\n          Weight: 304 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 12 September 2016 7:37:03 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.90367",
+"31.35587"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Lexi<br>\n          Length: 8.9 ft <br>\n          Weight: 263 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 3 November 2016 8:58:40 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-75.64282",
+"35.24023"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Orlandinho<br>\n          Length: 6.6 ft<br>\n          Weight: 132 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 16 July 2016 6:17:53 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-32.453556060791016",
+"-3.8589451947690803"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Oscar<br>\n          Length: 7 ft 8 in<br>\n          Weight: 320 lbs<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 26 April 2017 9:10:04 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-71.94118",
+"35.88197"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Johnny<br>\n          Length: 8 ft 4 in<br>\n          Weight: 260 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 28 July 2016 10:55:38 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-56.49265",
+"43.13098"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Thomas<br>\n          Length: 9 ft<br>\n          Weight: 305 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 26 April 2017 10:22:40 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-49.47266",
+"39.20745"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Roland<br>\n          Length: 8 ft 4 in<br>\n          Weight:  260 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 23 July 2016 1:57:47 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-70.2969",
+"41.6889"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Montauk<br>\n          Length: 4.6 ft <br>\n          Weight: 50 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 27 December 2016 8:30:05 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-74.83455",
+"36.24211"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Hampton<br>\n          Length: 4.5 ft<br>\n          Weight: 42 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 19 September 2016 3:24:52 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-71.8895",
+"40.96603"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Hudson<br>\n          Length: 5.1 ft<br>\n          Weight: 66.7 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 18 January 2017 3:50:33 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-75.72036",
+"34.98332"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Gotham<br>\n          Length: 5.1 ft <br>\n          Weight: 30.9 lbs <br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 31 August 2016 8:18:31 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-72.24836",
+"40.7656"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Gratitude<br>\n          Length: 5.3 ft<br>\n          Weight: 74.4 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 11 March 2017 8:22:46 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-75.05857",
+"35.49608"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Teddy<br>\n          Length: 5.4 ft <br>\n          Weight: 82 lbs <br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 12 September 2016 11:48:26 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-71.53585",
+"40.87413"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Paumanok<br>\n          Length: 5.08 ft <br>\n          Weight: 63.71 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 27 August 2016 12:50:23 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-72.90197",
+"40.60239"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Manhattan<br>\n          Length: 5.3 ft<br>\n          Weight: 72.75 lbs <br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 20 April 2017 10:50:10 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-75.3934",
+"35.51345"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Vader<br>\n          Length: 8 ft 10 in<br>\n          Weight: 285 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 23 April 2017 6:21:34 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-50.01911",
+"36.69186"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Ciona<br>\n          Length: 8 ft 7 in<br>\n          Weight: 265 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 15 April 2017 4:27:13 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-70.75984",
+"32.15455"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Mahkato<br>\n          Length: 8 ft 1 in<br>\n          Weight: 210 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 6 December 2016 10:42:18 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-55.43461",
+"39.01181"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Bigelow<br>\n          Length: 7 ft 6 in<br>\n          Weight: 180 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 19 September 2016 7:52:51 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-65.23131",
+"41.5172"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Warne<br>\n          Length: 7 ft 3 in<br>\n          Weight: 160 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 14 April 2017 9:55:12 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-55.83659",
+"19.20853"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Machaca<br>\n          Length: 8 ft 2 in<br>\n          Weight: 225 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 6 January 2017 11:44:30 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-8.73223",
+"42.21081"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Sawtooth<br>\n          Length: 7 ft 11 in<br>\n          Weight: 200 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 6 February 2017 7:41:46 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-42.92094",
+"36.14281"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Don<br>\n          Length: 9 ft 1 in<br>\n          Weight: 311 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 9 March 2017 7:30:41 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-74.13608",
+"32.90305"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Buzz<br>\n          Length: 8 ft 4 in<br>\n          Weight: 235 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 27 December 2016 10:31:17 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-53.9173",
+"11.06574"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Grey Lady<br>\n          Length: 12 ft 5 in (3.7 meters)<br>\n          Weight: 1,348 lbs <br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 1 April 2017 12:02:21 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.1368",
+"32.0615"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Miss Costa<br>\n          Length: 12 ft 5in<br>\n          Weight: 1,668 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 27 March 2017 10:13:21 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-81.4029",
+"30.9199"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Madaket Millie <br>\n          Length: 12 ft 8 in<br>\n          Weight: 936.7 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 23 March 2017 11:34:21 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-77.2652",
+"33.9634"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: YETI<br>\n          Length: 11 ft  .96 in<br>\n          Weight: :  960 lbs <br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 11 December 2016 9:27:37 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.45139",
+"32.03228"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: George<br>\n          Length: 9 ft 10 in<br>\n          Weight: 702 lbs <br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 23 April 2017 11:31:27 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-75.95352",
+"35.32181"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Cisco<br>\n          Length: 8 ft 7 in<br>\n          Weight: 362 lbs <br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 22 April 2017 9:27:55 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-75.00516",
+"35.56345"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: MacAttack<br>\n          Length: 12 ft 4 in<br>\n          Weight: 454 lbs <br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 1 March 2017 5:54:44 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-74.0038",
+"33.50317"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: CubsWin<br>\n          Length: 9 ft 8 in<br>\n          Weight: 209 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 24 April 2017 9:23:02 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-44.91094",
+"24.5194"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Triton<br>\n          Length: 11 ft 1 in<br>\n          Weight: 358 lbs<br>\n          Species: Blue Shark (Prionace glauca)<br>\n          Last seen: 27 December 2016 11:01:16 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-70.47552",
+"31.28815"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Brunswick<br>\n          Length: 4 ft<br>\n          Weight: 54.8 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 22 August 2016 5:25:09 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-71.9183349609375",
+"40.90936126702326"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Rocky Mazzanti<br>\n          Length: 25 ft<br>\n          Weight: 25,000 lbs<br>\n          Species: Whale Shark (Rhincodon Typus)<br>\n          Last seen: 24 October 2016 12:12:24 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-68.8206",
+"38.5389"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Hilton<br>\n          Length: 12 ft. 5 in. (3.7 meters)<br>\n          Weight: 1326 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 26 April 2017 10:22:45 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-78.19868",
+"33.63857"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Weimar<br>\n          Length: 9 ft 4 in ( 2.8 meters)<br>\n          Weight: 304 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 25 April 2017 7:58:52 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-80.65526",
+"32.23562"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Savannah<br>\n          Length: 8 ft. 6 in. (2.5 meters)<br>\n          Weight: 460 lbs<br>\n          Species: White Shark (Carcharodon carcharias)<br>\n          Last seen: 25 April 2017 9:57:59 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-78.40472",
+"33.21335"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Beaufort<br>\n          Length: 5 ft 7.5 in<br>\n          Weight: 107 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 21 April 2017 9:46:45 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-79.87662",
+"30.79276"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Maya Marina<br>\n          Length: 4.5 ft (1.4 m)<br>\n          Weight: 100 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 26 April 2017 10:50:58 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-93.20961",
+"28.83669"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Peggy Hughes<br>\n          Length: 11.5 ft (3.8 m)<br>\n          Weight: 1,000+ lb<br>\n          Species: Mako Shark (Isurus oxyrinchus)<br>\n          Last seen: 25 April 2017 12:22:46 AM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-90.59191",
+"28.39001"
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"title": "Sharks name: Caroline Mae<br>\n          Length: 7.7 ft (2.3 m)<br>\n          Weight: 300 lbs<br>\n          Species: Tiger Shark  (Galeocerdo cuvier)<br>\n          Last seen: 26 April 2017 12:03:03 PM",
+"marker-symbol": "star",
+"marker-color": "#097BED"
+},
+"geometry": {
+"type": "Point",
+"coordinates": [
+"-93.85943",
+"28.02008"
+]
+}
+}
+]
+}

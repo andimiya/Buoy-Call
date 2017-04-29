@@ -5,16 +5,12 @@ import Login from '../../components/Login.js';
 import users from '../../reducers/';
 import MapView from '../../components/MapView';
 import Graph from '../../components/Graph'
-import './app.css';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
-
 import Footer from '../../components/Footer.js';
-
-import './app.css';
-
+import './App.css';
 
 class App extends Component {
   constructor(props) {

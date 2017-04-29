@@ -125,31 +125,20 @@ passport.deserializeUser(function(user, done) {
 
 app.get('/allsharks', (req, res) => {
   request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
+
     Promise.resolve(JSON.parse(body))
     .then((data) => {
-      let geoJSON = {};
-      geoJSON.type = "FeatureCollection";
-      geoJSON.features = [];
+      let sharksArray = [];
+
       for(let i = 0; i < data.length; i++){
-        let newChild = {};
-        newChild.type = "Feature";
-        newChild.properties = {
-          title: `Sharks name: ${data[i].name}<br>
-          Length: ${data[i].length}<br>
-          Weight: ${data[i].weight}<br>
-          Species: ${data[i].species}<br>
-          Last seen: ${data[i].pings[0].datetime}`,
-          'marker-symbol': 'star',
-          'marker-color': '#097BED'
+        let sharkCoordinates = {
+          lat: data[i].pings[0].latitude,
+          lng: data[i].pings[0].longitude,
+          popup: 'test'
         };
-        newChild.geometry = {
-          type: "Point",
-          coordinates: [data[i].pings[0].longitude,
-          data[i].pings[0].latitude]
-        };
-        geoJSON.features.push(newChild);
+        sharksArray.push(sharkCoordinates);
       }
-      res.json(geoJSON);
+      res.json(sharksArray);
     });
   });
 });
@@ -164,27 +153,13 @@ app.get('/allbuoys', (req, res )=> {
     })
   ])
   .then((arr) => {
-    let coordinates=arr[0];
-    let buoydata=arr[1];
-      let geoJSON = {};
-      geoJSON.type = "FeatureCollection";
-      geoJSON.features = [];
-      for(let i = 0; i < coordinates.length; i++){
-        let newChild = {};
-        newChild.type = "Feature";
-        newChild.properties = {
-          title: `The current waveheight for this buoy is ${buoydata.dataValues.wvht}`,
-          'marker-symbol': 'lighthouse',
-        };
-        newChild.geometry = {
-          type: "Point",
-          coordinates: [coordinates[i].dataValues.long, coordinates[i].dataValues.lat]
-        };
-        geoJSON.features.push(newChild);
-      }
-      res.json(geoJSON);
+    console.log(arr, 'array')
+    res.send(arr);
   });
 });
+
+
+
 
 app.listen(PORT, function(){
   console.log('server started on', PORT);
