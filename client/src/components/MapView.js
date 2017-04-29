@@ -26,11 +26,28 @@ class MapView extends Component {
    })
   }
 
+  getAllSharks(){
+   return new Promise((resolve,reject) => {
+     function reqListener(){
+       resolve(JSON.parse(this.responseText));
+     }
+     let oReq = new XMLHttpRequest();
+     oReq.open('GET', `/allsharks`);
+     oReq.setRequestHeader('Content-type',
+       'application/json')
+     oReq.addEventListener("load", reqListener)
+     oReq.send()
+   })
+  }
+
   componentDidMount() {
-    this.getAllBuoys()
+    this.getAllSharks()
     .then((markers) => {
-      this.setState({
-        markers: markers
+      this.getAllBuoys()
+      .then((markers) => {
+        this.setState({
+          markers: markers
+        })
       })
     })
   }
@@ -55,8 +72,7 @@ class MapView extends Component {
           />
           <MarkerClusterGroup
             markers={markers}
-            wrapperOptions={{enableDefaultStyle: true}}
-    />
+            wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
     );
   }
