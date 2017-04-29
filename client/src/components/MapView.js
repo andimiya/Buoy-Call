@@ -10,7 +10,7 @@ class MapView extends Component {
     };
 
     this.getAllBuoys = this.getAllBuoys.bind(this);
-    this.getPopupNao = this.getPopupNao.bind(this);
+    // this.getPopupNao = this.getPopupNao.bind(this);
   }
 
   getAllBuoys(){
@@ -41,16 +41,16 @@ class MapView extends Component {
    })
   }
 
-  getPopupNao(name) {
-    L.popup({minWidth: 200, closeButton: false})
-    .setContent(`
-      <div>
-        <b>Hello world!</b>
-        <p>I am a \${name} popup.</p>
-        <button>Click</button>
-      </div>
-    `);
-  }
+  // getPopupNao(name) {
+  //   L.popup({minWidth: 200, closeButton: false})
+  //   .setContent(`
+  //     <div>
+  //       <b>Hello world!</b>
+  //       <p>I am a \${name} popup.</p>
+  //       <button>Click</button>
+  //     </div>
+  //   `);
+  // }
 
   componentDidMount(arr) {
     let markers = null;
@@ -66,7 +66,7 @@ class MapView extends Component {
         let properties = {
           lat: Number(coordinates[i].lat),
           lng: Number(coordinates[i].long),
-          popup: this.getPopupNao('test')
+          popup: 'test'
         };
         coordinateArray.push(properties);
       }
