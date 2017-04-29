@@ -47,6 +47,60 @@ router.route('/')
     })
   })
 
+router.put('/changefirstname', userAuthenticator, (req, res) => {
+  Users.update(
+  {
+    firstName: req.body.FirstName
+  },
+  { where: {email: req.user.email }}
+  )
+  .then(() => {
+  res.send('success')
+  });
+});
+
+router.put('/changelastname', userAuthenticator, (req, res) => {
+  Users.update(
+  {
+    lastName: req.body.LastName
+  },
+  { where: {email: req.user.email }}
+  )
+  .then(() => {
+  res.send('success')
+  });
+});
+
+
+router.put('/changepassword', userAuthenticator, (req, res) =>{
+  bcrypt.genSalt(saltRounds, function(err,salt){
+    bcrypt.hash(req.body.Password, salt, function(err, hash){
+      Users.update(
+        {
+        password: hash
+      },
+        {
+          where: {email: req.user.email}
+        })
+      .then(() =>{
+        res.send('success')
+      })
+    })
+  })
+})
+
+router.put('/changeemail', userAuthenticator, (req, res) => {
+  Users.update(
+  {
+    email: req.body.Email
+  },
+  { where: {email: req.user.email }}
+  )
+  .then(() => {
+  res.send('success')
+  });
+});
+
 router.route('/login')
   .post(passport.authenticate('local'), function(req, res){
     console.log("successfully logged in")
