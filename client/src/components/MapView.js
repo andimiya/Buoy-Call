@@ -6,7 +6,7 @@ class MapView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markers: null
+      marker: null
     };
 
     this.getAllBuoys = this.getAllBuoys.bind(this);
@@ -41,22 +41,23 @@ class MapView extends Component {
   }
 
   componentDidMount() {
-    this.getAllSharks()
-    .then((markers) => {
+    Promise.all([
+      this.getAllSharks(),
       this.getAllBuoys()
-      .then((markers) => {
-        this.setState({
-          markers: markers
-        })
-      })
+    ])
+    .then((markers) => {
+      
+      let marker = markers[0].concat(markers[1]);
+
+      console.log(marker, 'markers');
     })
   }
 
   render(){
-    const { markers } = this.state;
-    console.log(markers, 'data');
+    const { marker } = this.state;
+    console.log(marker, 'data');
 
-    if(!markers){
+    if(!marker){
       return (<div>loading...</div>);
     }
 
@@ -71,7 +72,7 @@ class MapView extends Component {
             url="https://api.mapbox.com/styles/v1/jonathonlaylo/cj1g01mw200062ss53ht46jgb/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q"
           />
           <MarkerClusterGroup
-            markers={markers}
+            markers={marker}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
     );
