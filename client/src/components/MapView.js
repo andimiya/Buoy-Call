@@ -6,10 +6,11 @@ class MapView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      marker: null
+      markers: null
     };
 
     this.getAllBuoys = this.getAllBuoys.bind(this);
+    this.getPopupNao = this.getPopupNao.bind(this);
   }
 
   getAllBuoys(){
@@ -40,24 +41,40 @@ class MapView extends Component {
    })
   }
 
-  componentDidMount() {
-    Promise.all([
-      this.getAllSharks(),
-      this.getAllBuoys()
-    ])
-    .then((markers) => {
-      
-      let marker = markers[0].concat(markers[1]);
+  getPopupNao(name) {
+    console.log('test');
+  }
 
-      console.log(marker, 'markers');
+  componentDidMount(arr) {
+    let markers = null;
+    Promise.all([
+      // this.getAllSharks(),
+      this.getAllBuoys(arr)
+    ])
+    .then((arr) => {
+      let coordinates = arr[0];
+      coordinates = coordinates[0];
+      let coordinateArray = [];
+      for(let i = 0; i < coordinates.length; i++){
+        let properties = {
+          lat: Number(coordinates[i].lat),
+          lng: Number(coordinates[i].long),
+          popup: this.getPopupNao('test')
+        };
+        coordinateArray.push(properties);
+      }
+      markers = coordinateArray;
+      this.setState({
+        markers: markers
+      })
     })
+
   }
 
   render(){
-    const { marker } = this.state;
-    console.log(marker, 'data');
+    const { markers } = this.state;
 
-    if(!marker){
+    if(!markers){
       return (<div>loading...</div>);
     }
 
@@ -72,7 +89,7 @@ class MapView extends Component {
             url="https://api.mapbox.com/styles/v1/jonathonlaylo/cj1g01mw200062ss53ht46jgb/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q"
           />
           <MarkerClusterGroup
-            markers={marker}
+            markers={markers}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
     );
