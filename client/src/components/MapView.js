@@ -42,7 +42,14 @@ class MapView extends Component {
   }
 
   getPopupNao(name) {
-    console.log('test');
+    L.popup({minWidth: 200, closeButton: false})
+    .setContent(`
+      <div>
+        <b>Hello world!</b>
+        <p>I am a \${name} popup.</p>
+        <button>Click</button>
+      </div>
+    `);
   }
 
   componentDidMount(arr) {
