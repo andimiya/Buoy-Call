@@ -77,7 +77,7 @@ router.put('/changepassword', userAuthenticator, (req, res) =>{
     bcrypt.hash(req.body.Password, salt, function(err, hash){
       Users.update(
         {
-        password: req.body.Password
+        password: hash
       },
         {
           where: {email: req.user.email}
