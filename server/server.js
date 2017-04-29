@@ -153,18 +153,8 @@ app.get('/allbuoys', (req, res )=> {
     })
   ])
   .then((arr) => {
-    let coordinates=arr[0];
-    let buoydata=arr[1];
-    let coordinateArray = [];
-    for(let i = 0; i < coordinates.length; i++){
-      let properties = {
-        lat: Number(coordinates[i].dataValues.lat),
-        lng: Number(coordinates[i].dataValues.long),
-        popup: 'buoy test'
-      };
-      coordinateArray.push(properties);
-    }
-    res.json(coordinateArray);
+    console.log(arr, 'array')
+    res.send(arr);
   });
 });
 
