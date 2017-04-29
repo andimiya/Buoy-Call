@@ -14,6 +14,7 @@ import Payment from './components/StripeCheckout';
 import { createStore, applyMiddleware } from 'redux';
 import users from './reducers';
 import ReduxThunk from 'redux-thunk';
+import ManageAccount from './components/ManageAccount';
 import './index.css';
 import {
   BrowserRouter as Router,
@@ -38,12 +39,12 @@ ReactDOM.render(
         <Nav />
         <Route exact path="/" component={App} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/secret" component={secret} />
         <Route exact path="/Graph" component={
           Graph} />
         <Route exact path="/newuser" component={NewUser} />
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/confirmation" component={Confirmation} />
+        <Route exact path="/auth" component={ManageAccount} />
       </div>
     </Router>
   </Provider>,

@@ -4,35 +4,56 @@ import Checkout from '../../components/StripeCheckout';
 import Login from '../../components/Login.js';
 import users from '../../reducers/';
 import MapView from '../../components/MapView';
-
-import './app.css';
+import Graph from '../../components/Graph'
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
-
 import Footer from '../../components/Footer.js';
-
-import './app.css';
-
+import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
 
+  xhrLoginCheck(){
+    return new Promise(function(resolve,reject){
+      function reqListener(){
+        resolve(this.responseText);
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('POST', '/api/users/checkLogin');
+      oReq.setRequestHeader('Content-type', 
+        'application/json')
+      oReq.addEventListener("load", reqListener)
+      oReq.send()
+    })
+  }
+
+  componentWillMount(){
+    this.xhrLoginCheck()
+    .then((userData)=>{
+      console.log(this.props)
+      let user = JSON.parse(userData)
+      this.props.onAddUser(user.id, user.firstName, user.lastName, user.email)
+    })
+    .catch(function(err){
+      console.log("component will mount error",err)
+    })
+  }
+
 
   render() {
     return (
-      <div className="App">
-        <div className="footer">
-          <Footer />
-        </div>
-          <div className="MapView">
-            <MapView />
-          </div>
+      <div className="App">    
+       
+       <div className="MapView">
+         <MapView />
+         <Graph />
+       </div>
       </div>
-    );
+    )
   }
 }
 

@@ -1,6 +1,7 @@
 import { ADD_USERS } from '../actions';
 import { ADD_USER_TO_STATE } from '../actions';
 import { ADD_GRAPH_TO_STATE } from '../actions';
+import { LOG_OUT_FROM_STATE } from '../actions';
 
 
 const initialState = {
@@ -34,9 +35,14 @@ function users(state=initialState , action){
     })
 
     case ADD_GRAPH_TO_STATE:
-    console.log("ASDF", action)
     return Object.assign({}, state, {
       graph: action.graph
+    })
+
+    case LOG_OUT_FROM_STATE:
+    console.log("reducer logging out", action)
+    return Object.assign({}, state, {
+      loggedInUser: null
     })
 
     default: return state;

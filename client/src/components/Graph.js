@@ -142,7 +142,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   console.log("Graph page state", state)
   return {
-    graphState: state.graph
+    graphState: state.graph,
+    loggedInUser: state.loggedInUser
   }
 }
 
