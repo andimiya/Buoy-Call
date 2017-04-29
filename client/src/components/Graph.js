@@ -8,17 +8,84 @@ class Graph extends Component {
   constructor(props){
     super(props)
 
-    this.changeBuoyData = this.changeBuoyData.bind(this)
+    this.state = {
+      month: '1',
+      year: '2016',
+      buoyid: '41002'
+    }
+
+    this.buoyChange = this.buoyChange.bind(this);
+    this.yearChange = this.yearChange.bind(this);
+    this.monthChange = this.monthChange.bind(this);
+    this.changeBuoyDataXHR = this.changeBuoyDataXHR.bind(this);
+  }
+
+  monthChange(event){
+    event.preventDefault()
+    new Promise((resolve,reject) => {
+      this.setState({
+        month: event.target.value
+      })
+      resolve();
+    })
+    .then(()=>{
+      this.changeBuoyDataXHR()
+      .then((data) => {
+        this.props.onAddGraphToState(data)
+      })
+      .catch(function(err){
+        console.log("change error", err)
+      })
+    })
+  }
+
+  buoyChange(event){
+    event.preventDefault();
+    console.log("EVENT", event)
+    new Promise((resolve,reject) => {
+      this.setState({
+        buoyid: event.target.value
+      })
+      resolve();
+    })
+    .then(()=>{
+      this.changeBuoyDataXHR()
+      .then((data) => {
+        this.props.onAddGraphToState(data)
+      })
+      .catch(function(err){
+        console.log("change error", err)
+      })
+    })
+  }
+
+  yearChange(event){
+    event.preventDefault()
+    new Promise((resolve,reject) => {
+      this.setState({
+        year: event.target.value
+      })
+      resolve();
+    })
+    .then(()=>{
+      this.changeBuoyDataXHR()
+      .then((data) => {
+        this.props.onAddGraphToState(data)
+      })
+      .catch(function(err){
+        console.log("change error", err)
+      })
+    })
   }
 
 
   getBuoyData(){
-    return new Promise(function(resolve,reject){
+    return new Promise((resolve,reject) => {
       function reqListener(){
         resolve(JSON.parse(this.responseText));
       }
       let oReq = new XMLHttpRequest();
-      oReq.open('GET', '/api/buoy/41002/2015');
+      oReq.open('GET', `/api/buoy/test/${this.state.buoyid}/${this.state.year}/${this.state.month}`);
       oReq.setRequestHeader('Content-type', 
         'application/json')
       oReq.addEventListener("load", reqListener)
@@ -26,38 +93,25 @@ class Graph extends Component {
     })
   }
 
-  changeBuoyDataXHR(){
-    return new Promise(function(resolve,reject){
+  changeBuoyDataXHR(value){
+    return new Promise((resolve,reject) => {
       function reqListener(){
         resolve(JSON.parse(this.responseText));
       }
       let oReq = new XMLHttpRequest();
-      oReq.open('GET', '/somebuoys2');
+      oReq.open('GET', `/api/buoy/test/${this.state.buoyid}/${this.state.year}/${this.state.month}`);
       oReq.setRequestHeader('Content-type', 
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()
-    })
-  }
-
-  changeBuoyData(event){
-    event.preventDefault()
-    this.changeBuoyDataXHR()
-    .then((data) => {
-      this.props.onAddGraphToState(data)
-    })
-    .catch(function(err){
-      console.log("change error", err)
     })
   }
 
   componentDidMount(){
     this.getBuoyData()
     .then((data) => {
-      let newData = data.filter(function(value, index, Arr) {
-      return index % 168 == 0;
-      });
-      this.props.onAddGraphToState(newData)
+      console.log(data)
+      this.props.onAddGraphToState(data)
     })
     .catch(function(err){
       console.log("component did mount on graph error", err)
@@ -66,59 +120,60 @@ class Graph extends Component {
 
 
   render(){
-    console.log(this.props.graphState)
     return(
       <div>
-        <form onSubmit={this.changeBuoyData}>
-          <input type="submit" value="Change the data!" />
+        <form onClick={this.buoyChange}>
+          <input type="submit" value="41002"/>
         </form>
-        <LineChart width={1000} height={300} data={this.props.graphState}
-              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-         <XAxis dataKey="year"/>
-         <YAxis/>
-         <CartesianGrid strokeDasharray="3 3"/>
-         <Tooltip/>
-         <Legend />
-         <Line type="monotone" dataKey="wvht" stroke="red" strokeDasharray="5 5"/>
-         <Line type="monotone" dataKey="wtmp" stroke="#82ca9d" strokeDasharray="3 4 5 2"/>
-        </LineChart>
+        <form onClick={this.buoyChange}>
+          <input type="submit" value="41008"/>
+        </form>
+        <form onClick={this.buoyChange}>
+          <input type="submit" value="41004"/>
+        </form>
+        <h1>This is just for buoy {this.state.buoyid}</h1>
+        <div onChange={this.yearChange}>
+          <select>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012 </option>
+          </select>
+        </div>
+        <div onChange={this.monthChange}>
+          <select>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
 
-        <AreaChart width={730} height={250} data={this.props.graphState}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-          <defs>
-            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
-            </linearGradient>
-            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
-              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
-            </linearGradient>
-          </defs>
-          <XAxis dataKey="dd" />
-          <YAxis />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Tooltip />
-          <Area type="monotone" dataKey="wvht" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-        </AreaChart>
-        <AreaChart width={730} height={250} data={this.props.graphState}
+
+        <AreaChart width={1750} height={250} data={this.props.graphState}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
               <stop offset="95%" stopColor="#8884d8" stopOpacity={0.5}/>
             </linearGradient>
-            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
-              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0.5}/>
-            </linearGradient>
           </defs>
-          <XAxis dataKey="mm" />
+          <XAxis dataKey="dd" />
           <YAxis />
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid strokeDasharray="3 3" fill="orange"/>
           <Tooltip />
-          <Area type="monotone" dataKey="wtmp" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+          <Area type="monotone" dataKey="wvht" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
         </AreaChart>
+
       </div>
     )
   }
