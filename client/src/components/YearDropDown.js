@@ -28,6 +28,7 @@ class YearDropDown extends Component {
   }
 
   yearChange(event){
+    console.log("year change")
     event.preventDefault()
     this.props.onAddYearToState(event.target.value)
     console.log(this.props.yy)
@@ -38,8 +39,6 @@ class YearDropDown extends Component {
     .catch(function(err){
       console.log("change error", err)
     })
-
-
   }
 
   render(){
