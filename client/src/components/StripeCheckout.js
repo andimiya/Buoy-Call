@@ -20,22 +20,23 @@ class Checkout extends React.Component {
 
   render() {
     return (
-  <div className="stripe">
-      <StripeCheckout
-        name="Larn Yay"
-        description="Saving the Ocean"
-        amount={500}
-        currency="USD"
-        stripeKey={config.STRIPE.PUBLISHABLE_KEY}
-        locale="en"
-        src="//checkout.stripe.com/v2/checkout.js"
-        class="stripe-button"
-        alipay
-        bitcoin
-        token={this.onToken}
-        >
-      </StripeCheckout>
-  </div>
+      <div id="checkout-container">
+        <StripeCheckout
+          name="Larn Yay"
+          description="Saving the Ocean"
+          ComponentClass="div"
+          panelLabel="Adopt a Buoy or Shark"
+          amount={500}
+          currency="USD"
+          stripeKey={config.STRIPE.PUBLISHABLE_KEY}
+          locale="en"
+          alipay
+          bitcoin
+          token={this.onToken}
+          >
+      
+        </StripeCheckout>
+      </div>
     )
   }
 }
