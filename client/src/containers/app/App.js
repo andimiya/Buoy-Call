@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav';
+import MapView from '../../components/MapView';
 import Graph from '../../components/Graph'
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
@@ -36,7 +37,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div id="home-page-container">
+        <div id="map-container">
+          <MapView />
+        </div>
+        <div id="buoy-container">
+          <div className="buoy-graph"></div>
+          <Graph />
+        </div>
       </div>
     )
   }

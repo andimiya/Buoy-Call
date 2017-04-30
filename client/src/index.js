@@ -30,13 +30,6 @@ ReactDOM.render(
     <Router>
       <div id="root-container">
         <Nav />
-      <div id="map-container">
-        <MapView />
-      </div>
-      <div id="buoy-container">
-        <div className="buoy-graph"></div>
-        <Graph />
-      </div>
         <Route exact path="/" component={App} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/Graph" component={

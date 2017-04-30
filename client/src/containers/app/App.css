@@ -10,6 +10,15 @@
   justify-content: center;
 }
 
+#home-page-container{
+  box-sizing: border-box;
+  width: 100%;
+  overflow: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 h1{
   font-family: 'Roboto', sans-serif;
   font-size: 1.5em;
