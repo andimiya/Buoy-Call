@@ -4,36 +4,68 @@ const db = require('../models');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const passport = require('passport')
-const { Users, coordinates, buoydata } = db;
+const { Users, coordinates, buoydata, aggregatetodays } = db;
+const sequelize = require('sequelize')
 
-router.get('/test/', (req,res) => {
-  buoydata.findAll({
-    attributes: ['yy', 'mm', 'dd', 'hh', 'wvht', 'wtmp'],
+
+
+router.get('/test/', (req, res) => {
+  aggregatetodays.findAll({
+    order: ['yy','mm','dd'],
+    attributes: ['yy', 'mm', 'dd', 'wvht', 'wtmp'],
     where: {
-      wvht: { $lt: 95 },
-      wtmp: { $lt: 900 },
-      buoyid: "41002",
-      yy: 2014,
+      buoyid: '41002',
       mm: 1,
-      dd: 1
+      yy: 2016
     }
   })
   .then((arr) => {
-    let average = {
-      yy: 2014,
-      mm: 1,
-      dd: 1,
-      wvht: null,
-      wtmp: null
-    };
-    let sum = 0;
-    for(let i = 0; i < arr.length; i++){
-      sum+=arr[i].dataValues.wvht;
+    res.json(arr);
+  })
+})
+
+
+
+router.get('/test/:buoyid/:year/:month', (req, res) => {
+  aggregatetodays.findAll({
+    order: ['yy','mm','dd'],
+    attributes: ['yy', 'mm', 'dd', 'wvht', 'wtmp'],
+    where: {
+      buoyid: req.params.buoyid,
+      mm: req.params.month,
+      yy: req.params.year
     }
-    sum/=arr.length;
-    average.wvht = sum;
-    console.log(arr[0].dataValues.wvht)
-    res.json(average);
+  })
+  .then((arr) => {
+    res.json(arr);
+  })
+})
+
+router.get('/test/:month', (req, res) => {
+  aggregatetodays.findAll({
+    order: ['yy','mm','dd'],
+    attributes: ['yy', 'mm', 'dd', 'wvht', 'wtmp'],
+    where: {
+      buoyid: '41001',
+      mm: req.params.month,
+      yy: 2012
+    }
+  })
+  .then((arr) => {
+    res.json(arr);
+  })
+})
+
+router.get('/:buoyid/getDataYears', (req, res) => {
+  aggregatetodays.findAll({
+    order: ['yy'],
+    attributes: [sequelize.literal('distinct "yy"'),'yy'],
+    where: {
+      buoyid: req.params.buoyid
+    }
+  })
+  .then((arr) => {
+    res.json(arr);
   })
 })
 
