@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Router from 'react-router';
 import { connect } from 'react-redux';
 import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, Legend, Area, AreaChart } from 'recharts';
-import { addGraphToState, addBuoyYearsToState, addBuoyIdToState } from '../actions';
+import { addGraphToState, addBuoyYearsToState, addBuoyIdToState, addMonthToState, addYearToState } from '../actions';
 import YearDropDown from './YearDropDown.js';
 
 class Graph extends Component {
@@ -21,6 +21,7 @@ class Graph extends Component {
 
   monthChange(event){
     event.preventDefault()
+    this.props.onAddMonthToState(event.target.value)
     new Promise((resolve,reject) => {
       this.setState({
         month: event.target.value
@@ -102,12 +103,33 @@ class Graph extends Component {
     })
   }
 
+  yearChangeXHR(year){
+    console.log("xhr", `/api/buoy/test/${this.props.buoyid}/${year}/${this.props.mm}`, this.props)
+    return new Promise((resolve, reject) => {
+      function reqListener(){
+        resolve(JSON.parse(this.responseText));
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('GET', `/api/buoy/test/${this.props.buoyid}/${year}/${this.props.mm}`);
+      oReq.setRequestHeader('Content-type', 
+        'application/json')
+      oReq.addEventListener("load", reqListener)
+      oReq.send()
+    })
+  }
+
   buoyChange(event){
     event.preventDefault();
     this.props.onAddBuoyIdToState(event.target.value)
     this.getBuoyYearsXHR(event.target.value)
     .then((data) => {
-      this.props.onAddBuoyYearsToState(data)
+      console.log("data", data)
+      this.props.onAddBuoyYearsToState(data);
+      this.props.onAddYearToState(data[0].yy);
+      return this.yearChangeXHR(data[0].yy);
+    })
+    .then((data) => {
+      this.props.onAddGraphToState(data);
     })
     .catch(function(err){
       console.log("change error", err)
@@ -201,6 +223,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     onAddBuoyIdToState:(data) => {
       dispatch(addBuoyIdToState(data))
+    },
+    onAddMonthToState:(data) => {
+      dispatch(addMonthToState(data))
+    },
+    onAddYearToState:(data) => {
+      dispatch(addYearToState(data));
     }
   }
 }
@@ -211,7 +239,8 @@ const mapStateToProps = (state) => {
     loggedInUser: state.loggedInUser,
     years: state.years,
     buoyid: state.buoyid,
-    yy: state.yy
+    yy: state.yy,
+    mm: state.mm
   }
 }
 

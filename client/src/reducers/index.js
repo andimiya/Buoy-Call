@@ -5,6 +5,7 @@ import { LOG_OUT_FROM_STATE } from '../actions';
 import { ADD_BUOY_YEARS_TO_STATE } from '../actions';
 import { ADD_BUOY_ID_TO_STATE } from '../actions';
 import { ADD_BUOY_YEAR_TO_STATE } from '../actions';
+import { ADD_MONTH_TO_STATE } from '../actions';
 
 
 const initialState = {
@@ -65,6 +66,11 @@ function users(state=initialState , action){
     case ADD_BUOY_YEAR_TO_STATE:
     return Object.assign({}, state, {
       yy: action.year
+    })
+
+    case ADD_MONTH_TO_STATE:
+    return Object.assign({}, state, {
+      mm: action.month
     })
 
 

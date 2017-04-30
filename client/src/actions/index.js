@@ -5,6 +5,7 @@ export const LOG_OUT_FROM_STATE = 'LOG_OUT_FROM_STATE';
 export const ADD_BUOY_YEARS_TO_STATE = 'ADD_BUOY_YEARS_TO_STATE';
 export const ADD_BUOY_ID_TO_STATE = 'ADD_BUOY_ID_TO_STATE';
 export const ADD_BUOY_YEAR_TO_STATE = 'ADD_BUOY_YEAR_TO_STATE';
+export const ADD_MONTH_TO_STATE = 'ADD_MONTH_TO_STATE';
 
 export function addUser( firstName, lastName, email, password){
   return {
@@ -59,5 +60,12 @@ export function addYearToState(year){
   return{
     type: ADD_BUOY_YEAR_TO_STATE,
     year
+  }
+}
+
+export function addMonthToState(month){
+  return{
+    type: ADD_MONTH_TO_STATE,
+    month
   }
 }
