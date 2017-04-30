@@ -2,6 +2,8 @@ node_modules
 scripts/buoydata
 config.json
 npm-debug.log
-.env
+.env.development
+.env.production
 client/config/index.js
 client/config/production.js
+.env
