@@ -1,8 +1,7 @@
 /*jshint esversion:6 */ 
 
 import React from 'react'; 
-import { Router, browserHistory } from 'react-router';
-import createHistory from 'history/createBrowserHistory';
+
 
 
 // const history = createHistory();

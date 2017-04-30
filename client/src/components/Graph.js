@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import Router from 'react-router';
 import { connect } from 'react-redux';
 import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, Legend, Area, AreaChart } from 'recharts';
-import { addGraphToState } from '../actions';
+import { addGraphToState, addBuoyYearsToState, addBuoyIdToState } from '../actions';
+import YearDropDown from './YearDropDown.js';
 
 class Graph extends Component {
   constructor(props){
     super(props)
 
     this.state = {
-      month: '1',
-      year: '2016',
-      buoyid: '41002'
+      month: '1'
     }
 
     this.buoyChange = this.buoyChange.bind(this);
@@ -39,25 +38,6 @@ class Graph extends Component {
     })
   }
 
-  buoyChange(event){
-    event.preventDefault();
-    console.log("EVENT", event)
-    new Promise((resolve,reject) => {
-      this.setState({
-        buoyid: event.target.value
-      })
-      resolve();
-    })
-    .then(()=>{
-      this.changeBuoyDataXHR()
-      .then((data) => {
-        this.props.onAddGraphToState(data)
-      })
-      .catch(function(err){
-        console.log("change error", err)
-      })
-    })
-  }
 
   yearChange(event){
     event.preventDefault()
@@ -94,12 +74,13 @@ class Graph extends Component {
   }
 
   changeBuoyDataXHR(value){
+    console.log(`/api/buoy/test/${this.props.buoyid}/${this.props.yy}/${this.state.month}`)
     return new Promise((resolve,reject) => {
       function reqListener(){
         resolve(JSON.parse(this.responseText));
       }
       let oReq = new XMLHttpRequest();
-      oReq.open('GET', `/api/buoy/test/${this.state.buoyid}/${this.state.year}/${this.state.month}`);
+      oReq.open('GET', `/api/buoy/test/${this.props.buoyid}/${this.props.yy}/${this.state.month}`);
       oReq.setRequestHeader('Content-type', 
         'application/json')
       oReq.addEventListener("load", reqListener)
@@ -107,15 +88,41 @@ class Graph extends Component {
     })
   }
 
-  componentDidMount(){
-    this.getBuoyData()
+  getBuoyYearsXHR(buoyid){
+    return new Promise((resolve, reject) => {
+      function reqListener(){
+        resolve(JSON.parse(this.responseText));
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('GET', `/api/buoy/${buoyid}/getDataYears`);
+      oReq.setRequestHeader('Content-type', 
+        'application/json')
+      oReq.addEventListener("load", reqListener)
+      oReq.send()
+    })
+  }
+
+  buoyChange(event){
+    event.preventDefault();
+    this.props.onAddBuoyIdToState(event.target.value)
+    this.getBuoyYearsXHR(event.target.value)
     .then((data) => {
-      console.log(data)
-      this.props.onAddGraphToState(data)
+      this.props.onAddBuoyYearsToState(data)
     })
     .catch(function(err){
-      console.log("component did mount on graph error", err)
+      console.log("change error", err)
     })
+  }
+
+  componentDidMount(){
+    // this.getBuoyData()
+    // .then((data) => {
+    //   console.log(data)
+    //   this.props.onAddGraphToState(data)
+    // })
+    // .catch(function(err){
+    //   console.log("component did mount on graph error", err)
+    // })
   }
 
 
@@ -129,18 +136,16 @@ class Graph extends Component {
           <input type="submit" value="41008"/>
         </form>
         <form onClick={this.buoyChange}>
-          <input type="submit" value="41004"/>
+          <input type="submit" value="41001"/>
+        </form>
+        <form onClick={this.buoyChange}>
+          <input type="submit" value="42002"/>
+        </form>
+        <form onClick={this.buoyChange}>
+          <input type="submit" value="41001"/>
         </form>
         <h1>This is just for buoy {this.state.buoyid}</h1>
-        <div onChange={this.yearChange}>
-          <select>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2013">2013</option>
-            <option value="2012">2012 </option>
-          </select>
-        </div>
+        <YearDropDown />
         <div onChange={this.monthChange}>
           <select>
             <option value="1">January</option>
@@ -190,15 +195,23 @@ const mapDispatchToProps = (dispatch) => {
   return{
     onAddGraphToState:(data) => {
       dispatch(addGraphToState(data));
+    },
+    onAddBuoyYearsToState:(data) => {
+      dispatch(addBuoyYearsToState(data))
+    },
+    onAddBuoyIdToState:(data) => {
+      dispatch(addBuoyIdToState(data))
     }
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log("Graph page state", state)
   return {
     graphState: state.graph,
-    loggedInUser: state.loggedInUser
+    loggedInUser: state.loggedInUser,
+    years: state.years,
+    buoyid: state.buoyid,
+    yy: state.yy
   }
 }
 
