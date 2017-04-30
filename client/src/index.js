@@ -9,6 +9,7 @@ import Nav from './components/Nav';
 import Login from './components/Login';
 import Confirmation from './components/Confirmation';
 import Payment from './components/StripeCheckout';
+import Footer from './components/Footer';
 import { createStore, applyMiddleware } from 'redux';
 import users from './reducers';
 import ReduxThunk from 'redux-thunk';
@@ -38,6 +39,7 @@ ReactDOM.render(
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/confirmation" component={Confirmation} />
         <Route exact path="/auth" component={ManageAccount} />
+        <Footer />
       </div>
     </Router>
   </Provider>,
