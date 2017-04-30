@@ -119,7 +119,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/api/allsharks', (req, res) => {
-  request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
+  request('//www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
 
     Promise.resolve(JSON.parse(body))
     .then((data) => {

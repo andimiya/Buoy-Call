@@ -28,7 +28,7 @@ class Checkout extends React.Component {
         currency="USD"
         stripeKey={config.STRIPE.PUBLISHABLE_KEY}
         locale="en"
-        src="http://checkout.stripe.com/v2/checkout.js"
+        src="//checkout.stripe.com/v2/checkout.js"
         class="stripe-button"
         alipay
         bitcoin
