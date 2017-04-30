@@ -80,16 +80,22 @@ class Nav extends Component {
     } else {
       return(
         <div className="nav-container">
-        <ul className="nav">
-          <li><Link to="/">Homepage</Link></li>
+        <div className="logo">
+           <h1>
+          <Link to="/">BuoyCall</Link>
+          </h1>
+        </div>
+        <ul className="main-nav">
+          <li><Link to="/Payment">Adopt</Link></li>
+          <li><Link to="/Graph">Historical Charts</Link></li>
+          <li><Link to="/">About Us</Link></li>
+          <li><Link to="/">Non-Profit Support</Link></li>
+        </ul>
+        <ul className="login-nav">
           <li><Link to="/login">Login In</Link></li>
           <li><Link to="/NewUser">Create an Account</Link></li>
-          <li><Link to="/Graph">Sample Graph!</Link></li>
-          <li><Link to="/Payment">Adopt a Buoy/Shark With Ca$h Money</Link></li>
         </ul>
-        <div className="loggedInSign">
-          <h3>hello you are not logged in!!</h3>
-        </div>
+
       </div>
       )
     }

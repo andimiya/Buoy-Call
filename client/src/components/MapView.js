@@ -86,11 +86,11 @@ class MapView extends Component {
 
     return (
         <Map className="markercluster-map"
-          style={{height: '900px'}}
-          center={[-8.310,19.087]}
-          zoom={1.5}
-          minZoom={0}
-          maxZoom={15}>
+          style={{height: '400px'}}
+          center={[-8.310,12.087]}
+          zoom={2}
+          minZoom={2}
+          maxZoom={8}>
           <TileLayer
             url="https://api.mapbox.com/styles/v1/jonathonlaylo/cj1g01mw200062ss53ht46jgb/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q"
           />

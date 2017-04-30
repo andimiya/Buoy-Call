@@ -1,11 +1,13 @@
 
 @import './reset.css';
 
-.root-container{
+#root-container{
   box-sizing: border-box;
   width: 100%;
   overflow: none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 h1{
@@ -30,8 +32,11 @@ h1{
 
 .nav-container {
   display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 20px;
   box-sizing: border-box;
-  border: 10px solid red;
+  /*border: 10px solid red;*/
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
   color: #000;
@@ -40,43 +45,92 @@ h1{
 
 .logo {
   box-sizing: border-box;
-  padding-top: 30px;
-  border: 10px solid green;
+  padding-right: 50px;
+  /*border: 10px solid green;*/
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  align-items: center;
+  text-transform: uppercase;
+}
+.logo a {
+  text-decoration: none;
+}
+.logo a:hover{
+  border-bottom: solid thick gray;
+}
+
+.main-nav {
+  padding-left: 10px;
+  box-sizing: border-box;
+  /*border: 10px solid green;*/
   display: flex;
   justify-content: flex-start;
   list-style: none;
   align-items: center;
 }
 
-.nav {
+.login-nav {
+  padding-left: 50px;
   box-sizing: border-box;
-  padding-top: 30px;
-  border: 10px solid green;
+  /*border: 10px solid green;*/
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+
+}
+.login-nav li {
+  box-sizing: border-box;
+  padding: 0 10 0 10px;
+  /*border: 10px solid blue;*/
+}
+.login-nav li a {
+  text-decoration: none;
+}
+.login-nav li a:hover{
+  border-bottom: solid thick gray;
+}
+
+.logged-in-note {
+  box-sizing: border-box;
+  /*border: 10px solid green;*/
   display: flex;
   justify-content: flex-start;
   list-style: none;
   align-items: center;
 }
 
-.nav li {
+.main-nav li {
   box-sizing: border-box;
-  border: 10px solid blue;
-
+  padding: 0 10 0 10px;
+  /*border: 10px solid blue;*/
 }
 
-.nav li a {
+.main-nav li a {
   text-decoration: none;
 }
 
-.nav li a:visited{
+.main-nav li a:visited{
   color: black;
 }
 
-.nav-container li a:hover{
-  border-bottom: solid thick red;
+.main-nav li a:hover{
+  border-bottom: solid thick gray;
 }
 
 /* General Styling */
+
+#buoy-container {
+  border: 10px solid red;
+}
+
+#map-container {
+  margin: 20px;
+  /*border: 10px solid blue;*/
+  width: 90%;
+  align-self: center;
+}
 
 .MakeNewUser, .userLogIn, .confirmation-page, .stripe, .edit{
   width: 80%;
@@ -100,10 +154,7 @@ input[type=text], input[type=password]{
 input[type=text]:focus, input[type=password]:focus  {
   border-bottom: 2px solid #FFD750;
   outline: none;
-
 }
-
-
 
 input[type=submit]{
   background-color: #B2b2B2;
