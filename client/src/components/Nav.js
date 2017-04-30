@@ -17,7 +17,7 @@ class Nav extends Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('POST', '/api/users/checkLogin');
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()
@@ -32,7 +32,7 @@ class Nav extends Component {
       this.props.onAddUser(user.id, user.firstName, user.lastName, user.email)
     })
     .catch(function(err){
-      console.log("component will mount error",err)
+      console.log("Nav: User is not logged in")
     })
   }
 
@@ -43,7 +43,7 @@ class Nav extends Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('POST', '/api/users/logout');
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()

@@ -3,14 +3,12 @@
 const express = require('express');
 const bcrypt =  require('bcrypt');
 const app = express();
-const CONFIG = require('./config/config.json');
 const bodyParser = require('body-parser');
 const request = require('request');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 8080
 ;
-const stripeConfig = ('.././client/config');
-const stripe = require("stripe")(CONFIG.development.stripeSecretKey);
+const stripe = require("stripe")(process.env.STRIPESECRET_KEY);
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -47,13 +45,13 @@ app.use(function(req, res, next){
 
 app.use(session({
   store: new RedisStore(),
-  secret: CONFIG.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUnintialized: true
 }));
 
 app.use(session({
-  secret: CONFIG.SESSION_SECRET
+  secret: process.env.SESSION_SECRET
 }));
 
 app.use(passport.initialize());
@@ -64,8 +62,6 @@ app.use('/api/buoy', buoyRoute)
 
 passport.use(new LocalStrategy(
   function(email, password, done){
-    console.log("email", email)
-    console.log("password", password)
     Users.findOne({
       where: {
         email : email
@@ -94,7 +90,7 @@ passport.serializeUser(function(user, done) {
   return done(null, user);
 });
 
-app.post('/charge', (req, res) => {
+app.post('/api/charge', (req, res) => {
   console.log(req.body.email, 'req BODY');
   stripe.customers.create({
     email: req.body.email,
@@ -122,9 +118,8 @@ passport.deserializeUser(function(user, done) {
   });
 });
 
-
-app.get('/allsharks', (req, res) => {
-  request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
+app.get('/api/allsharks', (req, res) => {
+  request('//www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
 
     Promise.resolve(JSON.parse(body))
     .then((data) => {
@@ -143,7 +138,7 @@ app.get('/allsharks', (req, res) => {
   });
 });
 
-app.get('/allbuoys', (req, res )=> {
+app.get('/api/allbuoys', (req, res )=> {
   Promise.all([
     coordinates.findAll({
       attributes: ['buoyid', 'lat', 'long']
@@ -157,9 +152,6 @@ app.get('/allbuoys', (req, res )=> {
     res.send(arr);
   });
 });
-
-
-
 
 app.listen(PORT, function(){
   console.log('server started on', PORT);

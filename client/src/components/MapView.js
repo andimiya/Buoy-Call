@@ -19,7 +19,7 @@ class MapView extends Component {
        resolve(JSON.parse(this.responseText));
      }
      let oReq = new XMLHttpRequest();
-     oReq.open('GET', `/allbuoys`);
+     oReq.open('GET', `/api/allbuoys`);
      oReq.setRequestHeader('Content-type',
        'application/json')
      oReq.addEventListener("load", reqListener)
@@ -33,7 +33,7 @@ class MapView extends Component {
        resolve(JSON.parse(this.responseText));
      }
      let oReq = new XMLHttpRequest();
-     oReq.open('GET', `/allsharks`);
+     oReq.open('GET', `/api/allsharks`);
      oReq.setRequestHeader('Content-type',
        'application/json')
      oReq.addEventListener("load", reqListener)
@@ -75,7 +75,6 @@ class MapView extends Component {
         markers: markers
       })
     })
-
   }
 
   render(){

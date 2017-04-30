@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
-import NewUser from '../../components/NewUser.js';
-import Checkout from '../../components/StripeCheckout';
-import Login from '../../components/Login.js';
-import users from '../../reducers/';
 import MapView from '../../components/MapView';
 import Graph from '../../components/Graph'
-import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
-import Footer from '../../components/Footer.js';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   xhrLoginCheck(){
     return new Promise(function(resolve,reject){
@@ -24,7 +15,7 @@ class App extends Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('POST', '/api/users/checkLogin');
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()
@@ -34,20 +25,19 @@ class App extends Component {
   componentWillMount(){
     this.xhrLoginCheck()
     .then((userData)=>{
-      console.log(this.props)
       let user = JSON.parse(userData)
       this.props.onAddUser(user.id, user.firstName, user.lastName, user.email)
     })
     .catch(function(err){
-      console.log("component will mount error",err)
+      console.log('User not logged in');
     })
   }
 
 
   render() {
     return (
-      <div className="App">    
-       
+      <div className="App">
+
        <div className="MapView">
          <MapView />
          <Graph />
@@ -58,7 +48,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('mapping state to props', state)
   return {
     users: state.users,
     loggedInUser: state.loggedInUser
@@ -73,10 +62,8 @@ const mapDispatchToProps = (dispatch) => {
     getAllUsers:(firstName, lastName, email, password) =>{
       dispatch(addUser(firstName, lastName, email, password));
     }
-
   }
 }
-
 
 export default connect(
     mapStateToProps,
