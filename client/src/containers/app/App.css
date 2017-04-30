@@ -1,20 +1,20 @@
 
 @import './reset.css';
 
-
-.APP{
+.root-container{
+  box-sizing: border-box;
   width: 100%;
   overflow: none;
+  display: flex;
 }
 
 h1{
-  font-family: 'Palanquin Dark', sans-serif;
-  text-align: center;
-  font-size: 3em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  text-transform: uppercase;
 }
 
 /* HEADER & FOOTER */
-
 
 .footer{
   height: 3rem;
@@ -28,20 +28,43 @@ h1{
 
 /* NAVIGATION */
 
-.nav{
-  font-family: 'Asar', serif;
-  margin-top: 2em;
-  margin-left: 5%; 
-  z-index: 1000;
-  position: absolute;
-  font-size: 20px;
+.nav-container {
+  display: flex;
+  box-sizing: border-box;
+  border: 10px solid red;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  color: #000;
+  text-transform: uppercase;
 }
 
-.nav li{
-  display: inline;
-  padding-right: 1rem;
+.logo {
+  box-sizing: border-box;
+  padding-top: 30px;
+  border: 10px solid green;
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  align-items: center;
 }
-.nav li a{
+
+.nav {
+  box-sizing: border-box;
+  padding-top: 30px;
+  border: 10px solid green;
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  align-items: center;
+}
+
+.nav li {
+  box-sizing: border-box;
+  border: 10px solid blue;
+
+}
+
+.nav li a {
   text-decoration: none;
 }
 
@@ -49,12 +72,9 @@ h1{
   color: black;
 }
 
-.nav li a:hover{
+.nav-container li a:hover{
   border-bottom: solid thick red;
 }
-
-
-
 
 /* General Styling */
 
@@ -125,7 +145,7 @@ input[type=submit]{
 }
 
 .h3{
-  font-family: 'Asar', serif; 
+  font-family: 'Asar', serif;
 }
 
 

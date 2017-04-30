@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MapView from '../../components/MapView';
+import Nav from '../../components/Nav';
 import Graph from '../../components/Graph'
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
@@ -36,12 +36,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-
-       <div className="MapView">
-         <MapView />
-         <Graph />
-       </div>
+      <div>
+      <div className="buoy-graph">
+        <Graph />
+      </div>
       </div>
     )
   }

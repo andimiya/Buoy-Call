@@ -25,7 +25,6 @@ let store = createStore(
   applyMiddleware(ReduxThunk)
 );
 
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
