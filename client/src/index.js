@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/app/App.js';
+import App from './containers/App/App.js';
 import secret from './components/secret';
 import './index.css';
 import auth from './lib/index.js';
