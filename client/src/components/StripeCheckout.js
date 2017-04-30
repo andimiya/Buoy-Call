@@ -1,6 +1,7 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import config from '../../config';
+import '../containers/App/App.css';
 
 class Checkout extends React.Component {
   onToken = (token) => {
@@ -21,6 +22,11 @@ class Checkout extends React.Component {
   render() {
     return (
       <div id="checkout-container">
+        <h1>Adopt and Donate</h1>
+        <div className="payment-description">
+        <p>Adopt a buoy or a shark by making a donation!<br />
+        Donations will be shared among non-profits with a mission towards environmental protection and marine sciences.</p>
+        </div>
         <StripeCheckout
           name="Larn Yay"
           description="Saving the Ocean"
@@ -34,7 +40,6 @@ class Checkout extends React.Component {
           bitcoin
           token={this.onToken}
           >
-      
         </StripeCheckout>
       </div>
     )

@@ -18,7 +18,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import './index.css';
+import './containers/App/App.css';
 
 let store = createStore(
   users,

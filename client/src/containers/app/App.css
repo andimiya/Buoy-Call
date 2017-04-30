@@ -19,10 +19,17 @@
   justify-content: center;
 }
 
-h1{
-  font-family: 'Roboto', sans-serif;
+h1 {
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.5em;
   text-transform: uppercase;
+}
+
+p {
+  text-align: center;
+  font-size: 1em;
+  line-height: 1.5em;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 /* HEADER & FOOTER */
@@ -198,13 +205,29 @@ input[type=submit]{
   margin: 3rem 45% ;
   text-align: center;
   font-size: 15px;
-  font-family: 'Asar', serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 /* PAYMENT */
 
 #checkout-container {
-  border: 10px solid red;
-  display: flex;
+  /*border: 10px solid red;*/
+  display: block;
+  flex: 0 0 90%;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.description-text {
+  font-size: 3rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  line-height: 1.2rem;
+}
+
+.payment-description {
+  padding: 30 0 30 0px;
+}
+
+.line-break {
   flex: 0 0 100%;
 }
 
