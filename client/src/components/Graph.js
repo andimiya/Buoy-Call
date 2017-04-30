@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Router from 'react-router';
 import { connect } from 'react-redux';
-import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, Legend, Area, AreaChart } from 'recharts';
+import { CartesianGrid, YAxis, XAxis, Tooltip, Area, AreaChart } from 'recharts';
 import { addGraphToState, addBuoyYearsToState, addBuoyIdToState } from '../actions';
 import YearDropDown from './YearDropDown.js';
 
@@ -66,7 +65,7 @@ class Graph extends Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('GET', `/api/buoy/test/${this.state.buoyid}/${this.state.year}/${this.state.month}`);
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()
@@ -81,7 +80,7 @@ class Graph extends Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('GET', `/api/buoy/test/${this.props.buoyid}/${this.props.yy}/${this.state.month}`);
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()
@@ -95,7 +94,7 @@ class Graph extends Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('GET', `/api/buoy/${buoyid}/getDataYears`);
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()

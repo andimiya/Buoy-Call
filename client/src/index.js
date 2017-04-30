@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App/App.js';
-import secret from './components/secret';
 import './index.css';
-import auth from './lib/index.js';
 import { Provider } from 'react-redux';
 import Graph from './components/Graph'
 import NewUser from './components/NewUser'
@@ -21,8 +19,6 @@ import {
   Route
 } from 'react-router-dom';
 
-import Footer from './components/Footer.js';
-import Header from './components/Header.js';
 import './index.css';
 
 let store = createStore(

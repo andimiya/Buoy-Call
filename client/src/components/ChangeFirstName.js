@@ -1,14 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addUserToState } from '../actions';
-import { Login } from './Login';
-
-import {
-  BrowserRouter as Router, 
-  Route, 
-  Redirect, 
-  Link
-} from 'react-router-dom';
 
 class ChangeFirstName extends React.Component{
   constructor(props){
@@ -52,7 +44,7 @@ class ChangeFirstName extends React.Component{
       oReq.open('PUT', '/api/users/changefirstname');
       oReq.setRequestHeader('Content-type', 'application/json')
       oReq.send(JSON.stringify(editedUser));
-    } 
+    }
 
       componentDidMount() {
         this.xhrLoginCheck()
