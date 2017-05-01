@@ -91,7 +91,26 @@ class MapView extends Component {
   }
 
   getBuoyData(input){
-    this.buoyChange(input._popup._content)
+    let reader = document.createElement('div');
+    reader.innerHTML = input._popup._content;
+    let buoyid = reader.firstChild.id
+    if(buoyid){
+      this.buoyChange(buoyid)
+    }
+  }
+
+  generateBuoyPopupContent(buoy){
+    // return buoy.buoyid;
+    //DONT MESS WITH THE ID.
+    return `<span id="${buoy.buoyid}">${buoy.buoyid}</span>`;
+  }
+
+  generateSharkPopupContent(shark){
+    return `Shark name: ${shark.name}<br>
+              Length: ${shark.length}<br>
+              Weight: ${shark.weight}<br>
+              Species: ${shark.species}<br>
+              Last seen: ${shark.pings[0].datetime}`
   }
 
   componentDidMount(arr) {
@@ -107,7 +126,7 @@ class MapView extends Component {
         let properties = {
           lat: Number(coordinates[i].lat),
           lng: Number(coordinates[i].long),
-          popup: coordinates[i].buoyid
+          popup: this.generateBuoyPopupContent(coordinates[i])
         };
         coordinateArray.push(properties);
       }
@@ -123,11 +142,7 @@ class MapView extends Component {
           let properties = {
             lat: Number(sharkCoordinates[i].pings[0].latitude),
             lng: Number(sharkCoordinates[i].pings[0].longitude),
-            popup: `Shark name: ${sharkCoordinates[i].name}<br>
-              Length: ${sharkCoordinates[i].length}<br>
-              Weight: ${sharkCoordinates[i].weight}<br>
-              Species: ${sharkCoordinates[i].species}<br>
-              Last seen: ${sharkCoordinates[i].pings[0].datetime}`,
+            popup: this.generateSharkPopupContent(sharkCoordinates[i]),
           };
           sharkArray.push(properties);
         };
@@ -162,7 +177,7 @@ class MapView extends Component {
           />
           <MarkerClusterGroup
             markers={markers}
-            onMarkerClick={(marker) => console.log(this.getBuoyData())}
+            onMarkerClick={this.getBuoyData}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
     );
