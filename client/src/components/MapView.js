@@ -28,18 +28,32 @@ class MapView extends Component {
   }
 
   getAllSharks(){
-   return new Promise((resolve,reject) => {
-     function reqListener(){
-       resolve(JSON.parse(this.responseText));
-     }
-     let oReq = new XMLHttpRequest();
-     oReq.open('GET', `/api/allsharks`);
-     oReq.setRequestHeader('Content-type',
+    return new Promise((resolve,reject) => {
+      function reqListener(){
+        resolve(JSON.parse(this.responseText));
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('GET', `/api/allsharks`);
+      oReq.setRequestHeader('Content-type',
        'application/json')
-     oReq.addEventListener("load", reqListener)
-     oReq.send()
-   })
+      oReq.addEventListener("load", reqListener)
+      oReq.send()
+    })
   }
+
+  //
+  //  let sharksArray = [];
+  //
+  //  for(let i = 0; i < data.length; i++){
+  //    let sharkCoordinates = {
+  //      lat: data[i].pings[0].latitude,
+  //      lng: data[i].pings[0].longitude,
+  //      popup: 'test'
+  //    };
+  //    sharksArray.push(sharkCoordinates);
+  //  }
+  //  res.json(sharksArray);
+  // }
 
   getBuoyData(){
     console.log('test get buoy data function');
@@ -48,8 +62,7 @@ class MapView extends Component {
   componentDidMount(arr) {
     let markers = null;
     Promise.all([
-      // this.getAllSharks(),
-      this.getAllBuoys(arr)
+      this.getAllBuoys(),
     ])
     .then((arr) => {
       let coordinates = arr[0];
@@ -64,10 +77,20 @@ class MapView extends Component {
         coordinateArray.push(properties);
       }
       markers = coordinateArray;
-      this.setState({
-        markers: markers
+    })
+    .then(() => {
+      this.getAllSharks()
+      .then((data) => {
+        console.log(data, 'shark data');
+
       })
     })
+    // .then((data) => {
+    //   console.log(data, 'shark data');
+    //   this.setState({
+    //     markers: markers
+    //   })
+    // })
   }
 
   render(){
@@ -89,7 +112,7 @@ class MapView extends Component {
           />
           <MarkerClusterGroup
             markers={markers}
-            onMarkerClick={(marker) => console.log(marker, marker.getLatLng(), this.getBuoyData(), 'Test')}
+            onMarkerClick={(marker) => console.log(this.getBuoyData(), 'Test')}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
     );

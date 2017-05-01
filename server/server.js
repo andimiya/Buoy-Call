@@ -119,22 +119,9 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/api/allsharks', (req, res) => {
-  request('//www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
-
-    Promise.resolve(JSON.parse(body))
-    .then((data) => {
-      let sharksArray = [];
-
-      for(let i = 0; i < data.length; i++){
-        let sharkCoordinates = {
-          lat: data[i].pings[0].latitude,
-          lng: data[i].pings[0].longitude,
-          popup: 'test'
-        };
-        sharksArray.push(sharkCoordinates);
-      }
-      res.json(sharksArray);
-    });
+  request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
+    const sharkdata = JSON.parse(body)
+    res.send(body);
   });
 });
 
@@ -148,7 +135,7 @@ app.get('/api/allbuoys', (req, res )=> {
     })
   ])
   .then((arr) => {
-    console.log(arr, 'array')
+    // console.log(arr, 'array')
     res.send(arr);
   });
 });
