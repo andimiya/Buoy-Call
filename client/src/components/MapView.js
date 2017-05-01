@@ -10,7 +10,6 @@ class MapView extends Component {
     };
 
     this.getAllBuoys = this.getAllBuoys.bind(this);
-    // this.getPopupNao = this.getPopupNao.bind(this);
   }
 
   getAllBuoys(){
@@ -41,17 +40,6 @@ class MapView extends Component {
    })
   }
 
-  // getPopupNao(name) {
-  //   L.popup({minWidth: 200, closeButton: false})
-  //   .setContent(`
-  //     <div>
-  //       <b>Hello world!</b>
-  //       <p>I am a \${name} popup.</p>
-  //       <button>Click</button>
-  //     </div>
-  //   `);
-  // }
-
   componentDidMount(arr) {
     let markers = null;
     Promise.all([
@@ -66,7 +54,7 @@ class MapView extends Component {
         let properties = {
           lat: Number(coordinates[i].lat),
           lng: Number(coordinates[i].long),
-          popup: 'test'
+          popup: 'Buoy Test'
         };
         coordinateArray.push(properties);
       }
@@ -96,6 +84,7 @@ class MapView extends Component {
           />
           <MarkerClusterGroup
             markers={markers}
+            onMarkerClick={(marker) => console.log(marker, marker.getLatLng(), 'Test')}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
     );
