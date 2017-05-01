@@ -51,6 +51,9 @@ class MapView extends Component {
   //     </div>
   //   `);
   // }
+  getBuoyData(input){
+      console.log('test get buoy data function', input);
+    }
 
   componentDidMount(arr) {
     let markers = null;
@@ -95,6 +98,7 @@ class MapView extends Component {
             url="https://api.mapbox.com/styles/v1/jonathonlaylo/cj1g01mw200062ss53ht46jgb/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q"
           />
           <MarkerClusterGroup
+            onMarkerClick={(marker) => console.log(marker, "/", marker.getLatLng(), this.getBuoyData(marker), 'Test')}
             markers={markers}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
