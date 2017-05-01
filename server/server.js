@@ -16,7 +16,7 @@ const RedisStore = require('connect-redis')(
   session);
 const LocalStrategy = require('passport-local').Strategy;
 const db = require('./models');
-const { Users, coordinates, buoydata } = db;
+const { Users, coordinates, buoydata, payments } = db;
 const userRoute = require('./routes/users');
 const buoyRoute = require('./routes/buoy');
 
@@ -91,19 +91,30 @@ passport.serializeUser(function(user, done) {
 });
 
 app.post('/api/charge', (req, res) => {
-  console.log(req.body.email, 'req BODY');
   stripe.customers.create({
     email: req.body.email,
     source: req.body.id
   })
-  .then(customer =>
+  .then(customer => {
     stripe.charges.create({
       amount: 500,
       currency: 'usd',
       customer: customer.id
-    }))
-  .then(charge =>
-    res.send('success'));
+    })
+    return customer
+  })
+  .then(customer => {
+    payments.create({
+      email: req.body.email,
+      amount: 500,
+      currency: 'usd',
+      customer: customer.id
+    })
+    .then( _=> {
+      console.log('charge complete');
+      res.send('success')
+    })
+  })
 });
 
 passport.deserializeUser(function(user, done) {
