@@ -135,15 +135,12 @@ class Graph extends Component {
     })
   }
 
+  dataTypeChange(event){
+    event.preventDefault();
+  }
+
   componentDidMount(){
-    // this.getBuoyData()
-    // .then((data) => {
-    //   console.log(data)
-    //   this.props.onAddGraphToState(data)
-    // })
-    // .catch(function(err){
-    //   console.log("component did mount on graph error", err)
-    // })
+    
   }
 
 
@@ -184,6 +181,12 @@ class Graph extends Component {
             <option value="12">December</option>
           </select>
         </div>
+
+
+        <input id="datatype_wvht" type="radio" value="wvht" name="datatype" checked={this.wvhtDatatype}/><label htmlFor="datatype_wvht">Wave Height</label>
+        <br />
+        <input id="datatype_wtmp" type="radio" value="wtmp" name="datatype"/><label htmlFor="datatype_wtmp">Wave Temp</label>
+
 
       </div>
     )
