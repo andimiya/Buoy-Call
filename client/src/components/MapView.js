@@ -66,7 +66,7 @@ class MapView extends Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('GET', `/api/buoy/test/${this.props.buoyid}/${year}/${this.props.mm}`);
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()
@@ -77,7 +77,6 @@ class MapView extends Component {
     this.props.onAddBuoyIdToState(event)
     this.getBuoyYearsXHR(event)
     .then((data) => {
-      console.log("data", data)
       this.props.onAddBuoyYearsToState(data);
       this.props.onAddYearToState(data[0].yy);
       return this.yearChangeXHR(data[0].yy);
@@ -88,17 +87,11 @@ class MapView extends Component {
     .catch((err) => {
       this.props.onAddGraphToState([{}])
       alert("There is no data for this buoy currently")
-      console.log("change error", err)
     })
   }
 
   getBuoyData(input){
     this.buoyChange(input._popup._content)
-      console.log("function",input._popup._content);
-  }
-
-  getBuoyData(){
-    console.log('test get buoy data function');
   }
 
   componentDidMount(arr) {
@@ -126,7 +119,6 @@ class MapView extends Component {
       .then((data) => {
         let sharkCoordinates = data;
         let sharkArray = [];
-        console.log(sharkCoordinates);
         for(let i = 0; i < sharkCoordinates.length; i++){
           let properties = {
             lat: Number(sharkCoordinates[i].pings[0].latitude),
@@ -143,7 +135,6 @@ class MapView extends Component {
         this.setState({
           markers: markers
         })
-        console.log(markers, 'markers');
       })
     })
   }
@@ -166,9 +157,8 @@ class MapView extends Component {
             url="https://api.mapbox.com/styles/v1/jonathonlaylo/cj1g01mw200062ss53ht46jgb/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q"
           />
           <MarkerClusterGroup
-            onMarkerClick={(marker) => console.log(marker, "/", marker.getLatLng(), this.getBuoyData(marker), 'Test')}
             markers={markers}
-            onMarkerClick={(marker) => console.log(this.getBuoyData(), 'Test')}
+            onMarkerClick={(marker) => console.log(this.getBuoyData())}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
     );
