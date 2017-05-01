@@ -148,7 +148,7 @@ class Graph extends Component {
     return(
       <div>
 
-        <AreaChart width={1750} height={250} data={this.props.graphState}
+        <AreaChart width={1400} height={250} data={this.props.graphState}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -162,6 +162,9 @@ class Graph extends Component {
           <Tooltip />
           <Area type="monotone" dataKey="wvht" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
         </AreaChart>
+        <div>
+          {this.props.buoyid}
+        </div>
 
         
         <YearDropDown />
