@@ -70,7 +70,7 @@ class Login extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <input type='text' onChange={this.handleChangeEmail} placeholder="Email Address" name='Email' /><br/>
         <input type='password' onChange={this.handleChangePassword} placeholder="Password" name="Password" /><br/>
-        <input type="submit" value="Log In" />
+        <input className="login-submit" type="submit" value="Log In" />
       </form>
       </div>
     )

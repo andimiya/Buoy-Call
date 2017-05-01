@@ -73,7 +73,7 @@ class NewUser extends React.Component{
             <input type="text" onChange={this.handleChangeLastName} placeholder="Last Name" name="lastName" /><br/>
             <input type="text" placeholder="Email Address"onChange={this.handleChangeEmail} name='email address' /><br/>
             <input type="password" placeholder="Password" onChange={this.handleChangePassword} name='password' /><br/>
-            <input type="submit" value='Create New User' />
+            <input className="new-user-submit" type="submit" value='Create New User' />
           </form>
         </div>
       )
