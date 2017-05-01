@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "env $(cat .env.development | xargs) node server.js",
-    "start-prod": "env $(cat .env.production | xargs) node server.js"
+    "start": "env $(cat .env | xargs) node server.js",
+    "start-prod": "env $(cat .env | xargs) node server.js"
   },
   "author": "",
   "license": "ISC",
