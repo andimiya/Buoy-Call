@@ -104,11 +104,14 @@ app.post('/api/charge', (req, res) => {
     return customer
   })
   .then(customer => {
+    let chargeData = customer.sources.data[0];
     payments.create({
+      customerid: customer.id,
       email: req.body.email,
       amount: 500,
-      currency: 'usd',
-      customer: customer.id
+      lastFourDigits: chargeData.last4,
+      cardType: chargeData.brand,
+      origin: chargeData.country
     })
     .then( _=> {
       console.log('charge complete');
