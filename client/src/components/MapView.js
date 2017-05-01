@@ -10,6 +10,7 @@ class MapView extends Component {
     };
 
     this.getAllBuoys = this.getAllBuoys.bind(this);
+    this.getBuoyData = this.getBuoyData.bind(this);
   }
 
   getAllBuoys(){
@@ -40,6 +41,10 @@ class MapView extends Component {
    })
   }
 
+  getBuoyData(){
+    console.log('test get buoy data function');
+  }
+
   componentDidMount(arr) {
     let markers = null;
     Promise.all([
@@ -54,7 +59,7 @@ class MapView extends Component {
         let properties = {
           lat: Number(coordinates[i].lat),
           lng: Number(coordinates[i].long),
-          popup: 'Buoy Test'
+          popup: 'View historical buoy data below this map!'
         };
         coordinateArray.push(properties);
       }
@@ -84,7 +89,7 @@ class MapView extends Component {
           />
           <MarkerClusterGroup
             markers={markers}
-            onMarkerClick={(marker) => console.log(marker, marker.getLatLng(), 'Test')}
+            onMarkerClick={(marker) => console.log(marker, marker.getLatLng(), this.getBuoyData(), 'Test')}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
     );
