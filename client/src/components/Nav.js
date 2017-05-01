@@ -70,7 +70,6 @@ class Nav extends Component {
           <ul className="main-nav">
             <li><Link to="/Payment">Adopt</Link></li>
             <li><Link to="/Graph">Historical Charts</Link></li>
-            <li><Link to="/AboutUs">About Us</Link></li>
             <li><Link to="/">Non-Profit Support</Link></li>
           </ul>
 
@@ -100,7 +99,6 @@ class Nav extends Component {
         <ul className="main-nav">
           <li><Link to="/Payment">Adopt</Link></li>
           <li><Link to="/Graph">Historical Charts</Link></li>
-          <li><Link to="/AboutUs">About Us</Link></li>
           <li><Link to="/">Non-Profit Support</Link></li>
         </ul>
         <ul className="login-nav">

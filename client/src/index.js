@@ -12,6 +12,7 @@ import Payment from './components/StripeCheckout';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
+import Faq from './components/Faq';
 import { createStore, applyMiddleware } from 'redux';
 import users from './reducers';
 import ReduxThunk from 'redux-thunk';
@@ -42,6 +43,7 @@ ReactDOM.render(
         <Route exact path="/auth" component={ManageAccount} />
         <Route exact path="/AboutUs" component={AboutUs} />
         <Route exact path="/ContactUs" component={ContactUs} />
+        <Route exact path="/Faq" component={Faq} />
         <Footer />
       </div>
     </Router>

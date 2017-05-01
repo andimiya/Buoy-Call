@@ -10,11 +10,11 @@ class ContactUs extends React.Component {
   render() {
     return (
       <div className="ContactUs-Container">
-        <h1>About Us</h1>
-        <p>
-          The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brothers keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+        <h1>Contact Us</h1>
+          <p>
+            Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, thats what you see at a toy store. And you must think youre in a toy store, because youre here shopping for an infant named Jeb.
 
-        </p>
+          </p>
       </div>
     )
   }
