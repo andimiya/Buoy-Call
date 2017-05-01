@@ -104,7 +104,7 @@ class Nav extends Component {
           <li><Link to="/">Non-Profit Support</Link></li>
         </ul>
         <ul className="login-nav">
-          <li><Link to="/login">Login In</Link></li>
+          <li><Link to="/login">Log In</Link></li>
           <li><Link to="/NewUser">Create an Account</Link></li>
         </ul>
 
