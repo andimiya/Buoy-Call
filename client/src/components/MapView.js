@@ -5,6 +5,7 @@ import util from 'util';
 import { connect } from 'react-redux';
 import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState } from '../actions';
 
+
 class MapView extends Component {
   constructor(props) {
     super(props);
@@ -142,10 +143,11 @@ class MapView extends Component {
           let properties = {
             lat: Number(sharkCoordinates[i].pings[0].latitude),
             lng: Number(sharkCoordinates[i].pings[0].longitude),
-            popup: this.generateSharkPopupContent(sharkCoordinates[i]),
+            popup: this.generateSharkPopupContent(sharkCoordinates[i])
           };
           sharkArray.push(properties);
         };
+        console.log(sharkArray)
         markers = markers.concat(sharkArray);
         this.setState({
           markers: markers
@@ -158,7 +160,7 @@ class MapView extends Component {
     const { markers } = this.state;
 
     if(!markers){
-      return (<div>loading...</div>);
+      return (<div className="loader"></div>);
     }
     console.log(Map)
     return (
