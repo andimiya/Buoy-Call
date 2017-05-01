@@ -3,10 +3,10 @@ import React from 'react';
 class NewUser extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { 
-      FirstName: " ", 
-      LastName: " ", 
-      Email: " ", 
+    this.state = {
+      FirstName: " ",
+      LastName: " ",
+      Email: " ",
       Password: " "
     };
     this.handleChangeFirstName=this.handleChangeFirstName.bind(this);
@@ -46,8 +46,8 @@ class NewUser extends React.Component{
       event.preventDefault();
       console.log('this.state', this.state);
       this.createNewUser({
-        FirstName: this.state.FirstName, 
-        LastName: this.state.LastName, 
+        FirstName: this.state.FirstName,
+        LastName: this.state.LastName,
         Email: this.state.Email,
         Password: this.state.Password
       })
@@ -63,9 +63,10 @@ class NewUser extends React.Component{
     render(){
       return(
         <div className="MakeNewUser">
-          <h1>Make a new User</h1>
-          <div className='text'>
+          <h1>Create an Account</h1>
+          <div className='description-text'>
           <p>Sign up today and lets save our ocean!</p>
+          <p>Creating an account will allow you to make an adoption, and view all of your past contributions.</p>
           </div>
           <form onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.handleChangeFirstName} placeholder="First Name" name="firstName" /><br/>
