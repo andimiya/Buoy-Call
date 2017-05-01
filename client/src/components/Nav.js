@@ -79,6 +79,7 @@ class Nav extends Component {
             <li>
               <h3>Welcome {this.props.loggedInUser.firstName}!</h3>
             </li>
+            <li>My Account</li>
             <li>
               <form onSubmit={this.logOut}>
                 <input type="submit" value="Log Out"></input>
