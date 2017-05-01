@@ -11,7 +11,7 @@ import { ADD_MONTH_TO_STATE } from '../actions';
 const initialState = {
   loggedInUser: null,
   users: [],
-  graph: [],
+  graph: [{}],
   years: [],
   buoyid: null,
   yy: null,

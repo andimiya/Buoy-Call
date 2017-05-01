@@ -150,22 +150,23 @@ class Graph extends Component {
   render(){
     return(
       <div>
-        <form onClick={this.buoyChange}>
-          <input type="submit" value="41002"/>
-        </form>
-        <form onClick={this.buoyChange}>
-          <input type="submit" value="41008"/>
-        </form>
-        <form onClick={this.buoyChange}>
-          <input type="submit" value="41001"/>
-        </form>
-        <form onClick={this.buoyChange}>
-          <input type="submit" value="42002"/>
-        </form>
-        <form onClick={this.buoyChange}>
-          <input type="submit" value="41001"/>
-        </form>
-        <h1>This is just for buoy {this.state.buoyid}</h1>
+
+        <AreaChart width={1750} height={250} data={this.props.graphState}
+          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+          <defs>
+            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
+              <stop offset="95%" stopColor="#8884d8" stopOpacity={0.5}/>
+            </linearGradient>
+          </defs>
+          <XAxis dataKey="dd" />
+          <YAxis />
+          <CartesianGrid strokeDasharray="3 3" fill="#F5DA81"/>
+          <Tooltip />
+          <Area type="monotone" dataKey="wvht" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+        </AreaChart>
+
+        
         <YearDropDown />
         <div onChange={this.monthChange}>
           <select>
@@ -183,22 +184,6 @@ class Graph extends Component {
             <option value="12">December</option>
           </select>
         </div>
-
-
-        <AreaChart width={1750} height={250} data={this.props.graphState}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-          <defs>
-            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0.5}/>
-            </linearGradient>
-          </defs>
-          <XAxis dataKey="dd" />
-          <YAxis />
-          <CartesianGrid strokeDasharray="3 3" fill="orange"/>
-          <Tooltip />
-          <Area type="monotone" dataKey="wvht" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-        </AreaChart>
 
       </div>
     )
