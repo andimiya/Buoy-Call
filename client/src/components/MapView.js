@@ -77,20 +77,29 @@ class MapView extends Component {
         coordinateArray.push(properties);
       }
       markers = coordinateArray;
+
     })
     .then(() => {
       this.getAllSharks()
       .then((data) => {
-        console.log(data, 'shark data');
-
+        let sharkCoordinates = data;
+        let sharkArray = [];
+        console.log(sharkCoordinates);
+        for(let i = 0; i < sharkCoordinates.length; i++){
+          let properties = {
+            lat: Number(sharkCoordinates[i].pings[0].latitude),
+            lng: Number(sharkCoordinates[i].pings[0].longitude),
+            popup: 'Shark '
+          };
+          sharkArray.push(properties);
+        };
+        markers = markers.concat(sharkArray);
+        this.setState({
+          markers: markers
+        })
+        console.log(markers, 'markers');
       })
     })
-    // .then((data) => {
-    //   console.log(data, 'shark data');
-    //   this.setState({
-    //     markers: markers
-    //   })
-    // })
   }
 
   render(){
