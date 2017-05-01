@@ -167,7 +167,7 @@ p {
   align-self: center;
 }
 
-.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit{
+.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container{
   display: block;
   flex: 0 0 90%;
   text-align: center;
