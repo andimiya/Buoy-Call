@@ -109,7 +109,7 @@ p {
 .main-nav li {
   box-sizing: border-box;
   padding: 0 10 0 10px;
-  /*border: 10px solid blue;*/
+  text-align: center;
 }
 
 .main-nav li a {
