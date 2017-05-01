@@ -89,7 +89,11 @@ class MapView extends Component {
           let properties = {
             lat: Number(sharkCoordinates[i].pings[0].latitude),
             lng: Number(sharkCoordinates[i].pings[0].longitude),
-            popup: 'Shark '
+            popup: `Shark name: ${sharkCoordinates[i].name}<br>
+              Length: ${sharkCoordinates[i].length}<br>
+              Weight: ${sharkCoordinates[i].weight}<br>
+              Species: ${sharkCoordinates[i].species}<br>
+              Last seen: ${sharkCoordinates[i].pings[0].datetime}`,
           };
           sharkArray.push(properties);
         };
