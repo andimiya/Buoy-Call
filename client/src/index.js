@@ -1,25 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App/App.js';
-import './index.css';
 import { Provider } from 'react-redux';
+import MapView from './components/MapView';
 import Graph from './components/Graph'
 import NewUser from './components/NewUser'
 import Nav from './components/Nav';
 import Login from './components/Login';
 import Confirmation from './components/Confirmation';
 import Payment from './components/StripeCheckout';
+import Footer from './components/Footer';
 import { createStore, applyMiddleware } from 'redux';
 import users from './reducers';
 import ReduxThunk from 'redux-thunk';
 import ManageAccount from './components/ManageAccount';
-import './index.css';
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-
-import './index.css';
+import './containers/App/App.css';
 
 let store = createStore(
   users,
@@ -27,11 +26,10 @@ let store = createStore(
   applyMiddleware(ReduxThunk)
 );
 
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <div>
+      <div id="root-container">
         <Nav />
         <Route exact path="/" component={App} />
         <Route exact path="/login" component={Login} />
@@ -41,6 +39,7 @@ ReactDOM.render(
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/confirmation" component={Confirmation} />
         <Route exact path="/auth" component={ManageAccount} />
+        <Footer />
       </div>
     </Router>
   </Provider>,
