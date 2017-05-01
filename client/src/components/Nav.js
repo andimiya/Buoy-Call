@@ -61,35 +61,53 @@ class Nav extends Component {
   render(){
     if(this.props.loggedInUser){
       return(
-        <div className="nav">
-        <ul>
-          <li><Link to="/">Homepage</Link></li>
-          <li><Link to="/auth">Manage Account</Link></li>
-          <li><Link to="/Graph">Sample Graph!</Link></li>
-          <li><Link to="/Payment">Adopt a Buoy/Shark With Ca$h Money</Link></li>
-        </ul>
+        <div className="nav-container">
+        <div className="logo">
+           <h1>
+          <Link to="/">BuoyCall</Link>
+          </h1>
+        </div>
+          <ul className="main-nav">
+            <li><Link to="/Payment">Adopt</Link></li>
+            <li><Link to="/Graph">Historical Charts</Link></li>
+            <li><Link to="/">About Us</Link></li>
+            <li><Link to="/">Non-Profit Support</Link></li>
+          </ul>
 
-          <div className="loggedInSign">
-            <h3>Welcome {this.props.loggedInUser.firstName}!</h3>
-            <form onSubmit={this.logOut}>
-              <input type="submit" value="Log out"></input>
-            </form>
+          <div className="logged-in-note">
+            <ul className="login-nav">
+            <li>
+              <h3>Welcome {this.props.loggedInUser.firstName}!</h3>
+            </li>
+            <li>My Account</li>
+            <li>
+              <form onSubmit={this.logOut}>
+                <input type="submit" value="Log Out"></input>
+              </form>
+            </li>
+            </ul>
           </div>
       </div>
       )
     } else {
       return(
-        <div className="nav">
-        <ul>
-          <li><Link to="/">Homepage</Link></li>
+        <div className="nav-container">
+        <div className="logo">
+           <h1>
+          <Link to="/">BuoyCall</Link>
+          </h1>
+        </div>
+        <ul className="main-nav">
+          <li><Link to="/Payment">Adopt</Link></li>
+          <li><Link to="/Graph">Historical Charts</Link></li>
+          <li><Link to="/">About Us</Link></li>
+          <li><Link to="/">Non-Profit Support</Link></li>
+        </ul>
+        <ul className="login-nav">
           <li><Link to="/login">Login In</Link></li>
           <li><Link to="/NewUser">Create an Account</Link></li>
-          <li><Link to="/Graph">Sample Graph!</Link></li>
-          <li><Link to="/Payment">Adopt a Buoy/Shark With Ca$h Money</Link></li>
         </ul>
-        <div className="loggedInSign">
-          <h3>hello you are not logged in!!</h3>
-        </div>
+
       </div>
       )
     }

@@ -1,8 +1,6 @@
-/*jshint esversion:6 */ 
+/*jshint esversion:6 */
 
-import React from 'react'; 
-
-
+import React from 'react';
 
 // const history = createHistory();
 // const location = history.location;
@@ -12,9 +10,9 @@ import React from 'react';
 
 class Login extends React.Component {
   constructor(props){
-    super(props); 
+    super(props);
     this.state = {
-      Email: '', 
+      Email: '',
       Password: ' '
     }
     this.handleChangeEmail=this.handleChangeEmail.bind(this);
@@ -37,7 +35,7 @@ class Login extends React.Component {
   handleSubmit(event){
     event.preventDefault();
     this.userLoggedIn({
-      username: this.state.Email, 
+      username: this.state.Email,
       password: this.state.Password
     })
     .then((data) => {
@@ -57,7 +55,7 @@ class Login extends React.Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('POST', '/api/users/login');
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send(JSON.stringify(curUser))
@@ -66,12 +64,13 @@ class Login extends React.Component {
 
   render(){
     return(
-      <div className='userLogIn'>
-        <h1>Log in to Account</h1>  
+      <div id='login-container'>
+        <h1>Log in to Account</h1>
+
       <form onSubmit={this.handleSubmit}>
-      <input type='text' onChange={this.handleChangeEmail} placeholder="Email Address" name='Email' /><br/>
-      <input type='password' onChange={this.handleChangePassword} placeholder="Password" name="Password" /><br/>
-      <input type="submit" value="Log In" />
+        <input type='text' onChange={this.handleChangeEmail} placeholder="Email Address" name='Email' /><br/>
+        <input type='password' onChange={this.handleChangePassword} placeholder="Password" name="Password" /><br/>
+        <input className="login-submit" type="submit" value="Log In" />
       </form>
       </div>
     )
