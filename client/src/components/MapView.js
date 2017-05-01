@@ -13,7 +13,7 @@ class MapView extends Component {
     };
 
     this.getAllBuoys = this.getAllBuoys.bind(this);
-    // this.getPopupNao = this.getPopupNao.bind(this);
+    this.getBuoyData = this.getBuoyData.bind(this);
   }
 
   getAllBuoys(){
@@ -31,17 +31,17 @@ class MapView extends Component {
   }
 
   getAllSharks(){
-   return new Promise((resolve,reject) => {
-     function reqListener(){
-       resolve(JSON.parse(this.responseText));
-     }
-     let oReq = new XMLHttpRequest();
-     oReq.open('GET', `/api/allsharks`);
-     oReq.setRequestHeader('Content-type',
+    return new Promise((resolve,reject) => {
+      function reqListener(){
+        resolve(JSON.parse(this.responseText));
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('GET', `/api/allsharks`);
+      oReq.setRequestHeader('Content-type',
        'application/json')
-     oReq.addEventListener("load", reqListener)
-     oReq.send()
-   })
+      oReq.addEventListener("load", reqListener)
+      oReq.send()
+    })
   }
 
   getBuoyYearsXHR(buoyid){
@@ -97,11 +97,14 @@ class MapView extends Component {
       console.log("function",input._popup._content);
   }
 
+  getBuoyData(){
+    console.log('test get buoy data function');
+  }
+
   componentDidMount(arr) {
     let markers = null;
     Promise.all([
-      // this.getAllSharks(),
-      this.getAllBuoys(arr)
+      this.getAllBuoys(),
     ])
     .then((arr) => {
       let coordinates = arr[0];
@@ -116,8 +119,31 @@ class MapView extends Component {
         coordinateArray.push(properties);
       }
       markers = coordinateArray;
-      this.setState({
-        markers: markers
+
+    })
+    .then(() => {
+      this.getAllSharks()
+      .then((data) => {
+        let sharkCoordinates = data;
+        let sharkArray = [];
+        console.log(sharkCoordinates);
+        for(let i = 0; i < sharkCoordinates.length; i++){
+          let properties = {
+            lat: Number(sharkCoordinates[i].pings[0].latitude),
+            lng: Number(sharkCoordinates[i].pings[0].longitude),
+            popup: `Shark name: ${sharkCoordinates[i].name}<br>
+              Length: ${sharkCoordinates[i].length}<br>
+              Weight: ${sharkCoordinates[i].weight}<br>
+              Species: ${sharkCoordinates[i].species}<br>
+              Last seen: ${sharkCoordinates[i].pings[0].datetime}`,
+          };
+          sharkArray.push(properties);
+        };
+        markers = markers.concat(sharkArray);
+        this.setState({
+          markers: markers
+        })
+        console.log(markers, 'markers');
       })
     })
   }
@@ -142,6 +168,7 @@ class MapView extends Component {
           <MarkerClusterGroup
             onMarkerClick={(marker) => console.log(marker, "/", marker.getLatLng(), this.getBuoyData(marker), 'Test')}
             markers={markers}
+            onMarkerClick={(marker) => console.log(this.getBuoyData(), 'Test')}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
     );
