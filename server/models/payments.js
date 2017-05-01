@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING,
     lastFourDigits: DataTypes.INTEGER,
     cardType: DataTypes.STRING,
-    origin: DataTypes.STRING
+    origin: DataTypes.STRING,
+    amount: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
