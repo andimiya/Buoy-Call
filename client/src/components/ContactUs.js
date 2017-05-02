@@ -11,20 +11,33 @@ class ContactUs extends React.Component {
     return (
       <div className="ContactUs-Container">
         <h1>Contact Us</h1>
+<form>
 
-          <form>
-            <div class="form-group">
-              <label for="email"> Email Address: </label>
-              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"/>
-            </div>
-            <div class="form-group">
-              <label class="control-label " for="message_id"> Message</label>
-              <textarea class="form-control" id="message_id" name="message" rows="5"></textarea>
-            </div>
-            <div class="form-group">
-              <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-            </div>
-          </form>
+  <div class="form-group">
+    <label class="control-label " for="name">Name</label>
+    <input class="form-control" id="name" name="name" type="text"/>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label requiredField" for="email">Email<span class="asteriskField">*</span></label>
+    <input class="form-control" id="email" name="email" type="text"/>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label " for="subject">Subject</label>
+    <input class="form-control" id="subject" name="subject" type="text"/>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label " for="message">Message</label>
+    <textarea class="form-control" cols="40" id="message" name="message" rows="10"></textarea>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+  </div>
+
+</form>
       </div>
     )
   }
