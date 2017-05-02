@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from '../../components/Nav';
 import MapView from '../../components/MapView';
 import Graph from '../../components/Graph'
 import { connect } from 'react-redux';

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import util from 'util';
+// import util from 'util';
+// leave util commented out, it's used to inspect console.logs in the map when needed.
 import { connect } from 'react-redux';
 import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState } from '../actions';
 
@@ -86,8 +87,7 @@ class MapView extends Component {
       this.props.onAddGraphToState(data);
     })
     .catch((err) => {
-      this.props.onAddGraphToState([{}])
-      alert("There is no data for this buoy currently")
+      this.props.onAddGraphToState([])
     })
   }
 
@@ -97,6 +97,10 @@ class MapView extends Component {
     let buoyid = reader.firstChild.id
     if(buoyid){
       this.buoyChange(buoyid)
+    }
+    if(!buoyid){
+      //if its not a buoy (it's a shark), we force a null graph to get rid of data
+      this.props.onAddGraphToState("Shark")
     }
   }
 
@@ -147,7 +151,7 @@ class MapView extends Component {
           };
           sharkArray.push(properties);
         };
-        console.log(sharkArray)
+        // console.log(sharkArray)
         markers = markers.concat(sharkArray);
         this.setState({
           markers: markers
@@ -162,7 +166,6 @@ class MapView extends Component {
     if(!markers){
       return (<div className="loader"></div>);
     }
-    console.log(Map)
     return (
         <Map className="markercluster-map"
           style={{height: '600px'}}

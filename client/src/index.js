@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App/App.js';
 import { Provider } from 'react-redux';
-import MapView from './components/MapView';
 import Graph from './components/Graph'
 import NewUser from './components/NewUser'
 import Nav from './components/Nav';
