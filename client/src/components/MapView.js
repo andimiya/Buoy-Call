@@ -105,19 +105,13 @@ class MapView extends Component {
     //DONT MESS WITH THE ID.
     return `<span id="${buoy.buoyid}">${buoy.buoyid}</span>`;
   }
-  //
-  // linkToAdopt(e) {
-  //   console.log('event', e);
-  //   // this.onAddSharkToState(e);
-  //   // this.props.history.push('/payment');
-  // }
 
   generateSharkPopupContent(shark){
     return `Shark name: ${shark.name}<br>
             Weight: ${shark.weight}<br>
             Species: ${shark.species}<br>
             Gender: ${shark.gender}<br>
-            <a href="/Payment/${shark.shark_id}"><button>Adopt Me</button></a>`
+            <a href="/adopt/${shark.shark_id}"><button>Adopt Me</button></a>`
   }
 
   componentDidMount(arr) {
