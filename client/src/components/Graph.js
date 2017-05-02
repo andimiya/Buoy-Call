@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, Legend, Area, AreaChart } from 'recharts';
+import { CartesianGrid, YAxis, XAxis, Tooltip, Legend, Area, AreaChart, ResponsiveContainer } from 'recharts';
 import { addGraphToState, addBuoyYearsToState, addBuoyIdToState, addMonthToState, addYearToState } from '../actions';
 import YearDropDown from './YearDropDown.js';
 
@@ -9,12 +9,14 @@ class Graph extends Component {
     super(props)
 
     this.state = {
-      month: '1'
+      month: '1',
+      datatype: 'wvht'
     }
 
     this.buoyChange = this.buoyChange.bind(this);
     this.yearChange = this.yearChange.bind(this);
     this.monthChange = this.monthChange.bind(this);
+    this.dataChange = this.dataChange.bind(this);
     this.changeBuoyDataXHR = this.changeBuoyDataXHR.bind(this);
   }
 
@@ -135,38 +137,42 @@ class Graph extends Component {
     })
   }
 
+  dataChange(event){
+    this.setState({datatype: event.target.value})
+  }
+
+  dataTypeChange(event){
+    event.preventDefault();
+  }
+
   componentDidMount(){
-    // this.getBuoyData()
-    // .then((data) => {
-    //   console.log(data)
-    //   this.props.onAddGraphToState(data)
-    // })
-    // .catch(function(err){
-    //   console.log("component did mount on graph error", err)
-    // })
+    
   }
 
 
   render(){
     return(
-      <div>
+      <div className="graph-box">
+        <ResponsiveContainer width="100%" height="20%">
+          <AreaChart data={this.props.graphState}
+            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+            <defs>
+              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#8884d8" stopOpacity={0.9}/>
+                <stop offset="95%" stopColor="#8884d8" stopOpacity={0.7}/>
+              </linearGradient>
+            </defs>
+            <XAxis dataKey="dd" />
+            <YAxis />
+            <CartesianGrid strokeDasharray="3 3" fill="#F5DA81"/>
+            <Tooltip />
+            <Area type="monotone" dataKey={this.state.datatype} stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+          </AreaChart>
+        </ResponsiveContainer>
+        <div>
+          {this.props.buoyid}
+        </div>
 
-        <AreaChart width={1750} height={250} data={this.props.graphState}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-          <defs>
-            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0.5}/>
-            </linearGradient>
-          </defs>
-          <XAxis dataKey="dd" />
-          <YAxis />
-          <CartesianGrid strokeDasharray="3 3" fill="#F5DA81"/>
-          <Tooltip />
-          <Area type="monotone" dataKey="wvht" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-        </AreaChart>
-
-        
         <YearDropDown />
         <div onChange={this.monthChange}>
           <select>
@@ -185,17 +191,25 @@ class Graph extends Component {
           </select>
         </div>
 
+        <form>
+          <input id="datatype_wvht" type="radio" value="wvht" name="datatype" checked={this.state.datatype === 'wvht'} onChange={this.dataChange}/><label htmlFor="datatype_wvht">Wave Height</label>
+          <input id="datatype_wtmp" type="radio" value="wtmp" name="datatype" checked={this.state.datatype === 'wtmp'} onChange={this.dataChange}/><label htmlFor="datatype_wtmp">Water Temperature</label>
+          <input id="datatype_atmp" type="radio" value="atmp" name="datatype" checked={this.state.datatype === 'atmp'} onChange={this.dataChange}/><label htmlFor="datatype_atmp">Air Temperature</label>
+          <input id="datatype_apd" type="radio" value="apd" name="datatype" checked={this.state.datatype === 'apd'} onChange={this.dataChange}/><label htmlFor="datatype_apd">Average Wave Period</label>
+          <input id="datatype_dpd" type="radio" value="dpd" name="datatype" checked={this.state.datatype === 'dpd'} onChange={this.dataChange}/><label htmlFor="datatype_dpd">Dominant Wave Period</label>
+
+        </form>
       </div>
     )
   }
 }
 
-function mapStateToProps(state, ownProps){
-  return {
-    isLoggedIn: state.loggedIn,
-    currentURL: ownProps.location.pathname
-  }
-}
+// function mapStateToProps(state, ownProps){
+//   return {
+//     isLoggedIn: state.loggedIn,
+//     currentURL: ownProps.location.pathname
+//   }
+// }
 
 const mapDispatchToProps = (dispatch) => {
   return{

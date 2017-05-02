@@ -158,16 +158,18 @@ p {
 /* General Styling */
 
 #buoy-container {
-  border: 10px solid red;
+  
 }
 
 #map-container {
-  margin: 20px;
+  left-margin: 20px;
+  right-margin: 20px;
+  top-margin: 20px;
   width: 90%;
   align-self: center;
 }
 
-.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit{
+.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .Faq-Container{
   display: block;
   flex: 0 0 90%;
   text-align: center;
@@ -273,4 +275,29 @@ input[type=submit]{
   background-color: #B2b2B2;
   text-decoration: none;
   border:none ;
+}
+
+.loader{
+    margin-left: auto;
+    margin-right: auto;
+    border: 12px solid #f3f3f3; /* Light grey */
+    border-top: 12px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    animation: spin 1.5s linear infinite;
+    margin-bottom: 2rem;
+}
+
+@keyframes spin{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.graph-box{
+/*  border: 2px solid black;*/
+/*  width: 92.45%;*/
+  width: 95%;
+  margin-left: 3%;
+  margin-right: 5.5%;
 }

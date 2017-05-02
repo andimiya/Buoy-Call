@@ -28,11 +28,26 @@ export function addUserToState(id, firstName, lastName, email){
 }
 
 export function addGraphToState(graph){
-  console.log("action", graph)
-  return {
-    type: ADD_GRAPH_TO_STATE,
-    graph
+  if(graph === "Shark"){
+    return {
+      type: ADD_GRAPH_TO_STATE,
+      graph: null
+    }
   }
+  if(graph.length >= 1){
+    return {
+      type: ADD_GRAPH_TO_STATE,
+      graph
+    }
+  }
+  if(graph.length < 1){
+    alert("There is no data for this month.")
+    return {
+      type: ADD_GRAPH_TO_STATE,
+      graph: null
+    }
+  }
+  
 }
 
 export function logOutFromState(){
