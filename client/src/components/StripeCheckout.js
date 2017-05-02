@@ -1,18 +1,16 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import config from '../../config';
-import '../containers/App/App.css';
 
 class Checkout extends React.Component {
   onToken = (token) => {
     var body = JSON.stringify(token);
-    fetch('/charge', {
+    fetch('/api/charge', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body
     })
     .then((success) => {
-      console.log("Success",success)
       if(success){
         this.props.history.push('/confirmation')
       }
