@@ -3,7 +3,7 @@ import { Map, TileLayer } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import util from 'util';
 import { connect } from 'react-redux';
-import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState } from '../actions';
+import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState, addSharkToState } from '../actions';
 
 
 class MapView extends Component {
@@ -15,6 +15,7 @@ class MapView extends Component {
 
     this.getAllBuoys = this.getAllBuoys.bind(this);
     this.getBuoyData = this.getBuoyData.bind(this);
+
   }
 
   getAllBuoys(){
@@ -104,12 +105,19 @@ class MapView extends Component {
     //DONT MESS WITH THE ID.
     return `<span id="${buoy.buoyid}">${buoy.buoyid}</span>`;
   }
+  //
+  // linkToAdopt(e) {
+  //   console.log('event', e);
+  //   // this.onAddSharkToState(e);
+  //   // this.props.history.push('/payment');
+  // }
 
   generateSharkPopupContent(shark){
     return `Shark name: ${shark.name}<br>
-              Weight: ${shark.weight}<br>
-              Species: ${shark.species}<br>
-              Gender: ${shark.gender}`
+            Weight: ${shark.weight}<br>
+            Species: ${shark.species}<br>
+            Gender: ${shark.gender}<br>
+            <a href="/Payment/${shark.shark_id}"><button>Adopt Me</button></a>`
   }
 
   componentDidMount(arr) {
@@ -194,6 +202,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onAddGraphToState:(data) => {
       dispatch(addGraphToState(data));
+    },
+    onAddSharkToState:(data) => {
+      dispatch(addSharkToState(data));
     }
   }
 }
@@ -205,7 +216,8 @@ const mapStateToProps = (state) => {
     years: state.years,
     buoyid: state.buoyid,
     yy: state.yy,
-    mm: state.mm
+    mm: state.mm,
+    shark_id: state.shark_id
   }
 }
 
