@@ -7,6 +7,8 @@ import { ADD_BUOY_ID_TO_STATE } from '../actions';
 import { ADD_BUOY_YEAR_TO_STATE } from '../actions';
 import { ADD_MONTH_TO_STATE } from '../actions';
 import { ADD_SHARK_TO_STATE } from '../actions';
+import { ADD_SHARK_NAME_TO_STATE } from '../actions';
+
 
 
 const initialState = {
@@ -17,7 +19,8 @@ const initialState = {
   buoyid: null,
   yy: null,
   mm: 1,
-  shark_id: null
+  shark_id: null,
+  shark_name: null
 }
 
 function users(state=initialState , action){
@@ -78,6 +81,11 @@ function users(state=initialState , action){
     case ADD_SHARK_TO_STATE:
     return Object.assign({}, state, {
       shark_id: action.shark_id
+    })
+
+    case ADD_SHARK_NAME_TO_STATE:
+    return Object.assign({}, state, {
+      shark_name: action.shark_name
     })
 
     default: return state;
