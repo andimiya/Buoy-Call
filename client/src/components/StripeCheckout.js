@@ -1,9 +1,17 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import config from '../../config';
+import { connect } from 'react-redux';
+import { addSharkToState } from '../actions';
 import '../containers/App/App.css';
 
 class Checkout extends React.Component {
+
+  constructor(props) {
+    super(props);
+      this.props.onAddSharkToState(this.props.match.params.shark_id);
+  }
+
   onToken = (token) => {
     var body = JSON.stringify(token);
     fetch('/charge', {
@@ -46,4 +54,18 @@ class Checkout extends React.Component {
   }
 }
 
-export default Checkout;
+const mapDispatchToProps = (dispatch) => {
+  return{
+    onAddSharkToState:(data) => {
+      dispatch(addSharkToState(data));
+    }
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    shark_id: state.shark_id
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

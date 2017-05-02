@@ -3,7 +3,7 @@ import { Map, TileLayer } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import util from 'util';
 import { connect } from 'react-redux';
-import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState, addSharkToState } from '../actions';
+import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState } from '../actions';
 
 
 class MapView extends Component {
@@ -196,9 +196,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     onAddGraphToState:(data) => {
       dispatch(addGraphToState(data));
-    },
-    onAddSharkToState:(data) => {
-      dispatch(addSharkToState(data));
     }
   }
 }
@@ -210,8 +207,7 @@ const mapStateToProps = (state) => {
     years: state.years,
     buoyid: state.buoyid,
     yy: state.yy,
-    mm: state.mm,
-    shark_id: state.shark_id
+    mm: state.mm
   }
 }
 
