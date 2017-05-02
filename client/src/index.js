@@ -15,7 +15,9 @@ import Faq from './components/Faq';
 import { createStore, applyMiddleware } from 'redux';
 import users from './reducers';
 import ReduxThunk from 'redux-thunk';
+import Logout from './components/Logout';
 import ManageAccount from './components/ManageAccount';
+import browserHistory from 'react-router';
 import {
   BrowserRouter as Router,
   Route
@@ -30,9 +32,9 @@ let store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router history={browserHistory}>
       <div id="root-container">
-        <Nav />
+        <Nav/>
         <Route exact path="/" component={App} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/Graph" component={Graph} />
@@ -43,6 +45,7 @@ ReactDOM.render(
         <Route exact path="/AboutUs" component={AboutUs} />
         <Route exact path="/ContactUs" component={ContactUs} />
         <Route exact path="/Faq" component={Faq} />
+        <Route exact path="/logout" component={Logout}/>
         <Footer />
       </div>
     </Router>
