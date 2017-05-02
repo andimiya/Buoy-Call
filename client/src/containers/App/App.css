@@ -278,6 +278,7 @@ input[type=submit]{
 }
 
 .loader{
+    margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
     border: 12px solid #f3f3f3; /* Light grey */
