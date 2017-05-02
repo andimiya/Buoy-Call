@@ -6,12 +6,14 @@ export const ADD_BUOY_YEARS_TO_STATE = 'ADD_BUOY_YEARS_TO_STATE';
 export const ADD_BUOY_ID_TO_STATE = 'ADD_BUOY_ID_TO_STATE';
 export const ADD_BUOY_YEAR_TO_STATE = 'ADD_BUOY_YEAR_TO_STATE';
 export const ADD_MONTH_TO_STATE = 'ADD_MONTH_TO_STATE';
+export const ADD_SHARK_TO_STATE = 'ADD_SHARK_TO_STATE';
+
 
 export function addUser( firstName, lastName, email, password){
   return {
-    type: ADD_USER, 
-    firstName, 
-    lastName, 
+    type: ADD_USER,
+    firstName,
+    lastName,
     email,
     password
   }
@@ -76,5 +78,12 @@ export function addMonthToState(month){
   return{
     type: ADD_MONTH_TO_STATE,
     month
+  }
+}
+
+export function addSharkToState(shark_id){
+  return{
+    type: ADD_SHARK_TO_STATE,
+    shark_id
   }
 }

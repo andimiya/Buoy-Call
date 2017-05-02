@@ -6,6 +6,7 @@ import { ADD_BUOY_YEARS_TO_STATE } from '../actions';
 import { ADD_BUOY_ID_TO_STATE } from '../actions';
 import { ADD_BUOY_YEAR_TO_STATE } from '../actions';
 import { ADD_MONTH_TO_STATE } from '../actions';
+import { ADD_SHARK_TO_STATE } from '../actions';
 
 
 const initialState = {
@@ -15,7 +16,8 @@ const initialState = {
   years: [],
   buoyid: null,
   yy: null,
-  mm: 1
+  mm: 1,
+  shark_id: null
 }
 
 function users(state=initialState , action){
@@ -24,9 +26,9 @@ function users(state=initialState , action){
     return Object.assign({}, state, {
       users: [
         ...state.users, {
-          firstName: action.firstName, 
-          lastName: action.lastName, 
-          email: action.email, 
+          firstName: action.firstName,
+          lastName: action.lastName,
+          email: action.email,
           password: action.password
         }
       ]
@@ -35,9 +37,9 @@ function users(state=initialState , action){
     case ADD_USER_TO_STATE:
     return Object.assign({}, state, {
       loggedInUser: {
-          id: action.id, 
-          firstName: action.firstName, 
-          lastName: action.lastName, 
+          id: action.id,
+          firstName: action.firstName,
+          lastName: action.lastName,
           email: action.email
         }
     })
@@ -73,9 +75,13 @@ function users(state=initialState , action){
       mm: action.month
     })
 
+    case ADD_SHARK_TO_STATE:
+    return Object.assign({}, state, {
+      shark_id: action.shark_id
+    })
 
     default: return state;
   }
-}; 
+};
 
-export default users; 
+export default users;
