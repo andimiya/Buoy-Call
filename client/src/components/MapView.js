@@ -145,14 +145,18 @@ class MapView extends Component {
     if(!markers){
       return (<div>loading...</div>);
     }
-
+    console.log(Map)
     return (
         <Map className="markercluster-map"
-          style={{height: '400px'}}
+          style={{height: '600px'}}
           center={[-8.310,12.087]}
-          zoom={2}
+          zoom={3}
+          maxBounds={[
+            [85.0, -180.0],
+            [-85, 180.0]
+          ]}
           minZoom={2}
-          maxZoom={8}>
+          maxZoom={10}>
           <TileLayer
             url="https://api.mapbox.com/styles/v1/jonathonlaylo/cj1g01mw200062ss53ht46jgb/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9uYXRob25sYXlsbyIsImEiOiJjajE3bDUwZ2YwNHhjMnFvN2cwaW5vYWFrIn0.ZYv3mfTj8HIP5LdLMWvw4Q"
           />
