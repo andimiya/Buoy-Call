@@ -16,7 +16,7 @@ const RedisStore = require('connect-redis')(
   session);
 const LocalStrategy = require('passport-local').Strategy;
 const db = require('./models');
-const { Users, coordinates, buoydata } = db;
+const { Users, coordinates, buoydata, sharkdata } = db;
 const userRoute = require('./routes/users');
 const buoyRoute = require('./routes/buoy');
 
@@ -119,9 +119,11 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/api/allsharks', (req, res) => {
-  request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
-    const sharkdata = JSON.parse(body)
-    res.send(body);
+  sharkdata.findAll({
+    attributes: ['shark_id', 'name', 'species', 'weight', 'gender', 'tagDate', 'latitude', 'longitude']
+  })
+  .then((arr) => {
+    res.send(arr);
   });
 });
 
