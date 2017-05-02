@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, Legend, Area, AreaChart } from 'recharts';
+import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, Legend, Area, AreaChart, ResponsiveContainer } from 'recharts';
 import { addGraphToState, addBuoyYearsToState, addBuoyIdToState, addMonthToState, addYearToState } from '../actions';
 import YearDropDown from './YearDropDown.js';
 
@@ -146,9 +146,9 @@ class Graph extends Component {
 
   render(){
     return(
-      <div>
-
-        <AreaChart width={1400} height={250} data={this.props.graphState}
+      <div className="graph-box">
+      <ResponsiveContainer width="100%" height="20%">
+        <AreaChart data={this.props.graphState}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -162,6 +162,7 @@ class Graph extends Component {
           <Tooltip />
           <Area type="monotone" dataKey="wvht" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
         </AreaChart>
+      </ResponsiveContainer>
         <div>
           {this.props.buoyid}
         </div>
@@ -190,8 +191,8 @@ class Graph extends Component {
         <br />
         <input id="datatype_wtmp" type="radio" value="wtmp" name="datatype"/><label htmlFor="datatype_wtmp">Wave Temp</label>
 
-
       </div>
+
     )
   }
 }

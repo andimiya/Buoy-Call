@@ -41,10 +41,7 @@ class App extends Component {
         <div id="map-container">
           <MapView />
         </div>
-        <div id="buoy-container">
-          <div className="buoy-graph"></div>
-          <Graph />
-        </div>
+        <Graph />
       </div>
     )
   }

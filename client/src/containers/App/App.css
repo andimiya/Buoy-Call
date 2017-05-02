@@ -162,7 +162,9 @@ p {
 }
 
 #map-container {
-  margin: 20px;
+  left-margin: 20px;
+  right-margin: 20px;
+  top-margin: 20px;
   width: 90%;
   align-self: center;
 }
@@ -290,4 +292,12 @@ input[type=submit]{
 @keyframes spin{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.graph-box{
+  border: 2px solid black;
+/*  width: 92.45%;*/
+  width: 95%;
+  margin-left: 3%;
+  margin-right: 5.5%;
 }
