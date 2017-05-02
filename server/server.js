@@ -127,6 +127,18 @@ app.get('/api/allsharks', (req, res) => {
   });
 });
 
+app.get('/api/shark/:shark_id', (req, res) => {
+  sharkdata.findOne({
+    where: {
+      shark_id: req.params.shark_id
+    },
+    attributes: ['shark_id', 'species', 'length', 'weight', 'gender']
+  })
+  .then((sharkdata) => {
+    res.send(sharkdata);
+  });
+});
+
 app.get('/api/allbuoys', (req, res )=> {
   Promise.all([
     coordinates.findAll({
