@@ -1,5 +1,4 @@
 import React from 'react';
-import { Router } from 'react-router';
 
 class Faq extends React.Component {
   constructor(props) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Router } from 'react-router';
 
 class ContactUs extends React.Component {
   constructor(props) {

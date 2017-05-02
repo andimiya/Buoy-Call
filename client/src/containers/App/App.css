@@ -295,7 +295,7 @@ input[type=submit]{
 }
 
 .graph-box{
-  border: 2px solid black;
+/*  border: 2px solid black;*/
 /*  width: 92.45%;*/
   width: 95%;
   margin-left: 3%;
