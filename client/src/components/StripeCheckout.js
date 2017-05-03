@@ -15,7 +15,6 @@ class Checkout extends Component {
     };
 
     this.handleChangeSharkName = this.handleChangeSharkName.bind(this);
-    // this.handleChangeSharkName = this.handleChangeSharkName.bind(this);
   }
 
 
@@ -25,9 +24,6 @@ class Checkout extends Component {
         resolve(JSON.parse(this.responseText));
       }
       let oReq = new XMLHttpRequest();
-      console.log(this.props.shark_id, 'shark id');
-      console.log(this.props.shark_name, 'shark id');
-
       oReq.open('GET', `/api/shark/${this.props.shark_id}`);
       oReq.setRequestHeader('Content-type',
        'application/json')
@@ -45,9 +41,6 @@ class Checkout extends Component {
       .then((data) => {
         this.setState({
         sharkData: data})
-
-          console.log(this.state.sharkData.species, 'this state');
-
       })
     })
   }
@@ -68,7 +61,6 @@ class Checkout extends Component {
   }
 
   handleChangeSharkName(event){
-    console.log(this.state, 'state in handlechange');
     this.setState({sharkName: event.target.value})
   }
 
@@ -84,7 +76,7 @@ class Checkout extends Component {
         <br />
         <br />
         <h1>This is your shark to name!</h1><br />
-
+          {this.props.sharkData}
         </div>
         <form>
           <input type='text' onChange={this.handleChangeSharkName} placeholder="Name Your Shark" name="Name Your Shark" /><br/>
