@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import config from '../../config';
 import { connect } from 'react-redux';
-import { addSharkToState, addSharkNameToState } from '../actions';
+import { addSharkToState, addSharkIdToState, addSharkNameToState } from '../actions';
 import '../containers/App/App.css';
 
 class Checkout extends Component {
@@ -15,6 +15,7 @@ class Checkout extends Component {
     };
 
     this.handleChangeSharkName = this.handleChangeSharkName.bind(this);
+
   }
 
 
@@ -34,13 +35,13 @@ class Checkout extends Component {
 
   componentDidMount(arr) {
     Promise.all([
-      this.props.onAddSharkToState(this.props.match.params.shark_id)
+      this.props.onAddSharkIdToState(this.props.match.params.shark_id)
     ])
     .then(() => {
       this.getAllSharks()
       .then((data) => {
-        this.setState({
-        sharkData: data})
+        console.log(data, 'data');
+        this.props.onAddSharkToState(data.shark_id, data.name, data.species, data.gender, data.length, data.weight, data.datetime)
       })
     })
   }
@@ -62,6 +63,7 @@ class Checkout extends Component {
 
   handleChangeSharkName(event){
     this.setState({sharkName: event.target.value})
+    console.log(this.props, 'props');
   }
 
   render() {
@@ -103,17 +105,21 @@ class Checkout extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    onAddSharkToState:(data) => {
-      dispatch(addSharkToState(data));
+    onAddSharkToState:(shark_id, name, species, gender, length, weight, datetime) => {
+      dispatch(addSharkToState(shark_id, name, species, gender, length, weight, datetime));
     },
-    onAddSharkNameToState:(data) => {
-      dispatch(addSharkNameToState(data));
+    onAddSharkIdToState:(shark_id) => {
+      dispatch(addSharkIdToState(shark_id));
+    },
+    onAddSharkNameToState:(shark_name) => {
+      dispatch(addSharkNameToState(shark_name));
     }
   }
 }
 
 const mapStateToProps = (state) => {
   return {
+    shark: state.shark,
     shark_id: state.shark_id,
     shark_name: state.shark_name
   }
