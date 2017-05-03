@@ -55,7 +55,7 @@ class Checkout extends Component {
   onToken = (token) => {
     var body = JSON.stringify(token);
     this.props.onAddSharkNameToState(this.state.sharkName);
-    fetch(`/api/charge/${this.state.sharkName}`, {
+    fetch(`/api/charge/${this.state.sharkName}/${this.props.shark_id}`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body

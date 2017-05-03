@@ -90,9 +90,9 @@ passport.serializeUser(function(user, done) {
   return done(null, user);
 });
 
-app.post('/api/charge/:shark_name', (req, res) => {
+app.post('/api/charge/:shark_name/:shark_id', (req, res) => {
   let name = req.params.shark_name;
-  console.log(name, 'shark name backend');
+  let sharkid = req.params.shark_id;
   stripe.customers.create({
     email: req.body.email,
     source: req.body.id
@@ -120,10 +120,9 @@ app.post('/api/charge/:shark_name', (req, res) => {
   .then(customer => {
     sharkdata.update({
       name: name
-    }, {
-      where: {
-        shark_id: 3
-      }
+    },
+      {
+        where: { shark_id: sharkid }
       }
     )
     .then( _=> {
