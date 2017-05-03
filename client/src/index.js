@@ -39,7 +39,7 @@ ReactDOM.render(
         <Route exact path="/login" component={Login} />
         <Route exact path="/Graph" component={Graph} />
         <Route exact path="/newuser" component={NewUser} />
-        <Route exact path="/payment" component={Payment} />
+        <Route exact path="/adopt/:shark_id" component={Payment} />
         <Route exact path="/confirmation" component={Confirmation} />
         <Route exact path="/auth" component={ManageAccount} />
         <Route exact path="/AboutUs" component={AboutUs} />

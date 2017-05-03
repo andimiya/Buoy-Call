@@ -31,6 +31,7 @@ class MapView extends Component {
 
     this.getAllBuoys = this.getAllBuoys.bind(this);
     this.getBuoyData = this.getBuoyData.bind(this);
+
   }
 
   getAllBuoys(){
@@ -76,7 +77,6 @@ class MapView extends Component {
   }
 
   yearChangeXHR(year){
-    console.log("xhr", `/api/buoy/test/${this.props.buoyid}/${year}/${this.props.mm}`, this.props)
     return new Promise((resolve, reject) => {
       function reqListener(){
         resolve(JSON.parse(this.responseText));
@@ -128,10 +128,10 @@ class MapView extends Component {
 
   generateSharkPopupContent(shark){
     return `Shark name: ${shark.name}<br>
-              Length: ${shark.length}<br>
-              Weight: ${shark.weight}<br>
-              Species: ${shark.species}<br>
-              Last seen: ${shark.pings[0].datetime}`
+            Weight: ${shark.weight}<br>
+            Species: ${shark.species}<br>
+            Gender: ${shark.gender}<br>
+            <a href="/adopt/${shark.shark_id}"><button>Adopt Me</button></a>`
   }
 
   componentDidMount(arr) {
@@ -158,18 +158,15 @@ class MapView extends Component {
     .then(() => {
       this.getAllSharks()
       .then((data) => {
-        let sharkCoordinates = data;
         let sharkArray = [];
-        for(let i = 0; i < sharkCoordinates.length; i++){
+        for(let i = 0; i < data.length; i++){
           let properties = {
-            lat: Number(sharkCoordinates[i].pings[0].latitude),
-            lng: Number(sharkCoordinates[i].pings[0].longitude),
-            popup: this.generateSharkPopupContent(sharkCoordinates[i]),
-            options: {icon: sharkMarker}
+            lat: Number(data[i].latitude),
+            lng: Number(data[i].longitude),
+            popup: this.generateSharkPopupContent(data[i])
           };
           sharkArray.push(properties);
         };
-        // console.log(sharkArray)
         markers = markers.concat(sharkArray);
         this.setState({
           markers: markers
