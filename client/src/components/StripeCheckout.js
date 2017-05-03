@@ -10,10 +10,14 @@ class Checkout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sharkData: '',
-      sharkName: '',
-    }
+      sharkData: null,
+      sharkName: null
+    };
+
+    this.handleChangeSharkName = this.handleChangeSharkName.bind(this);
+    // this.handleChangeSharkName = this.handleChangeSharkName.bind(this);
   }
+
 
   getAllSharks(){
     return new Promise((resolve,reject) => {
@@ -21,8 +25,8 @@ class Checkout extends Component {
         resolve(JSON.parse(this.responseText));
       }
       let oReq = new XMLHttpRequest();
-      console.log(this.props.mm, 'mm id');
       console.log(this.props.shark_id, 'shark id');
+      console.log(this.props.shark_name, 'shark id');
 
       oReq.open('GET', `/api/shark/${this.props.shark_id}`);
       oReq.setRequestHeader('Content-type',
@@ -40,15 +44,18 @@ class Checkout extends Component {
       this.getAllSharks()
       .then((data) => {
         this.setState({
-          sharkData : data
-        })
+        sharkData: data})
+
+          console.log(this.state.sharkData.species, 'this state');
+
       })
     })
   }
 
   onToken = (token) => {
     var body = JSON.stringify(token);
-    fetch('/charge', {
+    this.props.onAddSharkNameToState(this.state.sharkName);
+    fetch(`/api/charge/${this.state.sharkName}`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body
@@ -62,6 +69,7 @@ class Checkout extends Component {
   }
 
   handleChangeSharkName(event){
+    console.log(this.state, 'state in handlechange');
     this.setState({sharkName: event.target.value})
   }
 
@@ -77,11 +85,7 @@ class Checkout extends Component {
         <br />
         <br />
         <h1>This is your shark to name!</h1><br />
-          <p>{this.state.SharkData.species}<br />
-          Length: {this.state.SharkData.length}<br />
-          Weight: {this.state.SharkData.weight}<br />
-          Gender: {this.state.SharkData.gender}<br />
-          </p>
+
         </div>
         <form>
           <input type='text' onChange={this.handleChangeSharkName} placeholder="Name Your Shark" name="Name Your Shark" /><br/>

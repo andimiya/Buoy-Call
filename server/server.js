@@ -16,7 +16,7 @@ const RedisStore = require('connect-redis')(
   session);
 const LocalStrategy = require('passport-local').Strategy;
 const db = require('./models');
-const { Users, coordinates, buoydata, sharkdata } = db;
+const { Users, coordinates, buoydata, sharkdata, payments } = db;
 const userRoute = require('./routes/users');
 const buoyRoute = require('./routes/buoy');
 
@@ -90,20 +90,47 @@ passport.serializeUser(function(user, done) {
   return done(null, user);
 });
 
-app.post('/api/charge', (req, res) => {
-  console.log(req.body.email, 'req BODY');
+app.post('/api/charge/:shark_name', (req, res) => {
+  let name = req.params.shark_name;
+  console.log(name, 'shark name backend');
   stripe.customers.create({
     email: req.body.email,
     source: req.body.id
   })
-  .then(customer =>
+  .then(customer => {
     stripe.charges.create({
       amount: 500,
       currency: 'usd',
       customer: customer.id
-    }))
-  .then(charge =>
-    res.send('success'));
+    })
+    return customer
+  })
+  .then(customer => {
+    let chargeData = customer.sources.data[0];
+    payments.create({
+      customerid: customer.id,
+      email: req.body.email,
+      amount: 500,
+      lastFourDigits: chargeData.last4,
+      cardType: chargeData.brand,
+      origin: chargeData.country
+    })
+    return customer
+  })
+  .then(customer => {
+    sharkdata.update({
+      name: name
+    }, {
+      where: {
+        shark_id: 3
+      }
+      }
+    )
+    .then( _=> {
+      console.log('charge complete');
+      res.send('success')
+    })
+  })
 });
 
 passport.deserializeUser(function(user, done) {
