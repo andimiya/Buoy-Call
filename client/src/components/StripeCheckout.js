@@ -15,8 +15,6 @@ class Checkout extends Component {
     };
 
     this.handleChangeSharkName = this.handleChangeSharkName.bind(this);
-    let sharkprop=this.props.shark;
-    console.log(sharkprop, 'sharkprop');
   }
 
   getAllSharks(){
@@ -63,7 +61,6 @@ class Checkout extends Component {
 
   handleChangeSharkName(event){
     this.setState({sharkName: event.target.value})
-    console.log(this.props, 'props');
   }
 
   render() {
