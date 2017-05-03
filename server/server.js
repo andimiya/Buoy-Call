@@ -158,7 +158,7 @@ app.get('/api/shark/:shark_id', (req, res) => {
     where: {
       shark_id: req.params.shark_id
     },
-    attributes: ['shark_id', 'species', 'length', 'weight', 'gender']
+    attributes: ['shark_id', 'name', 'gender', 'species', 'length', 'weight', 'datetime']
   })
   .then((sharkdata) => {
     res.send(sharkdata);
