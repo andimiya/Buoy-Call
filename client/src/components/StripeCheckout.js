@@ -61,7 +61,6 @@ class Checkout extends Component {
       body
     })
     .then((success) => {
-      console.log("Success",success)
       if(success){
         this.props.history.push('/confirmation')
       }

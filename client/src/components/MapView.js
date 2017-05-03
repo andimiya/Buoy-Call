@@ -1,9 +1,25 @@
 import React, {Component} from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import util from 'util';
+import L from 'leaflet';
+// import util from 'util';
+// leave util commented out, it's used to inspect console.logs in the map when needed.
 import { connect } from 'react-redux';
 import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState } from '../actions';
+
+
+console.log('L', L)
+const sharkMarker = L.icon({
+  iconUrl:'https://d30y9cdsu7xlg0.cloudfront.net/png/703212-200.png',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40]
+})
+
+const buoyMarker = L.icon({
+  iconUrl:'https://d30y9cdsu7xlg0.cloudfront.net/png/889187-200.png',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40]
+})
 
 
 class MapView extends Component {
@@ -83,11 +99,11 @@ class MapView extends Component {
       return this.yearChangeXHR(data[0].yy);
     })
     .then((data) => {
+      console.log(data);
       this.props.onAddGraphToState(data);
     })
     .catch((err) => {
-      this.props.onAddGraphToState([{}])
-      alert("There is no data for this buoy currently")
+      this.props.onAddGraphToState([])
     })
   }
 
@@ -97,6 +113,10 @@ class MapView extends Component {
     let buoyid = reader.firstChild.id
     if(buoyid){
       this.buoyChange(buoyid)
+    }
+    if(!buoyid){
+      //if its not a buoy (it's a shark), we force a null graph to get rid of data
+      this.props.onAddGraphToState("Shark")
     }
   }
 
@@ -127,7 +147,8 @@ class MapView extends Component {
         let properties = {
           lat: Number(coordinates[i].lat),
           lng: Number(coordinates[i].long),
-          popup: this.generateBuoyPopupContent(coordinates[i])
+          popup: this.generateBuoyPopupContent(coordinates[i]),
+          options: {icon: buoyMarker}
         };
         coordinateArray.push(properties);
       }

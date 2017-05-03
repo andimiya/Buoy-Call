@@ -14,7 +14,7 @@ import { ADD_SHARK_NAME_TO_STATE } from '../actions';
 const initialState = {
   loggedInUser: null,
   users: [],
-  graph: [{}],
+  graph: null,
   years: [],
   buoyid: null,
   yy: null,
@@ -48,6 +48,7 @@ function users(state=initialState , action){
     })
 
     case ADD_GRAPH_TO_STATE:
+    console.log(action)
     return Object.assign({}, state, {
       graph: action.graph
     })
