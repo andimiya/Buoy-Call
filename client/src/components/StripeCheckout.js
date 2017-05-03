@@ -15,9 +15,9 @@ class Checkout extends Component {
     };
 
     this.handleChangeSharkName = this.handleChangeSharkName.bind(this);
-
+    let sharkprop=this.props.shark;
+    console.log(sharkprop, 'sharkprop');
   }
-
 
   getAllSharks(){
     return new Promise((resolve,reject) => {
@@ -33,7 +33,7 @@ class Checkout extends Component {
     })
   }
 
-  componentDidMount(arr) {
+  componentWillMount(arr) {
     Promise.all([
       this.props.onAddSharkIdToState(this.props.match.params.shark_id)
     ])
@@ -67,6 +67,9 @@ class Checkout extends Component {
   }
 
   render() {
+    if (!this.props.shark) {
+      return null;
+    }
     return (
       <div id="checkout-container">
         <h1>Adopt and Donate</h1>
@@ -77,8 +80,13 @@ class Checkout extends Component {
         <p>Give your shark a name on the line below, then click the 'Pay with Card' button to make your donation.</p>
         <br />
         <br />
-        <h1>This is your shark to name!</h1><br />
-          {this.props.sharkData}
+        <h1>ADOPT THIS SHARK</h1><br />
+        <p>{this.props.shark.species}<br />
+          Length: {this.props.shark.length}<br />
+          Weight: {this.props.shark.weight}<br />
+          Gender: {this.props.shark.gender}<br />
+          Last Seen: {this.props.shark.datetime}<br />
+          </p>
         </div>
         <form>
           <input type='text' onChange={this.handleChangeSharkName} placeholder="Name Your Shark" name="Name Your Shark" /><br/>
