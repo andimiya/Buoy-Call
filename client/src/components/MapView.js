@@ -163,7 +163,8 @@ class MapView extends Component {
           let properties = {
             lat: Number(data[i].latitude),
             lng: Number(data[i].longitude),
-            popup: this.generateSharkPopupContent(data[i])
+            popup: this.generateSharkPopupContent(data[i]),
+            options: {icon: sharkMarker}
           };
           sharkArray.push(properties);
         };
