@@ -131,7 +131,8 @@ class MapView extends Component {
             Weight: ${shark.weight}<br>
             Species: ${shark.species}<br>
             Gender: ${shark.gender}<br>
-            <a href="/adopt/${shark.shark_id}"><button>Adopt Me</button></a>`
+            <br>
+            <a href="/adopt/${shark.shark_id}"><button class="adopt">Adopt Me</button></a>`
   }
 
   componentDidMount(arr) {
