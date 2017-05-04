@@ -150,6 +150,28 @@ class Graph extends Component {
 
   }
 
+  dataColor(){
+    switch(this.props.datatype){
+      case "wvht":
+        return "black"
+
+      case "wtmp":
+        return "red"
+
+      case "atmp":
+        return "blue"
+
+      case "apd":
+        return "green"
+
+      case "dpd":
+        return "pink"
+
+      default:
+        return
+    }
+  }
+
 
   render(){
     return(
@@ -159,15 +181,15 @@ class Graph extends Component {
             margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#8884d8" stopOpacity={0.9}/>
-                <stop offset="95%" stopColor="#8884d8" stopOpacity={0.7}/>
+                <stop offset="5%" stopColor={this.dataColor()} stopOpacity={0.9}/>
+                <stop offset="95%" stopColor={this.dataColor()} stopOpacity={0.7}/>
               </linearGradient>
             </defs>
             <XAxis dataKey="dd" />
             <YAxis />
-            <CartesianGrid strokeDasharray="3 3" fill="#F5DA81"/>
+            <CartesianGrid strokeDasharray="3 3" fill="rgb(178, 221, 225)"/>
             <Tooltip />
-            <Area type="monotone" dataKey={this.props.datatype} stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+            <Area type="monotone" dataKey={this.props.datatype} stroke="rgb(178, 221, 225)" fillOpacity={1} fill="url(#colorUv)" />
           </AreaChart>
         </ResponsiveContainer>
         <div>
