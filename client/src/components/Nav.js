@@ -27,7 +27,6 @@ class Nav extends Component {
   componentWillMount(){
     this.xhrLoginCheck()
     .then((userData)=>{
-      console.log(this.props)
       let user = JSON.parse(userData)
       this.props.onAddUser(user.id, user.firstName, user.lastName, user.email)
     })
@@ -54,7 +53,6 @@ class Nav extends Component {
     event.preventDefault();
     this.xhrLogOut()
     .then(()=>{
-      console.log("this.propS",this.props)
       this.props.onLogOut()
     })
   }
@@ -69,9 +67,10 @@ class Nav extends Component {
           </h1>
         </div>
           <ul className="main-nav">
-            <li><Link to="/Payment">Adopt</Link></li>
-            <li><Link to="/Graph">Historical Charts</Link></li>
-            <li><Link to="/">Non-Profit Support</Link></li>
+            <li><Link to="/">Adopt</Link></li>
+            <li><Link to="/donate">Donate</Link></li>
+            <li><Link to="/aboutus">About Us</Link></li>
+            <li><Link to="/contactus">Contact Us</Link></li>
           </ul>
 
           <div className="logged-in-note">
@@ -96,9 +95,10 @@ class Nav extends Component {
           </h1>
         </div>
         <ul className="main-nav">
-          <li><Link to="/Payment">Adopt</Link></li>
-          <li><Link to="/Graph">Historical Charts</Link></li>
-          <li><Link to="/">Non-Profit Support</Link></li>
+          <li><Link to="/">Adopt</Link></li>
+          <li><Link to="/donate">Donate</Link></li>
+          <li><Link to="/aboutus">About Us</Link></li>
+          <li><Link to="/contactus">Contact Us</Link></li>
         </ul>
         <ul className="login-nav">
           <li><Link to="/login">Log In</Link></li>
@@ -110,7 +110,6 @@ class Nav extends Component {
     }
   }
 }
-
 
 const mapDispatchToProps = {
   onAddUser: addUserToState,
