@@ -7,7 +7,9 @@ import NewUser from './components/NewUser'
 import Nav from './components/Nav';
 import Login from './components/Login';
 import Confirmation from './components/Confirmation';
-import Payment from './components/StripeCheckout';
+import ConfirmationDonation from './components/ConfirmationDonation';
+import Checkout from './components/StripeCheckout';
+import Donate from './components/Donate';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
@@ -39,8 +41,10 @@ ReactDOM.render(
         <Route exact path="/login" component={Login} />
         <Route exact path="/Graph" component={Graph} />
         <Route exact path="/newuser" component={NewUser} />
-        <Route exact path="/adopt/:shark_id" component={Payment} />
+        <Route exact path="/donate" component={Donate} />
+        <Route exact path="/adopt/:shark_id" component={Checkout} />
         <Route exact path="/confirmation" component={Confirmation} />
+        <Route exact path="/confirmation-donation" component={ConfirmationDonation} />
         <Route exact path="/auth" component={ManageAccount} />
         <Route exact path="/AboutUs" component={AboutUs} />
         <Route exact path="/ContactUs" component={ContactUs} />
