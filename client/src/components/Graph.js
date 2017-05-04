@@ -192,26 +192,11 @@ class Graph extends Component {
           </select>
         </div>
 
-        <form>
-          <input id="datatype_wvht" type="radio" value="wvht" name="datatype" checked={this.state.datatype === 'wvht'} onChange={this.dataChange}/><label htmlFor="datatype_wvht">Wave Height</label>
-          <input id="datatype_wtmp" type="radio" value="wtmp" name="datatype" checked={this.state.datatype === 'wtmp'} onChange={this.dataChange}/><label htmlFor="datatype_wtmp">Water Temperature</label>
-          <input id="datatype_atmp" type="radio" value="atmp" name="datatype" checked={this.state.datatype === 'atmp'} onChange={this.dataChange}/><label htmlFor="datatype_atmp">Air Temperature</label>
-          <input id="datatype_apd" type="radio" value="apd" name="datatype" checked={this.state.datatype === 'apd'} onChange={this.dataChange}/><label htmlFor="datatype_apd">Average Wave Period</label>
-          <input id="datatype_dpd" type="radio" value="dpd" name="datatype" checked={this.state.datatype === 'dpd'} onChange={this.dataChange}/><label htmlFor="datatype_dpd">Dominant Wave Period</label>
-        </form>
-
         <DataTypeRadio />
       </div>
     )
   }
 }
-
-// function mapStateToProps(state, ownProps){
-//   return {
-//     isLoggedIn: state.loggedIn,
-//     currentURL: ownProps.location.pathname
-//   }
-// }
 
 const mapDispatchToProps = (dispatch) => {
   return{
