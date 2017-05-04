@@ -10,7 +10,7 @@ class Header extends React.Component{
   render(){
     return(
       <div className="Header">
-      <img src="./buoycall_type.png" />
+      <img src="./buoycall_icon.png" />
       </div>
     )
   }

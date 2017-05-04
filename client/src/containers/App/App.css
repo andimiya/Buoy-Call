@@ -77,45 +77,45 @@ p {
 .nav-container {
   width: 90%;
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
   margin-top: 20px;
-  box-sizing: border-box;
-  border: solid thin red;
+  margin-bottom: 3rem;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
-  text-transform: uppercase;
+  border-bottom: solid thin gray;
+  align-items: center;
 }
 
 .logo {
   box-sizing: border-box;
-  border: solid thin green;
   display: flex;
-  justify-content: flex-start;
   list-style: none;
-  margin-right: 100px;
+  margin-right: 5rem;
+  padding-bottom: 1.5rem;
 }
+
 .logo a {
   text-decoration: none;
 }
 .logo a:hover{
-  border-bottom: solid thick gray;
+  border-bottom: solid thin gray;
 }
 
 .main-nav {
-  padding-left: 10px;
   box-sizing: border-box;
-  /*border: 10px solid green;*/
   display: flex;
   flex: 1 1 50%;
-  justify-content: flex-start;
+  justify-content: space-between;
   list-style: none;
   align-items: center;
-}
+  padding-bottom: 1.5rem;
+  }
+
+  .main-nav ul{
+    wight: 75%;
+  }
 
 .main-nav li {
   box-sizing: border-box;
-  padding: 0 10 0 10px;
   text-align: center;
 }
 
@@ -132,22 +132,26 @@ p {
 }
 
 .login-nav {
-  padding-left: 50px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   list-style: none;
   align-items: center;
+  margin-left: 4rem;
+  padding-bottom: 1.5rem;
 
 }
+
 .login-nav li {
   box-sizing: border-box;
   padding: 0 10 0 10px;
   /*border: 10px solid blue;*/
 }
+
 .login-nav li a {
   text-decoration: none;
 }
+
 .login-nav li a:hover{
   border-bottom: solid thick gray;
 }
@@ -164,17 +168,16 @@ p {
 
 /* General Styling */
 
-#buoy-container {
-  border: 10px solid red;
-}
 
 #map-container {
-  margin: 20px;
+  left-margin: 20px;
+  right-margin: 20px;
+  top-margin: 20px;
   width: 90%;
   align-self: center;
 }
 
-.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit{
+.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .Faq-Container{
   display: block;
   flex: 0 0 90%;
   text-align: center;
@@ -278,117 +281,113 @@ input[type=submit]{
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 800px){
+  
+.nav-container {
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 3rem;
+  font-size: 16px;
+  border-bottom: solid thin gray;
+  align-items: center;
+}
 
-    /* NAVIGATION */
-
-      .nav-container {
-        display: flex;
-        flex-flow: row wrap;
-        border: solid thin red;
-        width: 100%;
-        font-family: 'Roboto Condensed', sans-serif;
-        font-size: 16px;
-        text-transform: uppercase;
-        line-height: 18px;
-      }
-
-      .logo {
-        margin: 0 auto;
-        margin-bottom: 1rem;
-      }
-
-     
-
-      .main-nav {
-        width:100%;
-        box-sizing: border-box;
-        border: solid thin green;
-        list-style: none;
-        margin-bottom: 1rem;
-      }
-
-      .main-nav li {
-      border: solid thin black;
-
-      }
-
-      .main-nav li a {
-      width:100%;
-      border: solid thin black;
-      text-decoration: none;
-      }
-
-      .main-nav li a:visited{
-        color: black;
-      }
-
-    
-
-      .logged-in-note {
-        display: inline;
-      }
-
-      .login-nav li {
-        box-sizing: border-box;
-        border: solid thin blue;
-      }
-      .login-nav li a {
-        text-decoration: none;
-      }
-
-      
-      .logout-button {
-        border: 10px solid blue;
-        width: 200px;
-      }
-
-      /* FOOTER CONTENTS */
-       #footer-container{
-        margin-top: 5rem;
-        height: 5rem;
-        width: 90%;
-        font-family: 'Roboto Condensed', sans-serif;
-        font-size: 0.8em;
-        color: gray;
-        text-transform: uppercase;
-        display: none;
-        text-align: center;
-        border-top: solid thick #B2b2B2;
-      }
+.logo {
+  margin: 0 auto;
+}
 
 
-      .copyright{
-        border:solid thin green;
-        display: block;
-        width: 100%;
-        height: auto;
-        /*margin: 30px 0 30px 0*/;
-        text-align: center;
-      }
 
-      .footer-links{
-        display: block;
-        flex-flow: column wrap;
-      }
+.main-nav {
+  width: 100%;
+  justify-content: space-between;
+  display: inline;
+  }
 
-      .footer-links ul{
-        display: block;
+  .main-nav ul{
+    wight: 75%;
+  }
 
-      }
+.main-nav li {
+  box-sizing: border-box;
+  text-align: center;
+}
 
-      .footer-links li {
-        display:block;
-        /*border:solid thin yellow;*/
-        margin-bottom: 20px;
-      }
+.main-nav li a {
+  text-decoration: none;
+}
+
+.main-nav li a:visited{
+  color: black;
+}
+
+.main-nav li a:hover{
+  border-bottom: solid thick gray;
+}
+
+.login-nav {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+  margin-left: 4rem;
+  padding-bottom: 1.5rem;
+
+}
+
+.login-nav li {
+  box-sizing: border-box;
+  padding: 0 10 0 10px;
+  /*border: 10px solid blue;*/
+}
+
+.login-nav li a {
+  text-decoration: none;
+}
+
+.login-nav li a:hover{
+  border-bottom: solid thick gray;
+}
+
+.logged-in-note {
+  display: block;
+  align-items: center;
+}
+
+.logout-button {
+  border: 10px solid blue;
+  width: 200px;
+}
+
       
 }
 
 /* MOBILE VIEW */
 
-@media only screen and (max-width: 400px){
-  #root-container-{
-    display: none;
-  }
+
+.loader{
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 12px solid #f3f3f3; /* Light grey */
+    border-top: 12px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    animation: spin 1.5s linear infinite;
+    margin-bottom: 2rem;
 }
 
+@keyframes spin{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.graph-box{
+/*  border: 2px solid black;*/
+/*  width: 92.45%;*/
+  width: 95%;
+  margin-left: 3%;
+  margin-right: 5.5%;
+}

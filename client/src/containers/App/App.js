@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from '../../components/Nav';
 import MapView from '../../components/MapView';
 import Graph from '../../components/Graph'
 import { connect } from 'react-redux';
@@ -41,10 +40,7 @@ class App extends Component {
         <div id="map-container">
           <MapView />
         </div>
-        <div id="buoy-container">
-          <div className="buoy-graph"></div>
-          <Graph />
-        </div>
+        <Graph />
       </div>
     )
   }
