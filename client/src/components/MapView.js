@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState } from '../actions';
 
 
+
 console.log('L', L)
 const sharkMarker = L.icon({
   iconUrl:'https://d30y9cdsu7xlg0.cloudfront.net/png/703212-200.png',
@@ -183,6 +184,10 @@ class MapView extends Component {
       return (<div className="loader"></div>);
     }
     return (
+      <div>
+      <br />
+      <p className="small-gray-text">Click on the map below to view historical data for buoys across our oceans and lakes, or to adopt a shark. Check back often as tagged sharks will change position on the map and new data will be reported from buoys.</p>
+      <br />
         <Map className="markercluster-map"
           style={{height: '600px'}}
           center={[-8.310,12.087]}
@@ -201,6 +206,7 @@ class MapView extends Component {
             onMarkerClick={this.getBuoyData}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
+        </div>
     );
   }
 }
