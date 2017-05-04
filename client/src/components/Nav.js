@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addUserToState, logOutFromState } from '../actions';
 
@@ -27,7 +27,6 @@ class Nav extends Component {
   componentWillMount(){
     this.xhrLoginCheck()
     .then((userData)=>{
-      console.log(this.props)
       let user = JSON.parse(userData)
       this.props.onAddUser(user.id, user.firstName, user.lastName, user.email)
     })

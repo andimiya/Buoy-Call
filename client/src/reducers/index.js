@@ -8,6 +8,7 @@ import { ADD_BUOY_YEAR_TO_STATE } from '../actions';
 import { ADD_MONTH_TO_STATE } from '../actions';
 import { ADD_SHARK_TO_STATE } from '../actions';
 import { ADD_SHARK_NAME_TO_STATE } from '../actions';
+import { CHANGE_DATA_TYPE } from '../actions';
 
 
 
@@ -20,7 +21,8 @@ const initialState = {
   yy: null,
   mm: 1,
   shark_id: null,
-  shark_name: null
+  shark_name: null,
+  datatype: 'wvht'
 }
 
 function users(state=initialState , action){
@@ -48,7 +50,6 @@ function users(state=initialState , action){
     })
 
     case ADD_GRAPH_TO_STATE:
-    console.log(action)
     return Object.assign({}, state, {
       graph: action.graph
     })
@@ -87,6 +88,11 @@ function users(state=initialState , action){
     case ADD_SHARK_NAME_TO_STATE:
     return Object.assign({}, state, {
       shark_name: action.shark_name
+    })
+
+    case CHANGE_DATA_TYPE:
+    return Object.assign({}, state, {
+      datatype: action.datatype
     })
 
     default: return state;

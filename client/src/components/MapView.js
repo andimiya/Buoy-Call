@@ -5,10 +5,8 @@ import L from 'leaflet';
 // import util from 'util';
 // leave util commented out, it's used to inspect console.logs in the map when needed.
 import { connect } from 'react-redux';
-import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState } from '../actions';
+import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState, changeDataType } from '../actions';
 
-
-console.log('L', L)
 const sharkMarker = L.icon({
   iconUrl:'https://d30y9cdsu7xlg0.cloudfront.net/png/703212-200.png',
   iconSize: [40, 40],
@@ -99,7 +97,6 @@ class MapView extends Component {
       return this.yearChangeXHR(data[0].yy);
     })
     .then((data) => {
-      console.log(data);
       this.props.onAddGraphToState(data);
     })
     .catch((err) => {
@@ -107,7 +104,12 @@ class MapView extends Component {
     })
   }
 
+  dataChange(event){
+    this.props.onChangeDataType('wvht')
+  }
+
   getBuoyData(input){
+    this.dataChange();
     let reader = document.createElement('div');
     reader.innerHTML = input._popup._content;
     let buoyid = reader.firstChild.id
@@ -218,6 +220,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onAddGraphToState:(data) => {
       dispatch(addGraphToState(data));
+    },
+    onChangeDataType:(data) => {
+      dispatch(changeDataType(data));
     }
   }
 }
@@ -229,7 +234,8 @@ const mapStateToProps = (state) => {
     years: state.years,
     buoyid: state.buoyid,
     yy: state.yy,
-    mm: state.mm
+    mm: state.mm,
+    datatype: state.datatype
   }
 }
 
