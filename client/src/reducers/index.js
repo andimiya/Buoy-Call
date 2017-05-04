@@ -7,10 +7,9 @@ import { ADD_BUOY_ID_TO_STATE } from '../actions';
 import { ADD_BUOY_YEAR_TO_STATE } from '../actions';
 import { ADD_MONTH_TO_STATE } from '../actions';
 import { ADD_SHARK_TO_STATE } from '../actions';
+import { ADD_SHARK_ID_TO_STATE } from '../actions';
 import { ADD_SHARK_NAME_TO_STATE } from '../actions';
 import { CHANGE_DATA_TYPE } from '../actions';
-
-
 
 const initialState = {
   loggedInUser: null,
@@ -20,6 +19,7 @@ const initialState = {
   buoyid: null,
   yy: null,
   mm: 1,
+  shark: null,
   shark_id: null,
   shark_name: null,
   datatype: 'wvht'
@@ -81,6 +81,19 @@ function users(state=initialState , action){
     })
 
     case ADD_SHARK_TO_STATE:
+    return Object.assign({}, state, {
+      shark: {
+        shark_id: action.shark_id,
+        name: action.name,
+        species: action.species,
+        gender: action.gender,
+        length: action.length,
+        weight: action.weight,
+        datetime: action.datetime
+      }
+    })
+
+    case ADD_SHARK_ID_TO_STATE:
     return Object.assign({}, state, {
       shark_id: action.shark_id
     })

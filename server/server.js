@@ -132,6 +132,36 @@ app.post('/api/charge/:shark_name/:shark_id', (req, res) => {
   })
 });
 
+app.post('/api/charge', (req, res) => {
+  stripe.customers.create({
+    email: req.body.email,
+    source: req.body.id
+  })
+  .then(customer => {
+    stripe.charges.create({
+      amount: 500,
+      currency: 'usd',
+      customer: customer.id
+    })
+    return customer
+  })
+  .then(customer => {
+    let chargeData = customer.sources.data[0];
+    payments.create({
+      customerid: customer.id,
+      email: req.body.email,
+      amount: 500,
+      lastFourDigits: chargeData.last4,
+      cardType: chargeData.brand,
+      origin: chargeData.country
+    })
+    .then( _=> {
+      console.log('charge complete');
+      res.send('success')
+    })
+  })
+});
+
 passport.deserializeUser(function(user, done) {
   console.log("DESERIALIZEUSER",user)
   Users.findOne({
@@ -158,7 +188,7 @@ app.get('/api/shark/:shark_id', (req, res) => {
     where: {
       shark_id: req.params.shark_id
     },
-    attributes: ['shark_id', 'species', 'length', 'weight', 'gender']
+    attributes: ['shark_id', 'name', 'gender', 'species', 'length', 'weight', 'datetime']
   })
   .then((sharkdata) => {
     res.send(sharkdata);

@@ -130,10 +130,11 @@ class MapView extends Component {
 
   generateSharkPopupContent(shark){
     return `Shark name: ${shark.name}<br>
-            Weight: ${shark.weight}<br>
-            Species: ${shark.species}<br>
-            Gender: ${shark.gender}<br>
-            <a href="/adopt/${shark.shark_id}"><button>Adopt Me</button></a>`
+      Weight: ${shark.weight}<br>
+      Species: ${shark.species}<br>
+      Gender: ${shark.gender}<br>
+      <br>
+      <a href="/adopt/${shark.shark_id}"><button class="adopt">Adopt Me</button></a>`
   }
 
   componentDidMount(arr) {
@@ -155,7 +156,6 @@ class MapView extends Component {
         coordinateArray.push(properties);
       }
       markers = coordinateArray;
-
     })
     .then(() => {
       this.getAllSharks()
@@ -185,6 +185,10 @@ class MapView extends Component {
       return (<div className="loader"></div>);
     }
     return (
+      <div>
+      <br />
+      <p className="small-gray-text">Click on the map below to view historical data for buoys across our oceans and lakes, or to adopt a shark. Check back often as tagged sharks will change position on the map and new data will be reported from buoys.</p>
+      <br />
         <Map className="markercluster-map"
           style={{height: '600px'}}
           center={[-8.310,12.087]}
@@ -203,6 +207,7 @@ class MapView extends Component {
             onMarkerClick={this.getBuoyData}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
+        </div>
     );
   }
 }

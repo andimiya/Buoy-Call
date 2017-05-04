@@ -1,10 +1,6 @@
 import React from 'react';
 
 class Faq extends React.Component {
-  // constructor(props) {
-  //   super(props);
-
-  // }
 
   render() {
     return (

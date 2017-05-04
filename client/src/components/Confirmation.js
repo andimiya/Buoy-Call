@@ -1,16 +1,32 @@
 import React from 'react';
-class Confirmation extends React.Component{
+import { connect } from 'react-redux';
 
-    render(){
-      return(
-        <div className="confirmation-page">
-          <div className="FPO">
-          <p>FPO</p>
-          </div>
-          <h1>You're pretty awesome!<br/>Thank you for your contribution</h1>
-        </div>
-      )
-    }
+class Confirmation extends React.Component{
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    return(
+      <div className="confirmation-page">
+        <h1>You're awesome. Thank you for your contribution!</h1>
+        <br />
+        <p>You've named your shark</p>
+        <br />
+        <h1>{this.props.shark_name}</h1>
+        <br />
+        <p>Come back often and look for your shark on the map</p>
+        <br />
+      </div>
+    )
+  }
 }
 
-export default Confirmation;
+const mapStateToProps = (state) => {
+  return {
+    shark: state.shark,
+    shark_name: state.shark_name
+  }
+}
+
+export default connect(mapStateToProps)(Confirmation);

@@ -113,7 +113,7 @@ class Graph extends Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('GET', `/api/buoy/test/${this.props.buoyid}/${year}/${this.props.mm}`);
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()
@@ -147,7 +147,7 @@ class Graph extends Component {
   }
 
   componentDidMount(){
-    
+
   }
 
 
