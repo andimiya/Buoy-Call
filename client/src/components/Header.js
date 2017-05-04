@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Logo from '../assets/buoycall_logotype.svg'; 
+// console.log(Logo);
 class Header extends React.Component{
   constructor(props) {
     super(props);
@@ -9,8 +10,10 @@ class Header extends React.Component{
   render(){
     return(
       <div className="Header">
-      <h1>BUUOOOYYYAAAAHHHHH</h1>
+      <img src="./buoycall_type.png" />
       </div>
     )
   }
 }
+
+export default Header;

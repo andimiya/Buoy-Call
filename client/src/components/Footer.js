@@ -11,18 +11,21 @@ class Footer extends React.Component{
   render(){
     return(
       <div id="footer-container">
-      <div>
-        Copyright 2017 LarnYay, All Rights Reserved.
-      </div>
-      <div>
-        <ul className="footer-links">
-          <li>Non-Profit</li>
-          <li>Privacy Policy</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Manage Your Payments</li>
-        </ul>
-      </div>
+
+        <div className="copyright">
+          <p>Copyright 2017 LarnYay, All Rights Reserved.</p>
+        </div>
+
+        <div>
+          <ul className="footer-links">
+            <li>Non-Profit</li>
+            <li>Privacy Policy</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+            <li>Manage Your Payments</li>
+          </ul>
+        </div>
+
       </div>
     )
   }

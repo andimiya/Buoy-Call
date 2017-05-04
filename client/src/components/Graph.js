@@ -149,7 +149,7 @@ class Graph extends Component {
 
   render(){
     return(
-      <div>
+      <div className="Graph">
         <form onClick={this.buoyChange}>
           <input type="submit" value="41002"/>
         </form>
