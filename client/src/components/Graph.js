@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { CartesianGrid, YAxis, XAxis, Tooltip, Area, AreaChart, ResponsiveContainer } from 'recharts';
 import { addGraphToState, addBuoyYearsToState, addBuoyIdToState, addMonthToState, addYearToState } from '../actions';
 import YearDropDown from './YearDropDown.js';
+import DataTypeRadio from './DataTypeRadio';
 
 class Graph extends Component {
   constructor(props){
@@ -166,7 +167,7 @@ class Graph extends Component {
             <YAxis />
             <CartesianGrid strokeDasharray="3 3" fill="#F5DA81"/>
             <Tooltip />
-            <Area type="monotone" dataKey={this.state.datatype} stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+            <Area type="monotone" dataKey={this.props.datatype} stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
           </AreaChart>
         </ResponsiveContainer>
         <div>
@@ -197,8 +198,9 @@ class Graph extends Component {
           <input id="datatype_atmp" type="radio" value="atmp" name="datatype" checked={this.state.datatype === 'atmp'} onChange={this.dataChange}/><label htmlFor="datatype_atmp">Air Temperature</label>
           <input id="datatype_apd" type="radio" value="apd" name="datatype" checked={this.state.datatype === 'apd'} onChange={this.dataChange}/><label htmlFor="datatype_apd">Average Wave Period</label>
           <input id="datatype_dpd" type="radio" value="dpd" name="datatype" checked={this.state.datatype === 'dpd'} onChange={this.dataChange}/><label htmlFor="datatype_dpd">Dominant Wave Period</label>
-
         </form>
+
+        <DataTypeRadio />
       </div>
     )
   }
@@ -238,7 +240,8 @@ const mapStateToProps = (state) => {
     years: state.years,
     buoyid: state.buoyid,
     yy: state.yy,
-    mm: state.mm
+    mm: state.mm,
+    datatype: state.datatype
   }
 }
 
