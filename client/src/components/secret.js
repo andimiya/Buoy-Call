@@ -63,7 +63,6 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => {
-  console.log("STATE", state)
   return {
     loggedInUser: state.loggedInUser
   }

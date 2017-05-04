@@ -16,7 +16,7 @@ const RedisStore = require('connect-redis')(
   session);
 const LocalStrategy = require('passport-local').Strategy;
 const db = require('./models');
-const { Users, coordinates, buoydata } = db;
+const { Users, coordinates, buoydata, sharkdata, payments } = db;
 const userRoute = require('./routes/users');
 const buoyRoute = require('./routes/buoy');
 
@@ -90,20 +90,46 @@ passport.serializeUser(function(user, done) {
   return done(null, user);
 });
 
-app.post('/api/charge', (req, res) => {
-  console.log(req.body.email, 'req BODY');
+app.post('/api/charge/:shark_name/:shark_id', (req, res) => {
+  let name = req.params.shark_name;
+  let sharkid = req.params.shark_id;
   stripe.customers.create({
     email: req.body.email,
     source: req.body.id
   })
-  .then(customer =>
+  .then(customer => {
     stripe.charges.create({
       amount: 500,
       currency: 'usd',
       customer: customer.id
-    }))
-  .then(charge =>
-    res.send('success'));
+    })
+    return customer
+  })
+  .then(customer => {
+    let chargeData = customer.sources.data[0];
+    payments.create({
+      customerid: customer.id,
+      email: req.body.email,
+      amount: 500,
+      lastFourDigits: chargeData.last4,
+      cardType: chargeData.brand,
+      origin: chargeData.country
+    })
+    return customer
+  })
+  .then(customer => {
+    sharkdata.update({
+      name: name
+    },
+      {
+        where: { shark_id: sharkid }
+      }
+    )
+    .then( _=> {
+      console.log('charge complete');
+      res.send('success')
+    })
+  })
 });
 
 passport.deserializeUser(function(user, done) {
@@ -119,22 +145,23 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/api/allsharks', (req, res) => {
-  request('//www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
+  sharkdata.findAll({
+    attributes: ['shark_id', 'name', 'species', 'weight', 'gender', 'tagDate', 'latitude', 'longitude']
+  })
+  .then((arr) => {
+    res.send(arr);
+  });
+});
 
-    Promise.resolve(JSON.parse(body))
-    .then((data) => {
-      let sharksArray = [];
-
-      for(let i = 0; i < data.length; i++){
-        let sharkCoordinates = {
-          lat: data[i].pings[0].latitude,
-          lng: data[i].pings[0].longitude,
-          popup: 'test'
-        };
-        sharksArray.push(sharkCoordinates);
-      }
-      res.json(sharksArray);
-    });
+app.get('/api/shark/:shark_id', (req, res) => {
+  sharkdata.findOne({
+    where: {
+      shark_id: req.params.shark_id
+    },
+    attributes: ['shark_id', 'species', 'length', 'weight', 'gender']
+  })
+  .then((sharkdata) => {
+    res.send(sharkdata);
   });
 });
 
@@ -148,7 +175,7 @@ app.get('/api/allbuoys', (req, res )=> {
     })
   ])
   .then((arr) => {
-    console.log(arr, 'array')
+    // console.log(arr, 'array')
     res.send(arr);
   });
 });

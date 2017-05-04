@@ -29,7 +29,7 @@ router.get('/test/', (req, res) => {
 router.get('/test/:buoyid/:year/:month', (req, res) => {
   aggregatetodays.findAll({
     order: ['yy','mm','dd'],
-    attributes: ['yy', 'mm', 'dd', 'wvht', 'wtmp'],
+    attributes: ['yy', 'mm', 'dd', 'wvht', 'wtmp', 'atmp', 'apd', 'dpd'],
     where: {
       buoyid: req.params.buoyid,
       mm: req.params.month,
