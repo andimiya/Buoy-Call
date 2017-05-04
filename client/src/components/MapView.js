@@ -128,10 +128,11 @@ class MapView extends Component {
 
   generateSharkPopupContent(shark){
     return `Shark name: ${shark.name}<br>
-            Weight: ${shark.weight}<br>
-            Species: ${shark.species}<br>
-            Gender: ${shark.gender}<br>
-            <a href="/adopt/${shark.shark_id}"><button>Adopt Me</button></a>`
+      Weight: ${shark.weight}<br>
+      Species: ${shark.species}<br>
+      Gender: ${shark.gender}<br>
+      <br>
+      <a href="/adopt/${shark.shark_id}"><button class="adopt">Adopt Me</button></a>`
   }
 
   componentDidMount(arr) {
@@ -153,7 +154,6 @@ class MapView extends Component {
         coordinateArray.push(properties);
       }
       markers = coordinateArray;
-
     })
     .then(() => {
       this.getAllSharks()

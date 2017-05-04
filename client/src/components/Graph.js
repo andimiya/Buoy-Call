@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CartesianGrid, YAxis, XAxis, Tooltip, Legend, Area, AreaChart, ResponsiveContainer } from 'recharts';
+import { CartesianGrid, YAxis, XAxis, Tooltip, Area, AreaChart, ResponsiveContainer } from 'recharts';
 import { addGraphToState, addBuoyYearsToState, addBuoyIdToState, addMonthToState, addYearToState } from '../actions';
 import YearDropDown from './YearDropDown.js';
 
@@ -112,7 +112,7 @@ class Graph extends Component {
       }
       let oReq = new XMLHttpRequest();
       oReq.open('GET', `/api/buoy/test/${this.props.buoyid}/${year}/${this.props.mm}`);
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()
@@ -146,7 +146,7 @@ class Graph extends Component {
   }
 
   componentDidMount(){
-    
+
   }
 
 
