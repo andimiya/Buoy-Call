@@ -195,7 +195,7 @@ class Graph extends Component {
         </ResponsiveContainer>
 
 
-
+        <div className="graphMenu">
         <YearDropDown />
         <div onChange={this.monthChange}>
           <select>
@@ -218,6 +218,7 @@ class Graph extends Component {
 
 
         <DataTypeRadio />
+        </div>
         </div>
     )
   }
