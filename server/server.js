@@ -60,6 +60,7 @@ app.use(passport.session());
 app.use('/api/users', userRoute)
 app.use('/api/buoy', buoyRoute)
 
+
 passport.use(new LocalStrategy(
   function(email, password, done){
     Users.findOne({

@@ -10,10 +10,8 @@ const passport = require('passport')
 
 function userAuthenticator(req, res, next){
   if(req.isAuthenticated()){
-    console.log("yes!");
     next();
   } else {
-    console.log("nope didn't work");
     res.redirect('/users/notLoggedInBro')
   }
 }
@@ -22,10 +20,12 @@ function userAuthenticator(req, res, next){
 router.route('/')
   .get( (req, res) => {
     Users.findAll()
-      .then( users => {
-        //console.log('looking for all users', users)
-        res.send(users);
-      });
+    .then( users => {
+      res.send(users);
+    })
+    .catch(err =>{
+      res.send(err);
+    })
   })
 
   .post( (req, res) =>{
@@ -40,8 +40,8 @@ router.route('/')
         .then((users) =>{
           res.json(users);
         })
-        .catch(err => {
-          console.log("error goes here I.E. USER ALREADY EXISTS", err);
+        .catch(err =>{
+          res.send(err);
         })
       })
     })
@@ -56,7 +56,10 @@ router.put('/changefirstname', userAuthenticator, (req, res) => {
   )
   .then(() => {
   res.send('success')
-  });
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 router.put('/changelastname', userAuthenticator, (req, res) => {
@@ -68,7 +71,10 @@ router.put('/changelastname', userAuthenticator, (req, res) => {
   )
   .then(() => {
   res.send('success')
-  });
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 
@@ -85,6 +91,9 @@ router.put('/changepassword', userAuthenticator, (req, res) =>{
       .then(() =>{
         res.send('success')
       })
+      .catch(err =>{
+        res.send(err);
+      })
     })
   })
 })
@@ -98,26 +107,26 @@ router.put('/changeemail', userAuthenticator, (req, res) => {
   )
   .then(() => {
   res.send('success')
-  });
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 router.route('/login')
   .post(passport.authenticate('local'), function(req, res){
-    console.log("successfully logged in")
     res.send(req.user)
-  })
+  });
 
 router.route('/logout')
-  .post((req, res) => {
-    console.log("logout")
+  .post((req, res, err) => {
     req.logout()
-    res.end();
-  })
+    res.end()
+  });
 
 router.route('/checkLogin')
   .post(function(req,res){
-    console.log(req.user)
     res.send(req.user)
-  })
+  });
 
   module.exports = router;
