@@ -1,6 +1,10 @@
 
 @import './reset.css';
 
+/*body{
+  background-color: #DBD9D7;
+}
+*/
 #root-container{
   box-sizing: border-box;
   width: 100%;
@@ -8,6 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
 #home-page-container{
@@ -39,6 +44,10 @@ p {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+#highlight{
+  background: #F44A4A;
+}
+
 .small-gray-text{
   margin: 0 auto;
   width: 75%;
@@ -63,8 +72,9 @@ p {
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
-  border-top: solid thin #b2b2b2;
+  border-top: solid thick #b2b2b2;
   /*background: blue;*/
+  bottom: 1;
 }
 
 .copyright{
@@ -83,7 +93,7 @@ p {
 }
 
 .footer-links li a:hover{
-  border-bottom: solid thin ;
+  border-bottom: solid thin #F44A4A ;
 }
 
 .footer-links li{
@@ -109,7 +119,7 @@ p {
   margin-bottom: 3rem;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
-  border-bottom: solid thin #b2b2b2;
+  border-bottom: solid thick #b2b2b2;
   align-items: center;
 }
 
@@ -125,7 +135,7 @@ p {
   text-decoration: none;
 }
 .logo a:hover{
-  border-bottom: solid thin #b2b2b2;
+  border-bottom: solid thin #F44A4A;
 }
 
 .main-nav {
@@ -156,7 +166,7 @@ p {
 }
 
 .main-nav li a:hover{
-  border-bottom: solid thick #b2b2b2;
+  border-bottom: solid thick #F44A4A;
 }
 
 .login-nav {
@@ -180,8 +190,12 @@ p {
   text-decoration: none;
 }
 
+.login-nav li a:visited{
+  color:black;
+}
+
 .login-nav li a:hover{
-  border-bottom: solid thick #b2b2b2;
+  border-bottom: solid thick #F44A4A;
 }
 
 .logged-in-note {
@@ -204,6 +218,7 @@ p {
   top-margin: 20px;
   width: 90%;
   align-self: center;
+  margin-bottom: 1.5rem;
 }
 
 .MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .Faq-Container{
@@ -218,19 +233,25 @@ p {
   padding: 5 20 5 20px;
 }
 
+.generalForm{
+  margin-top: 3rem;
+  display: block;
+}
 
 input[type=text], input[type=password]{
+  display: inline;
  border:none;
  border-bottom: 2px solid #b2b2b2;
  height: 2em;
  width: 30%;
- margin-top:2em;
  text-align: center;
  font-size: 15px;
+ margin-right: 1.5rem;
+ margin-bottom: 1.5rem;
 }
 
 input[type=text]:focus, input[type=password]:focus  {
-  border-bottom: 2px solid #FFD750;
+  border-bottom: 2px solid #F44A4A;
   outline: none;
 }
 
@@ -238,18 +259,16 @@ input[type=submit]{
   background-color: #B2b2B2;
   text-decoration: none;
   border:none ;
-  /*margin-top:3rem;*/
-  /*width: 20%;*/
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1em;
+  margin:0 auto;
+  margin-top: 1rem;
 }
 
 input[type=submit]:hover{
-  background-color: black;
+  background-color: #F44A4A;
   text-decoration: none;
   border:none ;
-  /*margin-top:3rem;*/
-  /*width: 20%;*/
   color: white;
 }
 
@@ -296,7 +315,7 @@ input[type=submit]:hover{
 }
 
 .editInfo input[type=text]:focus, .editInfo input[type=password]:focus  {
-  border-bottom: 2px solid #FFD750;
+  border-bottom: 2px solid #F44A4A;
   outline: none;
 }
 
@@ -391,7 +410,6 @@ input[type=submit]{
       
 }
 
-/* MOBILE VIEW */
 
 
 .loader{
@@ -413,9 +431,10 @@ input[type=submit]{
 }
 
 .graph-box{
-  width: 95%;
+  width: 90%;
   margin-left: 3%;
   margin-right: 5.5%;
+  border: solid thin yellow;
 }
 
 
@@ -448,11 +467,9 @@ input[type=submit]{
 .graphMenu{
   margin: 0 auto;
   display: block;
-  width:75%;
+  border: solid thin red;
+  width:80%;
 }
 
-.radioButton input[type=radio]{
-  border:solid thin black;
-  display: inline-block;
-}
+
 
