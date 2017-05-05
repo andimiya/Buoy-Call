@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import config from '../../config';
 import { connect } from 'react-redux';
-import { addSharkToState, addSharkNameToState } from '../actions';
+import { addSharkToState, addSharkIdToState, addSharkNameToState } from '../actions';
 import '../containers/App/App.css';
 
 class Checkout extends Component {
@@ -15,9 +15,7 @@ class Checkout extends Component {
     };
 
     this.handleChangeSharkName = this.handleChangeSharkName.bind(this);
-    // this.handleChangeSharkName = this.handleChangeSharkName.bind(this);
   }
-
 
   getAllSharks(){
     return new Promise((resolve,reject) => {
@@ -25,9 +23,6 @@ class Checkout extends Component {
         resolve(JSON.parse(this.responseText));
       }
       let oReq = new XMLHttpRequest();
-      console.log(this.props.shark_id, 'shark id');
-      console.log(this.props.shark_name, 'shark id');
-
       oReq.open('GET', `/api/shark/${this.props.shark_id}`);
       oReq.setRequestHeader('Content-type',
        'application/json')
@@ -36,18 +31,15 @@ class Checkout extends Component {
     })
   }
 
-  componentDidMount(arr) {
+  componentWillMount(arr) {
     Promise.all([
-      this.props.onAddSharkToState(this.props.match.params.shark_id)
+      this.props.onAddSharkIdToState(this.props.match.params.shark_id)
     ])
     .then(() => {
       this.getAllSharks()
       .then((data) => {
-        this.setState({
-        sharkData: data})
-
-          console.log(this.state.sharkData.species, 'this state');
-
+        console.log(data, 'data');
+        this.props.onAddSharkToState(data.shark_id, data.name, data.species, data.gender, data.length, data.weight, data.datetime)
       })
     })
   }
@@ -68,11 +60,13 @@ class Checkout extends Component {
   }
 
   handleChangeSharkName(event){
-    console.log(this.state, 'state in handlechange');
     this.setState({sharkName: event.target.value})
   }
 
   render() {
+    if (!this.props.shark) {
+      return null;
+    }
     return (
       <div id="checkout-container">
         <h1>Adopt and Donate</h1>
@@ -83,8 +77,13 @@ class Checkout extends Component {
         <p>Give your shark a name on the line below, then click the 'Pay with Card' button to make your donation.</p>
         <br />
         <br />
-        <h1>This is your shark to name!</h1><br />
-
+        <h1>ADOPT THIS SHARK</h1><br />
+        <p>{this.props.shark.species}<br />
+          Length: {this.props.shark.length}<br />
+          Weight: {this.props.shark.weight}<br />
+          Gender: {this.props.shark.gender}<br />
+          Last Seen: {this.props.shark.datetime}<br />
+          </p>
         </div>
         <form>
           <input type='text' onChange={this.handleChangeSharkName} placeholder="Name Your Shark" name="Name Your Shark" /><br/>
@@ -111,17 +110,21 @@ class Checkout extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    onAddSharkToState:(data) => {
-      dispatch(addSharkToState(data));
+    onAddSharkToState:(shark_id, name, species, gender, length, weight, datetime) => {
+      dispatch(addSharkToState(shark_id, name, species, gender, length, weight, datetime));
     },
-    onAddSharkNameToState:(data) => {
-      dispatch(addSharkNameToState(data));
+    onAddSharkIdToState:(shark_id) => {
+      dispatch(addSharkIdToState(shark_id));
+    },
+    onAddSharkNameToState:(shark_name) => {
+      dispatch(addSharkNameToState(shark_name));
     }
   }
 }
 
 const mapStateToProps = (state) => {
   return {
+    shark: state.shark,
     shark_id: state.shark_id,
     shark_name: state.shark_name
   }

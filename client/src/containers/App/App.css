@@ -39,13 +39,20 @@ p {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+.small-gray-text{
+  width: 90%;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.8em;
+  color: gray;
+
+}
 
 
 /* HEADER & FOOTER */
 
 #footer-container{
   margin-top: 100px;
-  height: 3rem;
+  height: 3.5rem;
   width: 90%;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 0.8em;
@@ -53,23 +60,21 @@ p {
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
-  border-top: solid thick gray;
+  border-top: solid thin gray;
   /*background: blue;*/
+  border-top: solid thin gray;
 }
 
 .copyright{
-  margin-top: 1rem;
-  text-align: left;
+  margin-top: 1.5rem;
+  
 }
 
 .footer-links{
   display: flex;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
-.footer-links li {
-  
-}
 
 /* NAVIGATION */
 
@@ -169,6 +174,7 @@ p {
 /* General Styling */
 
 
+
 #map-container {
   left-margin: 20px;
   right-margin: 20px;
@@ -245,7 +251,6 @@ input[type=submit]:hover{
 .payment-description {
   padding: 30 0 30 0px;
 }
-
 
 
 
@@ -385,9 +390,46 @@ input[type=submit]{
 }
 
 .graph-box{
-/*  border: 2px solid black;*/
-/*  width: 92.45%;*/
   width: 95%;
   margin-left: 3%;
   margin-right: 5.5%;
 }
+
+
+.leaflet-popup-content{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+.adopt {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  font-size: 1em;
+  font-family: 'Roboto Condensed', sans-serif;  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s;
+}
+.adopt:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 13px 40px 0 rgba(0,0,0,0.19);
+}
+
+
+/* GRAPH MENU */
+
+.graphMenu{
+  margin: 0 auto;
+  display: block;
+  width:75%;
+}
+
+.radioButton input[type=radio]{
+  border:solid thin black;
+  display: inline-block;
+}
+

@@ -2,12 +2,6 @@
 
 import React from 'react';
 
-// const history = createHistory();
-// const location = history.location;
-// const unlisten = history.listen((location, action) => {
-//   console.log("unlisten",action, location.pathname, location.state)
-// })
-
 class Login extends React.Component {
   constructor(props){
     super(props);

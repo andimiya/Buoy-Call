@@ -43,11 +43,11 @@ class YearDropDown extends Component {
 
   render(){
     return(
-      <div onChange={this.yearChange}>
+      <div className="year" onChange={this.yearChange}>
         <select>
           {
             this.props.years.map(({ yy }) =>
-            <option value={yy}>
+            <option key={yy} value={yy}>
             {yy}
             </option>
              )

@@ -7,7 +7,9 @@ export const ADD_BUOY_ID_TO_STATE = 'ADD_BUOY_ID_TO_STATE';
 export const ADD_BUOY_YEAR_TO_STATE = 'ADD_BUOY_YEAR_TO_STATE';
 export const ADD_MONTH_TO_STATE = 'ADD_MONTH_TO_STATE';
 export const ADD_SHARK_TO_STATE = 'ADD_SHARK_TO_STATE';
+export const ADD_SHARK_ID_TO_STATE = 'ADD_SHARK_ID_TO_STATE';
 export const ADD_SHARK_NAME_TO_STATE = 'ADD_SHARK_NAME_TO_STATE';
+export const CHANGE_DATA_TYPE = 'CHANGE_DATA_TYPE';
 
 export function addUser( firstName, lastName, email, password){
   return {
@@ -49,7 +51,7 @@ export function addGraphToState(graph){
       graph: null
     }
   }
-  
+
 }
 
 export function logOutFromState(){
@@ -87,9 +89,22 @@ export function addMonthToState(month){
   }
 }
 
-export function addSharkToState(shark_id){
+export function addSharkToState(shark_id, name, species, gender, length, weight, datetime){
   return{
     type: ADD_SHARK_TO_STATE,
+    shark_id,
+    name,
+    species,
+    gender,
+    length,
+    weight,
+    datetime
+  }
+}
+
+export function addSharkIdToState(shark_id){
+  return{
+    type: ADD_SHARK_ID_TO_STATE,
     shark_id
   }
 }
@@ -98,5 +113,12 @@ export function addSharkNameToState(shark_name){
   return{
     type: ADD_SHARK_NAME_TO_STATE,
     shark_name
+  }
+}
+
+export function changeDataType(datatype){
+  return{
+    type: CHANGE_DATA_TYPE,
+    datatype
   }
 }

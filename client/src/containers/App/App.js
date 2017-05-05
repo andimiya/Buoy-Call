@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MapView from '../../components/MapView';
-import Graph from '../../components/Graph'
+import Graph from '../../components/Graph';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
