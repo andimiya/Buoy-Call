@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Logo from '../assets/buoycall_logotype.svg'; 
 // console.log(Logo);
 class Header extends React.Component{
@@ -10,7 +11,7 @@ class Header extends React.Component{
   render(){
     return(
       <div className="Header">
-      <img src="./buoycall_icon.png" />
+      <Link to="/"><img src="./buoycall_icon.png" /></Link>
       </div>
     )
   }
