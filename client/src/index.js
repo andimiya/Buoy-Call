@@ -12,6 +12,7 @@ import Checkout from './components/StripeCheckout';
 import Donate from './components/Donate';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
+import ErrorPage from './components/Error';
 import ContactUs from './components/ContactUs';
 import Faq from './components/Faq';
 import { createStore, applyMiddleware } from 'redux';
@@ -49,6 +50,7 @@ ReactDOM.render(
         <Route exact path="/AboutUs" component={AboutUs} />
         <Route exact path="/ContactUs" component={ContactUs} />
         <Route exact path="/Faq" component={Faq} />
+        <Route exact path="/error" component={ErrorPage} />
         <Route exact path="/logout" component={Logout}/>
         <Footer />
       </div>

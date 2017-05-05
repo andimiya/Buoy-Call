@@ -214,7 +214,7 @@ p {
   padding-left: 30px;
 }
 
-.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .Faq-Container{
+.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .error-container, .Faq-Container{
   display: block;
   flex: 0 0 90%;
   text-align: center;
@@ -381,7 +381,7 @@ input[type=submit]{
 
 /* MEDIA QUERIES */
 
-/*@media only screen and (max-width: 800px){
+@media only screen and (max-width: 800px){
   
     .nav-container {
       width: 100%;
@@ -464,4 +464,9 @@ input[type=submit]{
 }
 */
 
+
+
+.login-error{
+  color: red;
+}
 
