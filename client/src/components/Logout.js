@@ -6,9 +6,6 @@ import { Redirect } from 'react-router-dom';
 class Logout extends Component {
   constructor(props){
     super(props);
-    this.state = {
-
-    }
 
     this.logOut = this.logOut.bind(this);
   }
@@ -30,8 +27,10 @@ class Logout extends Component {
   logOut(event){
     this.xhrLogOut()
     .then(()=>{
-      console.log("this.propS",this.props)
       this.props.onLogOut()
+    })
+    .catch(err => {
+      this.props.history.push('/error')
     })
   }
 
