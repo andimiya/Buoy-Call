@@ -23,9 +23,11 @@ class Donate extends Component {
 
     return (
       <div id="checkout-container">
-        <h1>Donate</h1>
+       <div className="donate-image">
+      <img width="45%" src={require('../assets/donations-01.png')} />
+      </div>
         <div className="payment-description">
-        <p>Don't want to name a shark? Make a donation instead!<br />
+        <p>Don't want to name a shark?<span id="highlight"> Make a donation instead! </span><br/>
         Donations will be shared among non-profits with a mission towards environmental protection and marine sciences.</p>
         </div>
         <StripeCheckout
