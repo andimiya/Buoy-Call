@@ -17,6 +17,9 @@ class Donate extends Component {
         this.props.history.push('/confirmation-donation')
       }
     })
+    .catch(err => {
+      this.props.history.push('/error')
+    })
   }
 
   render() {
