@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
+    "start": "env $(cat .env | xargs) node server.js",
+    "start-prod": "env $(cat .env.production | xargs) node server.js"
+=======
     "start": "env $(cat .env | xargs) nodemon server.js",
     "start-prod": "env $(cat .env | xargs) nodemon server.js"
+>>>>>>> b6e2b8c712c81b659b73c8569a6096e42923c1a8
   },
   "author": "",
   "license": "ISC",
