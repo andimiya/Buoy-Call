@@ -37,7 +37,9 @@ class Login extends React.Component {
         this.props.history.push('/')
       }
     })
-
+    .catch(err => {
+      this.props.history.push('/error')
+    })
   }
 
   userLoggedIn(curUser){

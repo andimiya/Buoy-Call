@@ -20,7 +20,6 @@ class ChangePassword extends React.Component{
 
     handleSubmit(event){
       event.preventDefault();
-      console.log(this.state)
       this.editPassword( {
         Password: this.state.Password
       })

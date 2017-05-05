@@ -20,7 +20,6 @@ class ChangeFirstName extends React.Component{
 
     handleSubmit(event){
       event.preventDefault();
-      console.log(this.state)
       this.editFirstName( {
         FirstName: this.state.FirstName
       })
@@ -52,8 +51,8 @@ class ChangeFirstName extends React.Component{
           let user = JSON.parse(userData)
           this.props.onAddUser(user.id, user.firstName, user.lastName, user.email)
         })
-        .catch(function(err){
-          console.log("componenet will mount error", err)
+        .catch(err => {
+          this.props.history.push('/error')
         })
       }
 

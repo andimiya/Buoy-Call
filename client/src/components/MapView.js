@@ -26,10 +26,8 @@ class MapView extends Component {
     this.state = {
       markers: null
     };
-
     this.getAllBuoys = this.getAllBuoys.bind(this);
     this.getBuoyData = this.getBuoyData.bind(this);
-
   }
 
   getAllBuoys(){
@@ -109,7 +107,6 @@ class MapView extends Component {
   }
 
   getBuoyData(input){
-    console.log(input)
     this.dataChange();
     let reader = document.createElement('div');
     reader.innerHTML = input._popup._content;
@@ -176,6 +173,9 @@ class MapView extends Component {
           markers: markers
         })
       })
+    })
+    .catch(err => {
+      this.props.history.push('/error')
     })
   }
 
