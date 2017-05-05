@@ -42,7 +42,7 @@ class ContactUs extends React.Component {
         resolve(results);
       }
       let oReq = new XMLHttpRequest();
-      oReq.open('POST', '/api/users/ContactUs');
+      oReq.open('POST', '/api/ContactUs');
       oReq.setRequestHeader('Content-type', 'application/json');
       oReq.send(JSON.stringify(mail));
     })
@@ -50,15 +50,17 @@ class ContactUs extends React.Component {
 
   render() {
     return (
+
       <div className="ContactUs-Container">
         <h1>Contact Us</h1><br/>
-        <form id="myform" onsubmit="emailjs.sendForm('buoycall_info_gmail_com', 'send_email', this.id); return true;" method="post">
+        <form id="myform" onSubmit="" method="post">
           <label>Name</label><br/>
           <input type="text" name="Name" onChange={this.handleName}/><br/><br/>
           <label>Sending To</label><br/>
           <input type="text" name="SendingTo" value="buoycall.info@gmail.com"/><br/><br/>
           <label>Message</label><br/>
           <input type="text" name="Message" onChange={this.handleMessage}/><br/>
+          <br/>
           <button>
           Send
           </button>
