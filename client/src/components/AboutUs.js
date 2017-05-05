@@ -4,6 +4,7 @@ class AboutUs extends React.Component {
 
   render() {
     return (
+      <div id="home-page-container">
       <div className="AboutUs-Container">
         <h1 className="page-headers">About Us</h1>
           <br />
@@ -19,6 +20,7 @@ class AboutUs extends React.Component {
           <p>
             Photo Credit Laylo, who is taking the picture.
           </p>
+      </div>
       </div>
     )
   }
