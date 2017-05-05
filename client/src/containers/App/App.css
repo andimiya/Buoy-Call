@@ -1,10 +1,9 @@
 
 @import './reset.css';
 
-/*body{
-  background-color: #DBD9D7;
-}
-*/
+
+
+
 #root-container{
   box-sizing: border-box;
   width: 100%;
@@ -16,13 +15,13 @@
 }
 
 #home-page-container{
-  box-sizing: border-box;
-  width: 100%;
-  overflow: none;
+  max-width: 90%;
+  margin: auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  height: 70%;
+  flex-flow: row wrap;
 }
+
 
 h1 {
   font-family: 'Roboto Condensed', sans-serif;
@@ -38,32 +37,23 @@ h2{
 }
 
 p {
-  text-align: center;
+  text-align: left;
   font-size: 1em;
   line-height: 1.5em;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Muli', sans-serif;
+
 }
 
 #highlight{
   background: #F44A4A;
 }
 
-.small-gray-text{
-  margin: 0 auto;
-  width: 75%;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 1em;
-  color: #b2b2b2;
-  margin-bottom: 2rem;
-
-}
-
 
 /* HEADER & FOOTER */
 
 #footer-container{
-  margin-top: 100px;
   padding-top: 1.5rem;
+  margin-top: 2rem;
   height: 3.5rem;
   width: 90%;
   font-family: 'Roboto Condensed', sans-serif;
@@ -72,9 +62,8 @@ p {
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
-  border-top: solid thick #b2b2b2;
-  /*background: blue;*/
   bottom: 1;
+  position: relative;
 }
 
 .copyright{
@@ -119,7 +108,7 @@ p {
   margin-bottom: 3rem;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
-  border-bottom: solid thick #b2b2b2;
+  border-bottom: solid thick #454B4F;
   align-items: center;
 }
 
@@ -211,12 +200,7 @@ p {
 /* General Styling */
 
 
-#home-page-container{
-  max-width: 90%;
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-}
+
 
 #map-container {
   box-sizing: border-box;
@@ -227,6 +211,7 @@ p {
 .graph-container{
   box-sizing: border-box;
   flex:  0 0 40%;
+  padding-left: 30px;
 }
 
 .MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .Faq-Container{
@@ -333,6 +318,67 @@ input[type=submit]{
   border:none ;
 }
 
+/* MAP */
+
+
+.loader{
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 12px solid #f3f3f3; /* Light grey */
+    border-top: 12px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    animation: spin 1.5s linear infinite;
+    margin-bottom: 2rem;
+}
+
+@keyframes spin{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+.leaflet-popup-content{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+.adopt {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  font-size: 1em;
+  font-family: 'Roboto Condensed', sans-serif;  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s;
+}
+.adopt:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 13px 40px 0 rgba(0,0,0,0.19);
+}
+
+
+/* GRAPH */ 
+
+  
+  .graphMenu{
+    border: solid thin blue;
+  }
+
+  .button{
+    display: inline-block;
+    padding-left: ;
+  }
+
+
 /* MEDIA QUERIES */
 
 /*@media only screen and (max-width: 800px){
@@ -417,66 +463,5 @@ input[type=submit]{
       
 }
 */
-
-
-.loader{
-    margin-top: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 12px solid #f3f3f3; /* Light grey */
-    border-top: 12px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 75px;
-    height: 75px;
-    animation: spin 1.5s linear infinite;
-    margin-bottom: 2rem;
-}
-
-@keyframes spin{
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.graph-box{
-  width: 90%;
-  margin-left: 3%;
-  margin-right: 5.5%;
-  border: solid thin yellow;
-}
-
-
-.leaflet-popup-content{
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 1em;
-  text-align: center;
-}
-
-.adopt {
-  background-color: #555555;
-  border: none;
-  color: white;
-  padding: 8px 15px;
-  text-align: center;
-  font-size: 1em;
-  font-family: 'Roboto Condensed', sans-serif;  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  -webkit-transition-duration: 0.2s;
-}
-.adopt:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 13px 40px 0 rgba(0,0,0,0.19);
-}
-
-
-/* GRAPH MENU */
-
-.graphMenu{
-  margin: 0 auto;
-  display: block;
-  border: solid thin red;
-  width:80%;
-}
-
 
 

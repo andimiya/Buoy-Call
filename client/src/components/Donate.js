@@ -22,6 +22,7 @@ class Donate extends Component {
   render() {
 
     return (
+      <div id="home-page-container">
       <div id="checkout-container">
        <div className="donate-image">
       <img width="45%" src={require('../assets/donations-01.png')} />
@@ -43,6 +44,7 @@ class Donate extends Component {
           token={this.onToken}
           >
         </StripeCheckout>
+      </div>
       </div>
     )
   }
