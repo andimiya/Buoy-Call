@@ -176,7 +176,7 @@ p {
   align-self: center;
 }
 
-.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .Faq-Container{
+.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .error-container, .Faq-Container{
   display: block;
   flex: 0 0 90%;
   text-align: center;
