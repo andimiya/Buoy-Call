@@ -82,13 +82,15 @@ class NewUser extends React.Component{
           <p>Sign up today and lets save our ocean!</p>
           <p>Creating an account will allow you to make an adoption, and view all of your past contributions.</p>
           </div>
+          <div className="generalForm">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" onChange={this.handleChangeFirstName} placeholder="First Name" name="firstName" /><br/>
+            <input type="text" onChange={this.handleChangeFirstName} placeholder="First Name" name="firstName" />
             <input type="text" onChange={this.handleChangeLastName} placeholder="Last Name" name="lastName" /><br/>
-            <input type="text" placeholder="Email Address"onChange={this.handleChangeEmail} name='email address' /><br/>
+            <input type="text" placeholder="Email Address"onChange={this.handleChangeEmail} name='email address' />
             <input type="password" placeholder="Password" onChange={this.handleChangePassword} name='password' /><br/>
             <input className="new-user-submit" type="submit" value='Create New User' />
           </form>
+          </div>
         </div>
       )
     }

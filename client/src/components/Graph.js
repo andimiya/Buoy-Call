@@ -194,14 +194,21 @@ class Graph extends Component {
           </AreaChart>
         </ResponsiveContainer>
 
+
+        <div className="graphMenu">
         <YearDropDown />
+       
+
         <MonthDropDown />
 
+
         <DataTypeRadio />
-      </div>
+        </div>
+        </div>
     )
   }
 }
+
 
 const mapDispatchToProps = (dispatch) => {
   return{

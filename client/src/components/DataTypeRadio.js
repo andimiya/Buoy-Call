@@ -56,12 +56,12 @@ class DataTypeRadio extends Component {
   render(){
     if(this.props.graph !== null){
     return(
-      <div>
+      <div className="graphButton">
         <form>
           {
             this.getArray().map(({ datatype }) => 
-              <div key={datatype}>
-                <input id={datatype} type="radio" value={datatype} name={datatype} onChange={this.dataChange} checked={this.props.datatype === datatype} />
+              <div className="button" key={datatype}>
+                <input className="radioButton" id={datatype} type="radio" value={datatype} name={datatype} onChange={this.dataChange} checked={this.props.datatype === datatype} />
                 <label htmlFor={ datatype }>{this.dataStringify(datatype)}</label>
               </div>
             )
@@ -70,6 +70,12 @@ class DataTypeRadio extends Component {
       </div>
     )
   } else {
+    return(
+      <div>
+        <h1>No Buoy Selected</h1>
+
+      </div>
+    )
     return(null)
   }
   }

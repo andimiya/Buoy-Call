@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addUserToState, logOutFromState } from '../actions';
+import Header from './Header';
 
 class Nav extends Component {
   constructor(props, context){
@@ -62,9 +63,9 @@ class Nav extends Component {
       return(
         <div className="nav-container">
         <div className="logo">
-           <h1>
-          <Link to="/">BuoyCall</Link>
-          </h1>
+           
+          <Header />
+          
         </div>
           <ul className="main-nav">
             <li><Link to="/donate">Donate</Link></li>
@@ -89,9 +90,7 @@ class Nav extends Component {
       return(
         <div className="nav-container">
         <div className="logo">
-           <h1>
-          <Link to="/">BuoyCall</Link>
-          </h1>
+           <Header />
         </div>
         <ul className="main-nav">
           <li><Link to="/donate">Donate</Link></li>

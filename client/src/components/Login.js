@@ -75,6 +75,20 @@ class Login extends React.Component {
       message = <p className="login-error">Invalid email or password</p>
     }
     return(
+
+      <div id="home-page-container">
+          <div id='login-container'>
+            <h1>Log in to Account</h1>
+              <div className="generalForm">
+              <form onSubmit={this.handleSubmit}>
+                <input type='text' onChange={this.handleChangeEmail} placeholder="Email Address" name='Email' />
+                <input type='password' onChange={this.handleChangePassword} placeholder="Password" name="Password" /><br/>
+                <input className="login-submit" type="submit" value="Log In" />
+              </form>
+            </div>
+          </div>
+        </div>
+
       <div id='login-container'>
         <h1>Log in to Account</h1>
 

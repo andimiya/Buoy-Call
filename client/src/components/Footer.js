@@ -8,7 +8,8 @@ class Footer extends React.Component{
   render(){
     return(
       <div id="footer-container">
-      <div>
+
+      <div className="copyright">
         Copyright 2017 LarnYay, All Rights Reserved.
       </div>
       <div>
@@ -20,7 +21,7 @@ class Footer extends React.Component{
           <li>Manage Your Payments</li>
         </ul>
       </div>
-      </div>
+    </div>
     )
   }
 }
