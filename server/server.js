@@ -66,22 +66,22 @@ passport.use(new LocalStrategy(
       where: {
         email : email
       }
-    }).then(user =>{
+    })
+    .then(user =>{
       if(user === null){
         return done(null, false, {message: 'bad info'})
       } else {
         bcrypt.compare(password, user.password).then(res => {
           if(res){
-            console.log("good info / password")
             return done(null, user, {message: 'good login'});
           } else {
-            console.log("bad info / password")
             return done(null, false, {message: 'bad info'});
           }
         })
       }
-    }).catch(err =>{
-      res.end();
+    })
+    .catch(err =>{
+      res.send(err);
     })
   }
 ));
@@ -126,9 +126,14 @@ app.post('/api/charge/:shark_name/:shark_id', (req, res) => {
       }
     )
     .then( _=> {
-      console.log('charge complete');
       res.send('success')
     })
+    .catch(err =>{
+      res.send(err);
+    })
+  })
+  .catch(err =>{
+    res.send(err);
   })
 });
 
@@ -156,14 +161,18 @@ app.post('/api/charge', (req, res) => {
       origin: chargeData.country
     })
     .then( _=> {
-      console.log('charge complete');
       res.send('success')
     })
+    .catch(err =>{
+      res.send(err);
+    })
+  })
+  .catch(err =>{
+    res.send(err);
   })
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log("DESERIALIZEUSER",user)
   Users.findOne({
     where: {
       email: user.email
@@ -171,7 +180,10 @@ passport.deserializeUser(function(user, done) {
   })
   .then(user =>{
     return done(null, user);
-  });
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 app.get('/api/allsharks', (req, res) => {
@@ -180,7 +192,10 @@ app.get('/api/allsharks', (req, res) => {
   })
   .then((arr) => {
     res.send(arr);
-  });
+  })
+  .catch(err =>{
+    res.send(err)
+  })
 });
 
 app.get('/api/shark/:shark_id', (req, res) => {
@@ -192,7 +207,10 @@ app.get('/api/shark/:shark_id', (req, res) => {
   })
   .then((sharkdata) => {
     res.send(sharkdata);
-  });
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 app.get('/api/allbuoys', (req, res )=> {
@@ -205,9 +223,11 @@ app.get('/api/allbuoys', (req, res )=> {
     })
   ])
   .then((arr) => {
-    // console.log(arr, 'array')
     res.send(arr);
-  });
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 app.listen(PORT, function(){
