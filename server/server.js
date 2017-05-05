@@ -20,10 +20,6 @@ const { Users, coordinates, buoydata } = db;
 const userRoute = require('./routes/users');
 const buoyRoute = require('./routes/buoy');
 const Mailgun = require('mailgun-js');
-// HIDE THIS SHIT
-const api_key = "key-5bf5fd114b1207acec9cebbd93203f87";
-const domain = 'https://buoycall.org/';
-const from_who = "buoycall.info@gmail.com";
 
 app.use(express.static("public"));
 
