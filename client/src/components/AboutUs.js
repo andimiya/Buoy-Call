@@ -5,7 +5,7 @@ class AboutUs extends React.Component {
   render() {
     return (
       <div className="AboutUs-Container">
-        <h1>About Us</h1>
+        <h1 className="page-headers">About Us</h1>
           <br />
             <p>
               We are Randy, Nao, Laylo, and Andrea.
