@@ -193,17 +193,10 @@ class Graph extends Component {
             <Area type="monotone" dataKey={this.props.datatype} stroke="rgb(178, 221, 225)" fillOpacity={1} fill="url(#colorUv)" />
           </AreaChart>
         </ResponsiveContainer>
-<<<<<<< HEAD
-        <div className="graphMenu">
-        <div>
-          Current Buoy:{this.props.buoyid}
-        </div>
-=======
->>>>>>> development
+
 
 
         <YearDropDown />
-<<<<<<< HEAD
         <div onChange={this.monthChange}>
           <select>
             <option value="1">January</option>
@@ -221,21 +214,16 @@ class Graph extends Component {
           </select>
         </div>
 
-=======
         <MonthDropDown />
->>>>>>> development
+
 
         <DataTypeRadio />
         </div>
-      </div>
     )
   }
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> development
 const mapDispatchToProps = (dispatch) => {
   return{
     onAddGraphToState:(data) => {
