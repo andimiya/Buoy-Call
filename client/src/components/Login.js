@@ -33,12 +33,13 @@ class Login extends React.Component {
       password: this.state.Password
     })
     .then((data) => {
-      console.log("Data",data)
       if(data){
         this.props.history.push('/')
       }
     })
-
+    .catch(err => {
+      this.props.history.push('/error')
+    })
   }
 
   userLoggedIn(curUser){
