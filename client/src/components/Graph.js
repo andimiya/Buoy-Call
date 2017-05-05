@@ -4,6 +4,7 @@ import { CartesianGrid, YAxis, XAxis, Tooltip, Area, AreaChart, ResponsiveContai
 import { addGraphToState, addBuoyYearsToState, addBuoyIdToState, addMonthToState, addYearToState } from '../actions';
 import YearDropDown from './YearDropDown.js';
 import DataTypeRadio from './DataTypeRadio';
+import MonthDropDown from './MonthDropDown';
 
 class Graph extends Component {
   constructor(props){
@@ -192,27 +193,9 @@ class Graph extends Component {
             <Area type="monotone" dataKey={this.props.datatype} stroke="rgb(178, 221, 225)" fillOpacity={1} fill="url(#colorUv)" />
           </AreaChart>
         </ResponsiveContainer>
-        <div>
-          {this.props.buoyid}
-        </div>
 
         <YearDropDown />
-        <div onChange={this.monthChange}>
-          <select>
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
-        </div>
+        <MonthDropDown />
 
         <DataTypeRadio />
       </div>

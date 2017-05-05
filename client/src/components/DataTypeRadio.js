@@ -72,7 +72,6 @@ class DataTypeRadio extends Component {
   } else {
     return(
       <div>
-        <h1>well shit no graph</h1>
       </div>
     )
   }
