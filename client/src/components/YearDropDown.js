@@ -56,7 +56,7 @@ class YearDropDown extends Component {
         </select>
       </div>
     )} else {
-      return(<div></div>)
+      return(null)
     }
   }
 }

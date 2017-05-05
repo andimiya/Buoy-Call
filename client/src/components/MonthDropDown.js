@@ -69,8 +69,7 @@ class MonthDropDown extends Component {
     )
   } else {
     return(
-      <div>
-      </div>
+      null
     )
   }
   }

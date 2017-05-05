@@ -51,13 +51,21 @@ class NewUser extends React.Component{
         Email: this.state.Email,
         Password: this.state.Password
       })
+      .then(() => {
+        console.log("Hmm")
+      })
     }
 
     createNewUser(newUser){
-      let oReq = new XMLHttpRequest();
-      oReq.open('POST', '/api/users');
-      oReq.setRequestHeader('Content-type', 'application/json')
-      oReq.send(JSON.stringify(newUser));
+      return new Promise(function(resolve, reject){
+        function reqListener(){
+          resolve(this.responseText);
+        }
+        let oReq = new XMLHttpRequest();
+        oReq.open('POST', '/api/users');
+        oReq.setRequestHeader('Content-type', 'application/json')
+        oReq.send(JSON.stringify(newUser));
+      })
      }
 
     render(){
