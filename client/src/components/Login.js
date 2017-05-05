@@ -34,7 +34,6 @@ class Login extends React.Component {
       password: this.state.Password
     })
     .then((data) => {
-      console.log("Data",data)
       if(data){
         this.props.history.push('/')
       } else {
@@ -44,7 +43,6 @@ class Login extends React.Component {
     .catch((err) => {
       this.setState({attemptedLogin: true})
     })
-
   }
 
   userLoggedIn(curUser){

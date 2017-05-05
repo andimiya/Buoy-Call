@@ -16,7 +16,6 @@ class NewUser extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
     handleChangeFirstName(event){
       this.setState({
         FirstName: event.target.value
@@ -42,31 +41,38 @@ class NewUser extends React.Component{
     }
 
     handleSubmit(event){
-
       event.preventDefault();
-      console.log('this.state', this.state);
       this.createNewUser({
         FirstName: this.state.FirstName,
         LastName: this.state.LastName,
         Email: this.state.Email,
         Password: this.state.Password
       })
-      .then(() => {
-        console.log("Hmm")
+      .then((data) => {
+        if(data){
+          this.props.history.push('/login')
+        }
+      })
+      .catch(err => {
+        if(err){
+          this.props.history.push('/error')
+        }
       })
     }
 
     createNewUser(newUser){
-      return new Promise(function(resolve, reject){
+      return new Promise(function(resolve, reject) {
         function reqListener(){
-          resolve(this.responseText);
+          let results = JSON.parse(this.responseText);
+          resolve(results);
         }
         let oReq = new XMLHttpRequest();
         oReq.open('POST', '/api/users');
         oReq.setRequestHeader('Content-type', 'application/json')
+        oReq.addEventListener('load', reqListener)
         oReq.send(JSON.stringify(newUser));
       })
-     }
+    }
 
     render(){
       return(
