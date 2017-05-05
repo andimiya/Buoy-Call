@@ -38,9 +38,14 @@ class Checkout extends Component {
     .then(() => {
       this.getAllSharks()
       .then((data) => {
-        console.log(data, 'data');
         this.props.onAddSharkToState(data.shark_id, data.name, data.species, data.gender, data.length, data.weight, data.datetime)
       })
+      .catch(err => {
+        this.props.history.push('/error')
+      })
+    })
+    .catch(err => {
+      this.props.history.push('/error')
     })
   }
 
@@ -56,6 +61,9 @@ class Checkout extends Component {
       if(success){
         this.props.history.push('/confirmation')
       }
+    })
+    .catch(err => {
+      this.props.history.push('/error')
     })
   }
 
