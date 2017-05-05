@@ -109,6 +109,7 @@ class MapView extends Component {
   }
 
   getBuoyData(input){
+    console.log(input)
     this.dataChange();
     let reader = document.createElement('div');
     reader.innerHTML = input._popup._content;
