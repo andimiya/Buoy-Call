@@ -187,13 +187,10 @@ class MapView extends Component {
     }
     return (
       <div>
-      <br />
-      <p className="small-gray-text">Click on the map below to view historical data for buoys across our oceans and lakes, or to adopt a shark. Check back often as tagged sharks will change position on the map and new data will be reported from buoys.</p>
-      <br />
         <Map className="markercluster-map"
-          style={{height: '600px'}}
+          style={{ height:'800px'}}
           center={[-8.310,12.087]}
-          zoom={3}
+          zoom={2}
           maxBounds={[
             [85.0, -180.0],
             [-85, 180.0]
