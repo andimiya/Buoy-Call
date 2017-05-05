@@ -42,9 +42,7 @@ class NewUser extends React.Component{
     }
 
     handleSubmit(event){
-
       event.preventDefault();
-      console.log('this.state', this.state);
       this.createNewUser({
         FirstName: this.state.FirstName,
         LastName: this.state.LastName,
