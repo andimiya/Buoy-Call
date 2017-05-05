@@ -68,7 +68,6 @@ class Nav extends Component {
           
         </div>
           <ul className="main-nav">
-            <li><Link to="/">Adopt</Link></li>
             <li><Link to="/donate">Donate</Link></li>
             <li><Link to="/aboutus">About Us</Link></li>
             <li><Link to="/contactus">Contact Us</Link></li>
@@ -94,7 +93,6 @@ class Nav extends Component {
            <Header />
         </div>
         <ul className="main-nav">
-          <li><Link to="/">Adopt</Link></li>
           <li><Link to="/donate">Donate</Link></li>
           <li><Link to="/aboutus">About Us</Link></li>
           <li><Link to="/contactus">Contact Us</Link></li>

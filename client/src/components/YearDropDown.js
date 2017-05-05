@@ -42,6 +42,7 @@ class YearDropDown extends Component {
   }
 
   render(){
+    if(this.props.graphState !== null){
     return(
       <div className="year" onChange={this.yearChange}>
         <select>
@@ -54,7 +55,9 @@ class YearDropDown extends Component {
           }
         </select>
       </div>
-    )
+    )} else {
+      return(<div></div>)
+    }
   }
 }
 

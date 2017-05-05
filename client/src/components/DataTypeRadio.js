@@ -72,7 +72,10 @@ class DataTypeRadio extends Component {
   } else {
     return(
       <div>
+<<<<<<< HEAD
         <h1>No Buoy Selected</h1>
+=======
+>>>>>>> development
       </div>
     )
   }
