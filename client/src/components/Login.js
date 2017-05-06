@@ -88,7 +88,18 @@ class Login extends React.Component {
               </form>
             </div>
           </div>
-        </div>
+
+      <div id='login-container'>
+        <h1>Log in to Account</h1>
+
+      <form onSubmit={this.handleSubmit}>
+        <input type='text' onChange={this.handleChangeEmail} placeholder="Email Address" name='Email' /><br/>
+        <input type='password' onChange={this.handleChangePassword} placeholder="Password" name="Password" /><br/>
+        {message}
+        <input className="login-submit" type="submit" value="Log In" />
+      </form>
+      </div>
+    </div>
 
     )
   }

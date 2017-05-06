@@ -139,6 +139,7 @@ class Graph extends Component {
     })
   }
 
+
   dataChange(event){
     this.setState({datatype: event.target.value})
   }
@@ -148,6 +149,7 @@ class Graph extends Component {
   }
 
   componentDidMount(){
+
 
   }
 
@@ -227,14 +229,12 @@ class Graph extends Component {
           </AreaChart>
         </ResponsiveContainer>
 
-          <div className="graphMenu">
-            <YearDropDown />
-            <MonthDropDown />
-            <DataTypeRadio />
-          </div>
-
-        
+        <div className="graphMenu">
+        <YearDropDown />
+        <MonthDropDown />
+        <DataTypeRadio />
         </div>
+     </div>
     )
   }
 }

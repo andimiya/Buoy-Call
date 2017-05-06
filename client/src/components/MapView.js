@@ -185,9 +185,11 @@ class MapView extends Component {
     if(!markers){
       return (<div className="loader"></div>);
     }
+    console.log(Map)
     return (
       <div>
         <Map className="markercluster-map"
+
           style={{ height:'675px'}}
           center={[-8.310,12.087]}
           zoom={2}
