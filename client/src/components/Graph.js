@@ -229,20 +229,11 @@ class Graph extends Component {
           </AreaChart>
         </ResponsiveContainer>
 
-          <div className="graphMenu">
-            <YearDropDown />
-            <MonthDropDown />
-            <DataTypeRadio />
-          </div>
         <div className="graphMenu">
         <YearDropDown />
         <MonthDropDown />
-        <input id="datatype_wvht" type="radio" value="wvht" name="datatype" checked={this.wvhtDatatype}/><label htmlFor="datatype_wvht">Wave Height</label>
-        <br />
-        <input id="datatype_wtmp" type="radio" value="wtmp" name="datatype"/><label htmlFor="datatype_wtmp">Wave Temp</label>
-      </div>
         <DataTypeRadio />
-        {yaxis}{xaxis}
+        </div>
      </div>
     )
   }
