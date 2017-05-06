@@ -26,7 +26,7 @@ class Donate extends Component {
 
     return (
       <div id="home-page-container">
-      <div id="checkout-container">
+        <div id="checkout-container">
        <div className="donate-image">
       <img width="45%" src={require('../assets/donations-01.png')} />
       </div>

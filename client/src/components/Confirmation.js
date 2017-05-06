@@ -11,7 +11,9 @@ class Confirmation extends React.Component{
       <div id="home-page-container">
       <div className="confirmation-page">
         <h1>You're awesome. Thank you for your contribution!</h1>
-        <br />
+        <div className="shark-image">
+        <img width="30%" src={require('../assets/single_shark.png')} />
+        </div>
         <p>You've named your shark</p>
         <br />
         <h1>{this.props.shark_name}</h1>

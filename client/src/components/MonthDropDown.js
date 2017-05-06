@@ -53,6 +53,7 @@ class MonthDropDown extends Component {
     if(this.props.graph !== null){
     return(
       <div onChange={this.monthChange}>
+      <p>Month Selected:</p>
         <select>
           <option value="1">January</option>
           <option value="2">February</option>
