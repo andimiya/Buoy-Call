@@ -15,7 +15,7 @@
 #home-page-container{
   max-width: 90%;
   margin: auto;
-  padding-top: 1.5rem;
+  margin-top: 1.5rem;
   display: flex;
   height: 70%;
   flex-flow: row wrap;
@@ -25,18 +25,10 @@
 h1 {
 font-family: 'Source Serif Pro', serif;
   font-size: 1.5em;
-  text-transform: uppercase;
 }
 
-h2{
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  text-align: left;
-}
 
 p {
-  text-align: left;
   font-size: 1em;
   line-height: 1.5em;
   font-family: 'Source Serif Pro', serif;
@@ -158,8 +150,8 @@ p {
 .login-nav {
   box-sizing: border-box;
   display: flex;
-  flex: 0 0 20%;
-  margin-left: 1.5%;
+  flex: 0 0 15%;
+  margin-left: 2%;
   justify-content: space-between;
   list-style: none;
   align-items: center;
@@ -216,6 +208,8 @@ p {
   flex: 0 0 90%;
   text-align: center;
   padding-top: 30px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .new-user-submit, .login-submit {
@@ -267,17 +261,20 @@ input[type=submit]:hover{
 
 /* PAYMENT */
 
+
+
 .description-text {
   padding-top: 20px;
   font-size: 1em;
   font-family: 'Roboto Condensed', sans-serif;
   line-height: 1.2rem;
+  text-align: center;
 }
 
 .payment-description {
   padding: 30 0 30 0px;
+  text-align: center;
 }
-
 
 
 /* EDIT PROFILE PAGE */
