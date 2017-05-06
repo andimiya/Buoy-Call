@@ -188,7 +188,7 @@ class MapView extends Component {
     return (
       <div>
         <Map className="markercluster-map"
-          style={{ height:'675px'}}
+          style={{ height:'100%'}}
           center={[-8.310,12.087]}
           zoom={2}
           maxBounds={[
