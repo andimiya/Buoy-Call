@@ -19,6 +19,7 @@ const db = require('./models');
 const { Users, coordinates, buoydata, sharkdata, payments } = db;
 const userRoute = require('./routes/users');
 const buoyRoute = require('./routes/buoy');
+const Mailgun = require('mailgun-js');
 
 app.use(express.static("public"));
 
@@ -229,6 +230,27 @@ app.get('/api/allbuoys', (req, res )=> {
   .catch(err =>{
     res.send(err);
   })
+});
+
+app.get('/api/contactus', (req, res) => {
+  var mailgun = new Mailgun({apikey : api_key, domain: domain});
+
+  var data = {
+    from: from_who,
+    to: req.params.mail,
+    subject: 'Hello from Mailgun',
+    html: 'Hello, This is not a plain-text email, I wanted to test some spicy Mailgun sauce in NodeJS! <a href="http://0.0.0.0:3030/validate?' + req.params.mail + '">Click here to add your email address to a mailing list</a>'
+  };
+
+  mailgun.message().send(data, function (err, body) {
+    if(err){
+      res.render('error', {error: err});
+      console.log('ERORR dude', err);
+    } else {
+      res.render('submited', {email: req.params.mail});
+    }
+  });
+
 });
 
 app.listen(PORT, function(){

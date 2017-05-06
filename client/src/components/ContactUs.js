@@ -1,17 +1,84 @@
 import React from 'react';
 
 class ContactUs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      Name: '',
+      Message: '',
+      Subject: ''
+    }
+    this.handleName = this.handleName.bind(this);
+    this.handleMessage = this.handleMessage.bind(this);
+    this.handleSubject = this.handleSubject.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleName(event){
+    this.setState({
+      Name: event.target.value
+    });
+  }
+
+  handleMessage(event){
+    this.setState({
+      Message: event.target.value
+    });
+  }
+
+  handleSubject(event){
+    this.setState({
+      Subject: event.target.value
+    });
+  }
+
+  handleSubmit(event){
+    event.preventDefault();
+    console.log('this.state', this.state);
+    this.sendMail({
+      Name: this.state.Name,
+      Message: this.state.Message
+    });
+  }
+
+  sendMail(mail){
+    return new Promise(function(resolve, reject){
+      function reqListener(){
+        let results = JSON.parse(this.responseText);
+        resolve(results);
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('POST', '/api/ContactUs');
+      oReq.setRequestHeader('Content-type', 'application/json');
+      oReq.send(JSON.stringify(mail));
+    })
+  }
 
   render() {
     return (
-    <div id="home-page-container">
       <div className="ContactUs-Container">
-        <h1>Contact Us</h1>
-          <p>
-            Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, thats what you see at a toy store. And you must think youre in a toy store, because youre here shopping for an infant named Jeb.
 
-          </p>
-      </div>
+        <h1>Contact Us</h1>
+          <br/>
+        <form id="myform" onSubmit="emailjs.sendForm('default_service', 'send_email', this); return false;" method="">
+          <label>TO</label>
+            <br/>
+          <input type="text" name="Name" />
+            <br/><br/>
+          <label>FROM</label>
+            <br/>
+          <input type="text" name="SendingTo" onChange={this.handleName}/>
+            <br/><br/>
+          <label>SUBJECT</label>
+            <br/>
+          <input type="text" name="Subject" onChange={this.handleSubject}/>
+            <br/><br/>
+          <label>MESSAGE</label>
+            <br/>
+          <input type="text" name="Message" onChange={this.handleMessage}/>
+            <br/><br/>
+          <button>Send</button>
+        </form>
       </div>
     )
   }
