@@ -156,19 +156,41 @@ class Graph extends Component {
   dataColor(){
     switch(this.props.datatype){
       case "wvht":
-        return "black"
+        return "#A19277"
 
       case "wtmp":
-        return "red"
+        return "#023739"
 
       case "atmp":
-        return "blue"
+        return "#CD995E"
 
       case "apd":
-        return "green"
+        return "#CE5574"
 
       case "dpd":
-        return "pink"
+        return "#E74139"
+
+      default:
+        return
+    }
+  }
+
+  dataStringify(acronym){
+    switch(acronym){
+      case "wvht":
+        return "Wave Height"
+
+      case "wtmp":
+        return "Water Temperature"
+
+      case "atmp":
+        return "Air Temperature"
+
+      case "apd":
+        return "Average Wave Period"
+
+      case "dpd":
+        return "Dominant Wave Period"
 
       default:
         return
@@ -177,9 +199,20 @@ class Graph extends Component {
 
 
   render(){
+    let buoyid = null;
+    let xaxis = null;
+    let yaxis = null;
+    if(this.props.graphState){
+      buoyid = <h3 id="buoyId">Buoy #{this.props.buoyid}</h3>;
+      xaxis = <p>X-Axis Day</p>;
+      yaxis = <p>Y-Axis {this.dataStringify(this.props.datatype)}</p>;
+    }
     return(
+
       <div className="graph-box">
-        <ResponsiveContainer width="100%" height="20%">
+      {buoyid}
+        <ResponsiveContainer  width="90%" height="20%">
+
           <AreaChart data={this.props.graphState}
             margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
             <defs>
@@ -192,27 +225,16 @@ class Graph extends Component {
             <YAxis />
             <CartesianGrid strokeDasharray="3 3" fill="rgb(178, 221, 225)"/>
             <Tooltip />
-            <Area type="monotone" dataKey={this.props.datatype} stroke="rgb(178, 221, 225)" fillOpacity={1} fill="url(#colorUv)" />
+            <Area type="monotone" dataKey={this.props.datatype} stroke="#727471" fillOpacity={1} fill="url(#colorUv)"  />
           </AreaChart>
         </ResponsiveContainer>
 
-
         <div className="graphMenu">
         <YearDropDown />
-
-
         <MonthDropDown />
-
-
-
-        <input id="datatype_wvht" type="radio" value="wvht" name="datatype" checked={this.wvhtDatatype}/><label htmlFor="datatype_wvht">Wave Height</label>
-        <br />
-        <input id="datatype_wtmp" type="radio" value="wtmp" name="datatype"/><label htmlFor="datatype_wtmp">Wave Temp</label>
-
-
-      </div>
         <DataTypeRadio />
         </div>
+     </div>
     )
   }
 }
