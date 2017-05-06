@@ -65,7 +65,7 @@ class Nav extends Component {
           <div className="logo">  
             <Header />
           </div>
-          <div className="nav-container">
+          <div className="navigation-container">
           <ul className="main-nav">
             <li><span id="highlight">Welcome {this.props.loggedInUser.firstName}!</span></li>
              <li><a href="/logout">Logout</a></li>
