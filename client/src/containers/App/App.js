@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Nav from '../../components/Nav';
 import MapView from '../../components/MapView';
-import Graph from '../../components/Graph'
+import Graph from '../../components/Graph';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 import { addUserToState } from '../../actions';
@@ -41,9 +40,14 @@ class App extends Component {
         <div id="map-container">
           <MapView />
         </div>
-        <div id="buoy-container">
-          <div className="buoy-graph"></div>
+
+        <div className="graph-container">
+          
+          <p className="small-gray-text">Click on the map below to view historical data for buoys across our oceans and lakes, or to adopt a shark. Check back often as tagged sharks will change position on the map and new data will be reported from buoys.
+          </p>
+          
           <Graph />
+          
         </div>
       </div>
     )

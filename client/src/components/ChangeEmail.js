@@ -20,7 +20,6 @@ class ChangeEmail extends React.Component{
 
     handleSubmit(event){
       event.preventDefault();
-      console.log(this.state)
       this.editEmail( {
         Email: this.state.Email
       })

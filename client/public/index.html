@@ -1,5 +1,4 @@
 <html>
-<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,6 +24,7 @@
    })();
 </script>
 
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
   <style>
   </style>
     <title>Buoy Call</title>
@@ -32,27 +32,4 @@
   <body>
     <div id="root"></div>
   </body>
-  <footer>
-    <div id="footer-container">
-      <div class="ContactForm">
-      <h2>Contact Us</h2>
-        <form id="myform" onsubmit="emailjs.sendForm('default_service', 'send_email', this); return false;" method="post">
-
-          <label>Name</label>
-          <input type="text" name="from_name" />
-            <br>
-
-          <label>Email Us</label>
-          <input type="text" name="to_name" placeholder="buoycall.info@gmail.com" setValue="buoycall.info@gmail.com" />
-            <br>
-
-          <label>Message</label>
-            <input type="text" name="message_html" />
-            <br><br>
-
-          <button>Send</button>
-          </form>
-        </div>
-    </div>
-  </footer>
 </html>

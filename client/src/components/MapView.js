@@ -1,9 +1,24 @@
 import React, {Component} from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import util from 'util';
+import L from 'leaflet';
+// import util from 'util';
+// leave util commented out, it's used to inspect console.logs in the map when needed.
 import { connect } from 'react-redux';
-import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState } from '../actions';
+import { addBuoyYearsToState, addBuoyIdToState, addYearToState, addGraphToState, changeDataType } from '../actions';
+
+const sharkMarker = L.icon({
+  iconUrl:'https://d30y9cdsu7xlg0.cloudfront.net/png/703212-200.png',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40]
+})
+
+const buoyMarker = L.icon({
+  iconUrl:'https://d30y9cdsu7xlg0.cloudfront.net/png/889187-200.png',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40]
+})
+
 
 class MapView extends Component {
   constructor(props) {
@@ -11,7 +26,6 @@ class MapView extends Component {
     this.state = {
       markers: null
     };
-
     this.getAllBuoys = this.getAllBuoys.bind(this);
     this.getBuoyData = this.getBuoyData.bind(this);
   }
@@ -59,7 +73,6 @@ class MapView extends Component {
   }
 
   yearChangeXHR(year){
-    console.log("xhr", `/api/buoy/test/${this.props.buoyid}/${year}/${this.props.mm}`, this.props)
     return new Promise((resolve, reject) => {
       function reqListener(){
         resolve(JSON.parse(this.responseText));
@@ -85,13 +98,41 @@ class MapView extends Component {
       this.props.onAddGraphToState(data);
     })
     .catch((err) => {
-      this.props.onAddGraphToState([{}])
-      alert("There is no data for this buoy currently")
+      this.props.onAddGraphToState([])
     })
   }
 
+  dataChange(event){
+    this.props.onChangeDataType('wvht')
+  }
+
   getBuoyData(input){
-    this.buoyChange(input._popup._content)
+    this.dataChange();
+    let reader = document.createElement('div');
+    reader.innerHTML = input._popup._content;
+    let buoyid = reader.firstChild.id
+    if(buoyid){
+      this.buoyChange(buoyid)
+    }
+    if(!buoyid){
+      //if its not a buoy (it's a shark), we force a null graph to get rid of data
+      this.props.onAddGraphToState("Shark")
+    }
+  }
+
+  generateBuoyPopupContent(buoy){
+    // return buoy.buoyid;
+    //DONT MESS WITH THE ID.
+    return `<span id="${buoy.buoyid}">${buoy.buoyid}</span>`;
+  }
+
+  generateSharkPopupContent(shark){
+    return `Shark name: ${shark.name}<br>
+      Weight: ${shark.weight}<br>
+      Species: ${shark.species}<br>
+      Gender: ${shark.gender}<br>
+      <br>
+      <a href="/adopt/${shark.shark_id}"><button class="adopt">Adopt Me</button></a>`
   }
 
   componentDidMount(arr) {
@@ -107,27 +148,23 @@ class MapView extends Component {
         let properties = {
           lat: Number(coordinates[i].lat),
           lng: Number(coordinates[i].long),
-          popup: coordinates[i].buoyid
+          popup: this.generateBuoyPopupContent(coordinates[i]),
+          options: {icon: buoyMarker}
         };
         coordinateArray.push(properties);
       }
       markers = coordinateArray;
-
     })
     .then(() => {
       this.getAllSharks()
       .then((data) => {
-        let sharkCoordinates = data;
         let sharkArray = [];
-        for(let i = 0; i < sharkCoordinates.length; i++){
+        for(let i = 0; i < data.length; i++){
           let properties = {
-            lat: Number(sharkCoordinates[i].pings[0].latitude),
-            lng: Number(sharkCoordinates[i].pings[0].longitude),
-            popup: `Shark name: ${sharkCoordinates[i].name}<br>
-              Length: ${sharkCoordinates[i].length}<br>
-              Weight: ${sharkCoordinates[i].weight}<br>
-              Species: ${sharkCoordinates[i].species}<br>
-              Last seen: ${sharkCoordinates[i].pings[0].datetime}`,
+            lat: Number(data[i].latitude),
+            lng: Number(data[i].longitude),
+            popup: this.generateSharkPopupContent(data[i]),
+            options: {icon: sharkMarker}
           };
           sharkArray.push(properties);
         };
@@ -137,20 +174,25 @@ class MapView extends Component {
         })
       })
     })
+    .catch(err => {
+      this.props.history.push('/error')
+    })
   }
 
   render(){
     const { markers } = this.state;
 
     if(!markers){
-      return (<div>loading...</div>);
+      return (<div className="loader"></div>);
     }
     console.log(Map)
     return (
+      <div>
         <Map className="markercluster-map"
-          style={{height: '600px'}}
+
+          style={{ height:'675px'}}
           center={[-8.310,12.087]}
-          zoom={3}
+          zoom={2}
           maxBounds={[
             [85.0, -180.0],
             [-85, 180.0]
@@ -162,9 +204,10 @@ class MapView extends Component {
           />
           <MarkerClusterGroup
             markers={markers}
-            onMarkerClick={(marker) => console.log(this.getBuoyData())}
+            onMarkerClick={this.getBuoyData}
             wrapperOptions={{enableDefaultStyle: true}} />
         </Map>
+        </div>
     );
   }
 }
@@ -182,6 +225,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onAddGraphToState:(data) => {
       dispatch(addGraphToState(data));
+    },
+    onChangeDataType:(data) => {
+      dispatch(changeDataType(data));
     }
   }
 }
@@ -193,7 +239,8 @@ const mapStateToProps = (state) => {
     years: state.years,
     buoyid: state.buoyid,
     yy: state.yy,
-    mm: state.mm
+    mm: state.mm,
+    datatype: state.datatype
   }
 }
 

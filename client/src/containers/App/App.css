@@ -1,6 +1,9 @@
 
 @import './reset.css';
 
+
+
+
 #root-container{
   box-sizing: border-box;
   width: 100%;
@@ -8,16 +11,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
 }
 
 #home-page-container{
-  box-sizing: border-box;
-  width: 100%;
-  overflow: none;
+  max-width: 90%;
+  margin: auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  height: 70%;
+  flex-flow: row wrap;
 }
+
 
 h1 {
   font-family: 'Roboto Condensed', sans-serif;
@@ -33,82 +37,112 @@ h2{
 }
 
 p {
-  text-align: center;
+  text-align: left;
   font-size: 1em;
   line-height: 1.5em;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Muli', sans-serif;
+
 }
 
+#highlight{
+  background: #F44A4A;
+}
 
 
 /* HEADER & FOOTER */
 
 #footer-container{
-  padding-top: 100px;
-  height: 3rem;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  height: 3.5rem;
   width: 90%;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 0.8em;
-  color: gray;
+  color: black;
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
-  /*border: 10px solid blue;*/
+  bottom: 1;
+  position: relative;
+}
+
+.copyright{
+  display: block;
+
 }
 
 .footer-links{
-  display: flex;
-  /*border: 10px solid blue;*/
+  display:inline;
 }
 
-.footer-links li {
-  padding: 0 10 0 10px;
+.footer-links li a:visited{
+  text-decoration: none;
+  color: black;
+
 }
+
+.footer-links li a:hover{
+  border-bottom: solid thin #F44A4A ;
+}
+
+.footer-links li{
+    display:inline;
+    padding-left: 1rem;
+    text-decoration: none;
+  }
+
+.footer-links li a{
+  text-decoration: none;
+}
+
+
+
 
 /* NAVIGATION */
 
+
 .nav-container {
+  width: 90%;
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
   margin-top: 20px;
-  box-sizing: border-box;
-  /*border: 10px solid red;*/
+  margin-bottom: 3rem;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
-  text-transform: uppercase;
+  border-bottom: solid thick #454B4F;
+  align-items: center;
 }
 
 .logo {
   box-sizing: border-box;
-  padding-right: 50px;
-  /*border: 10px solid green;*/
   display: flex;
-  justify-content: flex-start;
   list-style: none;
-  align-items: center;
-  text-transform: uppercase;
+  margin-right: 5rem;
+  padding-bottom: 1.5rem;
 }
+
 .logo a {
   text-decoration: none;
 }
 .logo a:hover{
-  border-bottom: solid thick gray;
+  border-bottom: solid thin #F44A4A;
 }
 
 .main-nav {
-  padding-left: 10px;
   box-sizing: border-box;
-  /*border: 10px solid green;*/
   display: flex;
-  justify-content: flex-start;
+  flex: 1 1 50%;
+  justify-content: space-between;
   list-style: none;
   align-items: center;
-}
+  padding-bottom: 1.5rem;
+  }
+
+  .main-nav ul{
+    wight: 75%;
+  }
 
 .main-nav li {
   box-sizing: border-box;
-  padding: 0 10 0 10px;
   text-align: center;
 }
 
@@ -121,28 +155,36 @@ p {
 }
 
 .main-nav li a:hover{
-  border-bottom: solid thick gray;
+  border-bottom: solid thick #F44A4A;
 }
 
 .login-nav {
-  padding-left: 50px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   list-style: none;
   align-items: center;
+  margin-left: 4rem;
+  padding-bottom: 1.5rem;
 
 }
+
 .login-nav li {
   box-sizing: border-box;
   padding: 0 10 0 10px;
   /*border: 10px solid blue;*/
 }
+
 .login-nav li a {
   text-decoration: none;
 }
+
+.login-nav li a:visited{
+  color:black;
+}
+
 .login-nav li a:hover{
-  border-bottom: solid thick gray;
+  border-bottom: solid thick #F44A4A;
 }
 
 .logged-in-note {
@@ -157,17 +199,22 @@ p {
 
 /* General Styling */
 
-#buoy-container {
-  border: 10px solid red;
-}
+
+
 
 #map-container {
-  margin: 20px;
-  width: 90%;
-  align-self: center;
+  box-sizing: border-box;
+  flex: 0 0 60%;
+  }
+
+
+.graph-container{
+  box-sizing: border-box;
+  flex:  0 0 40%;
+  padding-left: 30px;
 }
 
-.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .Faq-Container{
+.MakeNewUser, #login-container, #checkout-container, .confirmation-page, .edit, .AboutUs-Container, .ContactUs-Container, .error-container, .Faq-Container{
   display: block;
   flex: 0 0 90%;
   text-align: center;
@@ -179,19 +226,25 @@ p {
   padding: 5 20 5 20px;
 }
 
+.generalForm{
+  margin-top: 3rem;
+  display: block;
+}
 
 input[type=text], input[type=password]{
+  display: inline;
  border:none;
  border-bottom: 2px solid #b2b2b2;
  height: 2em;
  width: 30%;
- margin-top:2em;
  text-align: center;
  font-size: 15px;
+ margin-right: 1.5rem;
+ margin-bottom: 1.5rem;
 }
 
 input[type=text]:focus, input[type=password]:focus  {
-  border-bottom: 2px solid #FFD750;
+  border-bottom: 2px solid #F44A4A;
   outline: none;
 }
 
@@ -199,27 +252,20 @@ input[type=submit]{
   background-color: #B2b2B2;
   text-decoration: none;
   border:none ;
-  /*margin-top:3rem;*/
-  /*width: 20%;*/
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1em;
+  margin:0 auto;
+  margin-top: 1rem;
 }
 
 input[type=submit]:hover{
-  background-color: black;
+  background-color: #F44A4A;
   text-decoration: none;
   border:none ;
-  /*margin-top:3rem;*/
-  /*width: 20%;*/
   color: white;
 }
 
-.FPO{
-  width: 80%;
-  height: 20%;
-  margin-left: 10%;
-  background: red;
-}
+
 
 .text{
   width: 10em;
@@ -243,9 +289,6 @@ input[type=submit]:hover{
 
 
 
-/* MANAGE USER PAGE */
-
-
 /* EDIT PROFILE PAGE */
 
 .editForm, .donations{
@@ -265,7 +308,7 @@ input[type=submit]:hover{
 }
 
 .editInfo input[type=text]:focus, .editInfo input[type=password]:focus  {
-  border-bottom: 2px solid #FFD750;
+  border-bottom: 2px solid #F44A4A;
   outline: none;
 }
 
@@ -275,6 +318,7 @@ input[type=submit]{
   border:none ;
 }
 
+<<<<<<< HEAD
 .myform{
   width: 500px;
   background: white;
@@ -282,4 +326,156 @@ input[type=submit]{
   margin: auto;
   margin-top: 30px;
   box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+}
+=======
+/* MAP */
+
+
+.loader{
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 12px solid #f3f3f3; /* Light grey */
+    border-top: 12px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    animation: spin 1.5s linear infinite;
+    margin-bottom: 2rem;
+}
+
+@keyframes spin{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+.leaflet-popup-content{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+.adopt {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  font-size: 1em;
+  font-family: 'Roboto Condensed', sans-serif;  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s;
+}
+.adopt:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 13px 40px 0 rgba(0,0,0,0.19);
+}
+
+
+/* GRAPH */
+
+
+  .graphMenu{
+    border: solid thin blue;
+  }
+
+  .button{
+    display: inline-block;
+    padding-left: ;
+  }
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 800px){
+
+    .nav-container {
+      width: 100%;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 3rem;
+      font-size: 16px;
+      border-bottom: solid thin #b2b2b2;
+      align-items: center;
+    }
+
+    .logo {
+      margin: 0 auto;
+    }
+
+
+
+    .main-nav {
+      width: 100%;
+      justify-content: space-between;
+      display: inline;
+      }
+
+      .main-nav ul{
+        wight: 75%;
+      }
+
+    .main-nav li {
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .main-nav li a {
+      text-decoration: none;
+    }
+
+    .main-nav li a:visited{
+      color: black;
+    }
+
+    .main-nav li a:hover{
+      border-bottom: solid thick #b2b2b2;
+    }
+
+    .login-nav {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      align-items: center;
+      margin-left: 4rem;
+      padding-bottom: 1.5rem;
+
+    }
+
+    .login-nav li {
+      box-sizing: border-box;
+      padding: 0 10 0 10px;
+    }
+
+    .login-nav li a {
+      text-decoration: none;
+    }
+
+    .login-nav li a:hover{
+      border-bottom: solid thick #b2b2b2;
+    }
+
+    .logged-in-note {
+      display: block;
+      align-items: center;
+    }
+
+    .logout-button {
+      border: 10px solid blue;
+      width: 200px;
+    }
+
+
+}
+*/
+
+
+
+.login-error{
+  color: red;
 }

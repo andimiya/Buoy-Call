@@ -16,7 +16,6 @@ class NewUser extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
     handleChangeFirstName(event){
       this.setState({
         FirstName: event.target.value
@@ -42,23 +41,38 @@ class NewUser extends React.Component{
     }
 
     handleSubmit(event){
-
       event.preventDefault();
-      console.log('this.state', this.state);
       this.createNewUser({
         FirstName: this.state.FirstName,
         LastName: this.state.LastName,
         Email: this.state.Email,
         Password: this.state.Password
       })
+      .then((data) => {
+        if(data){
+          this.props.history.push('/login')
+        }
+      })
+      .catch(err => {
+        if(err){
+          this.props.history.push('/error')
+        }
+      })
     }
 
     createNewUser(newUser){
-      let oReq = new XMLHttpRequest();
-      oReq.open('POST', '/api/users');
-      oReq.setRequestHeader('Content-type', 'application/json')
-      oReq.send(JSON.stringify(newUser));
-     }
+      return new Promise(function(resolve, reject) {
+        function reqListener(){
+          let results = JSON.parse(this.responseText);
+          resolve(results);
+        }
+        let oReq = new XMLHttpRequest();
+        oReq.open('POST', '/api/users');
+        oReq.setRequestHeader('Content-type', 'application/json')
+        oReq.addEventListener('load', reqListener)
+        oReq.send(JSON.stringify(newUser));
+      })
+    }
 
     render(){
       return(
@@ -68,13 +82,15 @@ class NewUser extends React.Component{
           <p>Sign up today and lets save our ocean!</p>
           <p>Creating an account will allow you to make an adoption, and view all of your past contributions.</p>
           </div>
+          <div className="generalForm">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" onChange={this.handleChangeFirstName} placeholder="First Name" name="firstName" /><br/>
+            <input type="text" onChange={this.handleChangeFirstName} placeholder="First Name" name="firstName" />
             <input type="text" onChange={this.handleChangeLastName} placeholder="Last Name" name="lastName" /><br/>
-            <input type="text" placeholder="Email Address"onChange={this.handleChangeEmail} name='email address' /><br/>
+            <input type="text" placeholder="Email Address"onChange={this.handleChangeEmail} name='email address' />
             <input type="password" placeholder="Password" onChange={this.handleChangePassword} name='password' /><br/>
             <input className="new-user-submit" type="submit" value='Create New User' />
           </form>
+          </div>
         </div>
       )
     }

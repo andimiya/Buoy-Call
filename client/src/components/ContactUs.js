@@ -1,5 +1,4 @@
 import React from 'react';
-import { Router } from 'react-router';
 
 
 class ContactUs extends React.Component {
@@ -50,8 +49,9 @@ class ContactUs extends React.Component {
 
   render() {
     return (
-
+    <div id="home-page-container">
       <div className="ContactUs-Container">
+
         <h1>Contact Us</h1><br/>
         <form id="myform" onSubmit="" method="post">
           <label>Name</label><br/>
@@ -65,6 +65,7 @@ class ContactUs extends React.Component {
           Send
           </button>
           </form>
+      </div>
       </div>
     )
   }

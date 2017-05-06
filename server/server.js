@@ -16,7 +16,7 @@ const RedisStore = require('connect-redis')(
   session);
 const LocalStrategy = require('passport-local').Strategy;
 const db = require('./models');
-const { Users, coordinates, buoydata } = db;
+const { Users, coordinates, buoydata, sharkdata, payments } = db;
 const userRoute = require('./routes/users');
 const buoyRoute = require('./routes/buoy');
 const Mailgun = require('mailgun-js');
@@ -61,28 +61,29 @@ app.use(passport.session());
 app.use('/api/users', userRoute)
 app.use('/api/buoy', buoyRoute)
 
+
 passport.use(new LocalStrategy(
   function(email, password, done){
     Users.findOne({
       where: {
         email : email
       }
-    }).then(user =>{
+    })
+    .then(user =>{
       if(user === null){
         return done(null, false, {message: 'bad info'})
       } else {
         bcrypt.compare(password, user.password).then(res => {
           if(res){
-            console.log("good info / password")
             return done(null, user, {message: 'good login'});
           } else {
-            console.log("bad info / password")
             return done(null, false, {message: 'bad info'});
           }
         })
       }
-    }).catch(err =>{
-      res.end();
+    })
+    .catch(err =>{
+      res.send(err);
     })
   }
 ));
@@ -91,24 +92,89 @@ passport.serializeUser(function(user, done) {
   return done(null, user);
 });
 
-app.post('/api/charge', (req, res) => {
-  console.log(req.body.email, 'req BODY');
+app.post('/api/charge/:shark_name/:shark_id', (req, res) => {
+  let name = req.params.shark_name;
+  let sharkid = req.params.shark_id;
   stripe.customers.create({
     email: req.body.email,
     source: req.body.id
   })
-  .then(customer =>
+  .then(customer => {
     stripe.charges.create({
       amount: 500,
       currency: 'usd',
       customer: customer.id
-    }))
-  .then(charge =>
-    res.send('success'));
+    })
+    return customer
+  })
+  .then(customer => {
+    let chargeData = customer.sources.data[0];
+    payments.create({
+      customerid: customer.id,
+      email: req.body.email,
+      amount: 500,
+      lastFourDigits: chargeData.last4,
+      cardType: chargeData.brand,
+      origin: chargeData.country
+    })
+    return customer
+  })
+  .then(customer => {
+    sharkdata.update({
+      name: name
+    },
+      {
+        where: { shark_id: sharkid }
+      }
+    )
+    .then( _=> {
+      res.send('success')
+    })
+    .catch(err =>{
+      res.send(err);
+    })
+  })
+  .catch(err =>{
+    res.send(err);
+  })
+});
+
+app.post('/api/charge', (req, res) => {
+  stripe.customers.create({
+    email: req.body.email,
+    source: req.body.id
+  })
+  .then(customer => {
+    stripe.charges.create({
+      amount: 500,
+      currency: 'usd',
+      customer: customer.id
+    })
+    return customer
+  })
+  .then(customer => {
+    let chargeData = customer.sources.data[0];
+    payments.create({
+      customerid: customer.id,
+      email: req.body.email,
+      amount: 500,
+      lastFourDigits: chargeData.last4,
+      cardType: chargeData.brand,
+      origin: chargeData.country
+    })
+    .then( _=> {
+      res.send('success')
+    })
+    .catch(err =>{
+      res.send(err);
+    })
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log("DESERIALIZEUSER",user)
   Users.findOne({
     where: {
       email: user.email
@@ -116,14 +182,37 @@ passport.deserializeUser(function(user, done) {
   })
   .then(user =>{
     return done(null, user);
-  });
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 app.get('/api/allsharks', (req, res) => {
-  request('http://www.ocearch.org/tracker/ajax/filter-sharks/?tracking-activity=ping-most-recent', (err, response, body) => {
-    const sharkdata = JSON.parse(body)
-    res.send(body);
-  });
+  sharkdata.findAll({
+    attributes: ['shark_id', 'name', 'species', 'weight', 'gender', 'tagDate', 'latitude', 'longitude']
+  })
+  .then((arr) => {
+    res.send(arr);
+  })
+  .catch(err =>{
+    res.send(err)
+  })
+});
+
+app.get('/api/shark/:shark_id', (req, res) => {
+  sharkdata.findOne({
+    where: {
+      shark_id: req.params.shark_id
+    },
+    attributes: ['shark_id', 'name', 'gender', 'species', 'length', 'weight', 'datetime']
+  })
+  .then((sharkdata) => {
+    res.send(sharkdata);
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 app.get('/api/allbuoys', (req, res )=> {
@@ -136,9 +225,11 @@ app.get('/api/allbuoys', (req, res )=> {
     })
   ])
   .then((arr) => {
-    // console.log(arr, 'array')
     res.send(arr);
-  });
+  })
+  .catch(err =>{
+    res.send(err);
+  })
 });
 
 app.get('/api/contactus', (req, res) => {
