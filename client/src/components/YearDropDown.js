@@ -39,6 +39,7 @@ class YearDropDown extends Component {
     if(this.props.graphState !== null){
     return(
       <div className="year" onChange={this.yearChange}>
+      <p>Year Selected:</p>
         <select>
           {
             this.props.years.map(({ yy }) =>
