@@ -52,8 +52,7 @@ class MonthDropDown extends Component {
   render(){
     if(this.props.graph !== null){
     return(
-      <div onChange={this.monthChange}>
-      <p>Month Selected:</p>
+      <div className="styled-select" onChange={this.monthChange}>
         <select>
           <option value="1">January</option>
           <option value="2">February</option>

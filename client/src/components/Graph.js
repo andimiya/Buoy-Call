@@ -228,9 +228,11 @@ class Graph extends Component {
         </ResponsiveContainer>
 
           <div className="graphMenu">
+            <div className="yymmSelector">
             <YearDropDown />
             <MonthDropDown />
-            <DataTypeRadio />
+            </div>
+            <DataTypeRadio />   
           </div>
 
         

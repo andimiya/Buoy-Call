@@ -38,8 +38,7 @@ class YearDropDown extends Component {
   render(){
     if(this.props.graphState !== null){
     return(
-      <div className="year" onChange={this.yearChange}>
-      <p>Year Selected:</p>
+      <div className="styled-select" onChange={this.yearChange}>
         <select>
           {
             this.props.years.map(({ yy }) =>
