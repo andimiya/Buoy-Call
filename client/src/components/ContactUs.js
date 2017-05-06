@@ -1,15 +1,16 @@
 import React from 'react';
 
-
 class ContactUs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       Name: '',
-      Message: ''
+      Message: '',
+      Subject: ''
     }
     this.handleName = this.handleName.bind(this);
     this.handleMessage = this.handleMessage.bind(this);
+    this.handleSubject = this.handleSubject.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -22,6 +23,12 @@ class ContactUs extends React.Component {
   handleMessage(event){
     this.setState({
       Message: event.target.value
+    });
+  }
+
+  handleSubject(event){
+    this.setState({
+      Subject: event.target.value
     });
   }
 
@@ -56,15 +63,15 @@ class ContactUs extends React.Component {
         <form id="myform" onSubmit="emailjs.sendForm('default_service', 'send_email', this); return false;" method="">
           <label>TO</label>
             <br/>
-          <input type="text" name="Name" onChange={this.handleName}/>
+          <input type="text" name="Name" />
             <br/><br/>
           <label>FROM</label>
             <br/>
-          <input type="text" name="SendingTo" />
+          <input type="text" name="SendingTo" onChange={this.handleName}/>
             <br/><br/>
           <label>SUBJECT</label>
             <br/>
-          <input type="text" name="Subject"/>
+          <input type="text" name="Subject" onChange={this.handleSubject}/>
             <br/><br/>
           <label>MESSAGE</label>
             <br/>
@@ -78,29 +85,3 @@ class ContactUs extends React.Component {
 }
 
 export default ContactUs;
-
-        // <form>
-        //   <div class="form-group">
-        //     <label class="control-label " for="name">Name</label>
-        //     <input class="form-control" id="name" name="name" type="text"/>
-        //   </div>
-
-        //   <div class="form-group">
-        //     <label class="control-label requiredField" for="email">Email<span class="asteriskField">*</span></label>
-        //     <input class="form-control" id="email" name="email" type="text"/>
-        //   </div>
-
-        //   <div class="form-group">
-        //     <label class="control-label " for="subject">Subject</label>
-        //     <input class="form-control" id="subject" name="subject" type="text"/>
-        //   </div>
-
-        //   <div class="form-group">
-        //     <label class="control-label " for="message">Message</label>
-        //     <textarea class="form-control" cols="40" id="message" name="message" rows="10"></textarea>
-        //   </div>
-
-        //   <div class="form-group">
-        //     <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-        //   </div>
-        // </form>
