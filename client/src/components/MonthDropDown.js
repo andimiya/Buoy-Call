@@ -30,10 +30,12 @@ class MonthDropDown extends Component {
         console.log("change error", err)
       })
     })
+    .catch(err => {
+      this.props.history.push('/error')
+    })
   }
 
   changeBuoyDataXHR(value){
-    console.log(`/api/buoy/test/${this.props.buoyid}/${this.props.yy}/${this.state.month}`)
     return new Promise((resolve,reject) => {
       function reqListener(){
         resolve(JSON.parse(this.responseText));
@@ -69,8 +71,7 @@ class MonthDropDown extends Component {
     )
   } else {
     return(
-      <div>
-      </div>
+      null
     )
   }
   }

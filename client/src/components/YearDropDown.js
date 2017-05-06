@@ -6,21 +6,17 @@ class YearDropDown extends Component {
   constructor(props){
     super(props)
 
-    this.state = {
-    }
-
     this.yearChange = this.yearChange.bind(this);
   }
 
   yearChangeXHR(year){
-    console.log("xhr", `/api/buoy/test/${this.props.buoyid}/${this.props.yy}/${this.props.mm}`, this.props)
     return new Promise((resolve, reject) => {
       function reqListener(){
         resolve(JSON.parse(this.responseText));
       }
       let oReq = new XMLHttpRequest();
       oReq.open('GET', `/api/buoy/test/${this.props.buoyid}/${year}/${this.props.mm}`);
-      oReq.setRequestHeader('Content-type', 
+      oReq.setRequestHeader('Content-type',
         'application/json')
       oReq.addEventListener("load", reqListener)
       oReq.send()
@@ -28,16 +24,14 @@ class YearDropDown extends Component {
   }
 
   yearChange(event){
-    console.log("year change")
     event.preventDefault()
     this.props.onAddYearToState(event.target.value)
-    console.log(this.props.yy)
     this.yearChangeXHR(event.target.value)
     .then((data) => {
       this.props.onAddGraphToState(data)
     })
-    .catch(function(err){
-      console.log("change error", err)
+    .catch(err => {
+      this.props.history.push('/error')
     })
   }
 
@@ -56,7 +50,7 @@ class YearDropDown extends Component {
         </select>
       </div>
     )} else {
-      return(<div></div>)
+      return(null)
     }
   }
 }

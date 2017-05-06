@@ -76,6 +76,7 @@ class DataTypeRadio extends Component {
 
       </div>
     )
+    return(null)
   }
   }
 }

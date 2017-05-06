@@ -16,7 +16,6 @@ class Footer extends React.Component{
         <ul className="footer-links">
           <li>Non-Profit</li>
           <li>Privacy Policy</li>
-          <li><Link to="/Faq">FAQ</Link></li>
           <li><Link to="/AboutUs">About Us</Link></li>
           <li><Link to="/ContactUs">Contact Us</Link></li>
           <li>Manage Your Payments</li>

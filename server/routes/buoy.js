@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../models'); 
+const db = require('../models');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const passport = require('passport')
 const { Users, coordinates, buoydata, aggregatetodays } = db;
 const sequelize = require('sequelize')
-
-
 
 router.get('/test/', (req, res) => {
   aggregatetodays.findAll({
@@ -22,9 +20,10 @@ router.get('/test/', (req, res) => {
   .then((arr) => {
     res.json(arr);
   })
+  .catch(err =>{
+    res.send(err);
+  })
 })
-
-
 
 router.get('/test/:buoyid/:year/:month', (req, res) => {
   aggregatetodays.findAll({
@@ -38,6 +37,9 @@ router.get('/test/:buoyid/:year/:month', (req, res) => {
   })
   .then((arr) => {
     res.json(arr);
+  })
+  .catch(err =>{
+    res.send(err);
   })
 })
 
@@ -54,6 +56,9 @@ router.get('/test/:month', (req, res) => {
   .then((arr) => {
     res.json(arr);
   })
+  .catch(err =>{
+    res.send(err);
+  })
 })
 
 router.get('/:buoyid/getDataYears', (req, res) => {
@@ -66,6 +71,9 @@ router.get('/:buoyid/getDataYears', (req, res) => {
   })
   .then((arr) => {
     res.json(arr);
+  })
+  .catch(err =>{
+    res.send(err);
   })
 })
 
@@ -84,6 +92,9 @@ router.get('/:buoyid/:year/:month', (req, res) => {
   .then((arr) => {
     res.json(arr);
   })
+  .catch(err =>{
+    res.send(err);
+  })
 })
 
 router.get('/:buoyid/:year', (req, res) => {
@@ -100,6 +111,9 @@ router.get('/:buoyid/:year', (req, res) => {
   .then((arr) => {
     res.json(arr);
   })
+  .catch(err =>{
+    res.send(err);
+  })
 })
 
 router.get('/:buoyid/', (req, res) => {
@@ -115,8 +129,9 @@ router.get('/:buoyid/', (req, res) => {
   .then((arr) => {
     res.json(arr);
   })
+  .catch(err =>{
+    res.send(err);
+  })
 })
-
-
 
 module.exports = router;
