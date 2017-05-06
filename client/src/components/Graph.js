@@ -154,19 +154,19 @@ class Graph extends Component {
   dataColor(){
     switch(this.props.datatype){
       case "wvht":
-        return "black"
+        return "#A19277"
 
       case "wtmp":
-        return "red"
+        return "#023739"
 
       case "atmp":
-        return "blue"
+        return "#CD995E"
 
       case "apd":
-        return "green"
+        return "#CE5574"
 
       case "dpd":
-        return "pink"
+        return "#E74139"
 
       default:
         return
@@ -177,7 +177,7 @@ class Graph extends Component {
   render(){
     return(
       <div className="graph-box">
-        <ResponsiveContainer width="100%" height="20%">
+        <ResponsiveContainer width="90%" height="20%">
           <AreaChart data={this.props.graphState}
             margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
             <defs>
