@@ -233,7 +233,7 @@ class Graph extends Component {
             <DataTypeRadio />
           </div>
 
-        {yaxis}{xaxis}
+        
         </div>
     )
   }
