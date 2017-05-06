@@ -76,6 +76,7 @@ class NewUser extends React.Component{
 
     render(){
       return(
+        <div id ="home-page-container">
         <div className="MakeNewUser">
           <h1>Create an Account</h1>
           <div className='description-text'>
@@ -91,6 +92,7 @@ class NewUser extends React.Component{
             <input className="new-user-submit" type="submit" value='Create New User' />
           </form>
           </div>
+        </div>
         </div>
       )
     }
