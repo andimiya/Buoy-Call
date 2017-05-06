@@ -43,7 +43,7 @@ class App extends Component {
 
         <div className="graph-container">
           
-          <p className="small-gray-text">Click on the map to view historical data for buoys across our oceans and lakes, or to adopt a shark.<br/> Check back often as tagged sharks will change position on the map and new data will be reported from buoys.
+          <p className="small-gray-text">Click on the map to view historical data for buoys across our oceans and lakes, or to adopt a shark.<br/><br/> Check back often as tagged sharks will change position on the map and new data will be reported from buoys.
           </p>
           
           <Graph />
