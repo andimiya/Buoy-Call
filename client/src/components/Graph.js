@@ -173,10 +173,42 @@ class Graph extends Component {
     }
   }
 
+  dataStringify(acronym){
+    switch(acronym){
+      case "wvht":
+        return "Wave Height"
+
+      case "wtmp":
+        return "Water Temperature"
+
+      case "atmp":
+        return "Air Temperature"
+
+      case "apd":
+        return "Average Wave Period"
+
+      case "dpd":
+        return "Dominant Wave Period"
+
+      default:
+        return
+    }
+  }
+
 
   render(){
+    let buoyid = null;
+    let xaxis = null;
+    let yaxis = null;
+    if(this.props.graphState){
+      buoyid = <p>Buoy {this.props.buoyid}</p>;
+      xaxis = <p>Xaxis Day</p>;
+      yaxis = <p>Yaxis {this.dataStringify(this.props.datatype)}</p>;
+    }
     return(
+
       <div className="graph-box">
+        
         <ResponsiveContainer width="100%" height="20%">
           <AreaChart data={this.props.graphState}
             margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
@@ -193,9 +225,12 @@ class Graph extends Component {
             <Area type="monotone" dataKey={this.props.datatype} stroke="rgb(178, 221, 225)" fillOpacity={1} fill="url(#colorUv)" />
           </AreaChart>
         </ResponsiveContainer>
+        {yaxis}
+        {xaxis}
 
 
         <div className="graphMenu">
+        {buoyid}
         <YearDropDown />
        
 
