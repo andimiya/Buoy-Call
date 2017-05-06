@@ -14,11 +14,13 @@ class Footer extends React.Component{
       </div>
       <div>
         <ul className="footer-links">
+          <a target="_blank" href="https://www.facebook.com/Buoy-Call-1907513122824802/"><img width="2.8%" src={require('../assets/facebook.svg')} /></a>
+          <a target="_blank" href="https://twitter.com/_buoycall"><img width="3.2%" src={require('../assets/twitter.svg')} /></a>
           <li>Non-Profit</li>
           <li>Privacy Policy</li>
           <li><Link to="/AboutUs">About Us</Link></li>
           <li><Link to="/ContactUs">Contact Us</Link></li>
-          <li>Manage Your Payments</li>
+
         </ul>
       </div>
     </div>
