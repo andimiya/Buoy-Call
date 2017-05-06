@@ -63,7 +63,7 @@ class ContactUs extends React.Component {
         <form id="myform" onSubmit="emailjs.sendForm('default_service', 'send_email', this); return false;" method="">
           <label>TO</label>
             <br/>
-          <input type="text" name="Name" />
+          <input type="text" name="Name" placeholder="buoycall.info@gmail.com" setVale="buoycall.info@gmail.com" />
             <br/><br/>
           <label>FROM</label>
             <br/>
