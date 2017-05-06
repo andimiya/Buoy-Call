@@ -62,28 +62,18 @@ class Nav extends Component {
     if(this.props.loggedInUser){
       return(
         <div className="nav-container">
-        <div className="logo">
-           
-          <Header />
-          
-        </div>
+          <div className="logo">  
+            <Header />
+          </div>
+          <div className="navigation-container">
           <ul className="main-nav">
+            <li><span id="highlight">Welcome {this.props.loggedInUser.firstName}!</span></li>
+             <li><a href="/logout">Logout</a></li>
             <li><Link to="/donate">Donate</Link></li>
             <li><Link to="/aboutus">About Us</Link></li>
             <li><Link to="/contactus">Contact Us</Link></li>
           </ul>
-
-          <div className="logged-in-note">
-            <ul className="login-nav">
-            <li>
-              <h3>Welcome {this.props.loggedInUser.firstName}!</h3>
-            </li>
-            <li>My Account</li>
-            <li>
-              <a href="/logout">Logout</a>
-            </li>
-            </ul>
-          </div>
+        </div>
       </div>
       )
     } else {
@@ -92,16 +82,15 @@ class Nav extends Component {
         <div className="logo">
            <Header />
         </div>
+        <div className="navigation-container">
         <ul className="main-nav">
+          <li><Link to="/login">Log In</Link></li>
+          <li><Link to="/NewUser">Create an Account</Link></li>
           <li><Link to="/donate">Donate</Link></li>
           <li><Link to="/aboutus">About Us</Link></li>
           <li><Link to="/contactus">Contact Us</Link></li>
         </ul>
-        <ul className="login-nav">
-          <li><Link to="/login">Log In</Link></li>
-          <li><Link to="/NewUser">Create an Account</Link></li>
-        </ul>
-
+        </div>
       </div>
       )
     }
