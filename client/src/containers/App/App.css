@@ -102,6 +102,8 @@ p {
   flex-flow: row-wrap;
   border-bottom: solid thick #F44A4A ;
   align-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .logo {
@@ -119,11 +121,11 @@ p {
 
 .navigation-container{
   box-sizing: border-box;
+  align-content: center;
 }
 
 .main-nav {
   box-sizing: border-box;
-  border: solid thin black;
   flex: 1 0 45%;
   text-align: right;
 }
@@ -169,9 +171,7 @@ p {
   border-bottom: solid thick #F44A4A;
 }
 
-.login-nav{
-  border: solid thin red;
-}
+
 
 /* General Styling */
 
