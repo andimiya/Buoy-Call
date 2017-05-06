@@ -95,9 +95,7 @@ class Login extends React.Component {
         {message}
         <input className="login-submit" type="submit" value="Log In" />
       </form>
-      </div>
     </div>
-
     )
   }
 };
