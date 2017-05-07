@@ -355,6 +355,8 @@ input[type=submit]{
 
   .graphMenu{
     margin-top: .5rem;
+    box-sizing: border-box;
+    border: solid thin red;
   }
 
   select{
@@ -369,8 +371,10 @@ input[type=submit]{
 
   .graphButton{
     display: inline-block;
-    width: 100%;
-    margin-top: .5rem;
+    width: 90%;
+    border: solid thin yellow;
+    margin-left: 5%;
+    align-items: center;
   }
 
 
