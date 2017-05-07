@@ -56,6 +56,7 @@ class ContactUs extends React.Component {
 
   render() {
     return (
+      <div id="home-page-container">
       <div className="ContactUs-Container">
 
         <h1>Contact Us</h1>
@@ -75,10 +76,11 @@ class ContactUs extends React.Component {
             <br/><br/>
           <label>MESSAGE</label>
             <br/>
-          <input type="text" name="Message" onChange={this.handleMessage}/>
+          <input className="login-submit" type="text" name="Message" onChange={this.handleMessage}/>
             <br/><br/>
           <button>Send</button>
         </form>
+      </div>
       </div>
     )
   }
