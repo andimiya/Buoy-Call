@@ -22,7 +22,7 @@ class AboutUs extends React.Component {
       </div>
       </div>
     )
-  }
+  }    
 }
 
 export default AboutUs;
