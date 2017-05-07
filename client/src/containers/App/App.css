@@ -18,7 +18,6 @@
   margin: auto;
   margin-top: 1.5rem;
   display: flex;
-  height: 70%;
   flex-flow: row wrap;
 }
 
@@ -44,7 +43,6 @@ p {
 
 #footer-container{
   margin: 0 auto;
-  padding-top: 2rem;
   margin-top: 2rem;
   height: 3.5rem;
   width: 90%;
@@ -54,7 +52,6 @@ p {
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
-  bottom: 1;
   position: relative;
 }
 
@@ -357,7 +354,6 @@ input[type=submit]{
   .graphMenu{
     margin-top: .5rem;
     box-sizing: border-box;
-    border: solid thin red;
   }
 
   select{
@@ -374,7 +370,6 @@ input[type=submit]{
   .graphButton{
     display: inline-block;
     width: 90%;
-    border: solid thin yellow;
     margin-left: 5%;
     align-items: center;
   }
