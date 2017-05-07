@@ -12,12 +12,12 @@ class Footer extends React.Component{
       <div className="copyright">
         Copyright 2017 LarnYay, All Rights Reserved.
       </div>
-      <div>
+      <div className="right-footer">
         <ul className="footer-links">
-          <a target="_blank" href="https://www.facebook.com/Buoy-Call-1907513122824802/"><img width="2.8%" src={require('../assets/facebook.svg')} /></a>
-          <a target="_blank" href="https://twitter.com/_buoycall"><img width="3.2%" src={require('../assets/twitter.svg')} /></a>
-          <li>Non-Profit</li>
-          <li>Privacy Policy</li>
+          <li><a target="_blank" href="https://www.facebook.com/Buoy-Call-1907513122824802/"><img width="2.8%" src={require('../assets/facebook.svg')} /></a></li>
+          <li><a target="_blank" href="https://twitter.com/_buoycall"><img width="3.2%" src={require('../assets/twitter.svg')} /></a></li>
+          <li><Link to="/NewUser">Create an Account</Link></li>
+          <li><Link to="/donate">Donate</Link></li>
           <li><Link to="/AboutUs">About Us</Link></li>
           <li><Link to="/ContactUs">Contact Us</Link></li>
 

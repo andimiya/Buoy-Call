@@ -57,30 +57,33 @@ class ContactUs extends React.Component {
   render() {
     return (
       <div id="home-page-container">
-      <div className="ContactUs-Container">
 
-        <h1>Contact Us</h1>
-          <br/>
-        <form id="myform" onSubmit="emailjs.sendForm('default_service', 'send_email', this); return false;" method="">
-          <label>TO</label>
+        <div className="ContactUs-Container">
+
+          <h1>Contact Us</h1>
             <br/>
-          <input type="text" name="Name" />
-            <br/><br/>
-          <label>FROM</label>
-            <br/>
-          <input type="text" name="SendingTo" onChange={this.handleName}/>
-            <br/><br/>
-          <label>SUBJECT</label>
-            <br/>
-          <input type="text" name="Subject" onChange={this.handleSubject}/>
-            <br/><br/>
-          <label>MESSAGE</label>
-            <br/>
-          <input className="login-submit" type="text" name="Message" onChange={this.handleMessage}/>
-            <br/><br/>
-          <button>Send</button>
-        </form>
-      </div>
+
+          <form id="myform" onSubmit="emailjs.sendForm('default_service', 'send_email', this); return false;" method="">
+            <label>TO</label>
+              <br/>
+            <input type="text" name="Name" />
+              <br/><br/>
+            <label>FROM</label>
+              <br/>
+            <input type="text" name="SendingTo" onChange={this.handleName}/>
+              <br/><br/>
+            <label>SUBJECT</label>
+              <br/>
+            <input type="text" name="Subject" onChange={this.handleSubject}/>
+              <br/><br/>
+            <label>MESSAGE</label>
+              <br/>
+            <input type="text" name="Message" onChange={this.handleMessage}/>
+              <br/><br/>
+            <button>Send</button>
+          </form>
+        </div>
+
       </div>
     )
   }

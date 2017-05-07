@@ -229,11 +229,14 @@ class Graph extends Component {
           </AreaChart>
         </ResponsiveContainer>
 
-        <div className="graphMenu">
-        <YearDropDown />
-        <MonthDropDown />
-        <DataTypeRadio />
-        </div>
+
+          <div className="graphMenu">
+            <div className="yymmSelector">
+            <YearDropDown />
+            <MonthDropDown />
+            </div>
+            <DataTypeRadio />   
+          </div>
      </div>
     )
   }
