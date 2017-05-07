@@ -437,3 +437,9 @@ label{
   align-content: center;
   justify-content: center;
 }
+
+.aboutUs{
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
