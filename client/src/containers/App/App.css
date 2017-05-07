@@ -10,7 +10,7 @@
   flex-wrap: wrap;
 
   margin: 0 auto;
-  
+
 }
 
 #home-page-container{
@@ -135,6 +135,7 @@ p {
   box-sizing: border-box;
   display: inline-block;
   margin-left: .5rem;
+  margin-top: .25rem;
 }
 
 .main-nav li a {
