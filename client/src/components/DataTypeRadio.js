@@ -57,7 +57,7 @@ class DataTypeRadio extends Component {
     if(this.props.graph !== null){
     return(
       <div className="graphButton">
-        <form>
+        <form className="radioButtons">
           {
             this.getArray().map(({ datatype }) => 
               <div className="button" key={datatype}>
@@ -66,12 +66,12 @@ class DataTypeRadio extends Component {
               </div>
             )
           }
-        </form>
+        </form><br />
       </div>
     )
   } else {
     return(
-      <div>
+      <div className="selectbuoy">
         <h1>Please Select a Buoy </h1>
 
       </div>
